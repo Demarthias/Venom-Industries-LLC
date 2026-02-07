@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       VENOM-INDUSTRIES — LagSlayer Product Page (Premium Theme)
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>LagSlayer | Kill Ping. Boost Stability | VENOM-INDUSTRIES</title>
+  <meta name="description" content="LagSlayer by VENOM-INDUSTRIES: professional-grade network optimizer with subscription plans. Kill ping, boost stability. 7-day free trial with subscription. Linux, Windows, macOS support.">
+  <meta name="keywords" content="LagSlayer, ping optimizer, network optimizer, gaming performance, lag reduction, VENOM-INDUSTRIES, subscription, free trial">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LagSlayer | Kill Ping. Boost Stability" />
+  <meta property="og:description" content="Professional network optimizer subscription. Cut ping, stabilize connections. 7-day free trial included with subscription." />
+  <meta property="og:image" content="../assets/images/hero/lagslayer-cover-hd.jpg" />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://www.venomous-industries.com/lagslayer/" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="../assets/images/brand/venom-icon2.png" />
+  <link rel="apple-touch-icon" href="../assets/images/brand/venom-icon2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="../assets/css/custom.css" />
+
+  <!-- Schema for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "LagSlayer",
+    "image": "https://www.venomous-industries.com/assets/images/hero/lagslayer-cover-hd.jpg",
+    "description": "Professional network optimizer subscription service that reduces ping, stabilizes connections, and boosts gaming performance. Multi-platform support with ongoing updates.",
+    "brand": {
+      "@type": "Organization",
+      "name": "VENOM-INDUSTRIES"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Basic Plan",
+        "priceCurrency": "USD",
+        "price": "9.99",
+        "priceSpecification": {
+          "@type": "RecurringCharge",
+          "frequency": "monthly"
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Plan",
+        "priceCurrency": "USD",
+        "price": "19.99",
+        "priceSpecification": {
+          "@type": "RecurringCharge",
+          "frequency": "monthly"
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Elite Plan",
+        "priceCurrency": "USD",
+        "price": "39.99",
+        "priceSpecification": {
+          "@type": "RecurringCharge",
+          "frequency": "monthly"
+        },
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#101319;
+      --panel-2:#0d1116;
+      --text:#e7edf1;
+      --muted:#b8c3c9;
+      --accent:#00f0d5;
+      --accent2:#b9c5cc;
+      --accent3:#6be3ff;
+      --accent4:#2df5af;
+      --accent5:#ff6b9d;
+      --ring:rgba(0,240,213,.25);
+      --ring-2:rgba(185,197,204,.25);
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 0 34px rgba(0,240,213,.18);
+      --thin:1px;
+      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+    }
+
+    html, body{
+      margin:0; padding:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75));
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    .bg-video{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-4;
+    }
+    
+    /* Global bright graphical overlay */
+    html::before{
+      content:'';
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
+        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
+      background-size:
+        600px 600px,
+        800px 800px,
+        1000px 300px,
+        500px 500px,
+        400px 400px,
+        100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%,
+        50% 0%,
+        80% 40%,
+        10% 90%,
+        0% 0%;
+      animation:backgroundShift 25s ease-in-out infinite;
+      pointer-events:none;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
+      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
+      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
+    }
+
+    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+    .brand-accent{font-family:Rajdhani, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent2)}
+
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:9999;
+      background:rgba(6,7,10,.88);
+      backdrop-filter: blur(8px);
+      border-bottom:var(--thin) solid transparent;
+      border-image: var(--steel) 1;
+      box-shadow:0 1px 0 rgba(185,197,204,.12);
+    }
+    
+    /* Cart Icon */
+    .cart-icon{
+      position:fixed; top:20px; right:20px; z-index:10000;
+      width:50px; height:50px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(0,240,213,.3);
+      transition:all .3s ease; cursor:pointer;
+      border:2px solid rgba(255,255,255,.1);
+    }
+    .cart-icon:hover{
+      transform:scale(1.1) translateY(-2px);
+      box-shadow:0 6px 25px rgba(0,240,213,.5);
+      background:linear-gradient(135deg, var(--accent2), var(--accent));
+    }
+    .cart-icon svg{
+      width:24px; height:24px; fill:#0a0b0f;
+    }
+    .cart-badge{
+      position:absolute; top:-5px; right:-5px;
+      background:var(--accent5); color:#fff;
+      border-radius:50%; width:20px; height:20px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.7rem; font-weight:800;
+      border:2px solid var(--bg);
+    }
+    .nav-container{
+      max-width:1240px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand-title{
+      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+      letter-spacing:.12em;
+    }
+    .brand-title strong{ color:var(--accent); }
+    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+    .nav-menu a{
+      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+      border:var(--thin) solid transparent; transition:.2s ease;
+    }
+    .nav-menu a:hover,.nav-menu a.active{
+      border-color:transparent; color:#0a0b0f; background:var(--steel);
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    /* Hero */
+    .hero{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url('../assets/images/hero/lagslayer-cover-hd.jpg') center/cover no-repeat;
+      position:relative;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:6rem 0 4rem;
+      text-align:center;
+    }
+    .hero-inner{position:relative; z-index:1; max-width:1240px; margin:0 auto; padding:0 1.25rem}
+    .hero-title{font-size:3.5rem; margin:0 0 1rem; color:#e9eef2; text-shadow:0 0 24px rgba(185,197,204,.35)}
+    .hero-title .mark{color:var(--accent)}
+    .hero-sub{font-size:1.25rem; color:var(--muted); margin:0 0 2rem; max-width:800px; margin-left:auto; margin-right:auto}
+    .hero-ctas{display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em;
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#0b0e12; box-shadow:0 0 18px var(--ring);
+      transition:transform .18s ease, box-shadow .18s ease, filter .2s ease;
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 0 28px var(--ring)}
+    .btn.ghost{
+      background:transparent; color:var(--accent); 
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+    }
+    .btn.ghost:hover{background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12}
+
+    /* Sections */
+    .section{
+      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
+    }
+    .headline{
+      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
+    }
+    .headline .mark{ color:var(--accent); }
+    .subline{
+      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
+    }
+
+    /* Panels */
+    .panel{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
+        url('../assets/images/backgrounds/venom-overlay.png') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2rem;
+    }
+
+    /* Feature Grid */
+    .feature-grid{
+      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      margin-top:2rem;
+    }
+    .feature-card{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9));
+      box-shadow:var(--shadow);
+      padding:1.5rem;
+    }
+    .feature-card h4{margin:0 0 .75rem; color:var(--accent); font-size:1.25rem}
+    .feature-card ul{margin:.75rem 0 0; padding-left:1.25rem; color:var(--muted)}
+    .feature-card li{margin:.5rem 0; line-height:1.5}
+
+    /* Pricing Card */
+    .pricing-hero{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url('../assets/images/backgrounds/venom-pricing-bg.png') center/cover no-repeat;
+      position:relative;
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:4rem 0;
+    }
+    .pricing-inner{position:relative; z-index:1}
+    .price-card{
+      max-width:500px; margin:0 auto; text-align:center;
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
+        url('../assets/images/backgrounds/venom-overlay.png') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2.5rem;
+    }
+    .price{font-size:3rem; color:var(--accent); font-weight:800; margin:0}
+    .price-sub{color:var(--muted); margin:.5rem 0 1.5rem}
+
+    /* FAQ */
+    .faq-item{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-radius:var(--radius-sm);
+      background:rgba(16,20,26,.85);
+      box-shadow:var(--shadow);
+      margin-bottom:1rem;
+    }
+    .faq-question{
+      padding:1.25rem; cursor:pointer;
+      color:var(--accent); font-weight:600;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .faq-answer{
+      padding:0 1.25rem 1.25rem; color:var(--muted);
+      display:none; line-height:1.6;
+    }
+    .faq-item.active .faq-answer{display:block}
+    .faq-toggle{
+      transition:transform .3s ease; font-size:1.2rem;
+    }
+    .faq-item.active .faq-toggle{transform:rotate(180deg)}
+
+    /* Testimonials */
+    .testimonial-grid{
+      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      margin-top:2rem;
+    }
+    .testimonial{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9));
+      box-shadow:var(--shadow);
+      padding:1.5rem;
+    }
+    .stars{color:var(--accent4); margin-bottom:.5rem; font-size:.9rem}
+    .testimonial-text{color:var(--text); margin:.75rem 0; line-height:1.6}
+    .testimonial-author{color:var(--muted); font-size:.9rem}
+
+    /* Footer */
+    .site-footer{
+      background:url('../assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat, #07090d;
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:2rem 1.25rem;
+    }
+    .footer-grid{
+      max-width:1240px; margin:0 auto;
+      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
+    }
+    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
+    .footer-grid ul{list-style:none; padding:0; margin:0}
+    .footer-grid li{margin:.25rem 0}
+    .footer-grid a{color:var(--text)}
+    .footer-grid a:hover{color:var(--accent)}
+    .footer-meta{
+      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid{grid-template-columns:1fr}
+      .nav-menu{display:none}
+      .hero-title{font-size:2.5rem}
+      .feature-grid, .testimonial-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="../assets/videos/spacemovement-slow.mp4" type="video/mp4" />
+    <source src="../assets/videos/spacemovement.mov" type="video/quicktime" />
+  </video>
+  <!-- =========================================================
+       Header / Navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../products.html">Products</a></li>
+          <li><a href="index.html" class="active">LagSlayer</a></li>
+          <li><a href="../products/ai-resume-builder/index.html">Resume Builder</a></li>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Floating Cart Icon
+       ========================================================= -->
+  <a href="../cart.html" class="cart-icon" aria-label="Shopping Cart">
+    <svg viewBox="0 0 24 24">
+      <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+    <span class="cart-badge" id="cart-count">0</span>
+  </a>
+
+  <!-- =========================================================
+       Hero Section
+       ========================================================= -->
+  <section class="hero" aria-label="LagSlayer Hero">
+    <div class="hero-inner">
+      <h2 class="hero-title" data-aos="fade-up"><span class="mark">LagSlayer</span></h2>
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="100">
+        Kill ping. Boost stability. Professional-grade network optimization that delivers <strong>measurable results</strong>.
+      </p>
+      
+      <!-- LIMITED TIME PRICING -->
+      <div data-aos="fade-up" data-aos-delay="150" style="background:linear-gradient(135deg, rgba(255,107,157,.15), rgba(255,140,66,.1)); border:1px solid #ff6b9d; border-radius:8px; padding:.75rem 1rem; margin:1rem auto; max-width:500px;">
+        <div style="color:#ff6b9d; font-weight:800; font-size:.95rem; text-align:center;">
+          🚀 Launch Special: 75% Off Regular Pricing
+        </div>
+        <div style="color:var(--muted); font-size:.85rem; text-align:center; margin-top:.25rem;">
+          <span style="text-decoration:line-through; opacity:.7;">$39.99/mo</span> → <span style="color:#2df5af; font-weight:700;">$9.99/mo</span> • Limited time
+        </div>
+      </div>
+      
+      <div class="hero-ctas" data-aos="fade-up" data-aos-delay="200">
+        <a href="../cart.html?plan=pro" class="btn" aria-label="Start free trial" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ Start Free Trial</a>
+        <a href="#features" class="btn ghost" aria-label="Learn more about features" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">📋 Features</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       What is LagSlayer
+       ========================================================= -->
+  <section class="section" id="about" aria-label="About LagSlayer">
+    <div class="panel" data-aos="fade-up">
+      <h3 class="headline">What is <span class="mark">LagSlayer</span>?</h3>
+      <p class="subline">
+        Professional network optimization born from frustration with lag spikes and unstable connections.
+      </p>
+      
+      <div style="max-width:800px; margin:0 auto; text-align:left">
+        <p style="font-size:1.1rem; line-height:1.7; color:var(--text); margin-bottom:1.5rem">
+          LagSlayer applies <strong>modern TCP congestion control algorithms</strong>, <strong>fair queueing</strong>, 
+          and <strong>optimized buffer management</strong> to prioritize interactive traffic and reduce network jitter.
+        </p>
+        
+        <p style="font-size:1.1rem; line-height:1.7; color:var(--text); margin-bottom:1.5rem">
+          Unlike basic "gaming optimizers," LagSlayer implements <strong>professional-grade kernel parameters</strong> 
+          used by network engineers to tune high-performance systems.
+        </p>
+        
+        <p style="font-size:1.1rem; line-height:1.7; color:var(--text)">
+          <strong>Linux ready today</strong>. Windows and macOS support coming soon.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Features
+       ========================================================= -->
+  <section class="section" id="features" aria-label="Features">
+    <h3 class="headline" data-aos="fade-up">Core <span class="mark">Features</span></h3>
+    <p class="subline" data-aos="fade-up" data-aos-delay="100">
+      Three optimization modes. One-click application. Professional results.
+    </p>
+    
+    <div class="feature-grid">
+      <div class="feature-card" data-aos="zoom-in">
+        <h4>🎮 Gaming Mode</h4>
+        <p>Optimized for real-time interactive traffic. Reduces ping variance and prioritizes game packets.</p>
+        <ul>
+          <li>BBR congestion control for stable throughput</li>
+          <li>Low-latency fair queueing (FQ_CODEL)</li>
+          <li>Reduced buffer bloat</li>
+          <li>Gaming-specific TCP window scaling</li>
+        </ul>
+      </div>
+      
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+        <h4>📺 Streaming Mode</h4>
+        <p>Stabilizes video streams and reduces buffering. Balances bandwidth utilization with latency.</p>
+        <ul>
+          <li>Adaptive congestion control switching</li>
+          <li>Stream-optimized buffer management</li>
+          <li>Quality-of-Service traffic shaping</li>
+          <li>Upload bandwidth optimization</li>
+        </ul>
+      </div>
+      
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+        <h4>💻 Developer Mode</h4>
+        <p>Accelerates SSH, git operations, and remote development workflows.</p>
+        <ul>
+          <li>High-throughput optimization for bulk transfers</li>
+          <li>SSH connection multiplexing improvements</li>
+          <li>Git clone/push acceleration</li>
+          <li>Remote IDE responsiveness tuning</li>
+        </ul>
+      </div>
+      
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+        <h4>♻️ Safety Reset</h4>
+        <p>One-command restoration to safe defaults. No permanent system changes.</p>
+        <ul>
+          <li>Instant rollback capability</li>
+          <li>Safe, reversible parameter changes</li>
+          <li>System integrity preserved</li>
+          <li>No driver installations required</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Pricing Plans
+       ========================================================= -->
+  <section class="pricing-hero" aria-label="Pricing Plans">
+    <div class="pricing-inner section">
+      <h3 class="headline" data-aos="fade-up">Choose Your <span class="mark">Plan</span></h3>
+      <p class="subline" data-aos="fade-up" data-aos-delay="100">Professional network optimization with ongoing updates and support.</p>
+      
+      <div class="pricing-grid" style="display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:2rem">
+        <!-- Basic Plan -->
+        <div class="price-card" data-aos="fade-up" data-aos-delay="200" style="border:var(--thin) solid transparent; border-image: var(--steel) 1; border-radius:var(--radius); background:linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)); box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35); padding:2rem; text-align:center">
+          <div class="topline" style="margin-bottom:1rem">
+            <h4 style="margin:0 0 .5rem; color:var(--text)">Basic</h4>
+            <span class="badge" style="background:var(--accent2); color:#0a0b0f; padding:.3rem .8rem; border-radius:999px; font-size:.8rem; font-weight:700">Starter</span>
+          </div>
+          <div class="price" style="font-size:2.5rem; color:var(--accent); font-weight:800; margin:0">$9.99</div>
+          <div class="price-sub" style="color:var(--muted); margin:.5rem 0 1.5rem">/month</div>
+          
+          <ul style="text-align:left; margin:1.5rem 0; color:var(--muted); list-style:none; padding:0">
+            <li style="margin:.75rem 0">⚡ Basic optimization mode</li>
+            <li style="margin:.75rem 0">🐧 Linux support</li>
+            <li style="margin:.75rem 0">📧 Email support</li>
+            <li style="margin:.75rem 0">🔄 Monthly updates</li>
+          </ul>
+          
+          <a href="https://square.link/u/lagslayer-basic" class="btn" style="width:100%; justify-content:center; margin-top:1rem; display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">⚡ Start Basic</a>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="price-card most-popular" data-aos="fade-up" data-aos-delay="300" style="border:var(--thin) solid var(--accent); border-radius:var(--radius); background:linear-gradient(180deg, rgba(0,240,213,.08), rgba(14,18,24,.86), rgba(9,12,17,.92)); box-shadow:var(--shadow), 0 0 25px var(--ring), inset 0 0 1px rgba(0,240,213,.45); padding:2rem; text-align:center; position:relative; transform:scale(1.05)">
+          <div class="topline" style="margin-bottom:1rem">
+            <h4 style="margin:0 0 .5rem; color:var(--text)">Pro</h4>
+            <span class="badge" style="background:var(--accent); color:#0a0b0f; padding:.3rem .8rem; border-radius:999px; font-size:.8rem; font-weight:700">Most Popular</span>
+          </div>
+          <div class="price" style="font-size:2.5rem; color:var(--accent); font-weight:800; margin:0">$19.99</div>
+          <div class="price-sub" style="color:var(--muted); margin:.5rem 0 1.5rem">/month</div>
+          
+          <ul style="text-align:left; margin:1.5rem 0; color:var(--muted); list-style:none; padding:0">
+            <li style="margin:.75rem 0">⚡ All optimization modes</li>
+            <li style="margin:.75rem 0">🐧 Linux + 🪟 Windows support</li>
+            <li style="margin:.75rem 0">🛡️ Safety reset functionality</li>
+            <li style="margin:.75rem 0">📚 Professional documentation</li>
+            <li style="margin:.75rem 0">💬 Priority support</li>
+            <li style="margin:.75rem 0">🔄 Weekly updates</li>
+          </ul>
+          
+          <a href="https://square.link/u/lagslayer-pro" class="btn" style="width:100%; justify-content:center; margin-top:1rem; display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ Start Pro</a>
+        </div>
+
+        <!-- Elite Plan -->
+        <div class="price-card" data-aos="fade-up" data-aos-delay="400" style="border:var(--thin) solid transparent; border-image: var(--steel) 1; border-radius:var(--radius); background:linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)); box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35); padding:2rem; text-align:center">
+          <div class="topline" style="margin-bottom:1rem">
+            <h4 style="margin:0 0 .5rem; color:var(--text)">Elite</h4>
+            <span class="badge" style="background:var(--accent4); color:#0a0b0f; padding:.3rem .8rem; border-radius:999px; font-size:.8rem; font-weight:700">Premium</span>
+          </div>
+          <div class="price" style="font-size:2.5rem; color:var(--accent4); font-weight:800; margin:0">$39.99</div>
+          <div class="price-sub" style="color:var(--muted); margin:.5rem 0 1.5rem">/month</div>
+          
+          <ul style="text-align:left; margin:1.5rem 0; color:var(--muted); list-style:none; padding:0">
+            <li style="margin:.75rem 0">⚡ All optimization modes</li>
+            <li style="margin:.75rem 0">🌐 Linux + Windows + macOS</li>
+            <li style="margin:.75rem 0">🛡️ Advanced safety features</li>
+            <li style="margin:.75rem 0">📊 Real-time monitoring</li>
+            <li style="margin:.75rem 0">🎯 Custom optimization profiles</li>
+            <li style="margin:.75rem 0">📞 Phone + chat support</li>
+            <li style="margin:.75rem 0">🔄 Daily updates</li>
+          </ul>
+          
+          <a href="https://square.link/u/lagslayer-elite" class="btn" style="width:100%; justify-content:center; margin-top:1rem; display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent4); transition:transform .18s ease, background .2s ease">🚀 Start Elite</a>
+        </div>
+      </div>
+      
+      <p style="font-size:.9rem; color:var(--muted); margin-top:2rem; text-align:center">
+        <strong>All plans include:</strong> 7-day free trial with subscription • Cancel anytime • 30-day money-back guarantee
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Testimonials
+       ========================================================= -->
+  <section class="section" aria-label="Testimonials">
+    <div class="panel" data-aos="fade-up">
+      <h3 class="headline">What Users Say</h3>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial" data-aos="zoom-in">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "LagSlayer cut my ping from 45ms to 22ms. Competitive gaming feels completely different now."
+          </p>
+          <div class="testimonial-author">— Alex R., Esports Player</div>
+        </div>
+        
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="100">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Stream quality is rock solid now. No more dropped frames during peak hours."
+          </p>
+          <div class="testimonial-author">— Maria L., Content Creator</div>
+        </div>
+        
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "SSH sessions to our servers are noticeably faster. Deploy times improved by 30%."
+          </p>
+          <div class="testimonial-author">— David K., DevOps Engineer</div>
+        </div>
+        
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="300">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Finally, a network optimizer that actually works. The technical documentation is excellent."
+          </p>
+          <div class="testimonial-author">— Sarah M., Network Administrator</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FAQ
+       ========================================================= -->
+  <section class="section" id="faq" aria-label="FAQ">
+    <h3 class="headline" data-aos="fade-up">Frequently Asked <span class="mark">Questions</span></h3>
+    
+    <div style="max-width:800px; margin:2rem auto 0">
+      <div class="faq-item" data-aos="fade-up">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>How does LagSlayer reduce ping?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>LagSlayer applies modern TCP congestion control algorithms (BBR, CUBIC) and fair queueing (FQ_CODEL) to reduce buffer bloat and prioritize interactive traffic. This reduces ping variance and overall latency.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Is LagSlayer safe to use?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. LagSlayer only modifies reversible kernel network parameters. It includes a one-command reset function that restores all settings to safe defaults. No drivers are installed and no permanent changes are made.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Which Linux distributions are supported?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>LagSlayer supports Ubuntu (18.04+), Debian (10+), CentOS (7+), RHEL (7+), Arch Linux, and most derivatives. Kernel version 4.9+ required for full functionality.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>When will Windows/macOS support be available?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Windows support is planned for Q2 2025, with macOS following in Q3 2025. Linux users get first access to test and refine the optimization algorithms.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>Do I get updates?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Your purchase includes free updates for one full year, including new optimization modes and platform support as they become available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Final CTA
+       ========================================================= -->
+  <section class="section" aria-label="Start Your Trial">
+    <div class="panel" data-aos="fade-up">
+      <h3>Ready to Kill Lag?</h3>
+      <p class="subline">Subscribe today and start your 7-day free trial. Experience professional network optimization with full access.</p>
+      <div style="display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; margin-top:1.5rem">
+        <a href="../cart.html?plan=pro" class="btn" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ Start Free Trial</a>
+        <a href="../contact.html" class="btn ghost" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">💬 Ask Questions</a>
+      </div>
+      <p style="font-size:.9rem; color:var(--muted); margin-top:1rem; text-align:center">
+        7-day free trial included • Cancel anytime • Full support included
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <section>
+        <h5>VENOM-INDUSTRIES</h5>
+        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
+      </section>
+      <section>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="../products.html">Products</a></li>
+          <li><a href="index.html">LagSlayer</a></li>
+          <li><a href="../products/ai-resume-builder/index.html">AI Resume Builder</a></li>
+        </ul>
+      </section>
+      <section>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../privacy.html">Privacy</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
+      <span>Built for gamers, streamers, and professionals.</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Scripts
+       ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+
+    // FAQ Toggle
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Open clicked FAQ if it wasn't already active
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

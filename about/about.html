@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       VENOM-INDUSTRIES — About Page (Premium Theme)
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>About VENOM-INDUSTRIES | Elite Performance Software Company</title>
+  <meta name="description" content="Learn about VENOM-INDUSTRIES - the team behind elite performance software. Our mission: turn frustration into results with professional-grade tools.">
+  <meta name="keywords" content="VENOM-INDUSTRIES about, company story, performance software, technology team">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.venomous-industries.com/about/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About VENOM-INDUSTRIES | Elite Performance Software Company" />
+  <meta property="og:description" content="Learn about VENOM-INDUSTRIES - the team behind elite performance software. Our mission: turn frustration into results with professional-grade tools." />
+  <meta property="og:url" content="https://www.venomous-industries.com/about/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/backgrounds/venom-about-bg.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="../assets/images/brand/venom-icon2.png" />
+  <link rel="apple-touch-icon" href="../assets/images/brand/venom-icon2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#101319;
+      --panel-2:#0d1116;
+      --text:#e7edf1;
+      --muted:#b8c3c9;
+      --accent:#00f0d5;
+      --accent2:#b9c5cc;
+      --accent3:#6be3ff;
+      --accent4:#2df5af;
+      --accent5:#ff6b9d;
+      --ring:rgba(0,240,213,.25);
+      --ring-2:rgba(185,197,204,.25);
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 0 34px rgba(0,240,213,.18);
+      --thin:1px;
+      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+    }
+
+    html, body{
+      margin:0; padding:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75));
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    .bg-video{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-4;
+    }
+    
+    /* Global bright graphical overlay */
+    html::before{
+      content:'';
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
+        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
+      background-size:
+        600px 600px,
+        800px 800px,
+        1000px 300px,
+        500px 500px,
+        400px 400px,
+        100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%,
+        50% 0%,
+        80% 40%,
+        10% 90%,
+        0% 0%;
+      animation:backgroundShift 25s ease-in-out infinite;
+      pointer-events:none;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
+      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
+      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
+    }
+
+    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+    .brand-accent{font-family:Rajdhani, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent2)}
+
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:9999;
+      background:rgba(6,7,10,.88);
+      backdrop-filter: blur(8px);
+      border-bottom:var(--thin) solid transparent;
+      border-image: var(--steel) 1;
+      box-shadow:0 1px 0 rgba(185,197,204,.12);
+    }
+    
+    /* Cart Icon */
+    .cart-icon{
+      position:fixed; top:20px; right:20px; z-index:10000;
+      width:50px; height:50px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(0,240,213,.3);
+      transition:all .3s ease; cursor:pointer;
+      border:2px solid rgba(255,255,255,.1);
+    }
+    .cart-icon:hover{
+      transform:scale(1.1) translateY(-2px);
+      box-shadow:0 6px 25px rgba(0,240,213,.5);
+      background:linear-gradient(135deg, var(--accent2), var(--accent));
+    }
+    .cart-icon svg{
+      width:24px; height:24px; fill:#0a0b0f;
+    }
+    .cart-badge{
+      position:absolute; top:-5px; right:-5px;
+      background:var(--accent5); color:#fff;
+      border-radius:50%; width:20px; height:20px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.7rem; font-weight:800;
+      border:2px solid var(--bg);
+    }
+    .nav-container{
+      max-width:1240px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand-title{
+      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+      letter-spacing:.12em;
+    }
+    .brand-title strong{ color:var(--accent); }
+    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+    .nav-menu a{
+      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+      border:var(--thin) solid transparent; transition:.2s ease;
+    }
+    .nav-menu a:hover,.nav-menu a.active{
+      border-color:transparent; color:#0a0b0f; background:var(--steel);
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    /* About Hero */
+    .about-hero{
+      background: transparent;
+      position:relative;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:6rem 0 4rem;
+      text-align:center;
+    }
+    .about-inner{position:relative; z-index:1}
+
+    /* Sections base */
+    .section{
+      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
+    }
+    .headline{
+      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
+    }
+    .headline .mark{ color:var(--accent); }
+    .subline{
+      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
+    }
+
+    /* Panels */
+    .panel{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
+        url('../assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2rem;
+    }
+
+    /* Mission Section */
+    .mission-bg{
+      background: transparent;
+      position:relative;
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:4rem 0;
+    }
+    .mission-inner{position:relative; z-index:1}
+
+    /* Values Grid */
+    .values-grid{
+      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      margin-top:2rem;
+    }
+    .value-card{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
+      border-radius:var(--radius);
+      background:
+        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
+        url('../assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+      box-shadow:var(--shadow);
+      padding:1.5rem; text-align:center;
+    }
+    .value-card h4{margin:0 0 .75rem; color:var(--accent); font-size:1.25rem}
+    .value-card p{margin:0; color:var(--muted); line-height:1.6}
+
+    /* Team Grid */
+    .team-grid{
+      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      margin-top:2rem;
+    }
+    .team-card{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
+      border-radius:var(--radius);
+      background:
+        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
+        url('../assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+      box-shadow:var(--shadow);
+      padding:1.5rem; text-align:center;
+    }
+    .team-card .avatar{
+      width:80px; height:80px; border-radius:50%; 
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      margin:0 auto 1rem; background:var(--panel);
+      display:flex; align-items:center; justify-content:center;
+      font-size:2rem;
+    }
+    .team-card h4{margin:0 0 .5rem; color:var(--accent)}
+    .team-card .role{color:var(--accent2); font-size:.9rem; margin-bottom:.75rem}
+    .team-card p{margin:0; color:var(--muted); font-size:.95rem; line-height:1.5}
+
+    /* Footer */
+    .site-footer{
+      background: rgba(7,9,13,.8);
+      backdrop-filter: blur(8px);
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:2rem 1.25rem;
+    }
+    .footer-grid{
+      max-width:1240px; margin:0 auto;
+      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
+    }
+    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
+    .footer-grid ul{list-style:none; padding:0; margin:0}
+    .footer-grid li{margin:.25rem 0}
+    .footer-grid a{color:var(--text)}
+    .footer-grid a:hover{color:var(--accent)}
+    .footer-meta{
+      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid{grid-template-columns:1fr}
+      .nav-menu{display:none}
+      .values-grid, .team-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="../assets/videos/spacemovement-slow.mp4" type="video/mp4" />
+    <source src="../assets/videos/spacemovement.mov" type="video/quicktime" />
+  </video>
+  <!-- =========================================================
+       Header / Navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Floating Cart Icon
+       ========================================================= -->
+  <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+    <svg viewBox="0 0 24 24">
+      <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+    <span class="cart-badge" id="cart-count">0</span>
+  </a>
+
+  <!-- =========================================================
+       About Hero Section
+       ========================================================= -->
+  <section class="about-hero" aria-label="About Hero">
+    <div class="about-inner section">
+      <h2 class="headline" data-aos="fade-up">About <span class="mark">VENOM-INDUSTRIES</span></h2>
+      <p class="subline" data-aos="fade-up" data-aos-delay="100" style="font-size:1.2rem; max-width:900px;">
+        Performance software engineered for results. We turn frustration into tools that deliver <strong>measurable impact</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Our Story
+       ========================================================= -->
+  <section class="mission-bg" aria-label="Our Story" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+    <div class="mission-inner section">
+      <div class="panel" data-aos="fade-up" style="background: rgba(14,18,24,.4); backdrop-filter: blur(8px);">
+        <h3>Our Story</h3>
+        <p style="font-size:1.1rem; line-height:1.7; color:var(--text); max-width:800px; margin:0 auto">
+          VENOM-INDUSTRIES was born from late-night frustrations. Lag spikes in critical matches. 
+          Resumes disappearing into ATS black holes. Workflows slowed by network bottlenecks.
+          <br><br>
+          Instead of accepting these problems, we engineered solutions. Our performance tools apply 
+          professional-grade network tuning that actually works, and our career systems help candidates 
+          craft ATS-ready resumes that land interviews.
+          <br><br>
+          Every tool we build has one goal: <em>turn your pain points into performance advantages</em>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Mission Section
+       ========================================================= -->
+  <section class="mission-bg" aria-label="Mission">
+    <div class="mission-inner section">
+      <div class="panel" data-aos="fade-up">
+        <h3>Our Mission</h3>
+        <p style="font-size:1.15rem; line-height:1.7; color:var(--text); text-align:center">
+          <strong>Performance First. Results Always.</strong>
+          <br><br>
+          We don't build software for the sake of it. Every feature, every optimization, every design choice 
+          serves one purpose: delivering measurable improvements to your workflow, your games, your career.
+          <br><br>
+          No fluff. No gimmicks. Just tools that perform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Values
+       ========================================================= -->
+  <section class="mission-bg" aria-label="Values" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+    <div class="mission-inner section">
+      <h3 class="headline" data-aos="fade-up">Core <span class="mark">Values</span></h3>
+      <p class="subline" data-aos="fade-up" data-aos-delay="100">
+        The principles that drive every decision we make.
+      </p>
+      
+      <div class="values-grid">
+        <div class="value-card" data-aos="zoom-in" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <h4>⚡ Performance First</h4>
+          <p>Every line of code, every feature serves measurable performance. If it doesn't make you faster, stronger, or more successful, it doesn't ship.</p>
+        </div>
+        
+        <div class="value-card" data-aos="zoom-in" data-aos-delay="100" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <h4>🎯 Results-Driven</h4>
+          <p>Lower ping. Better resumes. Smoother workflows. We measure success by the problems we solve, not the features we add.</p>
+        </div>
+        
+        <div class="value-card" data-aos="zoom-in" data-aos-delay="200" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <h4>🛡️ Professional Grade</h4>
+          <p>Built for people who demand reliability. Tested thoroughly. Documented completely. Supported professionally.</p>
+        </div>
+        
+        <div class="value-card" data-aos="zoom-in" data-aos-delay="300" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <h4>🔧 User-Centric</h4>
+          <p>We solve real problems for real people. Every feature request, bug report, and feedback shapes what we build next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Team
+       ========================================================= -->
+
+  <section class="mission-bg" aria-label="Team" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+    <div class="mission-inner section">
+      <div class="panel" data-aos="fade-up" style="background: rgba(14,18,24,.4); backdrop-filter: blur(8px);">
+        <h3>The <span class="mark">Team</span></h3>
+        <p class="subline">Engineers, designers, and problem-solvers building the future of performance software.</p>
+        
+        <div class="team-grid">
+          <div class="team-card" data-aos="zoom-in" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+            <div class="avatar">🎯</div>
+            <h4>Engineering Team</h4>
+            <div class="role">Core Development</div>
+            <p>Network optimization experts and full-stack engineers building tools that perform under pressure.</p>
+          </div>
+          
+          <div class="team-card" data-aos="zoom-in" data-aos-delay="100" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+            <div class="avatar">🎨</div>
+            <h4>Design Team</h4>
+            <div class="role">User Experience</div>
+            <p>Creating interfaces that are both beautiful and functional. Every pixel serves performance.</p>
+          </div>
+          
+          <div class="team-card" data-aos="zoom-in" data-aos-delay="200" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+            <div class="avatar">🤝</div>
+            <h4>Support Team</h4>
+            <div class="role">Customer Success</div>
+            <p>Professional-grade support that gets you answers fast. We're here to make sure you succeed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- TEAM -->
+  <section class="team section" id="team" style="background: transparent; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; padding: 4rem 0;">
+    <div style="position: relative; z-index: 1;">
+      <h2 class="headline">The One Man <span class="mark">Team</span></h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="/images/team1.jpg" alt="Portrait of Founder" />
+          <h3>Grayson Kube</h3>
+          <p>Founder & Vision Architect</p>
+        </div>
+        <div class="team-card">
+          <img src="/images/team2.jpg" alt="Portrait of CTO" />
+          <h3>Grayson Kube</h3>
+          <p>Engineering Overdrive</p>
+        </div>
+        <div class="team-card">
+          <img src="/images/team3.jpg" alt="Portrait of Designer" />
+          <h3>Grayson Kube</h3>
+          <p>Lead Designer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Call to Action
+       ========================================================= -->
+  <section class="mission-bg" aria-label="Join Us" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+    <div class="mission-inner section">
+      <div class="panel" data-aos="fade-up" style="background: rgba(14,18,24,.4); backdrop-filter: blur(8px);">
+        <h3>Ready to Perform?</h3>
+        <p class="subline">Experience the VENOM-INDUSTRIES difference. Tools built for results.</p>
+        <p style="text-align:center; color:var(--muted); font-size:.95rem; margin:.5rem 0 1rem; font-style:italic">
+          🎯 7-day free trial included with every subscription
+        </p>
+        <div style="background:rgba(255,107,157,.1); border:1px solid var(--accent5); border-radius:8px; padding:.75rem; margin:1rem 0; text-align:center;">
+          <div style="color:var(--accent5); font-weight:800; font-size:.9rem;">
+            🔥 Launch Pricing: Up to 75% off regular rates • Limited time
+          </div>
+        </div>
+        <div style="display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; margin-top:1.5rem">
+          <a href="../products.html" class="btn" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ View Products</a>
+          <a href="../contact.html" class="btn" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">💬 Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <section>
+        <h5>VENOM-INDUSTRIES</h5>
+        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
+      </section>
+      <section>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+        </ul>
+      </section>
+      <section>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
+      <span>Built for gamers, streamers, and professionals.</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Scripts
+       ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+
+    // Hover effects for buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 0 28px var(--ring)';
+      });
+      btn.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 0 18px var(--ring)';
+      });
+    });
+  </script>
+
+</body>
+</html>

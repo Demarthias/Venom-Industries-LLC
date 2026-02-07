@@ -1,0 +1,14 @@
+# Protect LagSlayer download
+
+# Block all direct access to the file
+<Files "lagslayer-X5q9sB-2025.zip">
+  Require all denied
+</Files>
+
+# Allow only if referred from thank-you page
+<Files "lagslayer-X5q9sB-2025.zip">
+  SetEnvIfNoCase Referer "thank-you\.html" allow_download
+  Order Deny,Allow
+  Deny from all
+  Allow from env=allow_download
+</Files>

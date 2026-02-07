@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       VENOM-INDUSTRIES — Contact Page (Premium Theme)
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Contact VENOM-INDUSTRIES | Get Support & Connect</title>
+  <meta name="description" content="Contact VENOM-INDUSTRIES for support, partnerships, or general questions. Professional-grade customer service.">
+  <meta name="keywords" content="VENOM-INDUSTRIES contact, support, software support, customer service">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.venomous-industries.com/contact.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact VENOM-INDUSTRIES | Get Support & Connect" />
+  <meta property="og:description" content="Contact VENOM-INDUSTRIES for support, partnerships, or general questions. Professional-grade customer service." />
+  <meta property="og:url" content="https://www.venomous-industries.com/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/backgrounds/mission-bg.jpg" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/brand/venom-icon2.png" />
+  <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#101319;
+      --panel-2:#0d1116;
+      --text:#e7edf1;
+      --muted:#b8c3c9;
+      --accent:#00f0d5;
+      --accent2:#b9c5cc;
+      --accent3:#6be3ff;
+      --accent4:#2df5af;
+      --accent5:#ff6b9d;
+      --ring:rgba(0,240,213,.25);
+      --ring-2:rgba(185,197,204,.25);
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 0 34px rgba(0,240,213,.18);
+      --thin:1px;
+      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+    }
+
+    html, body{
+      margin:0; padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      position:relative;
+    }
+    
+    /* Global bright graphical overlay */
+    html::before{
+      content:'';
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
+        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
+      background-size:
+        600px 600px,
+        800px 800px,
+        1000px 300px,
+        500px 500px,
+        400px 400px,
+        100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%,
+        50% 0%,
+        80% 40%,
+        10% 90%,
+        0% 0%;
+      animation:backgroundShift 25s ease-in-out infinite;
+      pointer-events:none;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
+      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
+      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
+    }
+
+    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+    .brand-accent{font-family:Rajdhani, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent2)}
+
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:9999;
+      background:rgba(6,7,10,.88);
+      backdrop-filter: blur(8px);
+      border-bottom:var(--thin) solid transparent;
+      border-image: var(--steel) 1;
+      box-shadow:0 1px 0 rgba(185,197,204,.12);
+    }
+    .nav-container{
+      max-width:1240px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand-title{
+      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+      letter-spacing:.12em;
+    }
+    .brand-title strong{ color:var(--accent); }
+    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+    .nav-menu a{
+      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+      border:var(--thin) solid transparent; transition:.2s ease;
+    }
+    .nav-menu a:hover,.nav-menu a.active{
+      border-color:transparent; color:#0a0b0f; background:var(--steel);
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    /* Contact Page Specific */
+    .section{
+      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
+    }
+    .headline{
+      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
+    }
+    .headline .mark{ color:var(--accent); }
+    .subline{
+      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
+    }
+
+    .contact-hero{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url('assets/images/backgrounds/mission-bg.jpg') center/cover no-repeat;
+      position:relative;
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:4rem 0;
+    }
+    .contact-inner{position:relative; z-index:1}
+
+    .contact-panel{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
+        url('assets/images/backgrounds/venom-overlay.png') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2.5rem;
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    .form-group{margin-bottom:1.5rem}
+    .form-label{
+      display:block; margin-bottom:.5rem; color:var(--accent); 
+      font-weight:600; font-size:.95rem;
+    }
+    .form-input, .form-textarea{
+      width:100%; padding:1rem 1.25rem; 
+      background:var(--panel); color:var(--text);
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-radius:var(--radius-sm);
+      font-size:1rem; font-family:Inter, sans-serif;
+      transition:border-color .3s ease, box-shadow .3s ease;
+      box-sizing:border-box;
+    }
+    .form-input:focus, .form-textarea:focus{
+      border-color:var(--accent); outline:none;
+      box-shadow:0 0 0 2px var(--ring);
+    }
+    .form-textarea{resize:vertical; min-height:120px; font-family:Inter, sans-serif}
+
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em;
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#0b0e12; box-shadow:0 0 18px var(--ring);
+      transition:transform .18s ease, box-shadow .18s ease, filter .2s ease;
+      cursor:pointer; font-size:1rem; width:100%;
+      justify-content:center;
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 0 28px var(--ring)}
+
+    /* Contact Info Grid */
+    .contact-grid{
+      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      margin-top:3rem;
+    }
+    .contact-card{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9));
+      box-shadow:var(--shadow);
+      padding:1.5rem; text-align:center;
+    }
+    .contact-card h4{margin:0 0 .5rem; color:var(--accent)}
+    .contact-card p{margin:.25rem 0; color:var(--muted)}
+
+    /* Footer */
+    .site-footer{
+      background:url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat, #07090d;
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:2rem 1.25rem;
+    }
+    .footer-grid{
+      max-width:1240px; margin:0 auto;
+      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
+    }
+    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
+    .footer-grid ul{list-style:none; padding:0; margin:0}
+    .footer-grid li{margin:.25rem 0}
+    .footer-grid a{color:var(--text)}
+    .footer-grid a:hover{color:var(--accent)}
+    .footer-meta{
+      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid{grid-template-columns:1fr}
+      .nav-menu{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================================================
+       Header / Navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Contact Hero Section
+       ========================================================= -->
+  <section class="section contact-hero" aria-label="Contact">
+    <div class="contact-inner">
+      <h2 class="headline" data-aos="fade-up">Contact <span class="mark">VENOM-INDUSTRIES</span></h2>
+      <p class="subline" data-aos="fade-up" data-aos-delay="100">
+        Get support, ask questions, or discuss partnerships. Our team delivers professional-grade service.
+      </p>
+      
+      <div class="contact-panel" data-aos="fade-up" data-aos-delay="200">
+        <form action="#" method="POST" id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="name">Your Name</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Enter your name" required />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" type="text" id="subject" name="subject" placeholder="How can we help?" required />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your question, issue, or partnership opportunity..." required></textarea>
+          </div>
+          
+          <button class="btn" type="submit">🚀 Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Contact Information
+       ========================================================= -->
+  <section class="section" aria-label="Contact Information">
+    <div class="contact-grid">
+      <div class="contact-card" data-aos="zoom-in">
+        <h4>💬 Support</h4>
+        <p>Get help with our software and services</p>
+        <p><strong>support@venom-industries.com</strong></p>
+      </div>
+      
+      <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+        <h4>🤝 Partnerships</h4>
+        <p>Collaboration & business inquiries</p>
+        <p><strong>partners@venom-industries.com</strong></p>
+      </div>
+      
+      <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+        <h4>⚡ Response Time</h4>
+        <p>Professional support guaranteed</p>
+        <p><strong>24-48 hours typical</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <section>
+        <h5>VENOM-INDUSTRIES</h5>
+        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
+      </section>
+      <section>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+        </ul>
+      </section>
+      <section>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
+      <span>Built for gamers, streamers, and professionals.</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Scripts
+       ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Simple validation
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      
+      // Simulate form submission
+      alert(`Thank you ${name}! Your message has been received. We'll respond to ${email} within 24-48 hours.`);
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.venomous-industries.com/sitemap.xml
+
+# Main pages
+Allow: /index.html
+Allow: /products.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /lagslayer/
+Allow: /resume.html
+Allow: /features.html
+Allow: /blog.html
+Allow: /privacy.html
+Allow: /terms.html
+
+# Assets
+Allow: /assets/

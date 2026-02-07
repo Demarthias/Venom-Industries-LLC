@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       VENOM-INDUSTRIES — Privacy Policy (Premium Theme)
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Privacy Policy | VENOM-INDUSTRIES - Data Protection & User Privacy</title>
+  <meta name="description" content="VENOM-INDUSTRIES Privacy Policy - Learn how we protect your data, what information we collect, and your rights regarding personal information with our software tools.">
+  <meta name="keywords" content="privacy policy, data protection, user privacy, VENOM-INDUSTRIES, personal data, GDPR compliance">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.venomous-industries.com/privacy.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy | VENOM-INDUSTRIES - Data Protection & User Privacy" />
+  <meta property="og:description" content="VENOM-INDUSTRIES Privacy Policy - Learn how we protect your data, what information we collect, and your rights regarding personal information with our software tools." />
+  <meta property="og:url" content="https://www.venomous-industries.com/privacy.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/brand/venom-icon2.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/brand/venom-icon2.png" />
+  <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#101319;
+      --panel-2:#0d1116;
+      --text:#e7edf1;
+      --muted:#b8c3c9;
+      --accent:#00f0d5;
+      --accent2:#b9c5cc;
+      --accent3:#6be3ff;
+      --accent4:#2df5af;
+      --accent5:#ff6b9d;
+      --ring:rgba(0,240,213,.25);
+      --ring-2:rgba(185,197,204,.25);
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 0 34px rgba(0,240,213,.18);
+      --thin:1px;
+      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+    }
+
+    html, body{
+      margin:0; padding:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat fixed;
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      position:relative;
+    }
+    
+    /* Global bright graphical overlay */
+    html::before{
+      content:'';
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
+        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%);
+      background-size: 600px 600px, 800px 800px, 1000px 300px, 500px 500px, 400px 400px;
+      animation:backgroundShift 25s ease-in-out infinite;
+      pointer-events:none;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.5; }
+    }
+
+    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+    .brand-accent{font-family:Rajdhani, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent2)}
+
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:9999;
+      background:rgba(6,7,10,.88);
+      backdrop-filter: blur(8px);
+      border-bottom:var(--thin) solid transparent;
+      border-image: var(--steel) 1;
+      box-shadow:0 1px 0 rgba(185,197,204,.12);
+    }
+    
+    .nav-container{
+      max-width:1240px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand-title{
+      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+      letter-spacing:.12em;
+    }
+    .brand-title strong{ color:var(--accent); }
+    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+    .nav-menu a{
+      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+      border:var(--thin) solid transparent; transition:.2s ease;
+    }
+    .nav-menu a:hover,.nav-menu a.active{
+      border-color:transparent; color:#0a0b0f; background:var(--steel);
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    /* Privacy Hero */
+    .privacy-hero{
+      background: transparent;
+      position:relative;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:6rem 0 4rem;
+      text-align:center;
+    }
+    .privacy-inner{position:relative; z-index:1}
+
+    /* Sections base */
+    .section{
+      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
+    }
+    .headline{
+      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
+    }
+    .headline .mark{ color:var(--accent); }
+    .subline{
+      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
+    }
+
+    /* Content Panel */
+    .content-panel{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
+        url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2.5rem;
+      margin:2rem 0;
+    }
+
+    .content-panel h3{
+      color:var(--accent);
+      font-size:1.5rem;
+      margin:0 0 1rem;
+      border-bottom:1px solid rgba(0,240,213,.2);
+      padding-bottom:.5rem;
+    }
+
+    .content-panel h4{
+      color:var(--accent2);
+      font-size:1.2rem;
+      margin:1.5rem 0 .75rem;
+    }
+
+    .content-panel p{
+      line-height:1.7;
+      margin-bottom:1rem;
+    }
+
+    .content-panel ul{
+      padding-left:1.5rem;
+      line-height:1.7;
+    }
+
+    .content-panel li{
+      margin-bottom:.5rem;
+    }
+
+    .highlight-box{
+      background:rgba(0,240,213,.05);
+      border:1px solid rgba(0,240,213,.2);
+      border-radius:var(--radius-sm);
+      padding:1.5rem;
+      margin:1.5rem 0;
+    }
+
+    .highlight-box h4{
+      color:var(--accent);
+      margin:0 0 .75rem;
+    }
+
+    /* Footer */
+    .site-footer{
+      background: rgba(7,9,13,.8);
+      backdrop-filter: blur(8px);
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:2rem 1.25rem;
+    }
+    .footer-grid{
+      max-width:1240px; margin:0 auto;
+      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
+    }
+    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
+    .footer-grid ul{list-style:none; padding:0; margin:0}
+    .footer-grid li{margin:.25rem 0}
+    .footer-grid a{color:var(--text)}
+    .footer-grid a:hover{color:var(--accent)}
+    .footer-meta{
+      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid{grid-template-columns:1fr}
+      .nav-menu{display:none}
+      .content-panel{padding:1.5rem}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================================================
+       Header / Navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="Features.html">Features</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Privacy Hero Section
+       ========================================================= -->
+  <section class="privacy-hero" aria-label="Privacy Hero">
+    <div class="privacy-inner section">
+      <h2 class="headline" data-aos="fade-up">Privacy <span class="mark">Policy</span></h2>
+      <p class="subline" data-aos="fade-up" data-aos-delay="100" style="font-size:1.1rem; max-width:800px;">
+        Your privacy matters. We're transparent about how we collect, use, and protect your data.
+      </p>
+      <p style="color:var(--muted); font-size:.9rem; margin-top:1rem;">
+        Last Updated: September 24, 2025
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Privacy Content
+       ========================================================= -->
+  <section class="section" aria-label="Privacy Content">
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Information We Collect</h3>
+      
+      <h4>Personal Information</h4>
+      <p>When you use VENOM-INDUSTRIES services, we may collect the following personal information:</p>
+      <ul>
+        <li><strong>Account Information:</strong> Email address, username, password (encrypted)</li>
+        <li><strong>Profile Data:</strong> Name, profile picture, preferences</li>
+        <li><strong>Subscription Data:</strong> Billing information, subscription plan, payment history</li>
+        <li><strong>Career Tooling Data:</strong> Career information, work history, skills, education details</li>
+      </ul>
+
+      <h4>Technical Information</h4>
+      <ul>
+        <li><strong>Device Information:</strong> Hardware specifications, operating system, browser type</li>
+        <li><strong>Network Data:</strong> IP address, connection quality metrics (for performance optimization)</li>
+        <li><strong>Usage Analytics:</strong> Feature usage, performance metrics, error logs</li>
+        <li><strong>Cookies:</strong> Session tokens, preference settings, analytics data</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>🛡️ Data Minimization Principle</h4>
+        <p>We only collect data that's necessary to provide and improve our services. We never collect more than we need, and we regularly review and delete unnecessary data.</p>
+      </div>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>How We Use Your Information</h3>
+      
+      <h4>Service Delivery</h4>
+      <ul>
+        <li>Provide performance optimization and career tooling functionality</li>
+        <li>Process subscriptions and manage your account</li>
+        <li>Deliver customer support and technical assistance</li>
+        <li>Send service-related communications and updates</li>
+      </ul>
+
+      <h4>Product Improvement</h4>
+      <ul>
+        <li>Analyze usage patterns to enhance performance</li>
+        <li>Develop new features based on user behavior</li>
+        <li>Conduct A/B testing for better user experience</li>
+        <li>Fix bugs and optimize software performance</li>
+      </ul>
+
+      <h4>Legal and Security</h4>
+      <ul>
+        <li>Comply with legal obligations and regulations</li>
+        <li>Protect against fraud, abuse, and security threats</li>
+        <li>Enforce our terms of service</li>
+        <li>Respond to legal requests and court orders</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Data Sharing and Disclosure</h3>
+      
+      <div class="highlight-box">
+        <h4>⚠️ We Never Sell Your Data</h4>
+        <p>VENOM-INDUSTRIES does not and will never sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+      </div>
+
+      <h4>Limited Sharing Scenarios</h4>
+      <ul>
+        <li><strong>Service Providers:</strong> Trusted third-party services (payment processors, cloud hosting) under strict data protection agreements</li>
+        <li><strong>Legal Requirements:</strong> When required by law, court order, or government request</li>
+        <li><strong>Business Transfers:</strong> In the event of a merger or acquisition (with continued privacy protections)</li>
+        <li><strong>Security Threats:</strong> To protect the safety of our users and the integrity of our services</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Data Security</h3>
+      
+      <h4>Technical Safeguards</h4>
+      <ul>
+        <li><strong>Encryption:</strong> All data is encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+        <li><strong>Access Control:</strong> Multi-factor authentication and role-based access for our team</li>
+        <li><strong>Network Security:</strong> Firewalls, intrusion detection, and regular security audits</li>
+        <li><strong>Data Backup:</strong> Secure, encrypted backups with geographic redundancy</li>
+      </ul>
+
+      <h4>Organizational Measures</h4>
+      <ul>
+        <li>Regular security training for all team members</li>
+        <li>Incident response procedures for data breaches</li>
+        <li>Regular third-party security assessments</li>
+        <li>Compliance with industry security standards</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Your Privacy Rights</h3>
+      
+      <h4>Access and Control</h4>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of all personal data we hold about you</li>
+        <li><strong>Correction:</strong> Update or correct inaccurate personal information</li>
+        <li><strong>Deletion:</strong> Request deletion of your personal data (with some exceptions)</li>
+        <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
+      </ul>
+
+      <h4>Communication Preferences</h4>
+      <ul>
+        <li>Opt-out of marketing communications at any time</li>
+        <li>Manage notification preferences in your account settings</li>
+        <li>Choose which cookies to accept (except essential ones)</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>📧 Exercise Your Rights</h4>
+        <p>To request access, correction, or deletion of your data, contact us at <strong>privacy@venom-industries.com</strong>. We'll respond within 30 days.</p>
+      </div>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Data Retention</h3>
+      
+      <p>We retain personal data only as long as necessary to provide our services and comply with legal obligations:</p>
+      
+      <ul>
+        <li><strong>Account Data:</strong> Until account deletion + 30 days for security purposes</li>
+        <li><strong>Subscription Records:</strong> 7 years for tax and financial compliance</li>
+        <li><strong>Resume Data:</strong> Until you delete it or close your account</li>
+        <li><strong>Usage Analytics:</strong> Aggregated and anonymized after 24 months</li>
+        <li><strong>Support Communications:</strong> 3 years for service improvement</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>International Data Transfers</h3>
+      
+      <p>VENOM-INDUSTRIES operates globally. Your data may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place:</p>
+      
+      <ul>
+        <li>Data processing agreements with all service providers</li>
+        <li>Compliance with GDPR, CCPA, and other applicable privacy laws</li>
+        <li>Regular audits of international data handling practices</li>
+        <li>Use of approved transfer mechanisms (Standard Contractual Clauses)</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Changes to This Policy</h3>
+      
+      <p>We may update this Privacy Policy to reflect changes in our practices or legal requirements. When we do:</p>
+      
+      <ul>
+        <li>We'll post the updated policy on our website</li>
+        <li>We'll notify you via email if changes are significant</li>
+        <li>We'll update the "Last Updated" date at the top of this policy</li>
+        <li>Your continued use constitutes acceptance of the updated policy</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>📞 Questions or Concerns?</h4>
+        <p>If you have questions about this Privacy Policy or how we handle your data, contact our Privacy Officer at <strong>privacy@venom-industries.com</strong> or reach out through our <a href="contact.html">contact page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <section>
+        <h5>VENOM-INDUSTRIES</h5>
+        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
+      </section>
+      <section>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="Features.html">Features</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </section>
+      <section>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
+      <span>Built for gamers, streamers, and professionals.</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Scripts
+       ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+  </script>
+
+</body>
+</html>

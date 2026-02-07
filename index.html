@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>VENOM INDUSTRIES — Plasma Protocol</title>
+<meta name="description" content="VENOM INDUSTRIES builds elite, measurable-performance systems. Explore our story, commitment, trust, and vision in a kinetic plasma interface." />
+<meta http-equiv="Cache-Control" content="no-store" />
+<link rel="icon" href="assets/images/brand/venom-icon2.png" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0b0f; --ink:#e7edf1; --muted:#b8c3c9; --accent:#00f0d5; --accent-2:#6be3ff;
+  --venom:#2df5af; --venom-2:#00f0d5; --silver:#b9c5cc; --panel:#101319; --panel-2:#0d1116;
+  --edge:rgba(185,197,204,.18); --edge-2:rgba(185,197,204,.08); --ring:0 0 26px rgba(0,240,213,.25);
+  --ring-green:0 0 26px rgba(45,245,175,.22); --radius:18px; --radius-lg:26px; --thin:1px;
+  --max:1280px; --gap:1.25rem; --shadow-1:0 10px 30px rgba(0,0,0,.45); --shadow-2:0 6px 18px rgba(0,240,213,.18);
+  --grid-size:42px; --ok:#2df5af; --warn:#ffd166; --hex-w:360px; --hex-h:480px; --ripple-size:220px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{
+  margin:0;
+  padding:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+    url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat fixed;
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-2)}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-3;opacity:.92;
+  background:
+    radial-gradient(80rem 55rem at 12% 20%, rgba(0,240,213,.22), transparent 58%),
+    radial-gradient(70rem 45rem at 86% 78%, rgba(107,227,255,.18), transparent 60%),
+    radial-gradient(50rem 30rem at 55% 8%, rgba(0,240,213,.14), transparent 62%),
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 32%, rgba(255,255,255,.04) 70%, transparent 100%);
+  animation:ambient 28s ease-in-out infinite;
+}
+@keyframes ambient{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-10px,0)}}
+.holo-grid{position:absolute;inset:0;z-index:0;opacity:.16;pointer-events:none;overflow:hidden}
+.holo-grid::before,.holo-grid::after{content:"";position:absolute;inset:-50%;background-size:var(--grid-size) var(--grid-size);background-repeat:repeat}
+.holo-grid::before{background-image:linear-gradient(to right, rgba(111,209,255,.28) 1px, transparent 1px), linear-gradient(to bottom, rgba(111,209,255,.28) 1px, transparent 1px);animation:gridDrift 40s linear infinite}
+.holo-grid::after{background-image:radial-gradient(circle at center, rgba(0,186,255,.22) 0, transparent 65%);mix-blend-mode:screen;animation:gridPulse 12s ease-in-out infinite}
+@keyframes gridDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-10%, -8%, 0)}}
+@keyframes gridPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.container{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+.section{position:relative;max-width:var(--max);margin:0 auto;padding:4rem 1.25rem}
+.band{position:relative;width:100vw;margin-left:calc(50% - 50vw);border-top:var(--thin) solid var(--edge-2);border-bottom:var(--thin) solid var(--edge-2)}
+.headline{font-family:Orbitron, sans-serif;font-size:2.25rem;margin:0 0 .6rem;text-align:center;color:var(--ink);letter-spacing:.02em}
+.headline .mark{color:var(--accent)}
+.subline{max-width:980px;margin:0 auto 1.8rem;text-align:center;color:var(--muted)}
+.section::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.24;mix-blend-mode:screen;background:url('assets/images/backgrounds/venom-overlay.png') center/cover no-repeat}
+
+/* Header */
+header.site-header{position:sticky;top:0;z-index:1000;background:rgba(7,10,15,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--edge);box-shadow:0 1px 0 rgba(255,255,255,.05)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem}
+.brand{display:flex;align-items:center;gap:.8rem}
+.brand img{width:46px;height:46px;filter:drop-shadow(0 2px 8px rgba(0,186,255,.35));transition:transform .35s ease}
+.brand:hover img{transform:rotate(-6deg) scale(1.06)}
+.brand-title{margin:0;font-family:Orbitron, sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:.12em}
+.brand-title strong{color:var(--accent)}
+.menu{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+.menu a{display:inline-flex;align-items:center;padding:.6rem 1rem;border-radius:999px;border:1px solid transparent;color:var(--ink);font-weight:700;transition:all .22s ease}
+.menu a:hover,.menu a.active{border-color:var(--accent);color:var(--accent);box-shadow:var(--ring)}
+.menu a:hover{transform:translateY(-1px)}
+.menu a:active{transform:translateY(0)}
+.menu a.alt:hover{border-color:var(--venom);color:var(--venom);box-shadow:var(--ring-green)}
+
+/* Hero */
+.hero{position:relative;min-height:98vh;display:grid;place-items:center;overflow:hidden}
+.hero .layers{position:absolute;inset:0;z-index:0}
+.hero .layer{position:absolute;inset:0;background-position:center;background-size:cover;opacity:.58;transition:opacity 1s ease, transform .2s ease}
+.hero .layer.l2{background-image:url('assets/images/backgrounds/venom-overlay.png');mix-blend-mode:screen;opacity:.5}
+.hero .layer.l3{background-image:url('assets/images/backgrounds/venom-texture.png');mix-blend-mode:overlay;opacity:.36}
+.hero .mask{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.7) 55%,rgba(0,0,0,.9));z-index:1}
+.hero .content{position:relative;z-index:3;text-align:center}
+.hero .title{font-size:4.2rem;margin:0;color:#f1f6fa;letter-spacing:.08em;font-family:Orbitron, sans-serif;text-transform:uppercase;position:relative;display:inline-block;animation:titleGlow 6s ease-in-out infinite}
+.hero .title::before{content:"";position:absolute;inset:-18px -24px;border-radius:28px;background:radial-gradient(circle at 50% 50%, rgba(0,240,213,.2), transparent 60%);filter:blur(6px);opacity:.7;z-index:-1}
+.hero .title::after{content:"";position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);width:68%;height:2px;background:linear-gradient(90deg, transparent, var(--accent), transparent);opacity:.6}
+@keyframes titleGlow{0%,100%{text-shadow:0 0 18px rgba(0,186,255,.35), 0 0 40px rgba(0,240,213,.2)}50%{text-shadow:0 0 28px rgba(0,186,255,.6), 0 0 70px rgba(0,240,213,.35)}}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.55rem;border-radius:999px;font-weight:900;letter-spacing:.02em;border:1px solid var(--edge);background:linear-gradient(90deg,var(--accent),var(--silver));color:#071017;box-shadow:0 0 18px rgba(0,186,255,.22);transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(0,186,255,.35)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost:hover{background:linear-gradient(90deg,var(--accent),var(--silver));color:#071017}
+.btn.green{background:linear-gradient(90deg,var(--venom),var(--venom-2));box-shadow:0 0 18px rgba(15,227,106,.22)}
+.btn.green:hover{box-shadow:0 0 28px rgba(15,227,106,.35)}
+.btn .ripple{position:absolute;transform:translate(-50%,-50%);pointer-events:none;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,.8) 0, rgba(255,255,255,.35) 40%, transparent 70%);width:var(--ripple-size);height:var(--ripple-size);opacity:0;animation:ripple 700ms ease-out}
+@keyframes ripple{from{opacity:.25;transform:translate(-50%,-50%) scale(.2)}to{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--accent);font-size:.95rem;z-index:3;opacity:.9;animation:floatY 2.8s ease-in-out infinite}
+@keyframes floatY{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-10px)}}
+.ad-slot{max-width:var(--max);margin:1.25rem auto 0;padding:0 1.25rem}
+.ad{border:2px dashed var(--edge);border-radius:var(--radius);color:var(--muted);display:grid;place-items:center;height:100px;background:rgba(255,255,255,.02)}
+.ad small{opacity:.9}
+
+/* Reveal + Sweep */
+section{opacity:1;transform:none}
+[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .9s ease, transform .9s ease}
+[data-reveal].in{opacity:1;transform:translateY(0)}
+.section .sweep{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease;pointer-events:none}
+.section.glow .sweep{opacity:.65;transform:translateY(0)}
+
+/* Story */
+.story-wrap{position:relative}
+.story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--gap);align-items:center}
+.story-grid .panel{background:linear-gradient(180deg, rgba(16,20,26,.86), rgba(12,16,22,.94));border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.7rem;box-shadow:var(--shadow-2);position:relative;overflow:hidden;will-change:transform}
+.story-grid .panel::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle at center, rgba(0,186,255,.12), transparent 60%);transform:rotate(25deg)}
+.story-grid h4{margin:.25rem 0 1rem;font-size:1.32rem;color:var(--accent)}
+.story-grid p{color:var(--muted)}
+.story-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--edge);will-change:transform}
+.story-photo img{height:100%;width:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02)}
+.story-photo::before{content:"";position:absolute;left:-12%;top:-12%;width:160%;height:160%;background:conic-gradient(from 180deg, transparent 0 30%, rgba(0,186,255,.10) 30% 35%, transparent 35% 100%);animation:sweep 8s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+
+/* Commitment */
+.commit{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.86)),
+    url('assets/images/backgrounds/venom-panel-bg.jpg') center/cover no-repeat;
+  color:var(--ink);border-radius:var(--radius-lg);padding:2.2rem 1.7rem;text-align:center;border:1px solid var(--edge);position:relative;overflow:hidden;will-change:transform
+}
+.commit::after{content:"";position:absolute;bottom:-40px;right:-40px;width:260px;height:260px;border:1px dashed rgba(0,186,255,.18);border-radius:50%;filter:blur(1px)}
+.commit h4{font-size:1.55rem;color:var(--accent);margin:.25rem 0 1rem}
+
+/* Hive */
+.why-hive{position:relative}
+.hive{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;justify-items:center}
+.hex{position:relative;width:var(--hex-w);height:var(--hex-h);margin:22px auto;clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);background:rgba(10,14,20,.92);border:1px solid var(--edge);box-shadow:var(--shadow-1);transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;will-change:transform}
+.hex:hover{transform:translateY(-6px);box-shadow:0 22px 60px rgba(0,186,255,.28);border-color:rgba(0,186,255,.35)}
+.hex.alt:hover{box-shadow:0 22px 60px rgba(15,227,106,.26);border-color:rgba(15,227,106,.36)}
+.hex::after{content:"";position:absolute;inset:-1px;border-radius:16px;clip-path:inherit;pointer-events:none;opacity:.65;background:conic-gradient(from var(--angle,0deg), transparent 0 78%, rgba(0,186,255,.52) 82%, transparent 86% 100%);filter:blur(.6px);animation:hexTrace 10s linear infinite}
+.hex.alt::after{background:conic-gradient(from var(--angle,0deg), transparent 0 78%, rgba(15,227,106,.52) 82%, transparent 86% 100%)}
+@keyframes hexTrace{to{--angle:360deg}}
+.hex .inner{position:absolute;inset:0;padding:2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hex h5{margin:.2rem 0 .7rem;font-size:1.48rem;line-height:1.3;color:var(--accent)}
+.hex.alt h5{color:var(--venom)}
+.hex p{margin:0;font-size:1.08rem;color:var(--muted);line-height:1.66}
+
+/* Mission / Field */
+.mission .panel{background:linear-gradient(180deg, rgba(16,20,26,.88), rgba(12,16,22,.94));border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.7rem;display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.mission h4{margin:.2rem 0 .8rem;color:var(--accent)}
+.mission p{color:var(--muted)}
+.field .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.quote{position:relative;padding:1.45rem;background:rgba(10,14,20,.9);border:1px solid var(--edge);border-radius:var(--radius-lg);box-shadow:var(--shadow-1)}
+.quote::before{content:"\201C";position:absolute;top:-10px;left:10px;font-size:6rem;color:rgba(0,186,255,.2);line-height:1;pointer-events:none}
+.quote p{margin:.2rem 0;color:var(--muted)}
+.quote .by{margin-top:.8rem;color:var(--silver);font-weight:700}
+
+/* Vision */
+.vision.band{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.8)),
+    url('assets/images/backgrounds/venom-features-bg.png') center/cover no-repeat;
+}
+.vision .row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.vision .card{position:relative;background:rgba(10,14,20,.78);border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.45rem;overflow:hidden;will-change:transform}
+.vision .card::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle at center, rgba(0,186,255,.18), transparent 60%);transform:rotate(25deg)}
+.vision .card h5{margin:.2rem 0 .6rem;color:var(--accent)}
+.vision .card p{color:var(--muted)}
+.vision .edge{position:absolute;left:-4px;top:-4px;right:-4px;height:4px;background:linear-gradient(90deg, transparent, var(--accent), transparent);opacity:.55}
+
+/* Trust */
+.trust .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.trust .card{background:rgba(10,14,20,.82);border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.45rem}
+.trust .card h4{margin:.1rem 0 .5rem;color:var(--accent)}
+.trust .card p{margin:0;color:var(--muted)}
+
+/* Blog Preview */
+.blog-preview .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.blog-preview .card{background:rgba(10,14,20,.82);border:1px solid var(--edge);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-1)}
+.blog-preview .thumb{height:180px;background:#0b0f14 center/cover no-repeat}
+.blog-preview .body{padding:1.25rem}
+.blog-preview h4{margin:.2rem 0 .5rem;color:var(--accent)}
+.blog-preview p{margin:0 0 .9rem;color:var(--muted)}
+.blog-preview .meta{font-size:.9rem;color:var(--silver)}
+
+/* Press */
+.press .strip{display:flex;gap:2.4rem;align-items:center;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%)}
+.press .rail{display:flex;gap:2.4rem;animation:pressScroll 26s linear infinite}
+@keyframes pressScroll{to{transform:translateX(-50%)}}
+.press .logo{height:46px;opacity:.85;filter:grayscale(100%) brightness(1.3);transition:opacity .25s ease, filter .25s ease}
+.press .logo:hover{opacity:1;filter:grayscale(0%) brightness(1)}
+
+/* CTA + Footer */
+.cta-net{position:relative;background:linear-gradient(180deg, rgba(8,12,18,.82), rgba(8,12,18,.95));border-top:1px solid var(--edge-2);border-bottom:1px solid var(--edge-2)}
+.cta-net .wrap{max-width:var(--max);margin:0 auto;padding:3rem 1.25rem;display:grid;grid-template-columns:1.2fr .8fr;gap:var(--gap);align-items:center}
+.cta-net h4{margin:0 0 .6rem;font-size:1.65rem;color:var(--accent)}
+.cta-net p{margin:0 0 1rem;color:var(--muted)}
+.cta-net .card{background:rgba(10,14,20,.84);border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.45rem}
+footer.site-footer{background:rgba(5,7,11,.95);border-top:1px solid var(--edge);margin-top:2rem;position:relative;overflow:hidden}
+.footer-glow{position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,transparent,var(--accent),var(--venom),var(--accent),transparent);opacity:.55;filter:blur(.6px);animation:footerSweep 8s linear infinite}
+@keyframes footerSweep{0%{transform:translateX(-30%)}100%{transform:translateX(30%)}}
+.footnav{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;padding:1.2rem 1.25rem}
+.footnav a{color:var(--ink)}
+.footnav a:hover{color:var(--accent)}
+.footer-extras{max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;color:var(--muted);display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.footer-extras h6{margin:.2rem 0 .6rem;color:var(--accent);font-family:Orbitron, sans-serif;letter-spacing:.06em}
+.footer-extras p, .footer-extras li{font-size:.95rem}
+.footer-extras ul{margin:.3rem 0 0 0;padding:0;list-style:none;display:grid;gap:.35rem}
+.footer-extras a{color:var(--muted)}
+.footer-extras a:hover{color:var(--accent)}
+.copyright{color:var(--muted);text-align:center;padding:0 0 2.2rem}
+
+/* Utility */
+.to-top{position:fixed;right:1rem;bottom:1rem;width:58px;height:58px;clip-path:polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0 50%);display:grid;place-items:center;border:1px solid var(--edge);background:rgba(10,14,20,.72);box-shadow:0 6px 22px rgba(0,0,0,.45);color:var(--accent);cursor:pointer;opacity:0;transform:translateY(16px);transition:all .25s ease;z-index:999}
+.to-top.show{opacity:1;transform:translateY(0)}
+.chat-beacon{position:fixed;right:1rem;bottom:5.25rem;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%, var(--accent) 0, var(--accent-2) 35%, var(--venom) 75%);box-shadow:0 0 24px rgba(0,186,255,.35),0 0 24px rgba(15,227,106,.25) inset;color:#071017;font-weight:900;cursor:pointer;z-index:999;border:1px solid var(--edge)}
+.chat-beacon::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px dashed rgba(255,255,255,.18);animation:beacon 6s linear infinite}
+@keyframes beacon{to{transform:rotate(360deg)}}
+.chat-modal{position:fixed;inset:0;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:flex-end;z-index:1001}
+.blog-preview .thumb.thumb-1{background-image:url('assets/images/cards/venom-card1.png')}
+.blog-preview .thumb.thumb-2{background-image:url('assets/images/cards/venom-card2.png')}
+.blog-preview .thumb.thumb-3{background-image:url('assets/images/cards/venom-card3.png')}
+.form-label{display:block;color:var(--muted);margin:0 0 .4rem}
+.form-input{width:100%;padding:.95rem 1rem;border-radius:12px;border:1px solid var(--edge);background:#0d131b;color:var(--ink);outline:none}
+.form-spacer{height:.9rem}
+.chat-modal.active{display:flex}
+.chat-panel{width:min(420px, 92vw);height:420px;margin:1rem;background:rgba(10,14,20,.94);border:1px solid var(--edge);border-radius:18px;display:grid;grid-template-rows:auto 1fr auto;box-shadow:0 22px 60px rgba(0,0,0,.55)}
+.chat-head{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;border-bottom:1px solid var(--edge)}
+.chat-head .title{font-weight:900;color:var(--accent);font-family:Orbitron, sans-serif}
+.chat-body{padding:1rem;overflow:auto}
+.chat-msg{background:#0c131b;border:1px solid var(--edge);border-radius:12px;padding:.8rem;color:var(--muted);margin-bottom:.6rem}
+.chat-foot{display:flex;gap:.6rem;padding:.9rem 1rem;border-top:1px solid var(--edge)}
+.chat-foot input{flex:1;border-radius:12px;border:1px solid var(--edge);background:#0d131b;color:var(--ink);padding:.8rem}
+.chat-foot button{border-radius:12px;border:1px solid var(--edge);background:linear-gradient(90deg,var(--accent),var(--silver));color:#071017;font-weight:900;padding:.8rem 1rem;cursor:pointer}
+
+/* Media Queries */
+@media (max-width:1280px){ :root{--hex-w:320px;--hex-h:460px} }
+@media (max-width:1200px){
+  .hive{grid-template-columns:repeat(2,1fr)}
+  .cta-net .wrap{grid-template-columns:1fr}
+  .footer-extras{grid-template-columns:1fr 1fr}
+  .telemetry .grid{grid-template-columns:1fr}
+  .telemetry canvas{height:260px}
+}
+@media (max-width:980px){
+  .story-grid{grid-template-columns:1fr}
+  .vision .row{grid-template-columns:1fr 1fr}
+  .telemetry .stats{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:760px){
+  :root{--hex-w:92vw;--hex-h:520px}
+  .telemetry .stats{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  .hero .title{font-size:2.5rem}
+  .vision .row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero .layer{transition:none;animation:none}
+  .scroll-indicator{animation:none}
+  body::before,.holo-grid::before,.holo-grid::after{animation:none}
+  .hex::after{animation:none}
+  .hive::before{animation:none}
+  .story-photo::before{animation:none}
+}
+</style>
+</head>
+
+<body>
+<header class="site-header" role="banner">
+  <div class="container nav" aria-label="Primary Navigation">
+    <a class="brand active" href="index.html" aria-label="VENOM INDUSTRIES Home">
+      <img src="assets/images/brand/venom-icon2.png" alt="VENOM icon" />
+      <h1 class="brand-title">VENOM<strong> INDUSTRIES</strong></h1>
+    </a>
+    <nav role="navigation" aria-label="Main">
+      <ul class="menu">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a class="alt" href="products.html">Products</a></li>
+        <li><a class="alt" href="about/about.html">About</a></li>
+        <li><a class="alt" href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Hero">
+  <div class="layers" aria-hidden="true">
+    <div class="holo-grid"></div>
+    <div class="layer l2" data-slide="1"></div>
+    <div class="layer l3" data-slide="2"></div>
+    <div class="mask"></div>
+  </div>
+  <div class="content container" data-reveal>
+    <h2 class="title">VENOM-INDUSTRIES</h2>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">▼ Scroll</div>
+</section>
+
+<section id="story" class="section story-wrap" aria-label="Our Story">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>Who We Are — <span class="mark">VENOM INDUSTRIES</span></h3>
+  <p class="subline" data-reveal data-delay="80">Born from real-world friction. Trained by racing discipline. Engineered for measured outcomes. We battle-test everything we ship.</p>
+  <div class="story-grid">
+    <div class="panel" data-reveal>
+      <h4>Racing Style Discipline</h4>
+      <p>Race-day rigor, daily. We shave friction, tune every edge, and ship only what outperforms.</p>
+      <h4>Measured, Not Guestimated</h4>
+      <p>Telemetry beats opinion. From cold starts to sustained load, we instrument everything — so performance is predictable, not anecdotal.</p>
+      <h4>Reliability First</h4>
+      <p>Stability is a feature. The goal is uptime and boring incident reports. Confidence is the ultimate multiplier.</p>
+    </div>
+    <figure class="story-photo" data-reveal data-delay="100">
+      <img src="assets/images/backgrounds/venom-about-bg.jpg" alt="Founders and the obsidian studio environment" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="section" aria-label="Our Commitment">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>Our <span class="mark">Commitment</span></h3>
+  <p class="subline" data-reveal data-delay="60">Quality. Integrity. Innovation. Constraints we design within — not stickers we add later.</p>
+  <div class="commit" data-reveal>
+    <h4>We don’t chase trends. We build standards.</h4>
+    <p>Every VENOM creation is engineered with transparency, reliability, and measurable performance. We don’t just promise — we prove. Our guarantee is clarity: what improved, how we measured it, and what it means for you.</p>
+    <p>Security and privacy are defaults. We ship least-privilege architectures, encrypted paths, and auditable trails — trust earned by design.</p>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="section why-hive" aria-label="Why Choose Us">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>Why Choose <span class="mark">VENOM</span></h3>
+  <p class="subline" data-reveal data-delay="80">Chaos is expensive. We build the opposite: speed, stability, clarity, and performance that compounds.</p>
+  <div class="hive" data-reveal>
+    <article class="hex" tabindex="0"><div class="inner"><h5>Proven Performance</h5><p>We benchmark ruthlessly. If it doesn’t outperform, it doesn’t sell. The numbers decide.</p></div></article>
+    <article class="hex alt" tabindex="0"><div class="inner"><h5>Elite Engineering</h5><p>Industrial design meets systems engineering. Race-car discipline expressed in software and experience.</p></div></article>
+    <article class="hex" tabindex="0"><div class="inner"><h5>Trusted by Design</h5><p>Security, performance, privacy, reliability — built from first principles. Confidence at every step.</p></div></article>
+    <article class="hex alt" tabindex="0"><div class="inner"><h5>Clarity & Speed</h5><p>Interfaces that reduce cognitive load so teams move faster with fewer errors and more certainty.</p></div></article>
+    <article class="hex" tabindex="0"><div class="inner"><h5>Observability</h5><p>Metrics and traces tied to user-perceived performance. We show the numbers — always.</p></div></article>
+    <article class="hex alt" tabindex="0"><div class="inner"><h5>Future Ready</h5><p>Broader, smarter product lines across mobile and desktop — curated against the VENOM standard.</p></div></article>
+    <article class="hex" tabindex="0"><div class="inner"><h5>Low-Latency</h5><p>Network tuning and OS-level precision for predictable speed, accuracy, and performance.</p></div></article>
+    <article class="hex alt" tabindex="0"><div class="inner"><h5>Resilience</h5><p>Designed for durability and boring incident reports. Performance that lasts.</p></div></article>
+    <article class="hex" tabindex="0"><div class="inner"><h5>Security</h5><p>Least privilege, encrypted paths, audited trails — privacy and integrity as defaults.</p></div></article>
+    <article class="hex alt" tabindex="0"><div class="inner"><h5>Design Systems</h5><p>Tokens, motion, accessibility — consistency at speed across every surface.</p></div></article>
+    <article class="hex" tabindex="0"><div class="inner"><h5>Benchmarks</h5><p>We measure, we publish, we improve. No hype cycles — only delta.</p></div></article>
+    <article class="hex alt" tabindex="0"><div class="inner"><h5>Partnership</h5><p>We build with you, not at you. Success is co-engineered and co-measured.</p></div></article>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="section mission" aria-label="Mission">
+  <span class="sweep"></span>
+  <div class="panel" data-reveal>
+    <div>
+      <h4>Our Mission</h4>
+      <p>Make performance feel effortless. Less noise, more signal — in every product and interaction. Clarity compounds. Speed is a kindness.</p>
+    </div>
+    <div>
+      <h4>How We Operate</h4>
+      <p>Small teams, measurable outcomes, honest iteration. We architect for predictability and design for delight, then instrument the result.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section field" aria-label="In the Field">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>In the <span class="mark">Field</span></h3>
+  <p class="subline" data-reveal data-delay="60">Stories from teams who prize time, precision, and trust.</p>
+  <div class="grid" data-reveal>
+    <article class="quote"><p>“Setup was precise, fast, and transparent — we knew exactly what improved.”</p><div class="by">— Operations Lead</div></article>
+    <article class="quote"><p>“The UI gets out of the way. Our decisions are cleaner because the signal is clean.”</p><div class="by">— Product Director</div></article>
+    <article class="quote"><p>“Telemetry > opinions. The numbers told the story, and the story was speed.”</p><div class="by">— Head of Engineering</div></article>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="section blog-preview" aria-label="Latest from the Blog">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>Latest <span class="mark">Dispatch</span></h3>
+  <p class="subline" data-reveal data-delay="60">Signals, benchmarks, and clarity from the VENOM workbench.</p>
+  <div class="grid" data-reveal>
+    <article class="card">
+      <div class="thumb thumb-1"></div>
+      <div class="body">
+        <div class="meta">Sep 20, 2025 • Gaming Performance</div>
+        <h4>The Ultimate Guide to Network Optimization for Competitive Gaming</h4>
+        <p>Every millisecond matters. Learn the science behind consistent, low-latency play.</p>
+        <a class="btn ghost" href="blog.html#ultimate-network-optimization">Read Blog</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb thumb-2"></div>
+      <div class="body">
+        <div class="meta">Sep 15, 2025 • Career</div>
+        <h4>How AI is Revolutionizing Resume Writing in 2025</h4>
+        <p>Strategies to stay ATS-ready while keeping your story clear and compelling.</p>
+        <a class="btn ghost" href="blog.html#ai-resume-2025">Read Blog</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb thumb-3"></div>
+      <div class="body">
+        <div class="meta">Sep 10, 2025 • Performance</div>
+        <h4>5 Network Tweaks That Instantly Improve Gaming Performance</h4>
+        <p>High-impact changes you can apply fast to cut ping and jitter.</p>
+        <a class="btn ghost" href="blog.html#network-tweaks">Read Blog</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="band vision" aria-label="Vision & Roadmap">
+  <div class="section">
+    <span class="sweep"></span>
+    <h3 class="headline" data-reveal>The Road <span class="mark">Ahead</span></h3>
+    <p class="subline" data-reveal data-delay="80">We’re expanding our portfolio — carefully curated products and experiences, each held to the VENOM standard.</p>
+    <div class="row">
+      <article class="card" data-reveal>
+        <span class="edge"></span>
+        <h5>Smarter Ecosystems</h5>
+        <p>Interconnected tools that share context to reduce friction and decision time — orchestration that feels invisible.</p>
+      </article>
+      <article class="card" data-reveal data-delay="60">
+        <span class="edge"></span>
+        <h5>AI-Aided Performance</h5>
+        <p>Assistive intelligence that optimizes settings, detects anomalies, and keeps everything fast with minimal input.</p>
+      </article>
+      <article class="card" data-reveal data-delay="120">
+        <span class="edge"></span>
+        <h5>Pro-Grade Interfaces</h5>
+        <p>Cognitive-Personable-intellectual design systems benchmarked for speed, accuracy and delivering A perfect product from us to you.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section id="trust" class="section trust" aria-label="Trust">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>Built to be <span class="mark">Trusted</span></h3>
+  <p class="subline" data-reveal data-delay="80">Security is a design constraint, not a sticker. We default to private, least-privilege, and audible paths</p>
+  <div class="grid">
+    <div class="card" data-reveal>
+      <h4>Security by Default</h4>
+      <p>Encryption in transit and at rest, strict key management, minimal surface area. We remove assumptions, not add exceptions.</p>
+    </div>
+    <div class="card" data-reveal data-delay="80">
+      <h4>Privacy with Intent</h4>
+      <p>Data minimization and clear retention windows (how long we hold data), with user-centric controls that respect context.</p>
+    </div>
+    <div class="card" data-reveal data-delay="140">
+      <h4>Compliance Ready</h4>
+      <p>Designed and engineered to align with SOC 2, ISO 27001, and GDPR principles. Documentation that stands up to scrutiny.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="section press" aria-label="Awards & Press">
+  <span class="sweep"></span>
+  <h3 class="headline" data-reveal>Featured <span class="mark">In</span> • Trusted <span class="mark">By</span></h3>
+  <p class="subline" data-reveal data-delay="60">Partnerships and mentions from teams that demand precision.</p>
+  <div class="strip container">
+    <div class="rail">
+      <img class="logo" src="assets/images/brand/venom-icon2.png" alt="VENOM Icon" />
+      <img class="logo" src="assets/images/brand/venom-icon3.png" alt="VENOM Mark" />
+      <img class="logo" src="assets/images/brand/venom-icon2.png" alt="VENOM Icon" />
+      <img class="logo" src="assets/images/brand/venom-icon3.png" alt="VENOM Mark" />
+      <img class="logo" src="assets/images/brand/venom-icon2.png" alt="VENOM Icon" />
+      <img class="logo" src="assets/images/brand/venom-icon3.png" alt="VENOM Mark" />
+      <img class="logo" src="assets/images/brand/venom-icon2.png" alt="VENOM Icon" />
+      <img class="logo" src="assets/images/brand/venom-icon3.png" alt="VENOM Mark" />
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<section class="cta-net" aria-label="Join the Network">
+  <div class="wrap">
+    <div>
+      <h4>Join the Network</h4>
+      <p>Be first to know as we broaden our product family. We build deliberately — and we build for performance.</p>
+    </div>
+    <div class="card">
+      <form action="#" method="post" onsubmit="event.preventDefault(); alert('Thanks — we\'ll be in touch.');">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" id="email" name="email" type="email" required placeholder="you@domain.com" />
+        <div class="form-spacer"></div>
+        <button class="btn green" type="submit">Request Updates</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-glow" aria-hidden="true"></div>
+  <div class="footnav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="about/about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+  <div class="footer-extras">
+    <div>
+      <h6>Venom Ethos</h6>
+      <p>We build for outcomes that produce quality results.</p>
+    </div>
+    <div>
+      <h6>Our Direction as a Company</h6>
+      <ul>
+        <li>Wider product variety across mobile and desktop</li>
+        <li>AI-assisted tuning and anomaly detection</li>
+        <li>Design systems that scale without drift</li>
+        <li>Privacy-first architectures and auditable paths</li>
+      </ul>
+    </div>
+    <div>
+      <h6>Get In Touch</h6>
+      <ul>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about/about.html">About Venom Industries</a></li>
+        <li><a href="blog.html">Blog &amp; Updates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">© 2025 VENOM INDUSTRIES. All Rights Reserved. Precision • Power • Poise.</div>
+</footer>
+
+<button class="to-top" aria-label="Back to top">▲</button>
+<button class="chat-beacon" aria-label="Chat with Venom">✦</button>
+
+<div class="chat-modal" aria-hidden="true" role="dialog" aria-label="Venom Chat">
+  <div class="chat-panel">
+    <div class="chat-head">
+      <div class="title">VENOM • Direct</div>
+      <button class="btn ghost" data-close>Close</button>
+    </div>
+    <div class="chat-body">
+      <div class="chat-msg">Tell us what you’re aiming to achieve. We’ll reply with measurable next steps.</div>
+    </div>
+    <div class="chat-foot">
+      <input type="text" placeholder="Type your message…" />
+      <button class="btn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Guard: run once even if host injects twice */
+(function(){
+  if (window.__venom_init) return; window.__venom_init = true;
+  function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+  document.addEventListener('DOMContentLoaded', function(){
+
+    /* Reveal */
+    (function(){
+      const els = document.querySelectorAll('[data-reveal]');
+      if(!('IntersectionObserver' in window) || !els.length){
+        els.forEach(el=>el.classList.add('in')); return;
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            const t = entry.target;
+            const delay = parseInt(t.getAttribute('data-delay')||'0',10);
+            setTimeout(()=>{ t.classList.add('in'); }, delay);
+            io.unobserve(t);
+          }
+        });
+      },{threshold:.15});
+      els.forEach(el=>io.observe(el));
+    })();
+
+    /* Section Glow Sweep */
+    (function(){
+      const sections = document.querySelectorAll('.section');
+      if(!('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('glow');
+            setTimeout(()=>entry.target.classList.remove('glow'),900);
+          }
+        });
+      },{threshold:.35});
+      sections.forEach(s=>io.observe(s));
+    })();
+
+    /* Parallax + gentle scroll parallax (reduced-motion aware) */
+    (function(){
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const layers = Array.from(document.querySelectorAll('.hero .layer'));
+      if(layers.length && !reduce){
+        window.addEventListener('mousemove', (e)=>{
+          const x = e.clientX / window.innerWidth;
+          const y = e.clientY / window.innerHeight;
+          const dx = (x - .5), dy = (y - .5);
+          layers.forEach((el,i)=>{ const depth=(i+1)*4; el.style.transform=`translate3d(${-dx*depth}px, ${-dy*depth}px, 0)`; });
+        });
+      }
+      if(!reduce){
+        const p1 = document.querySelector('.story-grid .panel');
+        const p2 = document.querySelector('.story-photo');
+        const commit = document.querySelector('.commit');
+        const onScroll = () => {
+          const y = window.scrollY || 0;
+          if(p1) p1.style.transform = `translateY(${clamp(y*0.04, 0, 40)}px)`;
+          if(p2) p2.style.transform = `translateY(${clamp(-y*0.03, -40, 0)}px)`;
+          if(commit) commit.style.transform = `translateY(${clamp(y*0.02, 0, 28)}px)`;
+        };
+        window.addEventListener('scroll', onScroll, {passive:true});
+        onScroll();
+      }
+      let idx = 0; let last = Date.now();
+      function cycle(){
+        const now = Date.now();
+        if(!layers.length){ return; }
+        if(now - last < 6500){ requestAnimationFrame(cycle); return; }
+        last = now; idx = (idx + 1) % layers.length;
+        layers.forEach((el,i)=>{ el.style.opacity = (i===idx? .48 : (i=== (idx+1)%layers.length ? .32 : .22)); });
+        requestAnimationFrame(cycle);
+      }
+      if(layers.length) requestAnimationFrame(cycle);
+    })();
+
+    /* Back To Top */
+    (function(){
+      const chip = document.querySelector('.to-top');
+      const reveal = () => { chip.classList.toggle('show', (window.scrollY||0) > 480); };
+      window.addEventListener('scroll', reveal, {passive:true}); reveal();
+      chip.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+    })();
+
+    /* Button Ripple */
+    (function(){
+      function addRipple(e){
+        const btn = e.currentTarget;
+        const r = document.createElement('span');
+        r.className = 'ripple';
+        const rect = btn.getBoundingClientRect();
+        r.style.left = (e.clientX - rect.left)+'px';
+        r.style.top  = (e.clientY - rect.top)+'px';
+        btn.appendChild(r);
+        setTimeout(()=>{ r.remove(); }, 700);
+      }
+      document.querySelectorAll('.btn').forEach(b=>b.addEventListener('click', addRipple));
+    })();
+
+    /* Ring Scan Pulse */
+    (function(){
+      let t = 0;
+      const scan = document.createElement('div');
+      scan.className = 'ring-scan';
+      document.querySelector('.hero').appendChild(scan);
+      const style = document.createElement('style');
+      style.textContent = `
+        .ring-scan{position:absolute;left:50%;transform:translateX(-50%);width:82%;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.0}
+        .ring-scan.show{animation:scan 1200ms ease-out}
+        @keyframes scan{0%{opacity:.9;transform:translate(-50%,-60px) scaleX(.92)}100%{opacity:0;transform:translate(-50%,60px) scaleX(1)}}
+      `;
+      document.head.appendChild(style);
+      function loop(){ t+=1; if(scan && t%300===0){ scan.classList.add('show'); setTimeout(()=>scan.classList.remove('show'),1200); } requestAnimationFrame(loop); }
+      requestAnimationFrame(loop);
+    })();
+
+    /* Chat Modal */
+    (function(){
+      const beacon = document.querySelector('.chat-beacon');
+      const modal = document.querySelector('.chat-modal');
+      const closeBtn = document.querySelector('[data-close]');
+      if(!beacon || !modal || !closeBtn) return;
+      beacon.addEventListener('click', ()=>{ modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); });
+      closeBtn.addEventListener('click', ()=>{ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); });
+      modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); } });
+    })();
+
+    /* Venom Web Logger (anonymous) */
+    (function() {
+      const ENDPOINT = 'https://venom-web-logger.kubegrayson.workers.dev';
+
+      function logVisit() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const payload = {
+          path: window.location.pathname,
+          ref: document.referrer || 'direct',
+          title: document.title,
+          screen: `${window.screen.width}x${window.screen.height}`,
+          viewport: `${window.innerWidth}x${window.innerHeight}`,
+          tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          utm_source: urlParams.get('utm_source'),
+          utm_medium: urlParams.get('utm_medium'),
+          utm_campaign: urlParams.get('utm_campaign')
+        };
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(err => console.error('Log failed', err));
+      }
+
+      if (document.readyState === 'complete') logVisit();
+      else window.addEventListener('load', logVisit);
+    })();
+
+  }); // DOMContentLoaded
+})(); // guard
+</script>
+
+<noscript>
+<style>
+  [data-reveal]{opacity:1!important;transform:none!important}
+  .hero .layer{opacity:.48!important}
+  .to-top,.sound-toggle,.chat-beacon{display:none!important}
+  .press .rail{animation:none!important}
+</style>
+<div class="container" style="margin:1rem auto;padding:1rem;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:#0e141c;color:#b8c3c9">
+  JavaScript disabled — animations off, content fully visible.
+</div>
+</noscript>
+</body>
+</html>

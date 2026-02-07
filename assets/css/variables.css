@@ -1,0 +1,24 @@
+﻿/* variables.css – color palette, spacing, fonts */
+:root {
+  /* Colors */
+  --color-bg: #0b0c10;
+  --color-bg-alt: #1f2833;
+  --color-primary: #45a29e;
+  --color-secondary: #66fcf1;
+  --color-accent: #c3073f;
+  --color-text: #c5c6c7;
+  --color-heading: #ffffff;
+
+  /* Fonts */
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Sizes */
+  --max-width: 1200px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --radius: 12px;
+  --transition: 0.3s ease;
+}

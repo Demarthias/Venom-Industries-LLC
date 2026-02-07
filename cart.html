@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       VENOM-INDUSTRIES — Shopping Cart (Premium Theme)
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Shopping Cart | Checkout | VENOM-INDUSTRIES</title>
+  <meta name="description" content="Complete your subscription signup. Start your 7-day free trial with monthly subscription commitment.">
+  <meta name="keywords" content="subscription checkout, shopping cart, free trial, performance software, VENOM-INDUSTRIES">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.venomous-industries.com/cart.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shopping Cart | Checkout | VENOM-INDUSTRIES" />
+  <meta property="og:description" content="Complete your subscription signup. Start your 7-day free trial with monthly subscription commitment." />
+  <meta property="og:url" content="https://www.venomous-industries.com/cart.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/brand/venom-icon2.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/brand/venom-icon2.png" />
+  <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#101319;
+      --panel-2:#0d1116;
+      --text:#e7edf1;
+      --muted:#b8c3c9;
+      --accent:#00f0d5;
+      --accent2:#b9c5cc;
+      --accent3:#6be3ff;
+      --accent4:#2df5af;
+      --accent5:#ff6b9d;
+      --ring:rgba(0,240,213,.25);
+      --ring-2:rgba(185,197,204,.25);
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 0 34px rgba(0,240,213,.18);
+      --thin:1px;
+      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+    }
+
+    html, body{
+      margin:0; padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      position:relative;
+    }
+    
+    /* Global bright graphical overlay */
+    html::before{
+      content:'';
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
+        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
+        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
+      background-size:
+        600px 600px,
+        800px 800px,
+        1000px 300px,
+        500px 500px,
+        400px 400px,
+        100% 100%;
+      background-position:
+        0% 0%,
+        100% 100%,
+        50% 0%,
+        80% 40%,
+        10% 90%,
+        0% 0%;
+      animation:backgroundShift 25s ease-in-out infinite;
+      pointer-events:none;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
+      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
+      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
+    }
+
+    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+    .brand-accent{font-family:Rajdhani, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent2)}
+
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:9999;
+      background:rgba(6,7,10,.88);
+      backdrop-filter: blur(8px);
+      border-bottom:var(--thin) solid transparent;
+      border-image: var(--steel) 1;
+      box-shadow:0 1px 0 rgba(185,197,204,.12);
+    }
+    
+    /* Cart Icon */
+    .cart-icon{
+      position:fixed; top:20px; right:20px; z-index:10000;
+      width:50px; height:50px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(0,240,213,.3);
+      transition:all .3s ease; cursor:pointer;
+      border:2px solid rgba(255,255,255,.1);
+    }
+    .cart-icon:hover{
+      transform:scale(1.1) translateY(-2px);
+      box-shadow:0 6px 25px rgba(0,240,213,.5);
+      background:linear-gradient(135deg, var(--accent2), var(--accent));
+    }
+    .cart-icon svg{
+      width:24px; height:24px; fill:#0a0b0f;
+    }
+    .cart-badge{
+      position:absolute; top:-5px; right:-5px;
+      background:var(--accent5); color:#fff;
+      border-radius:50%; width:20px; height:20px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:.7rem; font-weight:800;
+      border:2px solid var(--bg);
+    }
+    .cart-icon.current-page{
+      background:linear-gradient(135deg, var(--accent4), var(--accent3));
+    }
+    .nav-container{
+      max-width:1240px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand-title{
+      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+      letter-spacing:.12em;
+    }
+    .brand-title strong{ color:var(--accent); }
+    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+    .nav-menu a{
+      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+      border:var(--thin) solid transparent; transition:.2s ease;
+    }
+    .nav-menu a:hover,.nav-menu a.active{
+      border-color:transparent; color:#0a0b0f; background:var(--steel);
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    /* Cart Layout */
+    .cart-container{
+      max-width:1000px; margin:0 auto; padding:2rem 1.25rem;
+      display:grid; gap:2rem; grid-template-columns:1fr 400px;
+    }
+
+    /* Cart Items */
+    .cart-items{
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92));
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2rem;
+    }
+
+    .cart-item{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-radius:var(--radius-sm);
+      background:rgba(16,20,26,.4);
+      padding:1.5rem;
+      margin-bottom:1.5rem;
+    }
+
+    .item-header{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      margin-bottom:1rem;
+    }
+
+    .item-title{
+      margin:0; font-size:1.2rem; color:var(--accent);
+    }
+
+    .item-badge{
+      background:var(--accent); color:#0a0b0f; 
+      padding:.3rem .8rem; border-radius:999px; 
+      font-size:.8rem; font-weight:700;
+    }
+
+    .item-price{
+      font-size:2rem; font-weight:800; color:var(--text);
+      margin:0;
+    }
+
+    .item-billing{
+      color:var(--muted); font-size:.9rem;
+      margin:.5rem 0 1rem;
+    }
+
+    .item-features{
+      list-style:none; padding:0; margin:1rem 0;
+    }
+
+    .item-features li{
+      margin:.5rem 0; color:var(--muted);
+      padding-left:1.5rem; position:relative;
+    }
+
+    .item-features li::before{
+      content:'✓'; position:absolute; left:0;
+      color:var(--accent); font-weight:bold;
+    }
+
+    /* Checkout Panel */
+    .checkout-panel{
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92));
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2rem;
+      height:fit-content;
+      position:sticky;
+      top:100px;
+    }
+
+    .trial-notice{
+      background:rgba(0,240,213,.1);
+      border:var(--thin) solid var(--accent);
+      border-radius:var(--radius-sm);
+      padding:1rem;
+      margin-bottom:1.5rem;
+      text-align:center;
+    }
+
+    .trial-notice h4{
+      margin:0 0 .5rem; color:var(--accent);
+      font-size:1rem;
+    }
+
+    .form-group{
+      margin-bottom:1.5rem;
+    }
+
+    .form-label{
+      display:block; margin-bottom:.5rem;
+      color:var(--text); font-weight:600;
+    }
+
+    .form-input{
+      width:100%; padding:.75rem 1rem;
+      background:rgba(16,20,26,.6);
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      border-radius:var(--radius-sm);
+      color:var(--text); font-size:1rem;
+      transition:.2s ease;
+    }
+
+    .form-input:focus{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 2px var(--ring);
+    }
+
+    .checkout-btn{
+      width:100%; padding:1rem;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      color:#0b0e12; font-weight:800;
+      border:none; border-radius:999px;
+      font-size:1.1rem; letter-spacing:.02em;
+      cursor:pointer; transition:.2s ease;
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    .checkout-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 28px var(--ring);
+    }
+
+    .security-note{
+      font-size:.85rem; color:var(--muted);
+      text-align:center; margin-top:1rem;
+    }
+
+    @media (max-width: 768px) {
+      .cart-container{
+        grid-template-columns:1fr;
+        gap:1.5rem;
+      }
+      .checkout-panel{
+        position:relative;
+        top:0;
+      }
+      .nav-menu{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================================================
+       Header / Navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Floating Cart Icon - Current Page
+       ========================================================= -->
+  <a href="cart.html" class="cart-icon current-page" aria-label="Shopping Cart - Current Page">
+    <svg viewBox="0 0 24 24">
+      <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+    <span class="cart-badge" id="cart-count">1</span>
+  </a>
+
+  <!-- =========================================================
+       Cart Content
+       ========================================================= -->
+  <main class="cart-container">
+    <!-- Cart Items -->
+    <section class="cart-items" data-aos="fade-up">
+      <h2 style="margin:0 0 1.5rem; color:var(--text)">Your Cart</h2>
+      
+      <!-- Empty Cart Message -->
+      <div id="empty-cart" class="cart-item" style="text-align:center; padding:3rem 2rem; background:rgba(16,20,26,.2); border-style:dashed">
+        <h3 style="color:var(--muted); margin:0 0 1rem">Your cart is empty</h3>
+        <p style="color:var(--muted); margin:0 0 1.5rem">Add a subscription plan to get started.</p>
+        <a href="products.html" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease; text-decoration:none">⚡ Browse Plans</a>
+      </div>
+      
+      <!-- Dynamic Cart Items Container -->
+      <div id="cart-items-container"></div>
+    </section>
+
+    <!-- Checkout Panel -->
+    <aside class="checkout-panel" data-aos="fade-up" data-aos-delay="100">
+      
+      <!-- PRICING URGENCY ALERT -->
+      <div style="background:linear-gradient(135deg, rgba(255,107,157,.15), rgba(255,140,66,.1)); border:1px solid #ff6b9d; border-radius:8px; padding:.75rem; margin-bottom:1.5rem; text-align:center;">
+        <div style="color:#ff6b9d; font-weight:800; font-size:.9rem;">
+          🔥 Launch Pricing: 75% Off Regular Rates
+        </div>
+        <div style="color:var(--muted); font-size:.8rem; margin-top:.25rem;">
+          Lock in savings now • Prices increase to full retail soon
+        </div>
+      </div>
+      
+      <!-- Empty Cart Checkout -->
+      <div id="empty-checkout" style="text-align:center">
+        <div style="background:rgba(255,107,157,.1); border:var(--thin) solid var(--accent5); border-radius:var(--radius-sm); padding:1rem; margin-bottom:1.5rem">
+          <h4 style="margin:0 0 .5rem; color:var(--accent5); font-size:1rem">Cart Empty</h4>
+          <p style="margin:0; font-size:.9rem; color:var(--text)">
+            Select a subscription plan - 7-day free trial included
+          </p>
+        </div>
+        <p style="color:var(--muted); font-size:.9rem">
+          Choose a subscription plan to see pricing and checkout options.
+        </p>
+      </div>
+
+      <!-- Active Checkout (hidden by default) -->
+      <div id="active-checkout" style="display:none">
+        <div class="trial-notice">
+          <h4>🎉 7-Day Free Trial</h4>
+          <p style="margin:0; font-size:.9rem; color:var(--text)">
+            Start immediately with full access. No charges until trial ends.
+          </p>
+        </div>
+
+        <div style="margin-bottom:1.5rem" id="pricing-summary">
+          <div style="display:flex; justify-content:space-between; margin-bottom:.5rem">
+            <span>Subtotal</span>
+            <span id="subtotal-amount">$0.00/month</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:.5rem; color:var(--accent)">
+            <span>Trial Discount</span>
+            <span id="discount-amount">-$0.00</span>
+          </div>
+          <hr style="border:none; border-top:var(--thin) solid rgba(185,197,204,.25); margin:1rem 0">
+          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.1rem">
+            <span>Due Today</span>
+            <span>$0.00</span>
+          </div>
+          <div style="font-size:.85rem; color:var(--muted); margin-top:.5rem" id="future-billing">
+            Select a plan to see billing details
+          </div>
+        </div>
+
+        <form onsubmit="startTrial(event)">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="card">Payment Method</label>
+            <input type="text" id="card" class="form-input" placeholder="•••• •••• •••• 1234" required>
+            <div style="font-size:.8rem; color:var(--muted); margin-top:.5rem">
+              Card will be charged after 7-day trial period
+            </div>
+          </div>
+
+          <div style="display:grid; gap:1rem; grid-template-columns:1fr 1fr">
+            <div class="form-group">
+              <label class="form-label" for="expiry">Expiry</label>
+              <input type="text" id="expiry" class="form-input" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cvc">CVC</label>
+              <input type="text" id="cvc" class="form-input" placeholder="123" required>
+            </div>
+          </div>
+
+          <button type="submit" class="checkout-btn">
+            ⚡ Start 7-Day Free Trial
+          </button>
+        </form>
+
+        <div class="security-note">
+          🔒 Your payment info is encrypted and secure<br>
+          Cancel anytime during trial with no charges
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- =========================================================
+       Scripts
+       ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+
+    // Get plan from URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const plan = urlParams.get('plan');
+
+    // Plan configurations
+    const plans = {
+      'basic': {
+        name: 'Starter Plan',
+        price: '$9.99',
+        priceNum: 9.99,
+        badge: 'Starter',
+        features: ['Core optimization mode', 'Linux support', 'Email support', 'Monthly updates']
+      },
+      'pro': {
+        name: 'Pro Plan',
+        price: '$19.99',
+        priceNum: 19.99,
+        badge: 'Most Popular',
+        features: ['All optimization modes', 'Linux + Windows support', 'Safety reset functionality', 'Professional documentation', 'Priority support', 'Weekly updates']
+      },
+      'elite': {
+        name: 'Elite Plan',
+        price: '$39.99',
+        priceNum: 39.99,
+        badge: 'Premium',
+        features: ['All optimization modes', 'Linux + Windows + macOS', 'Advanced safety features', 'Real-time monitoring', 'Custom optimization profiles', 'Phone + chat support', 'Daily updates']
+      }
+    };
+
+    // Cart state
+    let cartItems = [];
+
+    // Add item to cart if plan parameter exists
+    if (plan && plans[plan]) {
+      cartItems.push({
+        id: plan,
+        plan: plans[plan],
+        quantity: 1
+      });
+    }
+
+    // Initialize cart display
+    function initCart() {
+      if (cartItems.length === 0) {
+        showEmptyCart();
+      } else {
+        showCartWithItems();
+      }
+      updateCartCount();
+    }
+
+    function showEmptyCart() {
+      document.getElementById('empty-cart').style.display = 'block';
+      document.getElementById('cart-items-container').innerHTML = '';
+      document.getElementById('empty-checkout').style.display = 'block';
+      document.getElementById('active-checkout').style.display = 'none';
+    }
+
+    function showCartWithItems() {
+      document.getElementById('empty-cart').style.display = 'none';
+      document.getElementById('empty-checkout').style.display = 'none';
+      document.getElementById('active-checkout').style.display = 'block';
+      
+      renderCartItems();
+      updateCheckoutSummary();
+    }
+
+    function renderCartItems() {
+      const container = document.getElementById('cart-items-container');
+      container.innerHTML = '';
+      
+      cartItems.forEach(item => {
+        const cartItemHtml = `
+          <div class="cart-item" id="cart-item-${item.id}">
+            <div class="item-header">
+              <div>
+                <h3 class="item-title">${item.plan.name}</h3>
+                <span class="item-badge">${item.plan.badge}</span>
+              </div>
+              <button onclick="removeItem('${item.id}')" style="background:none; border:none; color:var(--muted); cursor:pointer; font-size:1.2rem">&times;</button>
+            </div>
+            
+            <div class="item-price">${item.plan.price}</div>
+            <div class="item-billing">per month after 7-day free trial</div>
+            
+            <ul class="item-features">
+              ${item.plan.features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+            
+            <div style="display:flex; gap:.5rem; align-items:center; margin-top:1rem">
+              <label style="color:var(--muted); font-size:.9rem">Quantity:</label>
+              <select onchange="updateQuantity('${item.id}', this.value)" style="background:rgba(16,20,26,.6); border:var(--thin) solid transparent; border-image: var(--steel) 1; border-radius:var(--radius-sm); color:var(--text); padding:.5rem">
+                <option value="1" ${item.quantity === 1 ? 'selected' : ''}>1</option>
+              </select>
+            </div>
+          </div>
+        `;
+        container.innerHTML += cartItemHtml;
+      });
+    }
+
+    function updateCheckoutSummary() {
+      if (cartItems.length === 0) return;
+      
+      const totalPrice = cartItems.reduce((sum, item) => sum + (item.plan.priceNum * item.quantity), 0);
+      const priceString = `$${totalPrice.toFixed(2)}`;
+      
+      document.getElementById('subtotal-amount').textContent = `${priceString}/month`;
+      document.getElementById('discount-amount').textContent = `-${priceString}`;
+      document.getElementById('future-billing').textContent = `Then ${priceString}/month starting in 7 days`;
+    }
+
+    // Update cart badge count
+    function updateCartCount() {
+      const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    function removeItem(itemId) {
+      if (confirm('Remove this item from your cart?')) {
+        cartItems = cartItems.filter(item => item.id !== itemId);
+        
+        if (cartItems.length === 0) {
+          showEmptyCart();
+        } else {
+          renderCartItems();
+          updateCheckoutSummary();
+        }
+        updateCartCount();
+      }
+    }
+
+    function updateQuantity(itemId, newQuantity) {
+      const item = cartItems.find(item => item.id === itemId);
+      if (item) {
+        item.quantity = parseInt(newQuantity);
+        updateCheckoutSummary();
+        updateCartCount();
+      }
+    }
+
+    function startTrial(event) {
+      event.preventDefault();
+      
+      if (cartItems.length === 0) {
+        alert('Please add a plan to your cart first.');
+        return;
+      }
+      
+      // Simulate form processing
+      const btn = event.target.querySelector('.checkout-btn');
+      btn.textContent = 'Processing...';
+      btn.disabled = true;
+      
+      setTimeout(() => {
+        alert('Trial started! Check your email for next steps.');
+        window.location.href = 'contact.html';
+      }, 2000);
+    }
+
+    // Form validation and formatting
+    document.addEventListener('DOMContentLoaded', function() {
+      const cardInput = document.getElementById('card');
+      const expiryInput = document.getElementById('expiry');
+      const cvcInput = document.getElementById('cvc');
+      
+      if (cardInput) {
+        cardInput.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+          let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+          e.target.value = formattedValue.substring(0, 19);
+        });
+      }
+
+      if (expiryInput) {
+        expiryInput.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          if (value.length >= 2) {
+            value = value.substring(0,2) + '/' + value.substring(2,4);
+          }
+          e.target.value = value;
+        });
+      }
+
+      if (cvcInput) {
+        cvcInput.addEventListener('input', function(e) {
+          e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+        });
+      }
+    });
+
+    // Initialize cart on page load
+    initCart();
+  </script>
+
+</body>
+</html>

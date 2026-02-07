@@ -1,0 +1,10 @@
+/* TEAM */
+Developer: Grayson Kube
+Website: https://venomous-industries.com
+Location: USA
+
+/* THANKS */
+ChatGPT (AI Assistance), Open Source Contributors
+
+/* SITE */
+Built with: HTML5, CSS3, JS

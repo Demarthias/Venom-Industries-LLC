@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       VENOM-INDUSTRIES — Terms of Service (Premium Theme)
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Terms of Service | VENOM-INDUSTRIES - Legal Terms & Conditions</title>
+  <meta name="description" content="VENOM-INDUSTRIES Terms of Service - Review our legal terms, conditions of use, subscription policies, and user responsibilities for our software and services.">
+  <meta name="keywords" content="terms of service, legal terms, user agreement, VENOM-INDUSTRIES, subscription agreement, software license">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.venomous-industries.com/terms.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Terms of Service | VENOM-INDUSTRIES - Legal Terms & Conditions" />
+  <meta property="og:description" content="VENOM-INDUSTRIES Terms of Service - Review our legal terms, conditions of use, subscription policies, and user responsibilities for our software and services." />
+  <meta property="og:url" content="https://www.venomous-industries.com/terms.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/brand/venom-icon2.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/brand/venom-icon2.png" />
+  <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+
+  <style>
+    :root{
+      --bg:#0a0b0f;
+      --panel:#101319;
+      --panel-2:#0d1116;
+      --text:#e7edf1;
+      --muted:#b8c3c9;
+      --accent:#00f0d5;
+      --accent2:#b9c5cc;
+      --accent3:#6be3ff;
+      --accent4:#2df5af;
+      --accent5:#ff6b9d;
+      --ring:rgba(0,240,213,.25);
+      --ring-2:rgba(185,197,204,.25);
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 0 34px rgba(0,240,213,.18);
+      --thin:1px;
+      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+    }
+
+    html, body{
+      margin:0; padding:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+        url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat fixed;
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      position:relative;
+    }
+    
+    /* Global bright graphical overlay */
+    html::before{
+      content:'';
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
+        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
+        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%);
+      background-size: 600px 600px, 800px 800px, 1000px 300px, 500px 500px, 400px 400px;
+      animation:backgroundShift 25s ease-in-out infinite;
+      pointer-events:none;
+    }
+    
+    @keyframes backgroundShift {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.5; }
+    }
+
+    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+    .brand-accent{font-family:Rajdhani, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{color:var(--accent2)}
+
+    /* Header / Nav */
+    .site-header{
+      position:sticky; top:0; z-index:9999;
+      background:rgba(6,7,10,.88);
+      backdrop-filter: blur(8px);
+      border-bottom:var(--thin) solid transparent;
+      border-image: var(--steel) 1;
+      box-shadow:0 1px 0 rgba(185,197,204,.12);
+    }
+    
+    .nav-container{
+      max-width:1240px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand-title{
+      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+      letter-spacing:.12em;
+    }
+    .brand-title strong{ color:var(--accent); }
+    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+    .nav-menu a{
+      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+      border:var(--thin) solid transparent; transition:.2s ease;
+    }
+    .nav-menu a:hover,.nav-menu a.active{
+      border-color:transparent; color:#0a0b0f; background:var(--steel);
+      box-shadow:0 0 18px var(--ring);
+    }
+
+    /* Terms Hero */
+    .terms-hero{
+      background: transparent;
+      position:relative;
+      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:6rem 0 4rem;
+      text-align:center;
+    }
+    .terms-inner{position:relative; z-index:1}
+
+    /* Sections base */
+    .section{
+      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
+    }
+    .headline{
+      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
+    }
+    .headline .mark{ color:var(--accent); }
+    .subline{
+      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
+    }
+
+    /* Content Panel */
+    .content-panel{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
+        url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:2.5rem;
+      margin:2rem 0;
+    }
+
+    .content-panel h3{
+      color:var(--accent);
+      font-size:1.5rem;
+      margin:0 0 1rem;
+      border-bottom:1px solid rgba(0,240,213,.2);
+      padding-bottom:.5rem;
+    }
+
+    .content-panel h4{
+      color:var(--accent2);
+      font-size:1.2rem;
+      margin:1.5rem 0 .75rem;
+    }
+
+    .content-panel p{
+      line-height:1.7;
+      margin-bottom:1rem;
+    }
+
+    .content-panel ul{
+      padding-left:1.5rem;
+      line-height:1.7;
+    }
+
+    .content-panel li{
+      margin-bottom:.5rem;
+    }
+
+    .highlight-box{
+      background:rgba(0,240,213,.05);
+      border:1px solid rgba(0,240,213,.2);
+      border-radius:var(--radius-sm);
+      padding:1.5rem;
+      margin:1.5rem 0;
+    }
+
+    .highlight-box h4{
+      color:var(--accent);
+      margin:0 0 .75rem;
+    }
+
+    .warning-box{
+      background:rgba(255,107,157,.05);
+      border:1px solid rgba(255,107,157,.2);
+      border-radius:var(--radius-sm);
+      padding:1.5rem;
+      margin:1.5rem 0;
+    }
+
+    .warning-box h4{
+      color:var(--accent5);
+      margin:0 0 .75rem;
+    }
+
+    /* Footer */
+    .site-footer{
+      background: rgba(7,9,13,.8);
+      backdrop-filter: blur(8px);
+      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+      padding:2rem 1.25rem;
+    }
+    .footer-grid{
+      max-width:1240px; margin:0 auto;
+      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
+    }
+    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
+    .footer-grid ul{list-style:none; padding:0; margin:0}
+    .footer-grid li{margin:.25rem 0}
+    .footer-grid a{color:var(--text)}
+    .footer-grid a:hover{color:var(--accent)}
+    .footer-meta{
+      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+      font-size:.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid{grid-template-columns:1fr}
+      .nav-menu{display:none}
+      .content-panel{padding:1.5rem}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================================================
+       Header / Navigation
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="Features.html">Features</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Terms Hero Section
+       ========================================================= -->
+  <section class="terms-hero" aria-label="Terms Hero">
+    <div class="terms-inner section">
+      <h2 class="headline" data-aos="fade-up">Terms of <span class="mark">Service</span></h2>
+      <p class="subline" data-aos="fade-up" data-aos-delay="100" style="font-size:1.1rem; max-width:800px;">
+        Clear terms for using VENOM-INDUSTRIES software. Know your rights and responsibilities.
+      </p>
+      <p style="color:var(--muted); font-size:.9rem; margin-top:1rem;">
+        Last Updated: September 24, 2025
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Terms Content
+       ========================================================= -->
+  <section class="section" aria-label="Terms Content">
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Agreement to Terms</h3>
+      
+      <p>By accessing or using VENOM-INDUSTRIES services, you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access our services.</p>
+
+      <div class="highlight-box">
+        <h4>✅ What This Covers</h4>
+        <p>These Terms apply to all VENOM-INDUSTRIES software, websites, mobile applications, and related services. This includes both free trials and paid subscriptions.</p>
+      </div>
+
+      <h4>Eligibility</h4>
+      <p>You must be at least 16 years old to use our services. If you're under 18, you need parental consent. By using our services, you represent that you meet these age requirements and have the legal capacity to enter into these Terms.</p>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Account Registration & Security</h3>
+      
+      <h4>Account Creation</h4>
+      <ul>
+        <li>You must provide accurate, complete, and current information</li>
+        <li>You're responsible for maintaining the security of your account</li>
+        <li>You must notify us immediately of any unauthorized access</li>
+        <li>One person or entity per account - sharing accounts is prohibited</li>
+      </ul>
+
+      <h4>Password Security</h4>
+      <ul>
+        <li>Use a strong, unique password for your account</li>
+        <li>Don't share your login credentials with others</li>
+        <li>Enable two-factor authentication when available</li>
+        <li>You're liable for all activity under your account</li>
+      </ul>
+
+      <div class="warning-box">
+        <h4>⚠️ Account Suspension</h4>
+        <p>We may suspend or terminate accounts that violate these Terms, engage in fraudulent activity, or pose security risks to our platform or other users.</p>
+      </div>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Subscription Plans & Billing</h3>
+      
+      <h4>Subscription Terms</h4>
+      <ul>
+        <li><strong>Free Trials:</strong> 7-day free trial included with every subscription purchase</li>
+        <li><strong>Billing Cycle:</strong> Monthly subscriptions bill monthly, annual subscriptions bill yearly</li>
+        <li><strong>Auto-Renewal:</strong> Subscriptions automatically renew unless cancelled</li>
+        <li><strong>Price Changes:</strong> We may adjust pricing with 30 days notice to existing subscribers</li>
+      </ul>
+
+      <h4>Payment Terms</h4>
+      <ul>
+        <li>Payment is due immediately upon subscription</li>
+        <li>All fees are non-refundable except as required by law</li>
+        <li>Failed payments may result in service suspension</li>
+        <li>You're responsible for all applicable taxes</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>💳 Payment Processing</h4>
+        <p>We use secure third-party payment processors. Your payment information is encrypted and never stored on our servers.</p>
+      </div>
+
+      <h4>Cancellation & Refunds</h4>
+      <ul>
+        <li>Cancel anytime through your account settings</li>
+        <li>Cancellation takes effect at the end of your current billing period</li>
+        <li>No partial refunds for unused portions of subscription periods</li>
+        <li>Refunds for technical issues considered on a case-by-case basis</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Acceptable Use Policy</h3>
+      
+      <h4>Permitted Uses</h4>
+      <ul>
+        <li>Use our software for legitimate personal or business purposes</li>
+        <li>Create resumes and optimize network performance as intended</li>
+        <li>Provide feedback to help us improve our services</li>
+        <li>Share your experiences within our community guidelines</li>
+      </ul>
+
+      <h4>Prohibited Activities</h4>
+      <ul>
+        <li><strong>Reverse Engineering:</strong> Attempting to decompile, disassemble, or reverse engineer our software</li>
+        <li><strong>Circumvention:</strong> Bypassing security measures, usage limits, or subscription restrictions</li>
+        <li><strong>Resale:</strong> Reselling, sublicensing, or redistributing our services without permission</li>
+        <li><strong>Abuse:</strong> Using our services to harass others, spread malware, or engage in illegal activities</li>
+        <li><strong>Data Mining:</strong> Scraping or collecting data from our services without authorization</li>
+      </ul>
+
+      <div class="warning-box">
+        <h4>🚫 Violation Consequences</h4>
+        <p>Violating our Acceptable Use Policy may result in immediate account suspension or termination without refund. We reserve the right to report illegal activities to law enforcement.</p>
+      </div>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Intellectual Property Rights</h3>
+      
+      <h4>Our Rights</h4>
+      <p>VENOM-INDUSTRIES owns all rights, title, and interest in our software, including:</p>
+      <ul>
+        <li>Source code, algorithms, and proprietary technologies</li>
+        <li>Trademarks, logos, and branding materials</li>
+        <li>Documentation, tutorials, and support content</li>
+        <li>User interface designs and user experience innovations</li>
+      </ul>
+
+      <h4>Your Rights</h4>
+      <p>You retain ownership of content you create using our services:</p>
+      <ul>
+        <li><strong>Work Product Content:</strong> You own the content you create and can export it anytime</li>
+        <li><strong>Configuration Data:</strong> Your settings and customizations remain yours</li>
+        <li><strong>Feedback:</strong> Any suggestions you provide may be used to improve our services</li>
+      </ul>
+
+      <h4>License Grant</h4>
+      <p>We grant you a limited, non-exclusive, non-transferable license to use our software during your active subscription, subject to these Terms.</p>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Privacy & Data Protection</h3>
+      
+      <p>Your privacy is important to us. Please review our <a href="privacy.html">Privacy Policy</a> to understand how we collect, use, and protect your information.</p>
+
+      <h4>Key Privacy Highlights</h4>
+      <ul>
+        <li>We never sell your personal data to third parties</li>
+        <li>All data is encrypted in transit and at rest</li>
+        <li>You can request data deletion at any time</li>
+        <li>We comply with GDPR, CCPA, and other privacy regulations</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Service Availability & Support</h3>
+      
+      <h4>Service Level</h4>
+      <ul>
+        <li>We strive for 99.9% uptime but don't guarantee continuous availability</li>
+        <li>Planned maintenance will be announced in advance when possible</li>
+        <li>Emergency maintenance may occur without notice</li>
+        <li>Service credits may be provided for extended outages at our discretion</li>
+      </ul>
+
+      <h4>Customer Support</h4>
+      <ul>
+        <li>Email support available to all subscribers</li>
+        <li>Priority support for higher-tier subscription plans</li>
+        <li>Self-help resources available 24/7 on our website</li>
+        <li>Community forums for user-to-user assistance</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>📞 Getting Help</h4>
+        <p>For technical issues or account questions, contact our support team at <strong>support@venom-industries.com</strong> or through our <a href="contact.html">contact page</a>.</p>
+      </div>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Disclaimers & Limitations</h3>
+      
+      <h4>Service Disclaimers</h4>
+      <ul>
+        <li>Our software is provided "as is" without warranties of any kind</li>
+        <li>We don't guarantee specific performance improvements or job placement outcomes</li>
+        <li>Network optimization results may vary based on your setup and ISP</li>
+        <li>Automated content should be reviewed and customized by you</li>
+      </ul>
+
+      <h4>Limitation of Liability</h4>
+      <p>To the maximum extent permitted by law, VENOM-INDUSTRIES shall not be liable for:</p>
+      <ul>
+        <li>Indirect, incidental, or consequential damages</li>
+        <li>Loss of profits, data, or business opportunities</li>
+        <li>Damages exceeding the amount paid for our services in the past 12 months</li>
+        <li>Issues caused by third-party software or hardware</li>
+      </ul>
+
+      <div class="warning-box">
+        <h4>⚖️ Legal Notice</h4>
+        <p>Some jurisdictions don't allow certain limitations of liability. In such cases, our liability is limited to the maximum extent permitted by applicable law.</p>
+      </div>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Termination</h3>
+      
+      <h4>Termination by You</h4>
+      <ul>
+        <li>You may terminate your account at any time</li>
+        <li>Cancellation takes effect at the end of your current billing period</li>
+        <li>You can export your data before termination</li>
+        <li>Terminated accounts may be permanently deleted after 30 days</li>
+      </ul>
+
+      <h4>Termination by Us</h4>
+      <p>We may terminate your account if you:</p>
+      <ul>
+        <li>Violate these Terms of Service</li>
+        <li>Fail to pay subscription fees</li>
+        <li>Engage in fraudulent or illegal activities</li>
+        <li>Pose a security risk to our platform or other users</li>
+      </ul>
+
+      <h4>Effect of Termination</h4>
+      <ul>
+        <li>Your right to use our services immediately ends</li>
+        <li>You remain liable for any outstanding fees</li>
+        <li>Certain provisions of these Terms survive termination</li>
+        <li>We may retain some data as required by law or legitimate business interests</li>
+      </ul>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Legal & Governing Law</h3>
+      
+      <h4>Dispute Resolution</h4>
+      <p>We encourage you to contact us directly to resolve any issues. If formal dispute resolution is necessary:</p>
+      <ul>
+        <li>Both parties agree to attempt good faith negotiations first</li>
+        <li>Disputes may be resolved through binding arbitration</li>
+        <li>Small claims court actions are permitted for eligible disputes</li>
+        <li>Class action lawsuits are waived to the extent permitted by law</li>
+      </ul>
+
+      <h4>Governing Law</h4>
+      <ul>
+        <li>These Terms are governed by the laws of [Your Jurisdiction]</li>
+        <li>Any legal proceedings shall be conducted in [Your Local Courts]</li>
+        <li>We comply with applicable international laws where we operate</li>
+      </ul>
+
+      <h4>Severability</h4>
+      <p>If any provision of these Terms is found unenforceable, the remaining provisions continue in full force and effect.</p>
+    </div>
+
+    <div class="content-panel" data-aos="fade-up">
+      <h3>Changes to Terms</h3>
+      
+      <p>We may update these Terms from time to time. When we do:</p>
+      
+      <ul>
+        <li>We'll post the updated Terms on our website</li>
+        <li>We'll notify you via email if changes are significant</li>
+        <li>We'll update the "Last Updated" date at the top of this page</li>
+        <li>Your continued use constitutes acceptance of the updated Terms</li>
+      </ul>
+
+      <div class="highlight-box">
+        <h4>📧 Stay Informed</h4>
+        <p>For questions about these Terms or our services, contact us at <strong>legal@venom-industries.com</strong> or through our <a href="contact.html">contact page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Footer
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <section>
+        <h5>VENOM-INDUSTRIES</h5>
+        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
+      </section>
+      <section>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="Features.html">Features</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </section>
+      <section>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about/about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
+      <span>Built for gamers, streamers, and professionals.</span>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Scripts
+       ========================================================= -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+  </script>
+
+</body>
+</html>
