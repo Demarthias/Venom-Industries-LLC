@@ -75,10 +75,8 @@ html = dedent("""\
     .hero-slide{position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.7s ease-in-out}
     .hero-slide.active{opacity:1}
     .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.25), transparent 35%, rgba(0,0,0,.65)); z-index:1}
-    #particles-js{position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.32}
-    .hero-content{position:relative; z-index:3; padding:1.75rem; display:grid; place-items:center}
-    .hero-card{max-width:1000px; background:rgba(10,12,16,.55); border:var(--thin) solid var(--accent); border-radius:var(--radius); box-shadow:0 0 28px rgba(0,240,213,.20), inset 0 0 1px rgba(185,197,204,.35); padding:2rem 2.25rem; animation:fadeUp .9s ease}
-    .hero-title{font-size:3.2rem; margin:.2rem 0 1rem; color:#e9eef2; text-shadow:0 0 24px rgba(0,240,213,.35)}
+    .hero-content{position:relative; z-index:3; padding:1.75rem; display:grid; place-items:center; text-align:center}
+    .hero-title{font-size:3.2rem; margin:.2rem 0; font-family:Orbitron, sans-serif; letter-spacing:.08em; text-transform:uppercase}
     .hero-title.shimmer{
       background:linear-gradient(110deg, #dfe6ea 0%, #9cf7ff 22%, #ffffff 38%, #59f0d5 52%, #dfe6ea 70%, #ffffff 88%, #dfe6ea 100%);
       background-size:260% 100%;
@@ -86,11 +84,10 @@ html = dedent("""\
       background-clip:text;
       color:transparent;
       animation:heroShimmer 3.5s linear infinite;
+      text-shadow:0 6px 26px rgba(0,0,0,.55);
     }
     @keyframes heroShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-    .hero-title .mark{color:var(--accent)}
-    .hero-sub{margin:0 0 1.25rem; color:var(--muted); font-size:1.15rem}
-    .hero-ctas{display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center}
+    #particles-js{position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.32}
     .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image:var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px rgba(0,240,213,.25); transition:transform .18s ease, box-shadow .18s ease, filter .2s ease}
     .btn:hover{transform:translateY(-2px); box-shadow:0 0 28px rgba(0,240,213,.3)}
     .btn.ghost{background:transparent; color:var(--accent); border-color:var(--accent)}
@@ -98,12 +95,6 @@ html = dedent("""\
     @keyframes fadeUp{from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:translateY(0)}}
     @keyframes pulse{0%, 100%{box-shadow:0 0 20px rgba(255,107,157,.4)} 50%{box-shadow:0 0 30px rgba(255,107,157,.7), 0 0 40px rgba(255,140,66,.3)}}
 
-    /* Appearing Chips */
-    .callouts{display:flex; gap:.55rem; flex-wrap:wrap; justify-content:center; margin-top:1rem}
-    .chip{--stroke: rgba(233,238,242,.75); position:relative; display:inline-flex; align-items:center; gap:.5rem; padding:.55rem .9rem; border-radius:999px; color:#061018; font-weight:900; background:linear-gradient(90deg, var(--accent), var(--accent2)); border:1px solid var(--stroke); box-shadow:0 0 18px rgba(0,240,213,.25), inset 0 0 1px rgba(255,255,255,.45); animation:appear 9s ease-in-out infinite}
-    .chip:nth-child(2){animation-delay:3s} .chip:nth-child(3){animation-delay:6s}
-    .chip .badge{display:inline-block; background:#091118; color:var(--accent); border:1px solid #b9c5cc; border-radius:999px; padding:.05rem .5rem; font-weight:800}
-    @keyframes appear{0%{opacity:0; transform:translateY(10px) scale(.98)} 8%{opacity:1; transform:translateY(0) scale(1)} 25%{opacity:1} 33%{opacity:0; transform:translateY(-6px) scale(.98)} 100%{opacity:0}}
 
     /* Wrapper + Panels */
     .wrap{max-width:1240px; margin:0 auto; padding:2.8rem 1.25rem}
@@ -163,7 +154,7 @@ html = dedent("""\
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .hero-slide{transition:none} .chip{animation:none} .hero-title.shimmer{animation:none}
+      .hero-slide{transition:none} .hero-title.shimmer{animation:none}
     }
     .sr-only{position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
   </style>
@@ -204,8 +195,6 @@ html = dedent("""\
        HERO
        ========================================================= -->
   <section class="hero" aria-label="Products">
-    <div class="hero-slide active" style="background-image:url('assets/images/hero/venom-hero1.jpg')" role="img" aria-label="Cinematic cyber skyline"></div>
-    <div class="hero-slide" style="background-image:url('assets/images/hero/venom-hero1.jpg')" role="img" aria-label="Futuristic circuit board"></div>
     <div class="hero-slide" style="background-image:url('assets/images/backgrounds/venom-features-bg.png')" role="img" aria-label="Abstract neon grid"></div>
 
     <div id="particles-js" aria-hidden="true"></div>
@@ -316,7 +305,7 @@ html = dedent("""\
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     // AOS
-    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+    AOS.init({ once:true, duration:800, offset:120 });
 
     // Slideshow
     const slides = document.querySelectorAll(".hero-slide");
