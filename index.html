@@ -1,9 +1,3 @@
-.holo-grid{position:absolute;inset:0;z-index:0;opacity:.16;pointer-events:none;overflow:hidden}
-.holo-grid::before,.holo-grid::after{content:"";position:absolute;inset:-50%;background-size:var(--grid-size) var(--grid-size);background-repeat:repeat}
-.holo-grid::before{background-image:linear-gradient(to right, rgba(111,209,255,.28) 1px, transparent 1px), linear-gradient(to bottom, rgba(111,209,255,.28) 1px, transparent 1px);animation:gridDrift 40s linear infinite}
-.holo-grid::after{background-image:radial-gradient(circle at center, rgba(0,186,255,.22) 0, transparent 65%);mix-blend-mode:screen;animation:gridPulse 12s ease-in-out infinite}
-@keyframes gridDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-10%, -8%, 0)}}
-@keyframes gridPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +35,12 @@ a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--accent-2)}
 body::before{content:none;}
 @keyframes ambient{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-10px,0)}}
+.holo-grid{position:absolute;inset:0;z-index:0;opacity:.16;pointer-events:none;overflow:hidden}
+.holo-grid::before,.holo-grid::after{content:"";position:absolute;inset:-50%;background-size:var(--grid-size) var(--grid-size);background-repeat:repeat}
+.holo-grid::before{background-image:linear-gradient(to right, rgba(111,209,255,.28) 1px, transparent 1px), linear-gradient(to bottom, rgba(111,209,255,.28) 1px, transparent 1px);animation:gridDrift 40s linear infinite}
+.holo-grid::after{background-image:radial-gradient(circle at center, rgba(0,186,255,.22) 0, transparent 65%);mix-blend-mode:screen;animation:gridPulse 12s ease-in-out infinite}
+@keyframes gridDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-10%, -8%, 0)}}
+@keyframes gridPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 .container{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
 .section{position:relative;max-width:var(--max);margin:0 auto;padding:4rem 1.25rem}
 .band{position:relative;width:100vw;margin-left:calc(50% - 50vw);border-top:var(--thin) solid var(--edge-2);border-bottom:var(--thin) solid var(--edge-2)}
@@ -254,7 +254,7 @@ footer.site-footer{background:transparent;border-top:1px solid var(--edge);margi
 
 <body>
 <div class="video-bg" aria-hidden="true">
-  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/images/backgrounds/venom-about-bg.jpg">
+  <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/images/backgrounds/Nebula.jpg">
     <source src="assets/videos/spacemovement-slow.mp4" type="video/mp4" />
   </video>
 </div>
@@ -305,7 +305,7 @@ footer.site-footer{background:transparent;border-top:1px solid var(--edge);margi
       <p>Stability is a feature. The goal is uptime and boring incident reports. Confidence is the ultimate multiplier.</p>
     </div>
     <figure class="story-photo" data-reveal data-delay="100">
-      <img src="assets/images/backgrounds/venom-about-bg.jpg" alt="Founders and the obsidian studio environment" loading="lazy" />
+      <img src="assets/images/backgrounds/Nebula.jpg" alt="Founders and the obsidian studio environment" loading="lazy" />
     </figure>
   </div>
 </section>
