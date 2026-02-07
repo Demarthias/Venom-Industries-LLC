@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Protocol: GO DARK | VENOM INDUSTRIES</title>
+    <meta name="description" content="Why VENOM INDUSTRIES migrated its communications stack to Proton and went dark on Big Tech surveillance." />
+    <link rel="canonical" href="https://www.venomous-industries.com/blog-proton.html" />
+
+    <link rel="icon" href="assets/images/brand/venom-icon2.png" />
+    <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root{
+            --bg:#0a0b0f;
+            --panel:#101319;
+            --panel-2:#0d1116;
+            --text:#e7edf1;
+            --muted:#b8c3c9;
+            --accent:#00f0d5;
+            --accent2:#b9c5cc;
+            --accent3:#6be3ff;
+            --accent4:#2df5af;
+            --alert:#ff4757;
+            --ring:rgba(0,240,213,.25);
+            --ring-2:rgba(185,197,204,.25);
+            --radius:14px;
+            --radius-sm:10px;
+            --shadow:0 0 34px rgba(0,240,213,.18);
+            --thin:1px;
+            --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+        }
+
+        html, body{
+            margin:0;
+            padding:0;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
+                url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat fixed;
+            color:var(--text);
+            font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+            line-height:1.6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            overflow-x:hidden;
+            position:relative;
+        }
+
+        html::before{
+            content:'';
+            position:fixed;
+            top:0; left:0; right:0; bottom:0;
+            z-index:-1;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0,240,213,0.25) 0%, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(107,227,255,0.2) 0%, transparent 45%),
+                radial-gradient(circle at 30% 85%, rgba(45,245,175,0.18) 0%, transparent 45%),
+                radial-gradient(circle at 75% 80%, rgba(185,197,204,0.18) 0%, transparent 38%);
+            background-size: 700px 700px, 900px 900px, 900px 500px, 600px 600px;
+            animation:backgroundShift 22s ease-in-out infinite;
+            pointer-events:none;
+        }
+
+        html::after{
+            content:'';
+            position:fixed;
+            top:0; left:0; right:0; bottom:0;
+            z-index:-1;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,0.03),
+                rgba(255,255,255,0.03) 1px,
+                transparent 1px,
+                transparent 4px
+            );
+            opacity:.35;
+            pointer-events:none;
+            mix-blend-mode:soft-light;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.35; }
+            50% { opacity: 0.55; }
+        }
+
+        h1, h2, h3, h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
+        a{color:var(--accent); text-decoration:none}
+        a:hover{color:var(--accent2)}
+
+        .site-header{
+            position:sticky; top:0; z-index:9999;
+            background:rgba(6,7,10,.88);
+            backdrop-filter: blur(8px);
+            border-bottom:var(--thin) solid transparent;
+            border-image: var(--steel) 1;
+            box-shadow:0 1px 0 rgba(185,197,204,.12);
+        }
+        .nav-container{
+            max-width:1240px; margin:0 auto;
+            padding:1rem 1.25rem;
+            display:flex; align-items:center; justify-content:space-between;
+        }
+        .brand-title{
+            margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
+            letter-spacing:.12em;
+        }
+        .brand-title strong{ color:var(--accent); }
+        .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
+        .nav-menu a{
+            color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
+            border:var(--thin) solid transparent; transition:.2s ease;
+        }
+        .nav-menu a:hover, .nav-menu a.active{
+            border-color:transparent; color:#0a0b0f; background:var(--steel);
+            box-shadow:0 0 18px var(--ring);
+        }
+
+        .cart-icon{
+            position:fixed; top:20px; right:20px; z-index:10000;
+            width:50px; height:50px;
+            background:linear-gradient(135deg, var(--accent), var(--accent2));
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            box-shadow:0 4px 20px rgba(0,240,213,.3);
+            transition:all .3s ease; cursor:pointer;
+            border:2px solid rgba(255,255,255,.1);
+        }
+        .cart-icon:hover{
+            transform:scale(1.1) translateY(-2px);
+            box-shadow:0 6px 25px rgba(0,240,213,.5);
+            background:linear-gradient(135deg, var(--accent2), var(--accent));
+        }
+        .cart-icon svg{width:24px; height:24px; fill:#0a0b0f;}
+        .cart-badge{
+            position:absolute; top:-5px; right:-5px;
+            background:var(--alert); color:#fff;
+            border-radius:50%; width:20px; height:20px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:.7rem; font-weight:800;
+            border:2px solid var(--bg);
+        }
+
+        .section{
+            max-width:1240px; margin:0 auto; padding:3.5rem 1.25rem;
+        }
+
+        .post-hero{
+            position:relative;
+            border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
+            padding:6rem 0 4rem;
+        }
+        .hero-inner{
+            background:
+                linear-gradient(135deg, rgba(16,20,26,.88), rgba(9,12,17,.92)),
+                url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+            border-radius:var(--radius);
+            border:var(--thin) solid transparent; border-image: var(--steel) 1;
+            box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+            padding:3rem;
+            text-align:left;
+            position:relative;
+            overflow:hidden;
+        }
+        .hero-inner::after{
+            content:'';
+            position:absolute; inset:-40% 0 0 -20%;
+            background:radial-gradient(circle at 20% 20%, rgba(0,240,213,.25) 0%, transparent 55%);
+            opacity:.6;
+            pointer-events:none;
+        }
+        .eyebrow{
+            font-family:Rajdhani, sans-serif;
+            letter-spacing:.25em;
+            text-transform:uppercase;
+            color:var(--accent4);
+            font-weight:700;
+            margin:0 0 .75rem;
+        }
+        .hero-title{
+            font-size:2.8rem; margin:0 0 .75rem; text-transform:uppercase;
+        }
+        .hero-lead{
+            color:var(--muted); font-size:1.15rem; max-width:720px; margin:0 0 1.5rem;
+        }
+        .hero-meta{
+            display:flex; gap:1rem; flex-wrap:wrap; color:var(--muted); font-size:.95rem;
+        }
+        .hero-tag{
+            background:rgba(0,240,213,.1);
+            border:1px solid rgba(0,240,213,.2);
+            border-radius:var(--radius-sm);
+            padding:.25rem .6rem;
+            color:var(--accent);
+            font-weight:700;
+        }
+
+        .article-wrap{
+            max-width:860px; margin:0 auto;
+        }
+
+        .article-body h2{
+            color:var(--accent);
+            margin-top:3rem;
+            font-size:1.85rem;
+            border-left:4px solid var(--accent);
+            padding-left:1rem;
+        }
+        .article-body h3{
+            color:#fff; font-size:1.4rem; margin-top:2rem;
+        }
+        .article-body p{
+            font-size:1.1rem; color:var(--muted); margin-bottom:1.5rem;
+        }
+        .article-body ul{margin:0 0 2rem; list-style:none; padding:0;}
+        .article-body li{
+            color:var(--muted); margin-bottom:1rem; padding-left:1.5rem; position:relative;
+        }
+        .article-body li::before{
+            content:"»"; color:var(--accent4); position:absolute; left:0; font-weight:bold;
+        }
+        .article-body strong{color:#fff;}
+
+        .table-wrap{overflow-x:auto; border-radius:var(--radius-sm);}
+        .vs-table{width:100%; border-collapse:collapse; margin:2rem 0; font-family:Rajdhani, sans-serif;}
+        .vs-table th{
+            text-align:left; padding:1rem; border-bottom:2px solid rgba(185,197,204,0.25);
+            color:var(--accent); font-size:1.1rem; background:rgba(16,20,26,.6);
+        }
+        .vs-table td{
+            padding:1rem; border-bottom:1px solid rgba(185,197,204,0.2); color:var(--muted);
+        }
+        .vs-table .bad{color:var(--alert);}
+        .vs-table .good{color:var(--accent4); font-weight:700;}
+
+        .callout{
+            background:linear-gradient(45deg, rgba(45,245,175,0.08), transparent);
+            border:1px solid var(--accent4);
+            padding:2.5rem;
+            border-radius:var(--radius);
+            margin:3rem 0;
+            text-align:center;
+        }
+        .btn{
+            display:inline-block; background:var(--accent4); color:#000; font-weight:900;
+            padding:16px 42px; text-decoration:none; border-radius:4px; margin-top:1.5rem;
+            text-transform:uppercase; letter-spacing:.12em; transition:.3s;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
+        .btn:hover{background:#fff; box-shadow:0 0 30px rgba(45, 245, 175, 0.6);}
+
+        .site-footer{
+            background: rgba(7,9,13,.8);
+            backdrop-filter: blur(8px);
+            border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
+            padding:2rem 1.25rem;
+        }
+        .footer-grid{
+            max-width:1240px; margin:0 auto;
+            display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
+        }
+        .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
+        .footer-grid ul{list-style:none; padding:0; margin:0}
+        .footer-grid li{margin:.25rem 0}
+        .footer-grid a{color:var(--text)}
+        .footer-grid a:hover{color:var(--accent)}
+        .footer-meta{
+            max-width:1240px; margin:1rem auto 0; color:#8d98a1;
+            display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+            font-size:.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero-inner{padding:2.25rem;}
+            .hero-title{font-size:2.3rem;}
+        }
+        @media (max-width: 768px) {
+            .nav-menu{display:none}
+            .footer-grid{grid-template-columns:1fr}
+            .hero-title{font-size:2rem;}
+            .section{padding:3rem 1.25rem}
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <div class="nav-container">
+            <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
+            <nav role="navigation" aria-label="Primary">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="Features.html">Features</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="about/about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+        <svg viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+        <span class="cart-badge" id="cart-count">0</span>
+    </a>
+
+    <section class="post-hero" aria-label="Article Hero">
+        <div class="section">
+            <div class="hero-inner">
+                <p class="eyebrow">INTEL BRIEF 042</p>
+                <h1 class="hero-title">Protocol: GO DARK</h1>
+                <p class="hero-lead">Why we fired Big Tech and migrated our communications stack to Switzerland for zero-access privacy.</p>
+                <div class="hero-meta">
+                    <span class="hero-tag">Security</span>
+                    <span>February 6, 2026</span>
+                    <span>7 min read</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="section article-wrap">
+        <article class="article-body">
+            <h2>Why We Fired "Big Tech" and Went Dark with Proton</h2>
+            <p>Let's be clear: <strong>"Free" services are surveillance engines.</strong></p>
+            <p>When you use Gmail, Chrome, or Windows, you are not the customer. You are the raw material. Google scans your receipts to sell ads. Microsoft trains AI on your documents. They map your location history, your purchase behavior, and your social graph to build a digital voodoo doll of your life.</p>
+            <p>At <strong>Venom Industries</strong>, that is an unacceptable operational risk. We migrated our entire communications stack to Switzerland. Here is why.</p>
+
+            <h2>The "Glass House" Problem</h2>
+            <p>Conglomerates like Google operate on a model of <strong>Data Maximization</strong>. They need to see everything you do to keep their stock price up. If a government agency asks for your data, they hand it over. If a hacker breaches their ad network, your profile is leaked.</p>
+            <p><strong>Proton operates on Data Minimization.</strong> They literally cannot see your data even if they wanted to.</p>
+
+            <div class="table-wrap">
+                <table class="vs-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Google / Outlook</th>
+                            <th>Proton Ecosystem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Encryption</strong></td>
+                            <td class="bad">In Transit Only (They hold the keys)</td>
+                            <td class="good">Zero-Access (Only YOU hold the keys)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Business Model</strong></td>
+                            <td class="bad">Ad Surveillance &amp; AI Training</td>
+                            <td class="good">Subscription Only. You are the customer.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jurisdiction</strong></td>
+                            <td class="bad">USA (Five Eyes Alliance)</td>
+                            <td class="good">Switzerland (Strict Privacy Laws)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anonymity</strong></td>
+                            <td class="bad">Requires Phone # / Real ID</td>
+                            <td class="good">No Personal Info Required</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>The Proton Arsenal</h2>
+            <p>We don't use tools that barely work. We tested the Proton suite against enterprise loads. It passed every benchmark.</p>
+
+            <h3>1. Proton Mail (The Shield)</h3>
+            <p>End-to-end encrypted email that automatically blocks tracking pixels. Marketing companies can't tell when you open an email or where you are located. It includes "Hide-My-Email" aliases so you never give your real address to a sketchy website again.</p>
+
+            <h3>2. Proton VPN (The Cloak)</h3>
+            <p>This isn't a cheap "unblock Netflix" toy. This is a <strong>Secure Core</strong> VPN. It routes your traffic through hardened servers in Iceland or Switzerland before it ever hits the public internet. No logs. No leaks. Total network isolation.</p>
+
+            <h3>3. Proton Pass &amp; Drive</h3>
+            <p>An encrypted identity manager that generates unique passwords and 2FA codes, synced with an encrypted cloud drive. Unlike Google Drive, Proton cannot scan your files for "policy violations." Your files are yours alone.</p>
+
+            <div class="callout">
+                <h3 style="margin-top:0; color:var(--accent4); font-size:2rem;">PROTOCOL: MIGRATE</h3>
+                <p style="color:#fff; margin-bottom:1rem;"><strong>Status: MANDATORY.</strong><br />Every day you stay on legacy platforms, you feed the algorithm. Break the cycle.</p>
+                <p>Get the entire privacy suite for less than the cost of a coffee. Secure your email, your network, and your identity in one move.</p>
+                <a href="/go/proton" class="btn">INITIALIZE ACCOUNT</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h5>VENOM-INDUSTRIES</h5>
+                <p style="color:var(--muted); margin:0; max-width:420px;">Performance, privacy, and control. We build tools for gamers and professionals who refuse to be surveilled.</p>
+            </div>
+            <div>
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="about/about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Resources</h5>
+                <ul>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-meta">
+            <span>© 2026 VENOM INDUSTRIES. All Rights Reserved.</span>
+            <span style="color:var(--accent4);">Freedom is Encrypted.</span>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const ENDPOINT = "https://venom-web-logger.kubegrayson.workers.dev";
+            fetch(ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    path: window.location.pathname,
+                    title: document.title,
+                    ref: document.referrer
+                })
+            }).catch(e => console.error(e));
+        })();
+    </script>
+</body>
+</html>

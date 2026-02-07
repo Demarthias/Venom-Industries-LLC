@@ -222,6 +222,47 @@
     .contact-card h4{margin:0 0 .5rem; color:var(--accent)}
     .contact-card p{margin:.25rem 0; color:var(--muted)}
 
+    /* Recent Articles */
+    .blog-grid{
+      display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      margin-top:2.5rem;
+    }
+    .blog-card{
+      border:var(--thin) solid transparent; border-image: var(--steel) 1;
+      background:
+        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
+        url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
+      padding:0; overflow:hidden;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .blog-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 40px rgba(0,240,213,.25), inset 0 0 1px rgba(185,197,204,.35);
+    }
+    .blog-card-image{
+      height:180px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display:flex; align-items:center; justify-content:center;
+      font-size:2.6rem; color:#0a0b0f;
+    }
+    .blog-card-content{padding:1.75rem}
+    .blog-meta{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:1rem; font-size:.85rem; color:var(--muted);
+    }
+    .blog-category{
+      background:rgba(0,240,213,.1);
+      border:1px solid rgba(0,240,213,.2);
+      border-radius:var(--radius-sm);
+      padding:.25rem .5rem; color:var(--accent); font-weight:700;
+    }
+    .blog-card h3{color:var(--accent); font-size:1.35rem; margin:0 0 .75rem; line-height:1.3}
+    .blog-card p{line-height:1.7; color:var(--muted); margin:0 0 1.2rem}
+    .read-more{color:var(--accent); font-weight:700; display:inline-flex; align-items:center; gap:.5rem}
+    .read-more:hover{color:var(--accent2)}
+
     /* Footer */
     .site-footer{
       background:url('assets/images/backgrounds/venom-about-bg.jpg') center/cover no-repeat, #07090d;
@@ -327,6 +368,57 @@
         <p>Professional support guaranteed</p>
         <p><strong>24-48 hours typical</strong></p>
       </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Recent Articles
+       ========================================================= -->
+  <section class="section recent-articles" aria-label="Recent Articles">
+    <h3 class="headline" data-aos="fade-up">Recent <span class="mark">Articles</span></h3>
+    <p class="subline" data-aos="fade-up" data-aos-delay="100">
+      The latest intel on performance, privacy, and career acceleration.
+    </p>
+
+    <div class="blog-grid">
+      <article class="blog-card" data-aos="zoom-in">
+        <div class="blog-card-image">📄</div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-category">Career</span>
+            <span>Sep 15, 2025</span>
+          </div>
+          <h3>AI Resume Systems That Beat ATS</h3>
+          <p>How the 2025 job market rewards precision, keywords, and measured storytelling.</p>
+          <a href="blog.html#ai-resume-2025" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="blog-card-image">⚡</div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-category">Performance</span>
+            <span>Sep 10, 2025</span>
+          </div>
+          <h3>5 Network Tweaks That Drop Ping</h3>
+          <p>Low-effort fixes that cut latency, smooth jitter, and stabilize play.</p>
+          <a href="blog.html#network-tweaks" class="read-more">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-card-image">🔒</div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-category">Security</span>
+            <span>Feb 6, 2026</span>
+          </div>
+          <h3>Protocol: GO DARK — The Proton Shift</h3>
+          <p>Why we left legacy platforms and moved communications to zero-access privacy.</p>
+          <a href="blog-proton.html" class="read-more">Read More →</a>
+        </div>
+      </article>
     </div>
   </section>
 
