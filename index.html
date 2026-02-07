@@ -72,7 +72,6 @@ header.site-header{position:sticky;top:0;z-index:1000;background:rgba(7,10,15,.9
 .hero .layer.l3{background-image:none;mix-blend-mode:overlay;opacity:.36}
 .video-bg{position:fixed;inset:0;z-index:-4;overflow:hidden;background:#05070b}
 .video-bg video{width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.05)}
-.video-bg::after{content:none}
 .hero .mask{position:absolute;inset:0;background:transparent;z-index:1}
 .hero .content{position:relative;z-index:3;text-align:center}
 .hero .title{font-size:4.2rem;margin:0;color:#ffffff;letter-spacing:.08em;font-family:Orbitron, sans-serif;text-transform:uppercase;position:relative;display:inline-block;animation:titleGlow 6s ease-in-out infinite;text-shadow:0 6px 24px rgba(0,0,0,.65)}
@@ -255,9 +254,7 @@ footer.site-footer{background:transparent;border-top:1px solid var(--edge);margi
 <body>
 <div class="video-bg" aria-hidden="true">
   <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/images/backgrounds/Nebula.jpg">
-    <source src="assets/videos/spacemovement-slow.mp4" type="video/mp4" />
-    <source src="assets/videos/spacemovement.mp4" type="video/mp4" />
-    <source src="assets/videos/spacemovement.mov" type="video/quicktime" />
+    <source src="assets/videos/spacemovement_converted.mp4?v=2" type="video/mp4" />
   </video>
 </div>
 <header class="site-header" role="banner">
