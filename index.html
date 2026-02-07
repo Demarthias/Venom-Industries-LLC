@@ -104,7 +104,9 @@ section{opacity:1;transform:none}
 /* Story */
 .story-wrap{position:relative}
 .story-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--gap);align-items:center}
-.story-grid .panel{background:rgba(8,12,18,.55);border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.7rem;box-shadow:none;position:relative;overflow:hidden;will-change:transform}
+.story-grid.center{grid-template-columns:1fr;justify-items:center;justify-content:center}
+.story-grid.center .panel{width:100%;max-width:980px;margin:0 auto}
+.story-grid .panel{background:rgba(8,12,18,.55);border:1px solid var(--edge);border-radius:var(--radius-lg);padding:1.7rem;box-shadow:none;position:relative;overflow:hidden;will-change:transform;margin:0 auto;text-align:center}
 .story-grid .panel::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle at center, rgba(0,186,255,.12), transparent 60%);transform:rotate(25deg)}
 .story-grid h4{margin:.25rem 0 1rem;font-size:1.32rem;color:var(--accent)}
 .story-grid p{color:var(--muted);text-shadow:0 2px 10px rgba(0,0,0,.55)}
@@ -295,7 +297,7 @@ footer.site-footer{background:transparent;border-top:1px solid var(--edge);margi
   <span class="sweep"></span>
   <h3 class="headline" data-reveal>Who We Are — <span class="mark">VENOM INDUSTRIES</span></h3>
   <p class="subline" data-reveal data-delay="80">Born from real-world friction. Trained by racing discipline. Engineered for measured outcomes. We battle-test everything we ship.</p>
-  <div class="story-grid">
+  <div class="story-grid center">
     <div class="panel" data-reveal>
       <h4>Racing Style Discipline</h4>
       <p>Race-day rigor, daily. We shave friction, tune every edge, and ship only what outperforms.</p>
