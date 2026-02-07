@@ -57,7 +57,7 @@ html = dedent("""\
       --steel:linear-gradient(90deg,#aeb6bf,#e6edf3,#aeb6bf);
       --shadow:0 0 34px rgba(0,240,213,.18);
     }
-    html,body{margin:0; padding:0; background:linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)), url('assets/images/backgrounds/Nebula.jpg') center/cover no-repeat fixed; color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif; line-height:1.58; overflow-x:hidden}
+    html,body{margin:0; padding:0; background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.7)), url('assets/images/backgrounds/venom-features-bg.png') center/cover no-repeat fixed; color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, sans-serif; line-height:1.58; overflow-x:hidden}
     h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
     a{color:var(--accent); text-decoration:none} a:hover{color:var(--accent2)}
 
@@ -71,10 +71,9 @@ html = dedent("""\
     .nav-menu a:hover,.nav-menu a.active{border-color:transparent; background:var(--steel); color:#0a0b10; box-shadow:0 0 18px rgba(185,197,204,.25)}
 
     /* Hero */
-    .hero{position:relative; min-height:92vh; overflow:hidden; display:grid; place-items:center; text-align:center; background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.7) 45%, rgba(0,0,0,.82)), url('assets/images/backgrounds/venom-features-bg.png') center/cover no-repeat; border-bottom:var(--thin) solid transparent; border-image:var(--steel) 1; box-shadow:var(--shadow)}
-    .hero-slide{position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.7s ease-in-out}
-    .hero-slide.active{opacity:1}
-    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.25), transparent 35%, rgba(0,0,0,.65)); z-index:1}
+    .hero{position:relative; min-height:92vh; overflow:hidden; display:grid; place-items:center; text-align:center; background:transparent; border-bottom:var(--thin) solid transparent; border-image:var(--steel) 1; box-shadow:var(--shadow)}
+      #particles-js{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.7}
+      .site-header, .hero, .wrap, .testimonials, .site-footer, .sticky-cta{position:relative; z-index:1}
     .hero-content{position:relative; z-index:3; padding:1.75rem; display:grid; place-items:center; text-align:center}
     .hero-title{font-size:3.2rem; margin:.2rem 0; font-family:Orbitron, sans-serif; letter-spacing:.08em; text-transform:uppercase}
     .hero-title.shimmer{
@@ -87,7 +86,6 @@ html = dedent("""\
       text-shadow:0 6px 26px rgba(0,0,0,.55);
     }
     @keyframes heroShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-    #particles-js{position:absolute; inset:0; z-index:2; pointer-events:none; opacity:.32}
     .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image:var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px rgba(0,240,213,.25); transition:transform .18s ease, box-shadow .18s ease, filter .2s ease}
     .btn:hover{transform:translateY(-2px); box-shadow:0 0 28px rgba(0,240,213,.3)}
     .btn.ghost{background:transparent; color:var(--accent); border-color:var(--accent)}
@@ -173,6 +171,7 @@ html = dedent("""\
   </script>
 </head>
 <body>
+  <div id="particles-js" aria-hidden="true"></div>
   <!-- =========================================================
        Header
        ========================================================= -->
@@ -195,10 +194,6 @@ html = dedent("""\
        HERO
        ========================================================= -->
   <section class="hero" aria-label="Products">
-    <div class="hero-slide" style="background-image:url('assets/images/backgrounds/venom-features-bg.png')" role="img" aria-label="Abstract neon grid"></div>
-
-    <div id="particles-js" aria-hidden="true"></div>
-
     <div class="hero-content">
       <h2 class="hero-title shimmer">VENOM-PRODUCTS</h2>
     </div>
@@ -307,38 +302,16 @@ html = dedent("""\
     // AOS
     AOS.init({ once:true, duration:800, offset:120 });
 
-    // Slideshow
-    const slides = document.querySelectorAll(".hero-slide");
-    const captions = [
-      {title:"Elite Products", sub:"Performance systems built for measurable outcomes."},
-      {title:"Measured Systems", sub:"Instrumentation, stability, and clarity by design."},
-      {title:"Trusted Delivery", sub:"Outcomes that hold up under real-world load."}
-    ];
-    const titleEl = document.querySelector(".hero-title");
-    const subEl = document.querySelector(".hero-sub");
-    let i = 0;
-    setInterval(()=>{
-      slides[i].classList.remove("active");
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("active");
-      if (captions[i]) {
-        titleEl.innerHTML = (i===0? "Elite <span class='mark'>Products</span>" :
-                (i===1? "Measured <span class='mark'>Systems</span>" :
-                  "Trusted <span class='mark'>Delivery</span>"));
-        subEl.textContent = captions[i].sub;
-      }
-    }, 6000);
-
-    // Particles (lite smoke)
+    // Particles (brighter specs)
     particlesJS("particles-js", {
       particles: {
-        number: { value: 56, density: { enable: true, value_area: 820 } },
-        color: { value: ["#00f0d5","#b9c5cc"] },
+        number: { value: 72, density: { enable: true, value_area: 840 } },
+        color: { value: ["#9cf7ff","#00f0d5","#ffffff"] },
         shape: { type: "circle" },
-        opacity: { value: 0.28 },
-        size: { value: 2.2, random: true },
-        line_linked: { enable: true, distance: 140, color: "#b9c5cc", opacity: 0.22, width: 1 },
-        move: { enable: true, speed: 1.1, out_mode: "out" }
+        opacity: { value: 0.48, random: true },
+        size: { value: 2.8, random: true },
+        line_linked: { enable: true, distance: 150, color: "#9cf7ff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 1.25, out_mode: "out" }
       },
       interactivity: {
         detect_on: "canvas",
@@ -367,31 +340,6 @@ html = dedent("""\
       document.querySelectorAll(".chip").forEach(el=>el.style.animation="none");
     }
 
-    // Countdown Timer for Limited Time Pricing
-    function updateCountdown() {
-      // Set target date (72 hours from page load for demo purposes)
-      const now = new Date().getTime();
-      const targetDate = now + (72 * 60 * 60 * 1000); // 72 hours from now
-      
-      const timer = setInterval(function() {
-        const current = new Date().getTime();
-        const remaining = targetDate - current;
-        
-        if (remaining < 0) {
-          document.getElementById('countdown-timer').innerHTML = 'ENDED';
-          clearInterval(timer);
-          return;
-        }
-        
-        const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-        
-        document.getElementById('countdown-timer').innerHTML = hours + 'h ' + minutes + 'm';
-      }, 60000); // Update every minute
-    }
-    
-    // Start countdown
-    updateCountdown();
   </script>
 
   <!-- NoScript fallback -->
