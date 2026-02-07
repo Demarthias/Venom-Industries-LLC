@@ -79,6 +79,15 @@ html = dedent("""\
     .hero-content{position:relative; z-index:3; padding:1.75rem; display:grid; place-items:center}
     .hero-card{max-width:1000px; background:rgba(10,12,16,.55); border:var(--thin) solid var(--accent); border-radius:var(--radius); box-shadow:0 0 28px rgba(0,240,213,.20), inset 0 0 1px rgba(185,197,204,.35); padding:2rem 2.25rem; animation:fadeUp .9s ease}
     .hero-title{font-size:3.2rem; margin:.2rem 0 1rem; color:#e9eef2; text-shadow:0 0 24px rgba(0,240,213,.35)}
+    .hero-title.shimmer{
+      background:linear-gradient(110deg, #dfe6ea 0%, #9cf7ff 22%, #ffffff 38%, #59f0d5 52%, #dfe6ea 70%, #ffffff 88%, #dfe6ea 100%);
+      background-size:260% 100%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      animation:heroShimmer 3.5s linear infinite;
+    }
+    @keyframes heroShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
     .hero-title .mark{color:var(--accent)}
     .hero-sub{margin:0 0 1.25rem; color:var(--muted); font-size:1.15rem}
     .hero-ctas{display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center}
@@ -154,7 +163,7 @@ html = dedent("""\
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .hero-slide{transition:none} .chip{animation:none}
+      .hero-slide{transition:none} .chip{animation:none} .hero-title.shimmer{animation:none}
     }
     .sr-only{position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
   </style>
@@ -202,30 +211,7 @@ html = dedent("""\
     <div id="particles-js" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <article class="hero-card" aria-live="polite">
-        <h2 class="hero-title">Elite <span class="mark">Products</span></h2>
-        <p class="hero-sub">Performance systems engineered for measurable results, reliability, and clarity.</p>
-        
-        <!-- LIMITED TIME PRICING ALERT -->
-        <div style="background:linear-gradient(135deg, #ff6b9d, #ff8c42); border:2px solid #ff6b9d; border-radius:12px; padding:1rem; margin:1rem 0; animation:pulse 2s ease-in-out infinite;">
-          <div style="display:flex; align-items:center; justify-content:center; gap:.5rem; color:#fff; font-weight:800; text-align:center;">
-            🔥 <span style="text-transform:uppercase; letter-spacing:.1em;">Limited Time: 70% Off Launch Pricing</span> 🔥
-          </div>
-          <div style="color:rgba(255,255,255,.9); font-size:.9rem; text-align:center; margin-top:.5rem;">
-            Prices increase to full retail in <strong id="countdown-timer">72 hours</strong> • Lock in savings now
-          </div>
-        </div>
-        
-        <div class="hero-ctas">
-          <a class="btn" href="contact.html">Talk to Us</a>
-          <a class="btn ghost" href="about/about.html">Our Approach</a>
-        </div>
-        <div class="callouts" aria-hidden="true">
-          <div class="chip">⚡ Measured Performance <span class="badge">Systems</span></div>
-          <div class="chip">🧭 Clear Outcomes <span class="badge">Delivery</span></div>
-          <div class="chip">🛡 Reliability First <span class="badge">VENOM</span></div>
-        </div>
-      </article>
+      <h2 class="hero-title shimmer">VENOM-PRODUCTS</h2>
     </div>
   </section>
 
