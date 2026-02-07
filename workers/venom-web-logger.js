@@ -8,7 +8,8 @@ const REDIRECTS = {
   "/go/credit":          "https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=27618&c=918277&a=785240&k=FCCE6E2FF9DBBC3F1268A01A31567EEA&l=29942&s1=pinterest_landingpage&s2=monolith_render",
   "/api/intel-alpha":    "https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=27707&c=918277&a=785240&k=177469C1DA56836D33E87AFA2D6D73F2&l=29747&s1=pinterest&s2=monolith_render",
   "/api/asset-sync":     "https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=29787&c=918277&a=785240&k=35077C3C49E6246E573B365AAC9C5D69&l=33479&s1=pinterest&s2=monolith_render",
-  "/api/uplink-beta":    "https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=25746&c=918277&a=785240&k=A068D57FFE7262FDE665A13A12B47473&l=26967&s1=pinterest&s2=monolith_render"
+  "/api/uplink-beta":    "https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=25746&c=918277&a=785240&k=A068D57FFE7262FDE665A13A12B47473&l=26967&s1=pinterest&s2=monolith_render",
+  "/go/proton":          "https://proton.me/vpn",
 };
 
 export default {
