@@ -1,3 +1,58 @@
+/* Audit page extracted inline styles */
+.audit-panel-title-sectors {
+  margin-bottom: 1.5rem;
+}
+.audit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.footer-col-flex {
+  flex: 1;
+  min-width: 250px;
+}
+/* Audit page custom styles */
+.audit-logo {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 2px 8px rgba(0,186,255,.35));
+  transition: transform .35s ease;
+}
+.audit-hero-center {
+  text-align: center;
+}
+.audit-hero-img {
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto 2rem;
+  display: block;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(0,186,255,.18);
+}
+.audit-panel-margin {
+  margin-bottom: 2.5rem;
+}
+.audit-panel-title {
+  color: var(--accent, #00f0d5);
+  margin-bottom: 0.7rem;
+}
+.audit-panel-title-sectors {
+  margin-bottom: 1.2rem;
+}
+.audit-sectors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.audit-sector-title {
+  color: #2df5af;
+  margin-bottom: 0.5rem;
+}
+.audit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
 /* Inline style extractions and cross-browser fixes */
 
 /* Shared */
