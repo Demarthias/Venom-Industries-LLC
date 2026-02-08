@@ -39,6 +39,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="assets/css/inline-fixes.css" />
+
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
@@ -111,6 +113,7 @@
     .site-header{
       position:sticky; top:0; z-index:9999;
       background:rgba(6,7,10,.88);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-bottom:var(--thin) solid transparent;
       border-image: var(--steel) 1;
@@ -228,6 +231,7 @@
     /* Footer */
     .site-footer{
       background: rgba(7,9,13,.8);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
       padding:2rem 1.25rem;
@@ -282,10 +286,10 @@
   <section class="terms-hero" aria-label="Terms Hero">
     <div class="terms-inner section">
       <h2 class="headline" data-aos="fade-up">Terms of <span class="mark">Service</span></h2>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100" style="font-size:1.1rem; max-width:800px;">
+      <p class="subline" data-aos="fade-up" data-aos-delay="100">
         Clear terms for using VENOM-INDUSTRIES software. Know your rights and responsibilities.
       </p>
-      <p style="color:var(--muted); font-size:.9rem; margin-top:1rem;">
+      <p class="page-updated">
         Last Updated: September 24, 2025
       </p>
     </div>

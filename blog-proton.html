@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/inline-fixes.css" />
 
     <style>
         :root{
@@ -102,6 +103,7 @@
         .site-header{
             position:sticky; top:0; z-index:9999;
             background:rgba(6,7,10,.88);
+            -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
             border-bottom:var(--thin) solid transparent;
             border-image: var(--steel) 1;
@@ -261,6 +263,7 @@
 
         .site-footer{
             background: rgba(7,9,13,.8);
+            -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
             border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
             padding:2rem 1.25rem;
@@ -390,8 +393,8 @@
             <p>An encrypted identity manager that generates unique passwords and 2FA codes, synced with an encrypted cloud drive. Unlike Google Drive, Proton cannot scan your files for "policy violations." Your files are yours alone.</p>
 
             <div class="callout">
-                <h3 style="margin-top:0; color:var(--accent4); font-size:2rem;">PROTOCOL: MIGRATE</h3>
-                <p style="color:#fff; margin-bottom:1rem;"><strong>Status: MANDATORY.</strong><br />Every day you stay on legacy platforms, you feed the algorithm. Break the cycle.</p>
+                <h3>PROTOCOL: MIGRATE</h3>
+                <p class="callout-lede"><strong>Status: MANDATORY.</strong><br />Every day you stay on legacy platforms, you feed the algorithm. Break the cycle.</p>
                 <p>Get the entire privacy suite for less than the cost of a coffee. Secure your email, your network, and your identity in one move.</p>
                 <a href="/go/proton" class="btn">INITIALIZE ACCOUNT</a>
             </div>
@@ -402,7 +405,7 @@
         <div class="footer-grid">
             <div>
                 <h5>VENOM-INDUSTRIES</h5>
-                <p style="color:var(--muted); margin:0; max-width:420px;">Performance, privacy, and control. We build tools for gamers and professionals who refuse to be surveilled.</p>
+                <p class="footer-note">Performance, privacy, and control. We build tools for gamers and professionals who refuse to be surveilled, controlled or conform to shady standards. Freedom is encryption</p>
             </div>
             <div>
                 <h5>Company</h5>
@@ -423,7 +426,7 @@
         </div>
         <div class="footer-meta">
             <span>© 2026 VENOM INDUSTRIES. All Rights Reserved.</span>
-            <span style="color:var(--accent4);">Freedom is Encrypted.</span>
+            <span class="footer-accent">Freedom is Encrypted.</span>
         </div>
     </footer>
 

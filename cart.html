@@ -39,6 +39,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="assets/css/inline-fixes.css" />
+
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
@@ -124,6 +126,7 @@
     .site-header{
       position:sticky; top:0; z-index:9999;
       background:rgba(6,7,10,.88);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-bottom:var(--thin) solid transparent;
       border-image: var(--steel) 1;
@@ -364,13 +367,13 @@
   <main class="cart-container">
     <!-- Cart Items -->
     <section class="cart-items" data-aos="fade-up">
-      <h2 style="margin:0 0 1.5rem; color:var(--text)">Your Cart</h2>
+      <h2>Your Cart</h2>
       
       <!-- Empty Cart Message -->
-      <div id="empty-cart" class="cart-item" style="text-align:center; padding:3rem 2rem; background:rgba(16,20,26,.2); border-style:dashed">
-        <h3 style="color:var(--muted); margin:0 0 1rem">Your cart is empty</h3>
-        <p style="color:var(--muted); margin:0 0 1.5rem">Add a subscription plan to get started.</p>
-        <a href="products.html" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease; text-decoration:none">⚡ Browse Plans</a>
+      <div id="empty-cart" class="cart-item">
+        <h3>Your cart is empty</h3>
+        <p>Add a subscription plan to get started.</p>
+        <a href="products.html" class="cta-link">⚡ Browse Plans</a>
       </div>
       
       <!-- Dynamic Cart Items Container -->
@@ -381,52 +384,52 @@
     <aside class="checkout-panel" data-aos="fade-up" data-aos-delay="100">
       
       <!-- PRICING URGENCY ALERT -->
-      <div style="background:linear-gradient(135deg, rgba(255,107,157,.15), rgba(255,140,66,.1)); border:1px solid #ff6b9d; border-radius:8px; padding:.75rem; margin-bottom:1.5rem; text-align:center;">
-        <div style="color:#ff6b9d; font-weight:800; font-size:.9rem;">
+      <div class="price-alert">
+        <div class="price-alert-title">
           🔥 Launch Pricing: 75% Off Regular Rates
         </div>
-        <div style="color:var(--muted); font-size:.8rem; margin-top:.25rem;">
+        <div class="price-alert-note">
           Lock in savings now • Prices increase to full retail soon
         </div>
       </div>
       
       <!-- Empty Cart Checkout -->
-      <div id="empty-checkout" style="text-align:center">
-        <div style="background:rgba(255,107,157,.1); border:var(--thin) solid var(--accent5); border-radius:var(--radius-sm); padding:1rem; margin-bottom:1.5rem">
-          <h4 style="margin:0 0 .5rem; color:var(--accent5); font-size:1rem">Cart Empty</h4>
-          <p style="margin:0; font-size:.9rem; color:var(--text)">
+      <div id="empty-checkout">
+        <div class="empty-box">
+          <h4>Cart Empty</h4>
+          <p>
             Select a subscription plan - 7-day free trial included
           </p>
         </div>
-        <p style="color:var(--muted); font-size:.9rem">
+        <p class="empty-help">
           Choose a subscription plan to see pricing and checkout options.
         </p>
       </div>
 
       <!-- Active Checkout (hidden by default) -->
-      <div id="active-checkout" style="display:none">
+      <div id="active-checkout">
         <div class="trial-notice">
           <h4>🎉 7-Day Free Trial</h4>
-          <p style="margin:0; font-size:.9rem; color:var(--text)">
+          <p>
             Start immediately with full access. No charges until trial ends.
           </p>
         </div>
 
-        <div style="margin-bottom:1.5rem" id="pricing-summary">
-          <div style="display:flex; justify-content:space-between; margin-bottom:.5rem">
+        <div class="pricing-summary" id="pricing-summary">
+          <div class="summary-row">
             <span>Subtotal</span>
             <span id="subtotal-amount">$0.00/month</span>
           </div>
-          <div style="display:flex; justify-content:space-between; margin-bottom:.5rem; color:var(--accent)">
+          <div class="summary-row accent">
             <span>Trial Discount</span>
             <span id="discount-amount">-$0.00</span>
           </div>
-          <hr style="border:none; border-top:var(--thin) solid rgba(185,197,204,.25); margin:1rem 0">
-          <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.1rem">
+          <hr class="summary-divider">
+          <div class="summary-row total">
             <span>Due Today</span>
             <span>$0.00</span>
           </div>
-          <div style="font-size:.85rem; color:var(--muted); margin-top:.5rem" id="future-billing">
+          <div class="summary-note" id="future-billing">
             Select a plan to see billing details
           </div>
         </div>
@@ -440,12 +443,12 @@
           <div class="form-group">
             <label class="form-label" for="card">Payment Method</label>
             <input type="text" id="card" class="form-input" placeholder="•••• •••• •••• 1234" required>
-            <div style="font-size:.8rem; color:var(--muted); margin-top:.5rem">
+            <div class="form-help">
               Card will be charged after 7-day trial period
             </div>
           </div>
 
-          <div style="display:grid; gap:1rem; grid-template-columns:1fr 1fr">
+          <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="expiry">Expiry</label>
               <input type="text" id="expiry" class="form-input" placeholder="MM/YY" required>
@@ -556,7 +559,7 @@
                 <h3 class="item-title">${item.plan.name}</h3>
                 <span class="item-badge">${item.plan.badge}</span>
               </div>
-              <button onclick="removeItem('${item.id}')" style="background:none; border:none; color:var(--muted); cursor:pointer; font-size:1.2rem">&times;</button>
+              <button onclick="removeItem('${item.id}')" class="remove-item">&times;</button>
             </div>
             
             <div class="item-price">${item.plan.price}</div>
@@ -566,9 +569,9 @@
               ${item.plan.features.map(feature => `<li>${feature}</li>`).join('')}
             </ul>
             
-            <div style="display:flex; gap:.5rem; align-items:center; margin-top:1rem">
-              <label style="color:var(--muted); font-size:.9rem">Quantity:</label>
-              <select onchange="updateQuantity('${item.id}', this.value)" style="background:rgba(16,20,26,.6); border:var(--thin) solid transparent; border-image: var(--steel) 1; border-radius:var(--radius-sm); color:var(--text); padding:.5rem">
+            <div class="item-qty">
+              <label class="item-qty-label">Quantity:</label>
+              <select onchange="updateQuantity('${item.id}', this.value)" class="item-qty-select">
                 <option value="1" ${item.quantity === 1 ? 'selected' : ''}>1</option>
               </select>
             </div>

@@ -39,6 +39,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="assets/css/inline-fixes.css" />
+
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
@@ -124,6 +126,7 @@
     .site-header{
       position:sticky; top:0; z-index:9999;
       background:rgba(6,7,10,.88);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-bottom:var(--thin) solid transparent;
       border-image: var(--steel) 1;
@@ -455,6 +458,7 @@
           <li><a href="about/about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="terms.html">Terms</a></li>
         </ul>
       </section>

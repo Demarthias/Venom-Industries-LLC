@@ -36,6 +36,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="../assets/css/inline-fixes.css" />
+
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
@@ -185,6 +187,7 @@
     .site-header{
       position:sticky; top:0; z-index:9999;
       background:rgba(6,7,10,.88);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-bottom:var(--thin) solid transparent;
       border-image: var(--steel) 1;
@@ -446,18 +449,18 @@
       </p>
       
       <!-- LIMITED TIME PRICING -->
-      <div data-aos="fade-up" data-aos-delay="150" style="background:linear-gradient(135deg, rgba(255,107,157,.15), rgba(255,140,66,.1)); border:1px solid #ff6b9d; border-radius:8px; padding:.75rem 1rem; margin:1rem auto; max-width:500px;">
-        <div style="color:#ff6b9d; font-weight:800; font-size:.95rem; text-align:center;">
+      <div data-aos="fade-up" data-aos-delay="150" class="promo-banner">
+        <div class="promo-title">
           🚀 Launch Special: 75% Off Regular Pricing
         </div>
-        <div style="color:var(--muted); font-size:.85rem; text-align:center; margin-top:.25rem;">
-          <span style="text-decoration:line-through; opacity:.7;">$39.99/mo</span> → <span style="color:#2df5af; font-weight:700;">$9.99/mo</span> • Limited time
+        <div class="promo-note">
+          <span class="promo-strike">$39.99/mo</span> → <span class="promo-price">$9.99/mo</span> • Limited time
         </div>
       </div>
       
       <div class="hero-ctas" data-aos="fade-up" data-aos-delay="200">
-        <a href="../cart.html?plan=pro" class="btn" aria-label="Start free trial" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ Start Free Trial</a>
-        <a href="#features" class="btn ghost" aria-label="Learn more about features" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">📋 Features</a>
+        <a href="../cart.html?plan=pro" class="btn cta-solid" aria-label="Start free trial">⚡ Start Free Trial</a>
+        <a href="#features" class="btn ghost cta-ghost" aria-label="Learn more about features">📋 Features</a>
       </div>
     </div>
   </section>
@@ -472,18 +475,18 @@
         Professional network optimization born from frustration with lag spikes and unstable connections.
       </p>
       
-      <div style="max-width:800px; margin:0 auto; text-align:left">
-        <p style="font-size:1.1rem; line-height:1.7; color:var(--text); margin-bottom:1.5rem">
+      <div class="copy-wrap">
+        <p class="copy-line spaced">
           LagSlayer applies <strong>modern TCP congestion control algorithms</strong>, <strong>fair queueing</strong>, 
           and <strong>optimized buffer management</strong> to prioritize interactive traffic and reduce network jitter.
         </p>
-        
-        <p style="font-size:1.1rem; line-height:1.7; color:var(--text); margin-bottom:1.5rem">
+
+        <p class="copy-line spaced">
           Unlike basic "gaming optimizers," LagSlayer implements <strong>professional-grade kernel parameters</strong> 
           used by network engineers to tune high-performance systems.
         </p>
-        
-        <p style="font-size:1.1rem; line-height:1.7; color:var(--text)">
+
+        <p class="copy-line">
           <strong>Linux ready today</strong>. Windows and macOS support coming soon.
         </p>
       </div>
@@ -554,71 +557,71 @@
       <h3 class="headline" data-aos="fade-up">Choose Your <span class="mark">Plan</span></h3>
       <p class="subline" data-aos="fade-up" data-aos-delay="100">Professional network optimization with ongoing updates and support.</p>
       
-      <div class="pricing-grid" style="display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:2rem">
+      <div class="pricing-grid">
         <!-- Basic Plan -->
-        <div class="price-card" data-aos="fade-up" data-aos-delay="200" style="border:var(--thin) solid transparent; border-image: var(--steel) 1; border-radius:var(--radius); background:linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)); box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35); padding:2rem; text-align:center">
-          <div class="topline" style="margin-bottom:1rem">
-            <h4 style="margin:0 0 .5rem; color:var(--text)">Basic</h4>
-            <span class="badge" style="background:var(--accent2); color:#0a0b0f; padding:.3rem .8rem; border-radius:999px; font-size:.8rem; font-weight:700">Starter</span>
+        <div class="price-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="topline">
+            <h4>Basic</h4>
+            <span class="badge">Starter</span>
           </div>
-          <div class="price" style="font-size:2.5rem; color:var(--accent); font-weight:800; margin:0">$9.99</div>
-          <div class="price-sub" style="color:var(--muted); margin:.5rem 0 1.5rem">/month</div>
-          
-          <ul style="text-align:left; margin:1.5rem 0; color:var(--muted); list-style:none; padding:0">
-            <li style="margin:.75rem 0">⚡ Basic optimization mode</li>
-            <li style="margin:.75rem 0">🐧 Linux support</li>
-            <li style="margin:.75rem 0">📧 Email support</li>
-            <li style="margin:.75rem 0">🔄 Monthly updates</li>
+          <div class="price">$9.99</div>
+          <div class="price-sub">/month</div>
+
+          <ul>
+            <li>⚡ Basic optimization mode</li>
+            <li>🐧 Linux support</li>
+            <li>📧 Email support</li>
+            <li>🔄 Monthly updates</li>
           </ul>
-          
-          <a href="https://square.link/u/lagslayer-basic" class="btn" style="width:100%; justify-content:center; margin-top:1rem; display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">⚡ Start Basic</a>
+
+          <a href="https://square.link/u/lagslayer-basic" class="btn price-btn">⚡ Start Basic</a>
         </div>
 
         <!-- Pro Plan -->
-        <div class="price-card most-popular" data-aos="fade-up" data-aos-delay="300" style="border:var(--thin) solid var(--accent); border-radius:var(--radius); background:linear-gradient(180deg, rgba(0,240,213,.08), rgba(14,18,24,.86), rgba(9,12,17,.92)); box-shadow:var(--shadow), 0 0 25px var(--ring), inset 0 0 1px rgba(0,240,213,.45); padding:2rem; text-align:center; position:relative; transform:scale(1.05)">
-          <div class="topline" style="margin-bottom:1rem">
-            <h4 style="margin:0 0 .5rem; color:var(--text)">Pro</h4>
-            <span class="badge" style="background:var(--accent); color:#0a0b0f; padding:.3rem .8rem; border-radius:999px; font-size:.8rem; font-weight:700">Most Popular</span>
+        <div class="price-card most-popular" data-aos="fade-up" data-aos-delay="300">
+          <div class="topline">
+            <h4>Pro</h4>
+            <span class="badge">Most Popular</span>
           </div>
-          <div class="price" style="font-size:2.5rem; color:var(--accent); font-weight:800; margin:0">$19.99</div>
-          <div class="price-sub" style="color:var(--muted); margin:.5rem 0 1.5rem">/month</div>
-          
-          <ul style="text-align:left; margin:1.5rem 0; color:var(--muted); list-style:none; padding:0">
-            <li style="margin:.75rem 0">⚡ All optimization modes</li>
-            <li style="margin:.75rem 0">🐧 Linux + 🪟 Windows support</li>
-            <li style="margin:.75rem 0">🛡️ Safety reset functionality</li>
-            <li style="margin:.75rem 0">📚 Professional documentation</li>
-            <li style="margin:.75rem 0">💬 Priority support</li>
-            <li style="margin:.75rem 0">🔄 Weekly updates</li>
+          <div class="price">$19.99</div>
+          <div class="price-sub">/month</div>
+
+          <ul>
+            <li>⚡ All optimization modes</li>
+            <li>🐧 Linux + 🪟 Windows support</li>
+            <li>🛡️ Safety reset functionality</li>
+            <li>📚 Professional documentation</li>
+            <li>💬 Priority support</li>
+            <li>🔄 Weekly updates</li>
           </ul>
-          
-          <a href="https://square.link/u/lagslayer-pro" class="btn" style="width:100%; justify-content:center; margin-top:1rem; display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ Start Pro</a>
+
+          <a href="https://square.link/u/lagslayer-pro" class="btn price-btn solid">⚡ Start Pro</a>
         </div>
 
         <!-- Elite Plan -->
-        <div class="price-card" data-aos="fade-up" data-aos-delay="400" style="border:var(--thin) solid transparent; border-image: var(--steel) 1; border-radius:var(--radius); background:linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)); box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35); padding:2rem; text-align:center">
-          <div class="topline" style="margin-bottom:1rem">
-            <h4 style="margin:0 0 .5rem; color:var(--text)">Elite</h4>
-            <span class="badge" style="background:var(--accent4); color:#0a0b0f; padding:.3rem .8rem; border-radius:999px; font-size:.8rem; font-weight:700">Premium</span>
+        <div class="price-card elite" data-aos="fade-up" data-aos-delay="400">
+          <div class="topline">
+            <h4>Elite</h4>
+            <span class="badge">Premium</span>
           </div>
-          <div class="price" style="font-size:2.5rem; color:var(--accent4); font-weight:800; margin:0">$39.99</div>
-          <div class="price-sub" style="color:var(--muted); margin:.5rem 0 1.5rem">/month</div>
-          
-          <ul style="text-align:left; margin:1.5rem 0; color:var(--muted); list-style:none; padding:0">
-            <li style="margin:.75rem 0">⚡ All optimization modes</li>
-            <li style="margin:.75rem 0">🌐 Linux + Windows + macOS</li>
-            <li style="margin:.75rem 0">🛡️ Advanced safety features</li>
-            <li style="margin:.75rem 0">📊 Real-time monitoring</li>
-            <li style="margin:.75rem 0">🎯 Custom optimization profiles</li>
-            <li style="margin:.75rem 0">📞 Phone + chat support</li>
-            <li style="margin:.75rem 0">🔄 Daily updates</li>
+          <div class="price">$39.99</div>
+          <div class="price-sub">/month</div>
+
+          <ul>
+            <li>⚡ All optimization modes</li>
+            <li>🌐 Linux + Windows + macOS</li>
+            <li>🛡️ Advanced safety features</li>
+            <li>📊 Real-time monitoring</li>
+            <li>🎯 Custom optimization profiles</li>
+            <li>📞 Phone + chat support</li>
+            <li>🔄 Daily updates</li>
           </ul>
-          
-          <a href="https://square.link/u/lagslayer-elite" class="btn" style="width:100%; justify-content:center; margin-top:1rem; display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent4); transition:transform .18s ease, background .2s ease">🚀 Start Elite</a>
+
+          <a href="https://square.link/u/lagslayer-elite" class="btn price-btn">🚀 Start Elite</a>
         </div>
       </div>
-      
-      <p style="font-size:.9rem; color:var(--muted); margin-top:2rem; text-align:center">
+
+      <p class="pricing-note">
         <strong>All plans include:</strong> 7-day free trial with subscription • Cancel anytime • 30-day money-back guarantee
       </p>
     </div>
@@ -673,7 +676,7 @@
   <section class="section" id="faq" aria-label="FAQ">
     <h3 class="headline" data-aos="fade-up">Frequently Asked <span class="mark">Questions</span></h3>
     
-    <div style="max-width:800px; margin:2rem auto 0">
+    <div class="faq-wrap">
       <div class="faq-item" data-aos="fade-up">
         <div class="faq-question" onclick="toggleFAQ(this)">
           <span>How does LagSlayer reduce ping?</span>
@@ -733,11 +736,11 @@
     <div class="panel" data-aos="fade-up">
       <h3>Ready to Kill Lag?</h3>
       <p class="subline">Subscribe today and start your 7-day free trial. Experience professional network optimization with full access.</p>
-      <div style="display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; margin-top:1.5rem">
-        <a href="../cart.html?plan=pro" class="btn" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ Start Free Trial</a>
-        <a href="../contact.html" class="btn ghost" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">💬 Ask Questions</a>
+      <div class="cta-actions">
+        <a href="../cart.html?plan=pro" class="btn cta-solid">⚡ Start Free Trial</a>
+        <a href="../contact.html" class="btn ghost cta-ghost">💬 Ask Questions</a>
       </div>
-      <p style="font-size:.9rem; color:var(--muted); margin-top:1rem; text-align:center">
+      <p class="cta-note-sm">
         7-day free trial included • Cancel anytime • Full support included
       </p>
     </div>

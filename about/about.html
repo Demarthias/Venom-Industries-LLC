@@ -39,6 +39,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="../assets/css/inline-fixes.css" />
+
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
@@ -133,6 +135,7 @@
     .site-header{
       position:sticky; top:0; z-index:9999;
       background:rgba(6,7,10,.88);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-bottom:var(--thin) solid transparent;
       border-image: var(--steel) 1;
@@ -273,6 +276,7 @@
     /* Footer */
     .site-footer{
       background: rgba(7,9,13,.8);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
       padding:2rem 1.25rem;
@@ -341,7 +345,7 @@
   <section class="about-hero" aria-label="About Hero">
     <div class="about-inner section">
       <h2 class="headline" data-aos="fade-up">About <span class="mark">VENOM-INDUSTRIES</span></h2>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100" style="font-size:1.2rem; max-width:900px;">
+      <p class="subline" data-aos="fade-up" data-aos-delay="100">
         Performance software engineered for results. We turn frustration into tools that deliver <strong>measurable impact</strong>.
       </p>
     </div>
@@ -350,11 +354,11 @@
   <!-- =========================================================
        Our Story
        ========================================================= -->
-  <section class="mission-bg" aria-label="Our Story" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+  <section class="mission-bg mission-frame" aria-label="Our Story">
     <div class="mission-inner section">
-      <div class="panel" data-aos="fade-up" style="background: rgba(14,18,24,.4); backdrop-filter: blur(8px);">
+      <div class="panel panel-soft" data-aos="fade-up">
         <h3>Our Story</h3>
-        <p style="font-size:1.1rem; line-height:1.7; color:var(--text); max-width:800px; margin:0 auto">
+        <p class="body-copy">
           VENOM-INDUSTRIES was born from late-night frustrations. Lag spikes in critical matches. 
           Resumes disappearing into ATS black holes. Workflows slowed by network bottlenecks.
           <br><br>
@@ -375,7 +379,7 @@
     <div class="mission-inner section">
       <div class="panel" data-aos="fade-up">
         <h3>Our Mission</h3>
-        <p style="font-size:1.15rem; line-height:1.7; color:var(--text); text-align:center">
+        <p class="body-copy-center">
           <strong>Performance First. Results Always.</strong>
           <br><br>
           We don't build software for the sake of it. Every feature, every optimization, every design choice 
@@ -390,7 +394,7 @@
   <!-- =========================================================
        Values
        ========================================================= -->
-  <section class="mission-bg" aria-label="Values" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+  <section class="mission-bg mission-frame" aria-label="Values">
     <div class="mission-inner section">
       <h3 class="headline" data-aos="fade-up">Core <span class="mark">Values</span></h3>
       <p class="subline" data-aos="fade-up" data-aos-delay="100">
@@ -398,22 +402,22 @@
       </p>
       
       <div class="values-grid">
-        <div class="value-card" data-aos="zoom-in" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+        <div class="value-card card-glass" data-aos="zoom-in">
           <h4>⚡ Performance First</h4>
           <p>Every line of code, every feature serves measurable performance. If it doesn't make you faster, stronger, or more successful, it doesn't ship.</p>
         </div>
         
-        <div class="value-card" data-aos="zoom-in" data-aos-delay="100" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+        <div class="value-card card-glass" data-aos="zoom-in" data-aos-delay="100">
           <h4>🎯 Results-Driven</h4>
           <p>Lower ping. Better resumes. Smoother workflows. We measure success by the problems we solve, not the features we add.</p>
         </div>
         
-        <div class="value-card" data-aos="zoom-in" data-aos-delay="200" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+        <div class="value-card card-glass" data-aos="zoom-in" data-aos-delay="200">
           <h4>🛡️ Professional Grade</h4>
           <p>Built for people who demand reliability. Tested thoroughly. Documented completely. Supported professionally.</p>
         </div>
         
-        <div class="value-card" data-aos="zoom-in" data-aos-delay="300" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+        <div class="value-card card-glass" data-aos="zoom-in" data-aos-delay="300">
           <h4>🔧 User-Centric</h4>
           <p>We solve real problems for real people. Every feature request, bug report, and feedback shapes what we build next.</p>
         </div>
@@ -425,28 +429,28 @@
        Team
        ========================================================= -->
 
-  <section class="mission-bg" aria-label="Team" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+  <section class="mission-bg mission-frame" aria-label="Team">
     <div class="mission-inner section">
-      <div class="panel" data-aos="fade-up" style="background: rgba(14,18,24,.4); backdrop-filter: blur(8px);">
+      <div class="panel panel-soft" data-aos="fade-up">
         <h3>The <span class="mark">Team</span></h3>
         <p class="subline">Engineers, designers, and problem-solvers building the future of performance software.</p>
         
         <div class="team-grid">
-          <div class="team-card" data-aos="zoom-in" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <div class="team-card card-glass" data-aos="zoom-in">
             <div class="avatar">🎯</div>
             <h4>Engineering Team</h4>
             <div class="role">Core Development</div>
             <p>Network optimization experts and full-stack engineers building tools that perform under pressure.</p>
           </div>
           
-          <div class="team-card" data-aos="zoom-in" data-aos-delay="100" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <div class="team-card card-glass" data-aos="zoom-in" data-aos-delay="100">
             <div class="avatar">🎨</div>
             <h4>Design Team</h4>
             <div class="role">User Experience</div>
             <p>Creating interfaces that are both beautiful and functional. Every pixel serves performance.</p>
           </div>
           
-          <div class="team-card" data-aos="zoom-in" data-aos-delay="200" style="background: rgba(16,20,26,.6); backdrop-filter: blur(8px);">
+          <div class="team-card card-glass" data-aos="zoom-in" data-aos-delay="200">
             <div class="avatar">🤝</div>
             <h4>Support Team</h4>
             <div class="role">Customer Success</div>
@@ -459,8 +463,8 @@
 
   
   <!-- TEAM -->
-  <section class="team section" id="team" style="background: transparent; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; padding: 4rem 0;">
-    <div style="position: relative; z-index: 1;">
+  <section class="team section section-frame" id="team">
+    <div class="z-layer">
       <h2 class="headline">The One Man <span class="mark">Team</span></h2>
       <div class="team-grid">
         <div class="team-card">
@@ -485,22 +489,22 @@
   <!-- =========================================================
        Call to Action
        ========================================================= -->
-  <section class="mission-bg" aria-label="Join Us" style="background: transparent; position: relative; border-top: var(--thin) solid transparent; border-image: var(--steel) 1; border-bottom: var(--thin) solid transparent; border-image: var(--steel) 1; padding: 4rem 0;">
+  <section class="mission-bg mission-frame" aria-label="Join Us">
     <div class="mission-inner section">
-      <div class="panel" data-aos="fade-up" style="background: rgba(14,18,24,.4); backdrop-filter: blur(8px);">
+      <div class="panel panel-soft" data-aos="fade-up">
         <h3>Ready to Perform?</h3>
         <p class="subline">Experience the VENOM-INDUSTRIES difference. Tools built for results.</p>
-        <p style="text-align:center; color:var(--muted); font-size:.95rem; margin:.5rem 0 1rem; font-style:italic">
+        <p class="cta-note">
           🎯 7-day free trial included with every subscription
         </p>
-        <div style="background:rgba(255,107,157,.1); border:1px solid var(--accent5); border-radius:8px; padding:.75rem; margin:1rem 0; text-align:center;">
-          <div style="color:var(--accent5); font-weight:800; font-size:.9rem;">
+        <div class="promo-box">
+          <div class="promo-text">
             🔥 Launch Pricing: Up to 75% off regular rates • Limited time
           </div>
         </div>
-        <div style="display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center; margin-top:1.5rem">
-          <a href="../products.html" class="btn" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:linear-gradient(90deg, var(--accent), var(--accent2)); color:#0b0e12; box-shadow:0 0 18px var(--ring); transition:transform .18s ease, box-shadow .18s ease">⚡ View Products</a>
-          <a href="../contact.html" class="btn" style="display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em; border:var(--thin) solid transparent; border-image: var(--steel) 1; background:transparent; color:var(--accent); transition:transform .18s ease, background .2s ease">💬 Contact Us</a>
+        <div class="cta-actions">
+          <a href="../products.html" class="btn btn-solid">⚡ View Products</a>
+          <a href="../contact.html" class="btn btn-ghost">💬 Contact Us</a>
         </div>
       </div>
     </div>
