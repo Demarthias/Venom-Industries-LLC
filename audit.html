@@ -419,7 +419,20 @@
       <label>Specific Pain Points</label>
       <textarea name="message" required rows="5" placeholder="What toxins are we hunting for?"></textarea>
       
-      <button type="submit" class="submit-btn">Request Audit</button>
+      <button type="button" class="submit-btn" id="request-audit-btn">Request Audit</button>
+      <script>
+        document.getElementById('request-audit-btn').addEventListener('click', function() {
+          var auditType = document.getElementById('audit_type').value;
+          var paymentLinks = {
+            'syntax_scrub': 'https://buy.stripe.com/28EbJ1bP89hu96q8Rw3F601',
+            'venom_protocol': 'https://buy.stripe.com/8x228r5qKeBOgySd7M3F602',
+            'custom': 'https://buy.stripe.com/7sY28r9H065i6Yi9VA3F603'
+          };
+          var link = paymentLinks[auditType] || paymentLinks['custom'];
+          window.open(link, '_blank');
+          alert('After completing payment, please return to this page and submit the form to finalize your audit request.');
+        });
+      </script>
     </form>
   </div>
 
