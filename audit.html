@@ -375,18 +375,30 @@
       <label>Specific Pain Points</label>
       <textarea name="message" required rows="5" placeholder="What toxins are we hunting for?"></textarea>
       
-      <button type="button" class="submit-btn" id="request-audit-btn">Request Audit</button>
+      <button type="submit" class="submit-btn" id="request-audit-btn">Request Audit</button>
       <script>
-        document.getElementById('request-audit-btn').addEventListener('click', function() {
+        document.getElementById('audit-form').addEventListener('submit', function(e) {
+          e.preventDefault();
           var auditType = document.getElementById('audit_type').value;
           var paymentLinks = {
             'syntax_scrub': 'https://buy.stripe.com/28EbJ1bP89hu96q8Rw3F601',
             'venom_protocol': 'https://buy.stripe.com/8x228r5qKeBOgySd7M3F602',
             'custom': 'https://buy.stripe.com/7sY28r9H065i6Yi9VA3F603'
           };
-          var link = paymentLinks[auditType] || paymentLinks['custom'];
-          window.open(link, '_blank');
-          alert('After completing payment, please return to this page and submit the form to finalize your audit request.');
+          var formData = new FormData(this);
+          fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(function(response) {
+            if (response.ok) {
+              window.location.href = paymentLinks[auditType] || paymentLinks['custom'];
+            } else {
+              alert('There was an error submitting the form. Please try again.');
+            }
+          });
         });
       </script>
     </form>

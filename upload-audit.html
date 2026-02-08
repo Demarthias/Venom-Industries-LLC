@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venom Audit - Upload</title>
+    <style>
+        body { background: #121212; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: #1e1e1e; padding: 2rem; border-radius: 12px; border: 1px solid #333; width: 100%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        h2 { color: #00ff9d; text-align: center; margin-bottom: 1.5rem; }
+        label { display: block; margin: 10px 0 5px; color: #aaa; font-size: 0.9rem; }
+        input, select, textarea { width: 100%; padding: 10px; background: #2c2c2c; border: 1px solid #444; color: white; border-radius: 4px; box-sizing: border-box; }
+        input:focus, select:focus, textarea:focus { border-color: #00ff9d; outline: none; }
+        button { background: #00ff9d; color: #000; width: 100%; padding: 12px; margin-top: 20px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #00cc7a; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🚀 Submit Audit Details</h2>
+    <form action="https://formsubmit.co/kubegrayson@gmail.com" method="POST" enctype="multipart/form-data">
+        
+        <input type="hidden" name="_next" value="https://venomindustries.com">
+        <input type="hidden" name="_subject" value="New Audit Submission!">
+        <input type="hidden" name="_captcha" value="false">
+
+        <label>Project Name</label>
+        <input type="text" name="project_name" required placeholder="e.g. My SaaS App">
+
+        <label>Source Type</label>
+        <select name="source_type">
+            <option value="Public Repo">Public Repo</option>
+            <option value="Private Repo">Private Repo (Invite Me)</option>
+            <option value="Zip File">Zip File Upload</option>
+        </select>
+
+        <label>Repo URL (If applicable)</label>
+        <input type="url" name="repo_url" placeholder="https://github.com/...">
+
+        <label>Upload File (Max 25MB)</label>
+        <input type="file" name="attachment" accept=".zip,.pdf,.docx">
+
+        <label>Notes</label>
+        <textarea name="message" rows="4" placeholder="Specific instructions..."></textarea>
+
+        <button type="submit">SEND DATA</button>
+    </form>
+</div>
+
+</body>
+</html>
