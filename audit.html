@@ -37,7 +37,7 @@
 
     /* --- NAVIGATION BAR --- */
     .site-header {
-      background: #000000; /* Solid black like screenshot */
+      background: #000000;
       border-bottom: 1px solid rgba(45, 245, 175, 0.1);
       padding: 0.8rem 2rem;
       display: flex;
@@ -45,7 +45,7 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
-      z-index: 9999; /* Ensure it stays on top */
+      z-index: 9999;
       box-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
 
@@ -72,14 +72,9 @@
       text-transform: uppercase;
     }
     
-    .brand-title span {
-      color: #fff; /* Make 'INDUSTRIES' white/lighter if desired */
-    }
+    .brand-title span { color: #fff; }
 
-    .nav-container {
-      display: flex;
-      align-items: center;
-    }
+    .nav-container { display: flex; align-items: center; }
 
     .menu {
       display: flex;
@@ -87,7 +82,7 @@
       margin: 0;
       padding: 0;
       gap: 0.5rem;
-      flex-wrap: wrap; /* Allows wrapping on small screens instead of disappearing */
+      flex-wrap: wrap;
     }
 
     .menu a {
@@ -96,10 +91,10 @@
       font-weight: 600;
       font-size: 0.9rem;
       padding: 0.5rem 1.2rem;
-      border-radius: 999px; /* Pill shape */
+      border-radius: 999px;
       transition: all 0.2s ease;
       font-family: 'Inter', sans-serif;
-      border: 1px solid transparent; /* Prevent layout shift on hover */
+      border: 1px solid transparent;
     }
 
     .menu a:hover {
@@ -107,7 +102,6 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
-    /* ACTIVE STATE - The Pill Style */
     .menu a.active {
       color: var(--accent);
       border: 1px solid var(--accent);
@@ -157,6 +151,38 @@
     .grid-3 h5 { font-family: 'Orbitron', sans-serif; color: var(--accent); font-size: 1.1rem; margin-bottom: 0.5rem; }
     .grid-3 p { margin: 0; line-height: 1.5; font-size: 0.95rem; }
 
+    /* PRICING CARDS */
+    .pricing-card {
+      background: #12141a;
+      border: 1px solid #333;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: left;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+    .pricing-card.featured {
+      background: rgba(45, 245, 175, 0.05);
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 20px rgba(45, 245, 175, 0.1);
+    }
+    .price-tag { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+    .tier-title { color: var(--accent); margin: 0 0 0.5rem 0; font-family: 'Orbitron', sans-serif; }
+    .tier-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; font-size: 0.85rem; color: #9ca3af; line-height: 1.6; }
+    .tier-btn {
+      display: block; text-align: center; padding: 0.8rem; border-radius: 6px; 
+      text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.2s;
+    }
+    .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
+    .btn-outline:hover { background: var(--accent); color: #000; }
+    .btn-solid { background: var(--accent); color: #000; }
+    .btn-solid:hover { background: #fff; box-shadow: 0 0 15px rgba(45,245,175,0.4); }
+    .btn-dark { background: #222; color: #fff; }
+    .btn-dark:hover { background: #333; }
+
     /* FORM */
     form {
       background: #0d0f14;
@@ -166,6 +192,7 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
       max-width: 700px;
       margin: 3rem auto;
+      scroll-margin-top: 100px; /* Offset for sticky header */
     }
     label {
       display: block;
@@ -227,7 +254,6 @@
     .footer-col a:hover { color: var(--accent); }
     .copyright { text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.5rem; font-family: monospace; font-size: 0.8rem; }
 
-    /* Mobile Responsive Fixes */
     @media (max-width: 960px) {
       .site-header { flex-direction: column; gap: 1rem; padding: 1rem; }
       .menu { justify-content: center; }
@@ -242,7 +268,6 @@
       <img src="assets/images/brand/venom-icon2.png" alt="Venom Logo" />
       <h1 class="brand-title">VENOM <span>INDUSTRIES</span></h1>
     </a>
-    
     <nav class="nav-container">
       <ul class="menu">
         <li><a href="index.html">Home</a></li>
@@ -262,7 +287,7 @@
     
     <div class="panel">
       <h4>A Venom-Audit is a ruthless, comprehensive interrogation.</h4>
-      <p>It isn’t restricted to just syntax and servers; it’s a methodology of extreme scrutiny applied to everything—from the fine print of a business strategy to the structural integrity of a complex workflow. We hunt for the friction points, the hidden "toxins," and the invisible inefficiencies that standard reviews miss.</p>
+      <p>It isn’t restricted to just syntax and servers; it’s a methodology of extreme scrutiny applied to everything—from the fine print of a business strategy to the structural integrity of a complex workflow. We hunt for the friction points, the hidden "toxins," and the invisible inefficiencies.</p>
     </div>
 
     <div class="panel">
@@ -283,7 +308,93 @@
       </div>
     </div>
 
-    <form action="https://formspree.io/f/xnjbnakq" method="POST">
+    <div class="panel panel-accent-border">
+      <h4 class="panel-title-white">Immediate Deployment Protocols</h4>
+      <p class="panel-desc">Skip the queue. Secure a dedicated Venom engineer for immediate diagnostics.</p>
+      
+      <div class="grid-3">
+        
+        <div class="pricing-card">
+          <h5 class="tier-title">Syntax Scrub</h5>
+          <div class="price-tag">$149</div>
+          <ul class="tier-list">
+            <li>✓ Single Repo Analysis</li>
+            <li>✓ Performance Bottlenecks</li>
+            <li>✓ 24-Hour Report Turnaround</li>
+          </ul>
+          <!-- Deploy Scan button removed -->
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge-popular">POPULAR</div>
+          <h5 class="tier-title tier-title-white">Venom Protocol</h5>
+          <div class="price-tag">$499</div>
+          <ul class="tier-list tier-list-white">
+            <li>✓ Full Stack & Security Audit</li>
+            <li>✓ Database Optimization</li>
+            <li>✓ 1-Hour Strategy Call</li>
+            <li>✓ Fix Implementation Plan</li>
+          </ul>
+          <!-- Initialize button removed -->
+        </div>
+
+        <div class="pricing-card">
+          <h5 class="tier-title">Enterprise</h5>
+          <div class="price-tag">Custom</div>
+          <ul class="tier-list">
+            <li>✓ Multi-Repo / Microservices</li>
+            <li>✓ Business Logic Overhaul</li>
+            <li>✓ Ongoing Retainer Options</li>
+          </ul>
+          <!-- Request Quote button removed -->
+        </div>
+
+      </div>
+        <p style="margin-top: 1.5rem; font-size: 0.75rem; color: #666; font-family: monospace;">* Payment is processed securely via Stripe. Deliverables sent via encrypted channel.</p>
+      </div>
+      <div class="panel" style="border-color: rgba(45, 245, 175, 0.4);">
+        <h4 style="color: #fff; margin-bottom: 0.5rem;">Immediate Deployment Protocols</h4>
+        <p style="font-size: 0.9rem; margin-bottom: 2rem;">Skip the queue. Secure a dedicated Venom engineer for immediate diagnostics.</p>
+        <div class="grid-3">
+          <div class="pricing-card">
+            <h5 class="tier-title">Syntax Scrub</h5>
+            <div class="price-tag">$149</div>
+            <ul class="tier-list">
+              <li>✓ Single Repo Analysis</li>
+              <li>✓ Performance Bottlenecks</li>
+              <li>✓ 24-Hour Report Turnaround</li>
+            </ul>
+            <a href="https://buy.stripe.com/28EbJ1bP89hu96q8Rw3F601" class="tier-btn btn-outline">Deploy Scan</a>
+          </div>
+
+          <div class="pricing-card featured">
+            <div style="position: absolute; top: -12px; right: 20px; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px;">POPULAR</div>
+            <h5 class="tier-title">Venom Protocol</h5>
+            <div class="price-tag">$499</div>
+            <ul class="tier-list" style="color: #e5e7eb;">
+              <li>✓ Full Stack & Security Audit</li>
+              <li>✓ Database Optimization</li>
+              <li>✓ 1-Hour Strategy Call</li>
+              <li>✓ Fix Implementation Plan</li>
+            </ul>
+            <a href="https://buy.stripe.com/8x228r5qKeBOgySd7M3F602" class="tier-btn btn-solid">Initialize</a>
+          </div>
+
+          <div class="pricing-card">
+            <h5 class="tier-title">Enterprise</h5>
+            <div class="price-tag">$1,500<span style="font-size:1rem; color:#666;">+</span></div>
+            <ul class="tier-list">
+              <li>✓ Multi-Repo / Microservices</li>
+              <li>✓ Business Logic Overhaul</li>
+              <li>✓ Ongoing Retainer Options</li>
+            </ul>
+            <a href="https://buy.stripe.com/7sY28r9H065i6Yi9VA3F603" class="tier-btn btn-dark">Secure Booking</a>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.75rem; color: #666; font-family: monospace;">* Payment is processed securely via Stripe. Deliverables sent via encrypted channel.</p>
+      </div>
+
+    <form id="audit-form" action="https://formspree.io/f/xnjbnakq" method="POST">
       <div class="audit-form-grid">
         <div>
           <label>Lead Identifier</label>
@@ -297,11 +408,9 @@
 
       <label for="audit_type">Audit Vector</label>
       <select name="audit_type" id="audit_type" title="Select the type of audit you want to request">
-        <option value="code_website">Full-Stack Code / Website</option>
-        <option value="business_logic">Business Logic & Workflow</option>
-        <option value="strategic">Strategic Market Analysis</option>
-        <option value="security">Security & Vulnerability</option>
-        <option value="other">Other / Custom Inquiry</option>
+        <option value="syntax_scrub">Syntax Scrub</option>
+        <option value="venom_protocol">Venom Protocol</option>
+        <option value="custom">Custom</option>
       </select>
 
       <label>Target Asset (URL or Repo)</label>
