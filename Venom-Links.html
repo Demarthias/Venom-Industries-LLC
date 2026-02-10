@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venom Industries | The Stack</title>
+    <style>
+        /* (Same CSS as before - keeping the Dark/Tech Theme) */
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-primary: #00ff9d;
+            --accent-secondary: #7000ff;
+            --border-color: #333;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-main); }
+        /* ... (rest of CSS remains compatible) ... */
+        
+        /* Updated Disclosure Box Style for a more "Terminal/System Message" look */
+        .disclosure {
+            background: rgba(42, 42, 48, 0.5);
+            border-left: 3px solid var(--accent-primary);
+            padding: 1.2rem;
+            font-size: 0.95rem;
+            color: #ccc;
+            max-width: 650px;
+            margin: 2rem auto 0;
+            text-align: left;
+            font-family: 'Courier New', monospace; /* Monospace for that 'log' feel */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand" style="font-weight:800; font-size:1.5rem;">Venom<span style="color:#00ff9d">Industries</span></div>
+    </nav>
+
+    <section class="hero" style="text-align:center; max-width:800px; margin:4rem auto;">
+        <h1 style="font-size:3rem; margin-bottom:1rem;">Verified Architecture</h1>
+        <p style="color:#a0a0a0; font-size:1.1rem; line-height:1.6;">
+            We don't rely on luck; we rely on robust systems. <br>
+            Below is the specific infrastructure we use to deploy, scale, and maintain our digital territory. 
+            These aren't suggestions—they are dependencies.
+        </p>
+        
+        <div class="disclosure">
+            <strong>> SYSTEM_NOTE: RESOURCE ALLOCATION</strong><br><br>
+            These are direct-line access points. When you initialize your setup through these specific gateways, our partners recognize the handshake and allocate operational resources back to the Venom R&D lab.
+            <br><br>
+            It creates a closed efficiency loop: You secure top-tier tooling, and we secure the bandwidth to keep building. Zero cost to you. Maximum output for us.
+        </div>
+    </section>
+
+    <div class="grid-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem; max-width:1200px; margin:4rem auto; padding:0 1rem;">
+        
+        <div class="card" style="background:#1a1a1e; padding:2rem; border-radius:12px; border:1px solid #333;">
+            <h3 style="margin-bottom:0.5rem; color:#fff;">ProtonVPN</h3>
+            <p style="color:#a0a0a0; font-size:0.9rem; margin-bottom:1.5rem;">
+                <strong>Protocol:</strong> Data Sovereignty.<br>
+                Your traffic is your business. We use Proton to ensure our packets leave the machine strictly on a need-to-know basis. Swiss-based. Log-free. 
+            </p>
+            <a href="#" style="color:#00ff9d; text-decoration:none; font-weight:bold; border:1px solid #00ff9d; padding:0.5rem 1rem; border-radius:4px; display:block; text-align:center;">Secure Link ></a>
+        </div>
+
+        <div class="card" style="background:#1a1a1e; padding:2rem; border-radius:12px; border:1px solid #333;">
+            <h3 style="margin-bottom:0.5rem; color:#fff;">Shopify</h3>
+            <p style="color:#a0a0a0; font-size:0.9rem; margin-bottom:1.5rem;">
+                <strong>Protocol:</strong> Commerce Engine.<br>
+                We prefer coding features, not billing systems. Shopify handles the transactional heavy lifting so we can focus on the product logic.
+            </p>
+            <a href="#" style="color:#00ff9d; text-decoration:none; font-weight:bold; border:1px solid #00ff9d; padding:0.5rem 1rem; border-radius:4px; display:block; text-align:center;">Deploy Store ></a>
+        </div>
+
+        <div class="card" style="background:#1a1a1e; padding:2rem; border-radius:12px; border:1px solid #333;">
+            <h3 style="margin-bottom:0.5rem; color:#fff;">DigitalOcean</h3>
+            <p style="color:#a0a0a0; font-size:0.9rem; margin-bottom:1.5rem;">
+                <strong>Protocol:</strong> Cloud Scalability.<br>
+                The cleanest API in the cloud game. We spin up Droplets for testing environments because waiting for provisioning is inefficient.
+            </p>
+            <a href="#" style="color:#00ff9d; text-decoration:none; font-weight:bold; border:1px solid #00ff9d; padding:0.5rem 1rem; border-radius:4px; display:block; text-align:center;">Initialize Server ></a>
+        </div>
+
+    </div>
+
+    <footer style="text-align:center; color:#666; padding:3rem 0; font-size:0.8rem;">
+        VENOM INDUSTRIES LLC // FORT COLLINS, CO<br>
+        End of Line.
+    </footer>
+
+</body>
+</html>
