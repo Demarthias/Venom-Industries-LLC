@@ -134,9 +134,9 @@
             margin-bottom: 5rem;
         }
 
-        /* NEW TITLE STYLES WITH EFFECTS */
+        /* TITLE WITH NEON EFFECTS */
         h1.venom-title {
-            font-family: 'Orbitron', sans-serif; /* Match logo font for impact */
+            font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             font-size: 3.5rem;
             text-transform: uppercase;
@@ -144,18 +144,12 @@
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
-
-            /* Gradient Text Fill */
             background: linear-gradient(135deg, #fff 20%, var(--venom-cyan) 50%, var(--venom-blue) 80%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* Neon Glow Shadow */
             text-shadow: 0 0 10px rgba(0, 240, 255, 0.3),
                          0 0 25px rgba(0, 240, 255, 0.2),
                          0 0 40px rgba(37, 99, 235, 0.2);
-
-            /* Subtle Pulse Animation */
             animation: titlePulse 3s ease-in-out infinite alternate;
         }
 
@@ -164,7 +158,6 @@
             100% { filter: brightness(1.2); text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 50px rgba(0, 240, 255, 0.3); }
         }
 
-        /* SEO SUMMARY STYLE */
         .seo-summary {
             color: var(--text-gray);
             font-size: 1.15rem;
@@ -200,7 +193,7 @@
         }
 
         .card-label {
-            color: var(--venom-blue); /* Matches screenshot blue text */
+            color: var(--venom-blue);
             font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -257,7 +250,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr; /* Matches visual weight */
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 4rem;
             margin-bottom: 4rem;
         }
@@ -319,20 +312,20 @@
 <body>
 
     <header>
-        <a href="#" class="brand-wrapper">
+        <a href="index.html" class="brand-wrapper">
             <div class="logo-icon"></div>
             <span class="brand-text">VENOM INDUSTRIES</span>
         </a>
         <nav>
             <ul>
-                <li><a href="#" class="nav-pill">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Audit</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
+                <li><a href="index.html" class="nav-pill">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="audit.html">Audit</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
             </ul>
         </nav>
     </header>
@@ -340,13 +333,24 @@
     <main>
         <div class="page-header">
             <h1 class="venom-title">VENOM-LINKS</h1>
-            
             <p class="seo-summary">
                 Access the Venom-Links partner nexus—your direct gateway to vetted operational resources for scaling enterprises, gamers, and high-performance professionals. Establish secure protocols for immediate business liquidity injection, certified real-time technical diagnostics, and rugged enterprise-grade hardware upgrades. Optimize your infrastructure with tools engineered for results.
             </p>
         </div>
 
         <div class="card-grid">
+
+            <div class="card">
+                <div>
+                    <span class="card-label">Hardware Specs</span>
+                    <h2>Dynabook</h2>
+                    <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. Tools for field ops.</p>
+                </div>
+                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=22649&c=918277&a=785240&k=BA91F9BAB07A5C9400E969E1128FC084&l=23509&s1=venom_website&s2=resource_card&s3=links_page" 
+                   target="_blank" rel="noopener noreferrer" class="btn-primary">
+                   UPGRADE HARDWARE
+                </a>
+            </div>
 
             <div class="card">
                 <div>
@@ -357,18 +361,6 @@
                 <a href="https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
                    target="_blank" rel="noopener noreferrer" class="btn-primary">
                    INITIALIZE FUNDING
-                </a>
-            </div>
-
-            <div class="card">
-                <div>
-                    <span class="card-label">Technical Diagnostics</span>
-                    <h2>Car Mechanic Expert</h2>
-                    <p>Don't guess at hardware failures. Get instant access to certified mechanics for real-time diagnostics and repair verification. Validated expert advice.</p>
-                </div>
-                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=26632&c=918277&a=785240&k=87D8CEAD5A851A6F94035B3AD528EA8C&l=28255&s1=venom_website&s3=links_page" 
-                   target="_blank" rel="noopener noreferrer" class="btn-primary">
-                   ASK A MECHANIC
                 </a>
             </div>
 
@@ -389,34 +381,30 @@
 
     <footer>
         <div class="footer-grid">
-            
             <div class="footer-col">
                 <h4>VENOM-INDUSTRIES</h4>
                 <p class="footer-text">Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
             </div>
-
             <div class="footer-col">
                 <h4>Navigate</h4>
                 <ul class="footer-list">
-                    <li><a href="#">Products</a></li>
+                    <li><a href="products.html">Products</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul class="footer-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Venom Links</a></li>
-                    <li><a href="#">Audit</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="venom-links.html">Venom Links</a></li>
+                    <li><a href="audit.html">Audit</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
                 </ul>
             </div>
-
         </div>
 
         <div class="footer-bottom">
