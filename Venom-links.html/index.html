@@ -1,3 +1,20 @@
+Here is the updated code with Proton VPN added as the 4th card.
+
+Updates Made:
+
+Added Card 4 (Proton VPN):
+
+Title: Proton VPN.
+
+Description: Written for high SEO ranking (keywords: high-speed encryption, zero-logs, privacy, secure internet).
+
+Link 1 (Primary): "DEPLOY VPN" -> Points to the specific affiliate link you provided (o=29051).
+
+Link 2 (Secondary): "READ ANALYSIS" -> Points to blog.html (so users can read your review/blog post, which you can then link back to the affiliate offer).
+
+CSS Update: Added the .btn-secondary class to style the "Read Analysis" button as a cool cyan outline button to differentiate it from the main affiliate button.
+
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +28,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            /* Exact Colors from Screenshots */
+            /* Exact Colors */
             --venom-cyan: #00f0ff;       /* Logo & Home Button */
             --venom-blue: #2563eb;       /* Card Buttons */
             --venom-blue-hover: #1d4ed8;
@@ -36,7 +53,7 @@
             background-attachment: fixed;
         }
 
-        /* --- 1. HEADER (EXACT REPLICA) --- */
+        /* --- 1. HEADER --- */
         header {
             background-color: var(--bg-black);
             height: 80px;
@@ -70,7 +87,6 @@
             box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
         }
         
-        /* Placeholder 'V' inside logo box */
         .logo-icon::after {
             content: 'V';
             font-family: 'Orbitron', sans-serif;
@@ -203,7 +219,7 @@
         }
 
         .card h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: #fff;
@@ -216,7 +232,14 @@
             font-size: 1rem;
         }
 
-        /* BLUE BUTTONS */
+        /* ACTIONS CONTAINER */
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* PRIMARY BLUE BUTTON (Solid) */
         .btn-primary {
             display: block;
             width: 100%;
@@ -231,13 +254,37 @@
             border-radius: 6px;
             transition: background-color 0.2s;
             letter-spacing: 0.5px;
+            border: none;
         }
 
         .btn-primary:hover {
             background-color: var(--venom-blue-hover);
         }
 
-        /* --- 3. FOOTER (EXACT 3-COLUMN LAYOUT) --- */
+        /* SECONDARY CYAN OUTLINE BUTTON (For Blog Links) */
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            background-color: transparent;
+            color: var(--venom-cyan);
+            border: 1px solid var(--venom-cyan);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+        }
+
+        /* --- 3. FOOTER --- */
         footer {
             background-color: var(--bg-black);
             padding: 5rem 2rem 0 2rem;
@@ -342,38 +389,62 @@
 
             <div class="card">
                 <div>
-                    <span class="card-label">Hardware Specs</span>
-                    <h2>Dynabook</h2>
+                    <span class="card-label">Official Partner</span>
+                    <h2>Dynabook: Laptops SmartGlasses and Accessories</h2>
                     <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. Tools for field ops.</p>
                 </div>
-                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=22649&c=918277&a=785240&k=BA91F9BAB07A5C9400E969E1128FC084&l=23509&s1=venom_website&s2=resource_card&s3=links_page" 
-                   target="_blank" rel="noopener noreferrer" class="btn-primary">
-                   UPGRADE HARDWARE
-                </a>
+                <div class="card-actions">
+                    <a href="https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
+                       target="_blank" rel="noopener noreferrer" class="btn-primary">
+                       UPGRADE HARDWARE
+                    </a>
+                </div>
             </div>
 
             <div class="card">
                 <div>
                     <span class="card-label">Liquidity Injection</span>
-                    <h2>Moto Capital</h2>
-                    <p>Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway, not debt.</p>
+                    <h2>MotoFunds</h2>
+                    <p>Unlock your business potential with MotoFunds. Secure rapid financing and liquidity to manage cash flow, expand operations, and keep your enterprise moving forward.</p>
                 </div>
-                <a href="https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
-                   target="_blank" rel="noopener noreferrer" class="btn-primary">
-                   INITIALIZE FUNDING
-                </a>
+                <div class="card-actions">
+                    <a href="https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=26632&c=918277&a=785240&k=87D8CEAD5A851A6F94035B3AD528EA8C&l=28255&s1=venom_website&s2=resource_card&s3=links_page" 
+                       target="_blank" rel="noopener noreferrer" class="btn-primary">
+                       INITIALIZE FUNDING
+                    </a>
+                </div>
             </div>
 
             <div class="card">
                 <div>
-                    <span class="card-label">Hardware Specs</span>
-                    <h2>Dynabook</h2>
-                    <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. Tools for field ops.</p>
+                    <span class="card-label">Technical Diagnostics</span>
+                    <h2>Car Mechanic</h2>
+                    <p>Mechanical Consultation! Know what might be wrong with your car before even leaving home. Connect with certified mechanics for real-time diagnostics and avoid unnecessary repair costs.</p>
                 </div>
-                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=22649&c=918277&a=785240&k=BA91F9BAB07A5C9400E969E1128FC084&l=23509&s1=venom_website&s2=resource_card&s3=links_page" 
-                   target="_blank" rel="noopener noreferrer" class="btn-primary">
-                   UPGRADE HARDWARE
-                </a>
+                <div class="card-actions">
+                    <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=22649&c=918277&a=785240&k=BA91F9BAB07A5C9400E969E1128FC084&l=23509&s1=venom_website&s2=resource_card&s3=links_page" 
+                       target="_blank" rel="noopener noreferrer" class="btn-primary">
+                       ASK A MECHANIC
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <span class="card-label">Cybersecurity</span>
+                    <h2>Proton VPN</h2>
+                    <p>Defend your digital perimeter with Proton VPN. High-speed Swiss encryption, strict no-logs policy, and secure core architecture ensure total anonymity and data protection for sensitive operations.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=29051&c=918277&a=785240&k=03B17F6A9A379B464EB77C5AFF5CE4F9&l=32781&s1=venom_website&s2=resource_card&s3=links_page" 
+                       target="_blank" rel="noopener noreferrer" class="btn-primary">
+                       DEPLOY VPN
+                    </a>
+                    
+                    <a href="blog.html" class="btn-secondary">
+                       READ ANALYSIS
+                    </a>
+                </div>
             </div>
 
         </div>
