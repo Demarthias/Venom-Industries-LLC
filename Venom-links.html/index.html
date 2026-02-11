@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VENOM INDUSTRIES | Venom Links</title>
+    <meta name="description" content="Venom-Links: Direct access to vetted operational resources for scaling enterprises, gamers, and professionals. Secure funding, technical diagnostics, and enterprise hardware.">
+    <title>VENOM INDUSTRIES | Venom-Links</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & VARIABLES --- */
@@ -133,20 +134,44 @@
             margin-bottom: 5rem;
         }
 
-        h1 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: 3rem;
-            color: #fff;
-            margin-bottom: 1rem;
+        /* NEW TITLE STYLES WITH EFFECTS */
+        h1.venom-title {
+            font-family: 'Orbitron', sans-serif; /* Match logo font for impact */
+            font-weight: 900;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+
+            /* Gradient Text Fill */
+            background: linear-gradient(135deg, #fff 20%, var(--venom-cyan) 50%, var(--venom-blue) 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Neon Glow Shadow */
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3),
+                         0 0 25px rgba(0, 240, 255, 0.2),
+                         0 0 40px rgba(37, 99, 235, 0.2);
+
+            /* Subtle Pulse Animation */
+            animation: titlePulse 3s ease-in-out infinite alternate;
         }
 
-        .subtitle {
+        @keyframes titlePulse {
+            0% { filter: brightness(1); text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+            100% { filter: brightness(1.2); text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 50px rgba(0, 240, 255, 0.3); }
+        }
+
+        /* SEO SUMMARY STYLE */
+        .seo-summary {
             color: var(--text-gray);
-            font-size: 1.1rem;
-            max-width: 700px;
+            font-size: 1.15rem;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         /* CARD GRID */
@@ -314,8 +339,11 @@
 
     <main>
         <div class="page-header">
-            <h1>Command & Control</h1>
-            <p class="subtitle">Direct-line access points to our partner network. Secure your resources and allocate operational bandwidth effectively.</p>
+            <h1 class="venom-title">VENOM-LINKS</h1>
+            
+            <p class="seo-summary">
+                Access the Venom-Links partner nexus—your direct gateway to vetted operational resources for scaling enterprises, gamers, and high-performance professionals. Establish secure protocols for immediate business liquidity injection, certified real-time technical diagnostics, and rugged enterprise-grade hardware upgrades. Optimize your infrastructure with tools engineered for results.
+            </p>
         </div>
 
         <div class="card-grid">
