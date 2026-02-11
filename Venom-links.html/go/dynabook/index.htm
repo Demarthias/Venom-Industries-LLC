@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venom Industries | Command & Control</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0c;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-green: #00ff9d;
+            --accent-purple: #7000ff;
+            --border-color: #333;
+            --font-stack: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- KALI BACKGROUND LAYER --- */
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .background-layer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Dark gradient overlay so text remains readable */
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.7), rgba(10, 10, 12, 0.95));
+            z-index: 2;
+        }
+
+        .background-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* --- HEADER (FIXED BLUR) --- */
+        header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            /* Glassmorphism Fix */
+            background: rgba(15, 15, 17, 0.6);
+            -webkit-backdrop-filter: blur(12px); /* Safari/Chrome */
+            backdrop-filter: blur(12px);         /* Standard */
+            
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .brand span {
+            color: var(--accent-green);
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.4);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #fff, var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .disclosure {
+            background: rgba(20, 20, 24, 0.6);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            border-left: 3px solid var(--accent-green);
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-align: left;
+            font-family: var(--font-mono);
+            margin-top: 2rem;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* --- GRID SYSTEM --- */
+        .grid-container {
+            max-width: 1200px;
+            margin: 2rem auto 4rem;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* --- CARD STYLING (FIXED BLUR) --- */
+        .card {
+            /* Glassmorphism Fix */
+            background-color: rgba(20, 20, 24, 0.5); 
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .protocol-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .log-entry {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-left: 2px solid var(--accent-purple);
+            margin-bottom: 1.5rem;
+            color: #ccc;
+            white-space: pre-line;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            background: rgba(0, 255, 157, 0.05);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            
+            /* Glass Footer */
+            background: rgba(15, 15, 17, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            
+            margin-top: auto;
+            font-family: var(--font-mono);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-layer">
+        <img src="kali.jpg" alt="Kali Linux Background">
+    </div>
+
+    <header>
+        <div class="brand">Venom<span>Industries</span></div>
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-green);">
+            [SYSTEM: ONLINE]
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Command & Control</h1>
+        <div class="disclosure">
+            <strong>> PROTOCOL: RESOURCE ALLOCATION</strong><br><br>
+            These are direct-line access points. Initialize your setup through these specific gateways. Our partners recognize the handshake and allocate operational resources back to the Venom R&D lab.<br><br>
+            It creates a closed efficiency loop: You secure top-tier tooling; we secure the bandwidth to keep building. Zero cost to you. Maximum output for us.
+        </div>
+    </section>
+
+    <div class="grid-container">
+        
+        <div class="card">
+            <div class="card-header">
+                <span class="protocol-title">// Protocol: Liquidity Injection</span>
+                <h3>Moto Capital</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">
+                    Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway, not debt.
+                </p>
+                <div class="log-entry">
+> SYSTEM_STATUS: STANDBY
+> USE_CASE: Emergency OpEx
+> LATENCY: Minimal (< 24hrs)
+                </div>
+                <a href="/go/moto" class="btn" target="_blank">Initialize Funding ></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="protocol-title">// Protocol: Idle Cycle Monetization</span>
+                <h3>Survey Junkie</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">
+                    Your data is already being harvested. Monetize your "dead time" by running this background process. Turn market feedback into a tangible asset while your code compiles.
+                </p>
+                <div class="log-entry">
+> SYSTEM_STATUS: ACTIVE
+> USE_CASE: Fiat Generation
+> EFFICIENCY: High (Zero Skill)
+                </div>
+                <a href="/go/survey" class="btn" target="_blank">Start Earning ></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="protocol-title">// Protocol: Mobile Command Units</span>
+                <h3>Dynabook</h3>
+            </div>
+            <div class="card-body">
+                <p class="description">
+                    Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. From ultra-light Portégés to dynaEdge AR glasses, these are tools for field ops.
+                </p>
+                <div class="log-entry">
+> SYSTEM_STATUS: VERIFIED
+> INVENTORY: Rugged Laptops / AR
+> VERDICT: Field-Ready
+                </div>
+                <a href="/go/dynabook" class="btn" target="_blank">Upgrade Hardware ></a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        VENOM INDUSTRIES LLC // EST. 2024 // FORT COLLINS, CO<br>
+        > END OF LINE.
+    </footer>
+
+</body>
+</html>
