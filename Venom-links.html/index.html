@@ -1,14 +1,3 @@
-Here is the updated code.
-
-Changes Made:
-
-Green Removed: Replaced the "hacker green" with the Blue (#3b82f6) and Clean White style from your original landing page request.
-
-Font Updated: Switched from the "terminal" font to a modern Sans-Serif (Inter) to match a professional SaaS look.
-
-Links Integrated: I have embedded your three specific affiliate links into the buttons in the order you provided (Moto Capital, Survey Junkie, Dynabook).
-
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,38 +10,36 @@ HTML
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         :root {
-            /* BRAND COLORS (Matching your Landing Page) */
             --brand-blue: #3b82f6;
-            --brand-blue-hover: #2563eb;
+            --brand-dark-blue: #1d4ed8;
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
             --bg-dark: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7); /* Dark slate with transparency */
+            --card-bg: rgba(30, 41, 59, 0.6); /* Glassy Slate */
             --border-color: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Clean, modern font */
+            font-family: 'Inter', sans-serif;
             color: var(--text-primary);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            
-            /* BACKGROUND */
             background-color: var(--bg-dark);
             background-image: 
-                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), /* Heavy slate overlay */
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)),
                 url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            overflow-x: hidden;
         }
 
         /* --- 2. HEADER NAVIGATION --- */
         header {
             width: 100%;
             padding: 1.5rem 2rem;
-            background-color: rgba(15, 23, 42, 0.95);
+            background-color: rgba(15, 23, 42, 0.85); /* Semi-transparent */
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
@@ -60,7 +47,7 @@ HTML
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px); /* Blur effect behind header */
         }
 
         .logo {
@@ -70,6 +57,7 @@ HTML
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
+            position: relative;
         }
 
         nav ul {
@@ -83,11 +71,12 @@ HTML
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: color 0.2s;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #fff;
+            color: var(--brand-blue);
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
         }
 
         /* --- 3. MAIN CONTENT --- */
@@ -101,15 +90,19 @@ HTML
 
         .page-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+            animation: fadeIn Down 1s ease-out;
         }
 
         h1 { 
             margin-bottom: 1rem; 
             color: #fff; 
-            font-size: 3rem; 
+            font-size: 3.5rem; 
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .sub-text { 
@@ -124,73 +117,126 @@ HTML
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px; /* Smooth rounded corners */
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
         }
 
         .tag {
             display: inline-block;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--brand-blue);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 1rem;
         }
 
         .card h2 { 
             color: #fff; 
-            font-size: 1.5rem; 
+            font-size: 1.75rem; 
             font-weight: 700;
-            margin-bottom: 0.75rem; 
+            margin-bottom: 1rem; 
         }
 
         .card p { 
-            margin-bottom: 2rem; 
+            margin-bottom: 2.5rem; 
             font-size: 1rem; 
             line-height: 1.6; 
             color: var(--text-secondary); 
         }
 
-        /* MODERN BUTTON STYLES */
+        /* --- WICKED COOL BUTTON STYLES --- */
         .primary-btn {
-            display: inline-flex;
+            position: relative;
+            display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 0.875rem;
-            background-color: var(--brand-blue);
+            padding: 1rem;
+            
+            /* Gradient Background */
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-dark-blue) 100%);
+            
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 8px;
-            transition: background-color 0.2s;
             border: none;
+            overflow: hidden; /* Key for the shimmer effect */
+            transition: all 0.3s ease;
+            z-index: 1;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
+        /* The Shimmer Element (Hidden by default) */
+        .primary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%; /* Start off-screen left */
+            width: 100%;
+            height: 100%;
+            
+            /* The shiny band */
+            background: linear-gradient(
+                90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent
+            );
+            
+            transition: none; /* No transition on reset */
+            z-index: 2;
+        }
+
+        /* Hover State */
         .primary-btn:hover {
-            background-color: var(--brand-blue-hover);
+            transform: translateY(-3px); /* Lift up */
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); /* Blue Neon Glow */
+        }
+
+        /* Hover Animation Trigger */
+        .primary-btn:hover::before {
+            /* Animate the shimmer across */
+            animation: shimmer 0.75s;
+        }
+
+        /* Keyframes for the shimmer sweep */
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Fade In Animation for Page Load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- 4. FOOTER --- */
         footer {
-            background-color: #020617; /* Very dark slate */
+            background-color: #020617;
             border-top: 1px solid var(--border-color);
             padding: 3rem 2rem;
             text-align: center;
@@ -228,7 +274,7 @@ HTML
                     <h2>Moto Capital</h2>
                     <p>Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway, not debt.</p>
                 </div>
-                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
+                <a href="https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="primary-btn">
@@ -273,4 +319,4 @@ HTML
     </footer>
 
 </body>
-</html
+</html>
