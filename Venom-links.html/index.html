@@ -4,308 +4,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VENOM INDUSTRIES | Resources</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. CORE LAYOUT & RESET --- */
+        /* --- 1. GLOBAL RESET & THEME --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         :root {
-            --brand-blue: #3b82f6;
-            --brand-dark-blue: #1d4ed8;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --bg-dark: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.6); /* Glassy Slate */
-            --border-color: rgba(255, 255, 255, 0.1);
+            --brand-primary: #3b82f6;       /* Bright Blue */
+            --brand-hover: #2563eb;         /* Darker Blue */
+            --bg-dark: #0f172a;             /* Dark Slate */
+            --glass-panel: rgba(30, 41, 59, 0.7); 
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-dim: rgba(255, 255, 255, 0.08);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            color: var(--text-main);
             background-color: var(--bg-dark);
+            /* Consistent Background Image */
             background-image: 
-                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)),
+                linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.95)),
                 url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- 2. HEADER NAVIGATION --- */
+        /* --- 2. UNIFIED HEADER --- */
         header {
             width: 100%;
-            padding: 1.5rem 2rem;
-            background-color: rgba(15, 23, 42, 0.85); /* Semi-transparent */
-            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-dim);
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(12px); /* Blur effect behind header */
+            backdrop-filter: blur(8px);
         }
 
-        .logo {
+        .brand-logo {
             font-size: 1.25rem;
             font-weight: 800;
             color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             text-decoration: none;
-            position: relative;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
         nav a:hover {
-            color: var(--brand-blue);
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            color: #fff;
         }
 
         /* --- 3. MAIN CONTENT --- */
         main {
             flex: 1;
-            padding: 4rem 2rem;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            width: 100%;
+            padding: 5rem 2rem;
         }
 
-        .page-header {
+        .hero-text {
             text-align: center;
             margin-bottom: 5rem;
-            animation: fadeIn Down 1s ease-out;
         }
 
-        h1 { 
-            margin-bottom: 1rem; 
-            color: #fff; 
-            font-size: 3.5rem; 
+        h1 {
+            font-size: 3rem;
             font-weight: 800;
-            letter-spacing: -2px;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            color: #fff;
         }
 
-        .sub-text { 
-            color: var(--text-secondary); 
-            font-size: 1.1rem; 
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.125rem;
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
-        /* CARD GRID */
-        .card-grid {
+        /* GRID SYSTEM */
+        .resource-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
         }
 
+        /* CARDS */
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
+            background: var(--glass-panel);
+            border: 1px solid var(--border-dim);
+            border-radius: 12px;
             padding: 2.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
-            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .card:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
-        .tag {
+        .card-label {
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--brand-blue);
+            color: var(--brand-primary);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
         }
 
-        .card h2 { 
-            color: #fff; 
-            font-size: 1.75rem; 
+        .card h2 {
+            font-size: 1.75rem;
             font-weight: 700;
-            margin-bottom: 1rem; 
+            margin-bottom: 1rem;
+            color: #fff;
         }
 
-        .card p { 
-            margin-bottom: 2.5rem; 
-            font-size: 1rem; 
-            line-height: 1.6; 
-            color: var(--text-secondary); 
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
         }
 
-        /* --- WICKED COOL BUTTON STYLES --- */
-        .primary-btn {
+        /* --- WICKED BUTTON EFFECTS --- */
+        .action-btn {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
             padding: 1rem;
-            
-            /* Gradient Background */
-            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-dark-blue) 100%);
-            
+            background: var(--brand-primary);
             color: white;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             border-radius: 8px;
-            border: none;
-            overflow: hidden; /* Key for the shimmer effect */
+            overflow: hidden;
             transition: all 0.3s ease;
             z-index: 1;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
         }
 
-        /* The Shimmer Element (Hidden by default) */
-        .primary-btn::before {
+        /* Shimmer Layer */
+        .action-btn::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%; /* Start off-screen left */
+            left: -100%;
             width: 100%;
             height: 100%;
-            
-            /* The shiny band */
-            background: linear-gradient(
-                90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.4), 
-                transparent
-            );
-            
-            transition: none; /* No transition on reset */
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: none;
             z-index: 2;
         }
 
-        /* Hover State */
-        .primary-btn:hover {
-            transform: translateY(-3px); /* Lift up */
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); /* Blue Neon Glow */
+        .action-btn:hover {
+            background: var(--brand-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
         }
 
-        /* Hover Animation Trigger */
-        .primary-btn:hover::before {
-            /* Animate the shimmer across */
-            animation: shimmer 0.75s;
+        .action-btn:hover::before {
+            animation: shimmer 0.8s infinite;
         }
 
-        /* Keyframes for the shimmer sweep */
         @keyframes shimmer {
             0% { left: -100%; }
             100% { left: 100%; }
         }
 
-        /* Fade In Animation for Page Load */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- 4. UNIFIED FOOTER --- */
+        footer {
+            background: #020617;
+            border-top: 1px solid var(--border-dim);
+            padding: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: auto;
         }
 
-        /* --- 4. FOOTER --- */
-        footer {
-            background-color: #020617;
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 2rem;
-            text-align: center;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-top: auto;
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">Venom Industries</a>
+        <a href="#" class="brand-logo">Venom Industries</a>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Projects</a></li>
+                <li><a href="#">Tools</a></li>
                 <li><a href="#">Resources</a></li>
-                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="page-header">
-            <h1>Command & Control</h1>
-            <p class="sub-text">Direct-line access points to our partner network. Secure your resources and allocate operational bandwidth effectively.</p>
+        <div class="hero-text">
+            <h1>Partner Resources</h1>
+            <p class="subtitle">Direct-line access to our approved operational partners. Secure funding, maintain hardware, and access expert diagnostics.</p>
         </div>
 
-        <div class="card-grid">
+        <div class="resource-grid">
 
             <div class="card">
                 <div>
-                    <span class="tag">Liquidity Injection</span>
+                    <span class="card-label">Business Funding</span>
                     <h2>Moto Capital</h2>
-                    <p>Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway, not debt.</p>
+                    <p>Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway.</p>
                 </div>
                 <a href="https://afflat3c2.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="primary-btn">
+                   target="_blank" rel="noopener noreferrer" class="action-btn">
                    Initialize Funding
                 </a>
             </div>
 
             <div class="card">
                 <div>
-                    <span class="tag">Idle Monetization</span>
-                    <h2>Survey Junkie</h2>
-                    <p>Your data is already being harvested. Monetize your "dead time" by running this background process. Turn market feedback into a tangible asset.</p>
+                    <span class="card-label">Technical Diagnostics</span>
+                    <h2>Car Mechanic Expert</h2>
+                    <p>Don't guess at hardware failures. Get instant access to certified mechanics for real-time diagnostics and repair verification. Validated expert advice.</p>
                 </div>
                 <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=26632&c=918277&a=785240&k=87D8CEAD5A851A6F94035B3AD528EA8C&l=28255&s1=venom_website&s3=links_page" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="primary-btn">
-                   Start Earning
+                   target="_blank" rel="noopener noreferrer" class="action-btn">
+                   Ask A Mechanic
                 </a>
             </div>
 
             <div class="card">
                 <div>
-                    <span class="tag">Hardware Specs</span>
+                    <span class="card-label">Field Hardware</span>
                     <h2>Dynabook</h2>
-                    <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. Tools for field ops.</p>
+                    <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. Reliable tools for field operations.</p>
                 </div>
                 <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=22649&c=918277&a=785240&k=BA91F9BAB07A5C9400E969E1128FC084&l=23509&s1=venom_website&s2=resource_card&s3=links_page" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="primary-btn">
+                   target="_blank" rel="noopener noreferrer" class="action-btn">
                    Upgrade Hardware
                 </a>
             </div>
@@ -314,8 +295,13 @@
     </main>
 
     <footer>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Support</a></li>
+        </ul>
         <p>&copy; 2024 Venom Industries LLC. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;">Fort Collins, CO</p>
+        <p style="margin-top: 0.5rem; color: #64748b;">Fort Collins, CO</p>
     </footer>
 
 </body>
