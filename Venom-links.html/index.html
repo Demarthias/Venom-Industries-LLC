@@ -1,305 +1,275 @@
-Here is the consolidated code. It combines the Background Image you requested, the Affiliate "Protocol" Cards, and adds a Standard Header/Footer with Navigation to match a full multi-page website structure.
+Here is the updated code.
 
-I have kept the "Venom" terminal aesthetic (green/black/monospace) but structured the layout like a modern SaaS site.
+Changes Made:
 
-index.html
+Green Removed: Replaced the "hacker green" with the Blue (#3b82f6) and Clean White style from your original landing page request.
+
+Font Updated: Switched from the "terminal" font to a modern Sans-Serif (Inter) to match a professional SaaS look.
+
+Links Integrated: I have embedded your three specific affiliate links into the buttons in the order you provided (Moto Capital, Survey Junkie, Dynabook).
+
 HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VENOM INDUSTRIES | Command & Control</title>
+    <title>VENOM INDUSTRIES | Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- RESET & VARIABLES --- */
+        /* --- 1. CORE LAYOUT & RESET --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
+        
         :root {
-            --venom-green: #00ff41;
-            --venom-dim: #008f11;
-            --bg-dark: #0d0d0d;
-            --glass-panel: rgba(10, 10, 10, 0.85); /* Darker glass for readability */
-            --text-main: #e0e0e0;
-            --font-stack: 'Courier New', Courier, monospace;
+            /* BRAND COLORS (Matching your Landing Page) */
+            --brand-blue: #3b82f6;
+            --brand-blue-hover: #2563eb;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7); /* Dark slate with transparency */
+            --border-color: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: var(--font-stack);
-            color: var(--text-main);
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif; /* Clean, modern font */
+            color: var(--text-primary);
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
             
-            /* BACKGROUND CONFIGURATION */
+            /* BACKGROUND */
             background-color: var(--bg-dark);
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), /* Heavy slate overlay */
                 url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* --- NAVIGATION HEADER --- */
-        .main-nav {
+        /* --- 2. HEADER NAVIGATION --- */
+        header {
             width: 100%;
             padding: 1.5rem 2rem;
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid var(--venom-dim);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-decoration: none;
-            text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2rem;
         }
 
-        .nav-links a {
-            color: #aaa;
+        nav a {
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--venom-green);
+        nav a:hover {
+            color: #fff;
         }
 
-        /* --- MAIN CONTENT --- */
+        /* --- 3. MAIN CONTENT --- */
         main {
-            flex: 1; /* Pushes footer down */
-            width: 100%;
-            max-width: 1000px;
+            flex: 1;
+            padding: 4rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            width: 100%;
         }
 
-        .page-intro {
+        .page-header {
             text-align: center;
             margin-bottom: 4rem;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
+        h1 { 
+            margin-bottom: 1rem; 
+            color: #fff; 
+            font-size: 3rem; 
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
-        .subtitle {
-            color: var(--venom-green);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .briefing-box {
-            background: rgba(0, 255, 65, 0.05);
-            border-left: 3px solid var(--venom-green);
-            padding: 1.5rem;
-            text-align: left;
-            max-width: 800px;
+        .sub-text { 
+            color: var(--text-secondary); 
+            font-size: 1.1rem; 
+            max-width: 600px;
             margin: 0 auto;
-            font-size: 1rem;
+            line-height: 1.6;
         }
 
-        /* --- CARD GRID --- */
+        /* CARD GRID */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
-        /* --- PROTOCOL CARDS --- */
-        .protocol-card {
-            background: var(--glass-panel);
-            border: 1px solid #333;
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px; /* Smooth rounded corners */
             padding: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.2s, border-color 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        .protocol-card:hover {
-            border-color: var(--venom-green);
-            transform: translateY(-5px);
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
         }
 
-        .card-header {
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.5rem;
-        }
-
-        .protocol-id {
-            display: block;
-            font-size: 0.7rem;
-            color: #666;
-            text-transform: uppercase;
-            margin-bottom: 0.2rem;
-        }
-
-        .card-title {
-            color: #fff;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-        }
-
-        .card-body p {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-bottom: 1.5rem;
-        }
-
-        .sys-status {
-            font-size: 0.8rem;
-            color: var(--venom-green);
-            margin-bottom: 1.5rem;
-            display: block;
-            font-family: monospace;
-        }
-
-        /* --- BUTTONS --- */
-        .init-btn {
+        .tag {
             display: inline-block;
-            text-align: center;
-            width: 100%;
-            padding: 1rem;
-            background: transparent;
-            border: 1px solid var(--venom-green);
-            color: var(--venom-green);
-            text-decoration: none;
-            font-weight: bold;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--brand-blue);
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: 0.2s;
+            margin-bottom: 1rem;
         }
 
-        .init-btn:hover {
-            background: var(--venom-green);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        .card h2 { 
+            color: #fff; 
+            font-size: 1.5rem; 
+            font-weight: 700;
+            margin-bottom: 0.75rem; 
         }
 
-        /* --- FOOTER --- */
-        .main-footer {
-            background: #000;
-            border-top: 1px solid #222;
-            padding: 2rem;
+        .card p { 
+            margin-bottom: 2rem; 
+            font-size: 1rem; 
+            line-height: 1.6; 
+            color: var(--text-secondary); 
+        }
+
+        /* MODERN BUTTON STYLES */
+        .primary-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0.875rem;
+            background-color: var(--brand-blue);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+            border: none;
+        }
+
+        .primary-btn:hover {
+            background-color: var(--brand-blue-hover);
+        }
+
+        /* --- 4. FOOTER --- */
+        footer {
+            background-color: #020617; /* Very dark slate */
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
             text-align: center;
-            font-size: 0.8rem;
-            color: #555;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
             margin-top: auto;
-        }
-
-        /* --- MOBILE --- */
-        @media (max-width: 768px) {
-            .main-nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
 
-    <nav class="main-nav">
-        <a href="#" class="nav-logo">VenomIndustries</a>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <a href="#" class="logo">Venom Industries</a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        
-        <div class="page-intro">
+        <div class="page-header">
             <h1>Command & Control</h1>
-            <div class="subtitle">[SYSTEM: ONLINE] // RESOURCE ALLOCATION</div>
-            
-            <div class="briefing-box">
-                <strong>&gt; PROTOCOL: HANDSHAKE</strong><br><br>
-                These are direct-line access points. Initialize your setup through these specific gateways. Our partners recognize the handshake and allocate operational resources back to the Venom R&D lab.<br><br>
-                Zero cost to you. Maximum output for us.
-            </div>
+            <p class="sub-text">Direct-line access points to our partner network. Secure your resources and allocate operational bandwidth effectively.</p>
         </div>
 
         <div class="card-grid">
 
-            <div class="protocol-card">
+            <div class="card">
                 <div>
-                    <div class="card-header">
-                        <span class="protocol-id">// Protocol: Liquidity Injection</span>
-                        <h2 class="card-title">Moto Capital</h2>
-                    </div>
-                    <div class="card-body">
-                        <p>Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway, not debt.</p>
-                        <span class="sys-status">&gt; LATENCY: Minimal (&lt; 24hrs)</span>
-                    </div>
+                    <span class="tag">Liquidity Injection</span>
+                    <h2>Moto Capital</h2>
+                    <p>Latency in cash flow is a system failure. Access an emergency liquidity pool to bridge the gap between execution and revenue. This is operational runway, not debt.</p>
                 </div>
-                <a href="https://INSERT-MOTO-LINK-HERE.com" class="init-btn" target="_blank" rel="noopener">Initialize Funding</a>
+                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=30746&c=918277&a=785240&k=9AB4DE8F76B6A868672648564898A573&l=35384&s1=venom_website&s2=resource_card&s3=links_page" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="primary-btn">
+                   Initialize Funding
+                </a>
             </div>
 
-            <div class="protocol-card">
+            <div class="card">
                 <div>
-                    <div class="card-header">
-                        <span class="protocol-id">// Protocol: Idle Cycle Monetization</span>
-                        <h2 class="card-title">Survey Junkie</h2>
-                    </div>
-                    <div class="card-body">
-                        <p>Your data is already being harvested. Monetize your "dead time" by running this background process. Turn market feedback into a tangible asset while your code compiles.</p>
-                        <span class="sys-status">&gt; EFFICIENCY: High (Zero Skill)</span>
-                    </div>
+                    <span class="tag">Idle Monetization</span>
+                    <h2>Survey Junkie</h2>
+                    <p>Your data is already being harvested. Monetize your "dead time" by running this background process. Turn market feedback into a tangible asset.</p>
                 </div>
-                <a href="https://INSERT-SURVEY-LINK-HERE.com" class="init-btn" target="_blank" rel="noopener">Start Earning</a>
+                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=26632&c=918277&a=785240&k=87D8CEAD5A851A6F94035B3AD528EA8C&l=28255&s1=venom_website&s3=links_page" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="primary-btn">
+                   Start Earning
+                </a>
             </div>
 
-            <div class="protocol-card">
+            <div class="card">
                 <div>
-                    <div class="card-header">
-                        <span class="protocol-id">// Protocol: Mobile Command Units</span>
-                        <h2 class="card-title">Dynabook</h2>
-                    </div>
-                    <div class="card-body">
-                        <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. From ultra-light Portégés to dynaEdge AR glasses, these are tools for field ops.</p>
-                        <span class="sys-status">&gt; VERDICT: Field-Ready</span>
-                    </div>
+                    <span class="tag">Hardware Specs</span>
+                    <h2>Dynabook</h2>
+                    <p>Evolved from Toshiba's enterprise lineage. We spec this gear because it prioritizes durability over aesthetics. Tools for field ops.</p>
                 </div>
-                <a href="https://INSERT-DYNABOOK-LINK-HERE.com" class="init-btn" target="_blank" rel="noopener">Upgrade Hardware</a>
+                <a href="https://afflat3c1.com/trk/lnk/83686571-AB97-4819-9B29-F9D5671EE09E/?o=22649&c=918277&a=785240&k=BA91F9BAB07A5C9400E969E1128FC084&l=23509&s1=venom_website&s2=resource_card&s3=links_page" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="primary-btn">
+                   Upgrade Hardware
+                </a>
             </div>
 
         </div>
-
     </main>
 
-    <footer class="main-footer">
-        <p>VENOM INDUSTRIES LLC // EST. 2024 // FORT COLLINS, CO</p>
-        <p style="margin-top: 0.5rem; color: #333;">&gt; END OF LINE.</p>
+    <footer>
+        <p>&copy; 2024 Venom Industries LLC. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">Fort Collins, CO</p>
     </footer>
 
 </body>
