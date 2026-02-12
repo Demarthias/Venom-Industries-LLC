@@ -22,7 +22,7 @@
 
         html, body {
             width: 100%;
-            overflow-x: hidden; /* Prevents side-scrolling */
+            overflow-x: hidden;
         }
 
         body {
@@ -39,7 +39,7 @@
             background-attachment: fixed;
         }
 
-        /* --- 2. HEADER (Mobile Optimized) --- */
+        /* --- 2. HEADER --- */
         header {
             background-color: var(--bg-black);
             min-height: 80px;
@@ -51,7 +51,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            flex-wrap: wrap; /* Allows stacking on mobile */
+            flex-wrap: wrap;
             gap: 1rem;
         }
 
@@ -85,10 +85,7 @@
             text-transform: uppercase;
         }
 
-        nav {
-            /* On desktop, push right. On mobile, this gets overridden. */
-            margin-left: auto;
-        }
+        nav { margin-left: auto; }
 
         nav ul {
             display: flex;
@@ -128,7 +125,6 @@
 
         .page-header { text-align: center; margin-bottom: 3rem; }
 
-        /* Responsive Title: Shrinks automatically */
         h1.venom-title {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
@@ -141,7 +137,7 @@
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
             line-height: 1.1;
-            padding: 0 10px; /* Safe padding for text */
+            padding: 0 10px;
         }
 
         .seo-summary {
@@ -156,7 +152,6 @@
         /* --- 4. CARD GRID --- */
         .card-grid {
             display: grid;
-            /* Safe minimum width for mobile (280px fits almost all phones) */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
@@ -228,18 +223,13 @@
             color: #52525b; font-size: 0.8rem;
         }
 
-        /* --- 6. MOBILE SPECIFIC OVERRIDES --- */
+        /* --- 6. MOBILE OVERRIDES --- */
         @media (max-width: 768px) {
-            /* Header stacks cleanly */
             header { flex-direction: column; gap: 1rem; padding: 1.5rem 1rem; }
             nav { margin-left: 0; width: 100%; }
             nav ul { justify-content: center; gap: 0.8rem; }
-            
-            /* Main Content Adjustments */
             main { padding: 2rem 1rem; }
             .card-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            
-            /* Footer Adjustments */
             .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
             .footer-text { margin: 0 auto; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
@@ -249,20 +239,20 @@
 <body>
 
     <header>
-        <a href="index.html" class="brand-wrapper">
+        <a href="../index.html" class="brand-wrapper">
             <div class="logo-icon"></div>
             <span class="brand-text">VENOM INDUSTRIES</span>
         </a>
         <nav>
             <ul>
-                <li><a href="index.html" class="nav-pill">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="audit.html">Audit</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
+                <li><a href="../index.html" class="nav-pill">Home</a></li>
+                <li><a href="../products.html">Products</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../audit.html">Audit</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../privacy.html">Privacy</a></li>
+                <li><a href="../terms.html">Terms</a></li>
             </ul>
         </nav>
     </header>
@@ -330,7 +320,8 @@
                        target="_blank" rel="noopener noreferrer" class="btn-primary">
                        DEPLOY VPN
                     </a>
-                    <a href="blog.html" class="btn-secondary">
+                    
+                    <a href="../blog.html" class="btn-secondary">
                        READ ANALYSIS
                     </a>
                 </div>
@@ -348,21 +339,21 @@
             <div class="footer-col">
                 <h4>Navigate</h4>
                 <ul class="footer-list">
-                    <li><a href="products.html">Products</a></li>
+                    <li><a href="../products.html">Products</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul class="footer-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="venom-links.html">Venom Links</a></li>
-                    <li><a href="audit.html">Audit</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../products.html">Products</a></li>
+                    <li><a href="../venom-links.html">Venom Links</a></li>
+                    <li><a href="../audit.html">Audit</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../privacy.html">Privacy</a></li>
+                    <li><a href="../terms.html">Terms</a></li>
                 </ul>
             </div>
         </div>
