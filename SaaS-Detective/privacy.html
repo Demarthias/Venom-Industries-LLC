@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | SaaS Detective</title>
+    <style>
+        :root { --primary: #0f172a; --accent: #3b82f6; --text: #334155; --bg: #f8fafc; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); max-width: 900px; margin: 40px auto; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); background-color: #fff; }
+        h1 { font-size: 2.5rem; color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 2rem; }
+        h2 { font-size: 1.5rem; color: var(--primary); margin-top: 3rem; font-weight: 700; }
+        h3 { font-size: 1.1rem; color: var(--accent); margin-top: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        p, li { margin-bottom: 1rem; font-size: 1.05rem; }
+        .alert { background: #eff6ff; border-left: 4px solid var(--accent); padding: 1.5rem; margin: 2rem 0; border-radius: 4px; }
+        code { background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0f172a; }
+        footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 0.9rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective Date:</strong> February 2, 2026<br><strong>Entity:</strong> Venom Industries LLC</p>
+
+    <div class="alert">
+        <strong>Zero-Data Promise:</strong> SaaS Detective operates on a "Local-First" architecture. We do not maintain servers to store your browsing history, passwords, or personal data.
+    </div>
+
+    <h2>1. Data Collection & Usage</h2>
+    <p>We comply with the <strong>Chrome Web Store User Data Policy</strong>, including the "Limited Use" requirements.</p>
+    <ul>
+        <li><strong>Personal Data:</strong> We do NOT collect names, emails, addresses, or phone numbers.</li>
+        <li><strong>Browsing Data:</strong> We do NOT track, log, or transmit your browsing history. The extension only scans the active tab when you click the extension to trigger a scan.</li>
+        <li><strong>Technical Data:</strong> All technology detection (e.g., identifying "Shopify" or "React") happens locally on your device using bundled signatures.</li>
+    </ul>
+
+    <h2>2. Affiliate Disclosure (Strict Compliance)</h2>
+    <p>SaaS Detective is supported by affiliate partnerships. To ensure compliance with Google's <em>"Direct Benefit"</em> policy (2025), we adhere to the following:</p>
+    <ul>
+        <li><strong>No Injection:</strong> We do not automatically inject or replace links in your content.</li>
+        <li><strong>User Action Required:</strong> Affiliate links are only generated when you actively click a "View Deal" or "More Info" button within our UI.</li>
+        <li><strong>Transparency:</strong> Clicking a partner link (e.g., to Shopify or MaxBounty) redirects you through an affiliate tracking URL. At this point, the third-party network may collect your IP address to attribute the referral.</li>
+    </ul>
+
+    <h2>3. Permissions Justification</h2>
+    <p>We use the minimum permissions necessary:</p>
+    <ul>
+        <li><code>activeTab</code>: Grants temporary access to the current page only after you click the extension.</li>
+        <li><code>storage</code>: Saves your preferences in Chrome sync storage (e.g., category filters).</li>
+        <li><code>scripting</code>: Injects the detection script into the active tab when you trigger a scan.</li>
+        <li><code>host permissions (http/https)</code>: Allows the detector to read page markup on sites you choose to scan.</li>
+    </ul>
+
+    <h2>4. European Union Users (GDPR)</h2>
+    <p>Since we do not collect personal data (PII), we act as a local tool provider rather than a Data Processor. No user data is transferred to US servers by Venom Industries LLC.</p>
+
+    <footer>
+        &copy; 2026 Venom Industries LLC. All Rights Reserved. <br>
+        <a href="terms.html">Terms of Service</a> | <a href="mailto:contact@venom-dev-lab.com">Contact Support</a>
+    </footer>
+</body>
+</html>
