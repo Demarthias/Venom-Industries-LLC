@@ -1,574 +1,311 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGHX274MQ3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-JGHX274MQ3');
-  </script>
-  <!-- =========================================================
-       VENOM-INDUSTRIES — About Page (Premium Theme)
-       ========================================================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>About VENOM-INDUSTRIES | Elite Performance Software Company</title>
-  <meta name="description" content="Learn about VENOM-INDUSTRIES - the team behind elite performance software. Our mission: turn frustration into results with professional-grade tools.">
-  <meta name="keywords" content="VENOM-INDUSTRIES about, company story, performance software, technology team">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.venomous-industries.com/about/about.html" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="About VENOM-INDUSTRIES | Elite Performance Software Company" />
-  <meta property="og:description" content="Learn about VENOM-INDUSTRIES - the team behind elite performance software. Our mission: turn frustration into results with professional-grade tools." />
-  <meta property="og:url" content="https://www.venomous-industries.com/about/about.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/backgrounds/Nebula.jpg" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="../assets/images/brand/venom-icon2.png" />
-  <link rel="apple-touch-icon" href="../assets/images/brand/venom-icon2.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="../assets/css/inline-fixes.css" />
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-
-  <!-- Base CSS -->
-  <link rel="stylesheet" href="../assets/css/custom.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Venom Industries</title>
+  <meta name="description" content="Venom Industries is a technical audit company built by a self-taught developer who got tired of watching good businesses lose money to slow, broken, insecure sites.">
+  <link rel="canonical" href="https://venom-industries.com/about/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --bg:#0a0b0f;
-      --panel:#101319;
-      --panel-2:#0d1116;
-      --text:#e7edf1;
-      --muted:#b8c3c9;
-      --accent:#00f0d5;
-      --accent2:#b9c5cc;
-      --accent3:#6be3ff;
-      --accent4:#2df5af;
-      --accent5:#ff6b9d;
-      --ring:rgba(0,240,213,.25);
-      --ring-2:rgba(185,197,204,.25);
-      --radius:14px;
-      --radius-sm:10px;
-      --shadow:0 0 34px rgba(0,240,213,.18);
-      --thin:1px;
-      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+      --red:#C0392B;--red2:#E84030;
+      --black:#080808;--dark:#0F0F0F;--mid:#161616;--card:#111111;
+      --line:rgba(255,255,255,0.07);--line2:rgba(255,255,255,0.12);
+      --text:#D8D8D8;--muted:#666;--muted2:#888;
+      --mono:'DM Mono',monospace;--display:'Bebas Neue',sans-serif;--body:'Inter',sans-serif;
     }
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
 
-    html, body{
-      margin:0; padding:0;
-      background: url('../assets/images/backgrounds/commitment.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color:var(--text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-      line-height:1.58;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      position:relative;
-    }
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;color:#fff;text-transform:uppercase}
+    .nav-logo-mark{width:26px;height:26px;background:var(--red);display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);font-size:10px;font-weight:700;color:#fff}
+    .nav-links{display:flex;align-items:center;gap:2rem;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .nav-links a:hover{color:#fff}
+    .nav-links a.active{color:#fff}
+    .nav-cta{background:var(--red);color:#fff !important;padding:7px 16px;font-size:10px;font-weight:500;letter-spacing:.1em;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .15s}
+    .nav-cta:hover{background:var(--red2) !important}
 
-    .bg-video{
-      position:fixed;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:-4;
-    }
-    
-    /* Global bright graphical overlay */
-    html::before{
-      content:'';
-      position:fixed;
-      top:0; left:0; right:0; bottom:0;
-      z-index:-1;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
-        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
-        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
-        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
-        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
-        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
-      background-size:
-        600px 600px,
-        800px 800px,
-        1000px 300px,
-        500px 500px,
-        400px 400px,
-        100% 100%;
-      background-position:
-        0% 0%,
-        100% 100%,
-        50% 0%,
-        80% 40%,
-        10% 90%,
-        0% 0%;
-      animation:backgroundShift 25s ease-in-out infinite;
-      pointer-events:none;
-    }
-    
-    @keyframes backgroundShift {
-      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
-      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
-      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
-    }
+    /* PAGE HEADER */
+    .page-head{padding:9rem 2.5rem 5rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;border-bottom:1px solid var(--line)}
+    .label{font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+    .label::before{content:'';width:20px;height:1px;background:var(--red)}
+    h1{font-family:var(--display);font-size:clamp(4rem,7vw,7rem);line-height:.94;letter-spacing:.01em;color:#fff}
+    h1 .red{color:var(--red)}
+    h1 .outline{-webkit-text-stroke:1px rgba(255,255,255,.2);color:transparent}
+    .page-head-right{padding-bottom:.5rem}
+    .page-head-right p{font-size:16px;color:var(--muted2);line-height:1.75;max-width:420px}
 
-    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
-    .brand-accent{font-family:Rajdhani, sans-serif}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{color:var(--accent2)}
+    /* SECTIONS */
+    .section{padding:6rem 2.5rem;position:relative;z-index:1}
+    .container{max-width:1100px;margin:0 auto}
+    .full-rule{height:1px;background:var(--line)}
 
-    /* Header / Nav */
-    .site-header{
-      position:sticky; top:0; z-index:9999;
-      background:rgba(6,7,10,.88);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-bottom:var(--thin) solid transparent;
-      border-image: var(--steel) 1;
-      box-shadow:0 1px 0 rgba(185,197,204,.12);
-    }
-    
-    /* Cart Icon */
-    .cart-icon{
-      position:fixed; top:20px; right:20px; z-index:10000;
-      width:50px; height:50px;
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius:50%; display:flex; align-items:center; justify-content:center;
-      box-shadow:0 4px 20px rgba(0,240,213,.3);
-      transition:all .3s ease; cursor:pointer;
-      border:2px solid rgba(255,255,255,.1);
-    }
-    .cart-icon:hover{
-      transform:scale(1.1) translateY(-2px);
-      box-shadow:0 6px 25px rgba(0,240,213,.5);
-      background:linear-gradient(135deg, var(--accent2), var(--accent));
-    }
-    .cart-icon svg{
-      width:24px; height:24px; fill:#0a0b0f;
-    }
-    .cart-badge{
-      position:absolute; top:-5px; right:-5px;
-      background:var(--accent5); color:#fff;
-      border-radius:50%; width:20px; height:20px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:.7rem; font-weight:800;
-      border:2px solid var(--bg);
-    }
-    .nav-container{
-      max-width:1240px; margin:0 auto;
-      padding:1rem 1.25rem;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand-title{
-      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
-      letter-spacing:.12em;
-    }
-    .brand-title strong{ color:var(--accent); }
-    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
-    .nav-menu a{
-      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
-      border:var(--thin) solid transparent; transition:.2s ease;
-    }
-    .nav-menu a:hover,.nav-menu a.active{
-      border-color:transparent; color:#0a0b0f; background:var(--steel);
-      box-shadow:0 0 18px var(--ring);
-    }
+    h2{font-family:var(--display);font-size:clamp(2.5rem,4vw,4.5rem);line-height:.95;letter-spacing:.01em;color:#fff;margin-bottom:1.25rem}
+    h2 .red{color:var(--red)}
+    h2 .dim{color:rgba(255,255,255,.2)}
 
-    /* About Hero */
-    .about-hero{
-      background: transparent;
-      position:relative;
-      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:6rem 0 4rem;
-      text-align:center;
-    }
-    .about-inner{position:relative; z-index:1}
+    /* ORIGIN STORY */
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line2)}
+    .story-left{background:var(--card);padding:3rem}
+    .story-right{background:var(--mid);padding:3rem;display:flex;flex-direction:column;justify-content:space-between}
+    .story-left p{font-size:15px;color:var(--muted2);line-height:1.8;margin-bottom:1.25rem}
+    .story-left p:last-child{margin-bottom:0}
+    .story-left p strong{color:#fff;font-weight:500}
+    .pull-quote{font-family:var(--display);font-size:clamp(1.6rem,2.5vw,2.2rem);color:#fff;line-height:1.1;letter-spacing:.01em;margin-bottom:2rem}
+    .pull-quote .red{color:var(--red)}
+    .story-meta{display:flex;flex-direction:column;gap:.5rem}
+    .story-meta-item{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px}
+    .story-meta-item::before{content:'→';color:var(--red)}
 
-    /* Sections base */
-    .section{
-      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
-    }
-    .headline{
-      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
-    }
-    .headline .mark{ color:var(--accent); }
-    .subline{
-      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
-    }
+    /* VALUES */
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line2)}
+    .value-card{background:var(--card);padding:2.25rem 2rem;transition:background .2s}
+    .value-card:hover{background:var(--mid)}
+    .value-num{font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:.1em;margin-bottom:1rem}
+    .value-card h3{font-family:var(--display);font-size:1.75rem;color:#fff;letter-spacing:.02em;margin-bottom:.65rem}
+    .value-card p{font-size:13px;color:var(--muted);line-height:1.7}
 
-    /* Panels */
-    .panel{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:
-        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
-        url('../assets/images/backgrounds/Nebula.jpg') center/cover no-repeat;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
-      padding:2rem;
-    }
+    /* FOUNDER */
+    .founder-wrap{display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--line);border:1px solid var(--line2)}
+    .founder-left{background:var(--mid);padding:2.5rem;display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
+    .founder-avatar{width:72px;height:72px;background:var(--red);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.75rem;color:#fff;letter-spacing:.04em}
+    .founder-name{font-family:var(--display);font-size:2rem;color:#fff;letter-spacing:.02em;line-height:1}
+    .founder-title{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
+    .founder-links{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
+    .founder-link{font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .15s}
+    .founder-link:hover{color:#fff}
+    .founder-link::before{content:'→';color:var(--red)}
+    .founder-right{background:var(--card);padding:2.5rem 3rem}
+    .founder-right p{font-size:15px;color:var(--muted2);line-height:1.8;margin-bottom:1.25rem}
+    .founder-right p:last-child{margin-bottom:0}
+    .founder-right p strong{color:#fff;font-weight:500}
 
-    /* Mission Section */
-    .mission-bg{
-      background: transparent;
-      position:relative;
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:4rem 0;
-    }
-    .mission-inner{position:relative; z-index:1}
+    /* PRODUCTS */
+    .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line2)}
+    .product-card{background:var(--card);padding:2.5rem;transition:background .2s;display:flex;flex-direction:column}
+    .product-card:hover{background:var(--mid)}
+    .product-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .product-eyebrow.red{color:var(--red)}
+    .product-eyebrow.blue{color:#3498db}
+    .product-card h3{font-family:var(--display);font-size:2.25rem;color:#fff;letter-spacing:.02em;margin-bottom:.75rem}
+    .product-card p{font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:1.5rem}
+    .product-link{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+    .product-link.red{color:var(--red)}
+    .product-link.blue{color:#3498db}
+    .product-link::after{content:'→'}
 
-    /* Values Grid */
-    .values-grid{
-      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      margin-top:2rem;
-    }
-    .value-card{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
-      border-radius:var(--radius);
-      background:
-        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
-        url('../assets/images/backgrounds/Nebula.jpg') center/cover no-repeat;
-      box-shadow:var(--shadow);
-      padding:1.5rem; text-align:center;
-    }
-    .value-card h4{margin:0 0 .75rem; color:var(--accent); font-size:1.25rem}
-    .value-card p{margin:0; color:var(--muted); line-height:1.6}
+    /* CTA BAND */
+    .cta-band{background:var(--red);padding:5rem 2.5rem;position:relative;z-index:1;overflow:hidden}
+    .cta-band::before{content:'VENOM';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:18rem;color:rgba(0,0,0,.12);line-height:1;pointer-events:none;user-select:none}
+    .cta-band-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;position:relative;z-index:2}
+    .cta-band h2{font-family:var(--display);font-size:clamp(2.5rem,4vw,4rem);color:#fff;line-height:.95;max-width:500px}
+    .cta-band-right{display:flex;flex-direction:column;gap:1rem;align-items:flex-start}
+    .btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--red);padding:14px 28px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:opacity .15s}
+    .btn-white:hover{opacity:.9}
+    .cta-note{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.04em}
 
-    /* Team Grid */
-    .team-grid{
-      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      margin-top:2rem;
-    }
-    .team-card{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
-      border-radius:var(--radius);
-      background:
-        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
-        url('../assets/images/backgrounds/Nebula.jpg') center/cover no-repeat;
-      box-shadow:var(--shadow);
-      padding:1.5rem; text-align:center;
-    }
-    .team-card .avatar{
-      width:80px; height:80px; border-radius:50%; 
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      margin:0 auto 1rem; background:var(--panel);
-      display:flex; align-items:center; justify-content:center;
-      font-size:2rem;
-    }
-    .team-card h4{margin:0 0 .5rem; color:var(--accent)}
-    .team-card .role{color:var(--accent2); font-size:.9rem; margin-bottom:.75rem}
-    .team-card p{margin:0; color:var(--muted); font-size:.95rem; line-height:1.5}
+    footer{background:var(--dark);border-top:1px solid var(--line);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-left{display:flex;align-items:center;gap:12px}
+    .footer-mark{width:22px;height:22px;background:var(--red);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+    .footer-name{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+    .footer-links{display:flex;gap:1.5rem;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+    .footer-links a:hover{color:#fff}
 
-    /* Footer */
-    .site-footer{
-      background: rgba(7,9,13,.8);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:2rem 1.25rem;
-    }
-    .footer-grid{
-      max-width:1240px; margin:0 auto;
-      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
-    }
-    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
-    .footer-grid ul{list-style:none; padding:0; margin:0}
-    .footer-grid li{margin:.25rem 0}
-    .footer-grid a{color:var(--text)}
-    .footer-grid a:hover{color:var(--accent)}
-    .footer-meta{
-      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
-      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
-      font-size:.95rem;
-    }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .page-head>*{animation:fadeUp .5s ease both}
+    .page-head>*:first-child{animation-delay:.05s}
+    .page-head>*:last-child{animation-delay:.2s}
 
-    @media (max-width: 768px) {
-      .footer-grid{grid-template-columns:1fr}
-      .nav-menu{display:none}
-      .values-grid, .team-grid{grid-template-columns:1fr}
+    @media(max-width:900px){
+      .page-head{grid-template-columns:1fr;gap:2rem}
+      .story-grid{grid-template-columns:1fr}
+      .values-grid{grid-template-columns:1fr 1fr}
+      .founder-wrap{grid-template-columns:1fr}
+      .products-grid{grid-template-columns:1fr}
+      .cta-band-inner{flex-direction:column}
+    }
+    @media(max-width:600px){
+      nav{padding:0 1.25rem}
+      .nav-links{display:none}
+      .section{padding:4rem 1.25rem}
+      .page-head{padding:8rem 1.25rem 3rem}
+      .values-grid{grid-template-columns:1fr}
+      .story-left,.story-right,.founder-left,.founder-right{padding:2rem}
+      .cta-band{padding:4rem 1.25rem}
+      footer{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
-
 <body>
-  <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="../assets/videos/spacemovement-slow.mp4" type="video/mp4" />
-    <source src="../assets/videos/spacemovement.mov" type="video/quicktime" />
-  </video>
-  <!-- =========================================================
-       Header / Navigation
-       ========================================================= -->
-  <header class="site-header" role="banner">
-    <div class="nav-container">
-      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
-      <nav role="navigation" aria-label="Primary">
-        <ul class="nav-menu">
-          <li><a href="/index.html">Home</a></li>
-          <li><a class="active" href="/about/about.html">About</a></li>
-          <li><a href="/products.html">Products</a></li>
-          <li><a href="/Venom-links.html/index.html">Venom Links</a></li>
-          <li><a href="/audit.html">Audit</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <!-- =========================================================
-       Floating Cart Icon
-       ========================================================= -->
-  <a href="../cart.html" class="cart-icon" aria-label="Shopping Cart">
-    <svg viewBox="0 0 24 24">
-      <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-    </svg>
-    <span class="cart-badge" id="cart-count">0</span>
-  </a>
+<nav>
+  <a href="/" class="nav-logo"><div class="nav-logo-mark">V</div>Venom Industries</a>
+  <div class="nav-links">
+    <a href="/audit.html">Audit</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/about/" class="active">About</a>
+    <a href="/contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
 
-  <!-- =========================================================
-       About Hero Section
-       ========================================================= -->
-  <section class="about-hero" aria-label="About Hero">
-    <div class="about-inner section">
-      <h2 class="headline" data-aos="fade-up">About <span class="mark">VENOM-INDUSTRIES</span></h2>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100">
-        Performance software engineered for results. We turn frustration into tools that deliver <strong>measurable impact</strong>.
-      </p>
-    </div>
-  </section>
+<!-- PAGE HEADER -->
+<div class="page-head">
+  <div>
+    <div class="label">About</div>
+    <h1>BUILT TO<br><span class="red">FIND</span><br>THE <span class="outline">POISON.</span></h1>
+  </div>
+  <div class="page-head-right">
+    <p>Venom Industries is a technical audit company built by a self-taught developer who got tired of watching good businesses lose money to slow, broken, and insecure sites — and nobody telling them why.</p>
+  </div>
+</div>
 
-  <!-- =========================================================
-       Our Story
-       ========================================================= -->
-  <section class="mission-bg mission-frame" aria-label="Our Story">
-    <div class="mission-inner section">
-      <div class="panel panel-soft" data-aos="fade-up">
-        <h3>Our Story</h3>
-        <p class="body-copy">
-          VENOM-INDUSTRIES was born from late-night frustrations. Lag spikes in critical matches. 
-          Resumes disappearing into ATS black holes. Workflows slowed by network bottlenecks.
-          <br><br>
-          Instead of accepting these problems, we engineered solutions. Our performance tools apply 
-          professional-grade network tuning that actually works, and our career systems help candidates 
-          craft ATS-ready resumes that land interviews.
-          <br><br>
-          Every tool we build has one goal: <em>turn your pain points into performance advantages</em>.
-        </p>
+<!-- ORIGIN STORY -->
+<div class="section">
+  <div class="container">
+    <div class="label">The origin</div>
+    <h2>WHY VENOM<br><span class="red">EXISTS.</span></h2>
+
+    <div class="story-grid">
+      <div class="story-left">
+        <p>Most businesses know something is wrong. Their site is slow, their rankings dropped, their bounce rate crept up. But nobody gave them a clear answer — just vague recommendations, bloated retainers, and agency proposals that never got to the point.</p>
+        <p><strong>Venom Industries was built to fix that.</strong> Not with a 90-day engagement, not with a team of account managers, and not with a report full of charts that don't tell you what to actually do.</p>
+        <p>One founder. Four audit domains. Five days. A clear priority list with exact fix instructions — and then you decide what to do with it.</p>
+        <p>The name isn't an accident. Venom is precise, potent, and targeted. It finds exactly what it's looking for and leaves everything else untouched. That's the approach we bring to every audit.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       Mission Section
-       ========================================================= -->
-  <section class="mission-bg" aria-label="Mission">
-    <div class="mission-inner section">
-      <div class="panel" data-aos="fade-up">
-        <h3>Our Mission</h3>
-        <p class="body-copy-center">
-          <strong>Performance First. Results Always.</strong>
-          <br><br>
-          We don't build software for the sake of it. Every feature, every optimization, every design choice 
-          serves one purpose: delivering measurable improvements to your workflow, your games, your career.
-          <br><br>
-          No fluff. No gimmicks. Just tools that perform.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       Values
-       ========================================================= -->
-  <section class="mission-bg mission-frame" aria-label="Values">
-    <div class="mission-inner section">
-      <h3 class="headline" data-aos="fade-up">Core <span class="mark">Values</span></h3>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100">
-        The principles that drive every decision we make.
-      </p>
-      
-      <div class="values-grid">
-        <div class="value-card card-glass" data-aos="zoom-in">
-          <h4>⚡ Performance First</h4>
-          <p>Every line of code, every feature serves measurable performance. If it doesn't make you faster, stronger, or more successful, it doesn't ship.</p>
-        </div>
-        
-        <div class="value-card card-glass" data-aos="zoom-in" data-aos-delay="100">
-          <h4>🎯 Results-Driven</h4>
-          <p>Lower ping. Better resumes. Smoother workflows. We measure success by the problems we solve, not the features we add.</p>
-        </div>
-        
-        <div class="value-card card-glass" data-aos="zoom-in" data-aos-delay="200">
-          <h4>🛡️ Professional Grade</h4>
-          <p>Built for people who demand reliability. Tested thoroughly. Documented completely. Supported professionally.</p>
-        </div>
-        
-        <div class="value-card card-glass" data-aos="zoom-in" data-aos-delay="300">
-          <h4>🔧 User-Centric</h4>
-          <p>We solve real problems for real people. Every feature request, bug report, and feedback shapes what we build next.</p>
+      <div class="story-right">
+        <div class="pull-quote">"CHAOS IS EXPENSIVE.<br>WE BUILD<br><span class="red">THE OPPOSITE.</span>"</div>
+        <div class="story-meta">
+          <div class="story-meta-item">Founded 2025 — Colorado, USA</div>
+          <div class="story-meta-item">Self-taught. Zero shortcuts.</div>
+          <div class="story-meta-item">Audits delivered in 5 business days</div>
+          <div class="story-meta-item">No retainer required to start</div>
+          <div class="story-meta-item">Two products — one mission</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- =========================================================
-       Team
-       ========================================================= -->
+<div class="full-rule"></div>
 
-  <section class="mission-bg mission-frame" aria-label="Team">
-    <div class="mission-inner section">
-      <div class="panel panel-soft" data-aos="fade-up">
-        <h3>The <span class="mark">Team</span></h3>
-        <p class="subline">Engineers, designers, and problem-solvers building the future of performance software.</p>
-        
-        <div class="team-grid">
-          <div class="team-card card-glass" data-aos="zoom-in">
-            <div class="avatar">🎯</div>
-            <h4>Engineering Team</h4>
-            <div class="role">Core Development</div>
-            <p>Network optimization experts and full-stack engineers building tools that perform under pressure.</p>
-          </div>
-          
-          <div class="team-card card-glass" data-aos="zoom-in" data-aos-delay="100">
-            <div class="avatar">🎨</div>
-            <h4>Design Team</h4>
-            <div class="role">User Experience</div>
-            <p>Creating interfaces that are both beautiful and functional. Every pixel serves performance.</p>
-          </div>
-          
-          <div class="team-card card-glass" data-aos="zoom-in" data-aos-delay="200">
-            <div class="avatar">🤝</div>
-            <h4>Support Team</h4>
-            <div class="role">Customer Success</div>
-            <p>Professional-grade support that gets you answers fast. We're here to make sure you succeed.</p>
-          </div>
-        </div>
+<!-- VALUES / PRINCIPLES -->
+<div class="section">
+  <div class="container">
+    <div class="label">How we operate</div>
+    <h2>THREE RULES.<br><span class="red">NO EXCEPTIONS.</span></h2>
+    <p style="font-size:15px;color:var(--muted2);max-width:520px;line-height:1.75;margin-bottom:3.5rem">These aren't values on a wall. They're the constraints every deliverable gets measured against before it leaves our hands.</p>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">01 / Specificity</div>
+        <h3>NO VAGUE ADVICE</h3>
+        <p>Every finding comes with an exact fix instruction. "Improve your performance" is not a deliverable. "Convert your hero image to WebP and add width/height attributes — expected LCP improvement from 4.8s to 1.8s" is.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02 / Transparency</div>
+        <h3>NO HIDDEN SCOPE</h3>
+        <p>Fixed scope. Fixed price. You know exactly what you're getting before you book. No discovery phase that turns into a retainer. No invoice surprises. No "that's out of scope."</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03 / Speed</div>
+        <h3>NO WAITING AROUND</h3>
+        <p>Five business days from booking to delivered report. The window between "something is wrong" and "here is what to fix" should be measured in days, not weeks. We built the process to hold that line every time.</p>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  
-  <!-- TEAM -->
-  <section class="team section section-frame" id="team">
-    <div class="z-layer">
-      <h2 class="headline">The One Man <span class="mark">Team</span></h2>
-      <div class="team-grid">
-        <div class="team-card">
-          <img src="/images/team1.jpg" alt="Portrait of Founder" />
-          <h3>Grayson Kube</h3>
-          <p>Founder & Vision Architect</p>
-        </div>
-        <div class="team-card">
-          <img src="/images/team2.jpg" alt="Portrait of CTO" />
-          <h3>Grayson Kube</h3>
-          <p>Engineering Overdrive</p>
-        </div>
-        <div class="team-card">
-          <img src="/images/team3.jpg" alt="Portrait of Designer" />
-          <h3>Grayson Kube</h3>
-          <p>Lead Designer</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="full-rule"></div>
 
-  <!-- =========================================================
-       Call to Action
-       ========================================================= -->
-  <section class="mission-bg mission-frame" aria-label="Join Us">
-    <div class="mission-inner section">
-      <div class="panel panel-soft" data-aos="fade-up">
-        <h3>Ready to Perform?</h3>
-        <p class="subline">Experience the VENOM-INDUSTRIES difference. Tools built for results.</p>
-        <p class="cta-note">
-          🎯 7-day free trial included with every subscription
-        </p>
-        <div class="promo-box">
-          <div class="promo-text">
-            🔥 Launch Pricing: Up to 75% off regular rates • Limited time
-          </div>
+<!-- FOUNDER -->
+<div class="section">
+  <div class="container">
+    <div class="label">The founder</div>
+    <h2>WHO BUILDS<br><span class="red">THIS.</span></h2>
+
+    <div class="founder-wrap">
+      <div class="founder-left">
+        <div class="founder-avatar">GK</div>
+        <div>
+          <div class="founder-name">GRAYSON KUBE</div>
+          <div class="founder-title">Founder — Venom Industries</div>
         </div>
-        <div class="cta-actions">
-          <a href="../products.html" class="btn btn-solid">⚡ View Products</a>
-          <a href="../contact.html" class="btn btn-ghost">💬 Contact Us</a>
+        <div class="founder-links">
+          <a href="mailto:grayson@venom-industries.com" class="founder-link">grayson@venom-industries.com</a>
+          <a href="https://github.com/Demarthias" class="founder-link" target="_blank">GitHub</a>
+          <a href="/contact.html" class="founder-link">Book a call</a>
         </div>
       </div>
+      <div class="founder-right">
+        <p>I'm a self-taught developer based in Colorado. I didn't come up through a CS program or a bootcamp — I learned by building things, breaking them, and figuring out why.</p>
+        <p>That process taught me something most formal education skips: <strong>the gap between "it works" and "it works well" is enormous</strong> — and most teams never close it because nobody ever showed them where to look.</p>
+        <p>I built Venom Industries because I kept seeing the same problems on site after site: unoptimized images killing Core Web Vitals, CVEs sitting in production dependencies for months, pages that Google couldn't even index. Real problems with real business impact — and no clear owner.</p>
+        <p>The Venom-Audit is the product I wish existed when I was trying to debug someone else's mess. A complete technical picture, a prioritized fix list, and a human to walk you through it. That's it.</p>
+        <p>I also built <strong>SaaS Detective</strong> — a free Chrome extension that reveals any website's tech stack in one click. Because the best way to understand what works is to see what everyone else is actually using.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- =========================================================
-       Footer
-       ========================================================= -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-grid">
-      <section>
-        <h5>VENOM-INDUSTRIES</h5>
-        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
-      </section>
-      <section>
-        <h5>Navigate</h5>
-        <ul>
-          <li><a href="../products.html">Products</a></li>
-        </ul>
-      </section>
-      <section>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="../products.html">Products</a></li>
-          <li><a href="../Venom-links.html/index.html">Venom Links</a></li>
-          <li><a href="../audit.html">Audit</a></li>
-          <li><a href="../blog.html">Blog</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-          <li><a href="../privacy.html">Privacy</a></li>
-          <li><a href="../terms.html">Terms</a></li>
-        </ul>
-      </section>
+<div class="full-rule"></div>
+
+<!-- PRODUCTS -->
+<div class="section">
+  <div class="container">
+    <div class="label">What we build</div>
+    <h2>TWO PRODUCTS.<br><span class="dim">ONE MISSION.</span></h2>
+    <p style="font-size:15px;color:var(--muted2);max-width:520px;line-height:1.75;margin-bottom:3.5rem">Everything Venom Industries ships is built around the same idea: give technical teams the information they need to make better decisions, faster.</p>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-eyebrow red">Service · Starting at $1,500</div>
+        <h3>VENOM-AUDIT</h3>
+        <p>A systematic technical audit covering performance, SEO, security, and code quality. Delivered in 5 business days with severity-tagged findings, a priority fix matrix, and a 1-hour debrief call. Fixed scope, fixed price, no retainer required.</p>
+        <a href="/audit.html" class="product-link red">See the full audit</a>
+      </div>
+      <div class="product-card">
+        <div class="product-eyebrow blue">Free Chrome Extension · v1.0.2</div>
+        <h3>SAAS DETECTIVE</h3>
+        <p>Reveals any website's complete tech stack in one click. 80+ tools detected across 30+ categories — frameworks, analytics, payments, CDN, marketing, and more. Runs entirely in your browser. Zero data collected.</p>
+        <a href="/saas-detective.html" class="product-link blue">See SaaS Detective</a>
+      </div>
     </div>
-    <div class="footer-meta">
-      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
-      <span>Built for gamers, streamers, and professionals.</span>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2>READY TO SEE WHAT'S ACTUALLY WRONG?</h2>
+    <div class="cta-band-right">
+      <a href="/contact.html" class="btn-white">Book a Sprint Audit — $1,500</a>
+      <div class="cta-note">5-day delivery · fixed price · no retainer</div>
     </div>
-  </footer>
+  </div>
+</div>
 
-  <!-- =========================================================
-       Scripts
-       ========================================================= -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Init AOS
-    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
-
-    // Hover effects for buttons
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-2px)';
-        this.style.boxShadow = '0 0 28px var(--ring)';
-      });
-      btn.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-        this.style.boxShadow = '0 0 18px var(--ring)';
-      });
-    });
-  </script>
+<footer>
+  <div class="footer-left">
+    <div class="footer-mark"></div>
+    <span class="footer-name">Venom Industries LLC © 2026</span>
+  </div>
+  <div class="footer-links">
+    <a href="/audit.html">Audit</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/saas-detective.html">SaaS Detective</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+</footer>
 
 </body>
 </html>
