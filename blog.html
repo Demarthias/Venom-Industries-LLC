@@ -1,792 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGHX274MQ3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-JGHX274MQ3');
-  </script>
-  <!-- =========================================================
-       VENOM-INDUSTRIES — Blog (Premium Theme)
-       ========================================================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Blog | VENOM-INDUSTRIES - Gaming Performance & Career Tips</title>
-  <meta name="description" content="VENOM-INDUSTRIES Blog - Expert insights on network optimization, gaming performance, resume optimization, career advancement, and professional development tips.">
-  <meta name="keywords" content="gaming performance blog, network optimization tips, resume writing guide, career advice, lag reduction, ATS optimization, professional development">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.venomous-industries.com/blog.html" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Blog | VENOM-INDUSTRIES - Performance & Career Insights" />
-  <meta property="og:description" content="Expert insights on gaming performance, network optimization, and career advancement from the VENOM-INDUSTRIES team." />
-  <meta property="og:url" content="https://www.venomous-industries.com/blog.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/hero/venom-hero1.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog | VENOM-INDUSTRIES" />
-  <meta name="twitter:description" content="Performance tips, career advice, and technical insights for gamers and professionals." />
-  <meta name="twitter:image" content="https://www.venomous-industries.com/assets/images/hero/venom-hero1.jpg" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="assets/images/brand/venom-icon2.png" />
-  <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/inline-fixes.css" />
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-
-  <!-- Base CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Venom Industries</title>
+  <meta name="description" content="Technical writing on performance, SEO, security, and code quality. No fluff — just findings from the field.">
+  <link rel="canonical" href="https://venom-industries.com/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --bg:#0a0b0f;
-      --panel:#101319;
-      --panel-2:#0d1116;
-      --text:#e7edf1;
-      --muted:#b8c3c9;
-      --accent:#00f0d5;
-      --accent2:#b9c5cc;
-      --accent3:#6be3ff;
-      --accent4:#2df5af;
-      --accent5:#ff6b9d;
-      --ring:rgba(0,240,213,.25);
-      --ring-2:rgba(185,197,204,.25);
-      --radius:14px;
-      --radius-sm:10px;
-      --shadow:0 0 34px rgba(0,240,213,.18);
-      --thin:1px;
-      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
+      --red:#C0392B;--red2:#E84030;
+      --black:#080808;--dark:#0F0F0F;--mid:#161616;--card:#111111;
+      --line:rgba(255,255,255,0.07);--line2:rgba(255,255,255,0.12);
+      --text:#D8D8D8;--muted:#666;--muted2:#888;
+      --mono:'DM Mono',monospace;--display:'Bebas Neue',sans-serif;--body:'Inter',sans-serif;
     }
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
 
-    html, body{
-      margin:0; padding:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
-        url('assets/images/backgrounds/Nebula.jpg') center/cover no-repeat fixed;
-      color:var(--text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-      line-height:1.58;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      position:relative;
-    }
-    
-    /* Global bright graphical overlay */
-    html::before{
-      content:'';
-      position:fixed;
-      top:0; left:0; right:0; bottom:0;
-      z-index:-1;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
-        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
-        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
-        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
-        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%);
-      background-size: 600px 600px, 800px 800px, 1000px 300px, 500px 500px, 400px 400px;
-      animation:backgroundShift 25s ease-in-out infinite;
-      pointer-events:none;
-    }
-    
-    @keyframes backgroundShift {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.5; }
-    }
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;color:#fff;text-transform:uppercase}
+    .nav-logo-mark{width:26px;height:26px;background:var(--red);display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);font-size:10px;font-weight:700;color:#fff}
+    .nav-links{display:flex;align-items:center;gap:2rem;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .nav-links a:hover{color:#fff}
+    .nav-links a.active{color:#fff}
+    .nav-cta{background:var(--red);color:#fff !important;padding:7px 16px;font-size:10px;font-weight:500;letter-spacing:.1em;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .15s}
+    .nav-cta:hover{background:var(--red2) !important}
 
-    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
-    .brand-accent{font-family:Rajdhani, sans-serif}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{color:var(--accent2)}
+    .page-head{padding:9rem 2.5rem 4rem;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--line)}
+    .label{font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+    .label::before{content:'';width:20px;height:1px;background:var(--red)}
+    h1{font-family:var(--display);font-size:clamp(3.5rem,6vw,6rem);line-height:.94;letter-spacing:.01em;color:#fff;margin-bottom:1rem}
+    h1 .red{color:var(--red)}
+    .page-intro{font-size:15px;color:var(--muted2);max-width:480px;line-height:1.75}
 
-    /* Header / Nav */
-    .site-header{
-      position:sticky; top:0; z-index:9999;
-      background:rgba(6,7,10,.88);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-bottom:var(--thin) solid transparent;
-      border-image: var(--steel) 1;
-      box-shadow:0 1px 0 rgba(185,197,204,.12);
-    }
-    
-    /* Cart Icon */
-    .cart-icon{
-      position:fixed; top:20px; right:20px; z-index:10000;
-      width:50px; height:50px;
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius:50%; display:flex; align-items:center; justify-content:center;
-      box-shadow:0 4px 20px rgba(0,240,213,.3);
-      transition:all .3s ease; cursor:pointer;
-      border:2px solid rgba(255,255,255,.1);
-    }
-    .cart-icon:hover{
-      transform:scale(1.1) translateY(-2px);
-      box-shadow:0 6px 25px rgba(0,240,213,.5);
-      background:linear-gradient(135deg, var(--accent2), var(--accent));
-    }
-    .cart-icon svg{
-      width:24px; height:24px; fill:#0a0b0f;
-    }
-    .cart-badge{
-      position:absolute; top:-5px; right:-5px;
-      background:var(--accent5); color:#fff;
-      border-radius:50%; width:20px; height:20px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:.7rem; font-weight:800;
-      border:2px solid var(--bg);
-    }
-    
-    .nav-container{
-      max-width:1240px; margin:0 auto;
-      padding:1rem 1.25rem;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand-title{
-      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
-      letter-spacing:.12em;
-    }
-    .brand-title strong{ color:var(--accent); }
-    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
-    .nav-menu a{
-      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
-      border:var(--thin) solid transparent; transition:.2s ease;
-    }
-    .nav-menu a:hover,.nav-menu a.active{
-      border-color:transparent; color:#0a0b0f; background:var(--steel);
-      box-shadow:0 0 18px var(--ring);
-    }
+    .blog-wrap{max-width:1100px;margin:0 auto;padding:4rem 2.5rem 6rem}
 
-    /* Blog Hero */
-    .blog-hero{
-      background: transparent;
-      position:relative;
-      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:6rem 0 4rem;
-      text-align:center;
+    /* Featured post */
+    .post-featured{
+      display:grid;grid-template-columns:1fr 1fr;gap:0;
+      border:1px solid var(--line2);margin-bottom:1px;
+      background:var(--card);transition:background .2s;
     }
-    .blog-inner{position:relative; z-index:1}
+    .post-featured:hover{background:var(--mid)}
+    .post-featured-meta{padding:2.5rem;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+    .post-featured-body{padding:2.5rem}
 
-    /* Sections base */
-    .section{
-      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
-    }
-    .headline{
-      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
-    }
-    .headline .mark{ color:var(--accent); }
-    .subline{
-      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
-    }
+    .post-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .post-tag::before{content:'#'}
+    .post-featured-title{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.8rem);color:#fff;line-height:.97;letter-spacing:.01em;margin-bottom:1rem}
+    .post-excerpt{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:1.5rem}
+    .post-read{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+    .post-read::after{content:'→'}
+    .post-date{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
+    .post-mins{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-top:4px}
 
-    /* Blog Grid */
-    .blog-grid{
-      display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
-      margin-top:3rem;
-    }
-    .blog-card{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:
-        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
-        url('assets/images/backgrounds/Nebula.jpg') center/cover no-repeat;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
-      padding:0;
-      transition:transform .3s ease, box-shadow .3s ease;
-      overflow:hidden;
-      cursor:pointer;
-    }
-    .blog-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 40px rgba(0,240,213,.25), inset 0 0 1px rgba(185,197,204,.35);
-    }
-    .blog-card-image{
-      height:200px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:3rem;
-      color:#0a0b0f;
-    }
-    .blog-card-content{
-      padding:2rem;
-    }
-    .blog-meta{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:1rem;
-      font-size:.85rem;
-      color:var(--muted);
-    }
-    .blog-category{
-      background:rgba(0,240,213,.1);
-      border:1px solid rgba(0,240,213,.2);
-      border-radius:var(--radius-sm);
-      padding:.25rem .5rem;
-      color:var(--accent);
-      font-weight:700;
-    }
-    .blog-card h3{
-      color:var(--accent);
-      font-size:1.5rem;
-      margin:0 0 .75rem;
-      line-height:1.3;
-    }
-    .blog-card p{
-      line-height:1.7;
-      color:var(--muted);
-      margin:0 0 1.5rem;
-    }
-    .read-more{
-      color:var(--accent);
-      font-weight:700;
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      transition:color .3s ease;
-    }
-    .read-more:hover{
-      color:var(--accent2);
-    }
+    /* Post grid */
+    .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line2);margin-bottom:1px}
+    .post-card{background:var(--card);padding:1.75rem;display:flex;flex-direction:column;transition:background .2s}
+    .post-card:hover{background:var(--mid)}
+    .post-card-title{font-family:var(--display);font-size:1.5rem;color:#fff;line-height:.97;letter-spacing:.01em;margin-bottom:.75rem;margin-top:.5rem}
+    .post-card-excerpt{font-size:12px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:1.25rem}
+    .post-card-footer{display:flex;align-items:center;justify-content:space-between}
+    .post-card-date{font-family:var(--mono);font-size:10px;color:var(--muted)}
 
-    /* Featured Article */
-    .featured-article{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:
-        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
-        url('assets/images/backgrounds/Nebula.jpg') center/cover no-repeat;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
-      padding:2.5rem;
-      margin:3rem 0;
-    }
-    .featured-badge{
-      display:inline-block;
-      background:linear-gradient(135deg, var(--accent5), var(--accent));
-      color:#0a0b0f;
-      padding:.5rem 1rem;
-      border-radius:999px;
-      font-weight:800;
-      font-size:.85rem;
-      margin-bottom:1.5rem;
-    }
+    /* Topics filter */
+    .topics-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:1.25rem 0;margin-bottom:2rem;border-bottom:1px solid var(--line)}
+    .topic-btn{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--line2);color:var(--muted);cursor:pointer;background:none;transition:all .15s}
+    .topic-btn:hover,.topic-btn.active{border-color:var(--red);color:var(--red)}
 
-    /* Article Content */
-    .article-content{
-      max-width:800px;
-      margin:0 auto;
-    }
-    .article-content h4{
-      color:var(--accent);
-      font-size:1.3rem;
-      margin:2rem 0 1rem;
-    }
-    .article-content p{
-      line-height:1.8;
-      margin-bottom:1.5rem;
-    }
-    .article-content ul{
-      padding-left:1.5rem;
-      line-height:1.7;
-    }
-    .article-content li{
-      margin-bottom:.75rem;
-    }
-    .highlight-tip{
-      background:rgba(0,240,213,.05);
-      border:1px solid rgba(0,240,213,.2);
-      border-radius:var(--radius-sm);
-      padding:1.5rem;
-      margin:2rem 0;
-    }
-    .highlight-tip h5{
-      color:var(--accent);
-      margin:0 0 .75rem;
-      font-size:1.1rem;
-    }
+    /* Newsletter band */
+    .newsletter-band{background:var(--mid);border:1px solid var(--line2);padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:1px}
+    .newsletter-copy h3{font-family:var(--display);font-size:2rem;color:#fff;letter-spacing:.01em;margin-bottom:.4rem}
+    .newsletter-copy p{font-size:13px;color:var(--muted);max-width:360px;line-height:1.65}
+    .newsletter-form{display:flex;gap:0;flex-shrink:0}
+    .newsletter-input{background:var(--dark);border:1px solid var(--line2);border-right:none;color:#fff;font-family:var(--mono);font-size:12px;padding:11px 16px;outline:none;width:240px;letter-spacing:.04em}
+    .newsletter-input::placeholder{color:var(--muted)}
+    .newsletter-input:focus{border-color:var(--red)}
+    .newsletter-submit{background:var(--red);color:#fff;border:none;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .newsletter-submit:hover{background:var(--red2)}
 
-    /* Footer */
-    .site-footer{
-      background: rgba(7,9,13,.8);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:2rem 1.25rem;
-    }
-    .footer-grid{
-      max-width:1240px; margin:0 auto;
-      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
-    }
-    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
-    .footer-grid ul{list-style:none; padding:0; margin:0}
-    .footer-grid li{margin:.25rem 0}
-    .footer-grid a{color:var(--text)}
-    .footer-grid a:hover{color:var(--accent)}
-    .footer-meta{
-      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
-      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
-      font-size:.95rem;
-    }
+    footer{background:var(--dark);border-top:1px solid var(--line);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-left{display:flex;align-items:center;gap:12px}
+    .footer-mark{width:22px;height:22px;background:var(--red);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+    .footer-name{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+    .footer-links{display:flex;gap:1.5rem;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+    .footer-links a:hover{color:#fff}
 
-    @media (max-width: 768px) {
-      .footer-grid{grid-template-columns:1fr}
-      .nav-menu{display:none}
-      .blog-grid{grid-template-columns:1fr}
-      .featured-article{padding:1.5rem}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .page-head>*{animation:fadeUp .5s ease both}
+    .page-head .label{animation-delay:.05s}
+    .page-head h1{animation-delay:.15s}
+    .page-head .page-intro{animation-delay:.25s}
+
+    @media(max-width:900px){
+      .post-featured{grid-template-columns:1fr}
+      .post-featured-meta{border-right:none;border-bottom:1px solid var(--line)}
+      .posts-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:600px){
+      nav{padding:0 1.25rem}
+      .nav-links{display:none}
+      .page-head{padding:8rem 1.25rem 3rem}
+      .blog-wrap{padding:3rem 1.25rem 5rem}
+      .posts-grid{grid-template-columns:1fr}
+      .newsletter-band{flex-direction:column;padding:2rem 1.25rem}
+      .newsletter-form{width:100%;flex-direction:column}
+      .newsletter-input{width:100%;border-right:1px solid var(--line2);border-bottom:none}
+      footer{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
-
 <body>
-  <!-- =========================================================
-       Header / Navigation
-       ========================================================= -->
-  <header class="site-header" role="banner">
-    <div class="nav-container">
-      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
-      <nav role="navigation" aria-label="Primary">
-        <ul class="nav-menu">
-           <li><a href="/index.html">Home</a></li>
-           <li><a href="/about/about.html">About</a></li>
-           <li><a href="/products.html">Products</a></li>
-           <li><a href="/Venom-links.html/index.html">Venom Links</a></li>
-           <li><a href="/audit.html">Audit</a></li>
-           <li><a class="active" href="/blog.html">Blog</a></li>
-           <li><a href="/contact.html">Contact</a></li>
-           <li><a href="/privacy.html">Privacy</a></li>
-           <li><a href="/terms.html">Terms</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <!-- =========================================================
-       Floating Cart Icon
-       ========================================================= -->
-  <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
-    <svg viewBox="0 0 24 24">
-      <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-    </svg>
-    <span class="cart-badge" id="cart-count">0</span>
+<nav>
+  <a href="/" class="nav-logo"><div class="nav-logo-mark">V</div>Venom Industries</a>
+  <div class="nav-links">
+    <a href="/audit.html">Audit</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html" class="active">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="label">Field notes</div>
+  <h1>THE<br><span class="red">VENOM</span><br>BLOG.</h1>
+  <p class="page-intro">Technical writing on performance, SEO, security, and code quality. Findings from real audits — no filler, no fluff.</p>
+</div>
+
+<div class="blog-wrap">
+
+  <div class="topics-row">
+    <button class="topic-btn active">All</button>
+    <button class="topic-btn">Performance</button>
+    <button class="topic-btn">SEO</button>
+    <button class="topic-btn">Security</button>
+    <button class="topic-btn">SaaS</button>
+    <button class="topic-btn">Gaming</button>
+    <button class="topic-btn">Tools</button>
+  </div>
+
+  <!-- Featured -->
+  <a href="#" class="post-featured">
+    <div class="post-featured-meta">
+      <div>
+        <div class="post-tag">SaaS</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:.5rem">Mar 10, 2026</div>
+      </div>
+      <div>
+        <div class="post-date">Featured post</div>
+        <div class="post-mins">8 min read</div>
+      </div>
+    </div>
+    <div class="post-featured-body">
+      <h2 class="post-featured-title">THE HIDDEN COST OF SAAS DEBT</h2>
+      <p class="post-excerpt">Most SaaS companies don't realize they're paying a performance tax every day. Bloated toolchains, unaudited dependencies, and zero error boundaries are quietly draining conversion rates and engineering velocity. Here's how to find it — and what it actually costs.</p>
+      <span class="post-read">Read the full post</span>
+    </div>
   </a>
 
-  <!-- =========================================================
-       Blog Hero Section
-       ========================================================= -->
-  <section class="blog-hero" aria-label="Blog Hero">
-    <div class="blog-inner section">
-      <h2 class="headline" data-aos="fade-up">Performance <span class="mark">Insights</span></h2>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100">
-        Expert insights on <strong>network optimization</strong>, <strong>gaming performance</strong>, and <strong>career advancement</strong> from the VENOM-INDUSTRIES team.
-      </p>
+  <!-- Grid -->
+  <div class="posts-grid">
+    <a href="#" class="post-card">
+      <div class="post-tag">Performance</div>
+      <h3 class="post-card-title">WHY YOUR LCP IS LYING TO YOU</h3>
+      <p class="post-card-excerpt">Lab scores and field data diverge for a reason. Here's what PageSpeed Insights doesn't tell you about real user experience — and how to close the gap.</p>
+      <div class="post-card-footer">
+        <span class="post-card-date">Feb 28, 2026</span>
+        <span class="post-read">Read</span>
+      </div>
+    </a>
+    <a href="#" class="post-card">
+      <div class="post-tag">Gaming</div>
+      <h3 class="post-card-title">LOW LATENCY IS A CHOICE</h3>
+      <p class="post-card-excerpt">Gaming companies treat ping and jitter as infrastructure problems. They're not. They're architecture decisions made at the application layer — and most of them are fixable in under a sprint.</p>
+      <div class="post-card-footer">
+        <span class="post-card-date">Feb 14, 2026</span>
+        <span class="post-read">Read</span>
+      </div>
+    </a>
+    <a href="#" class="post-card">
+      <div class="post-tag">SEO</div>
+      <h3 class="post-card-title">YOUR ATS RESUME IS INVISIBLE</h3>
+      <p class="post-card-excerpt">The same principles that make a site crawlable by Google make a resume parseable by ATS systems. Here's the technical breakdown — and a checklist that actually works.</p>
+      <div class="post-card-footer">
+        <span class="post-card-date">Jan 31, 2026</span>
+        <span class="post-read">Read</span>
+      </div>
+    </a>
+    <a href="#" class="post-card">
+      <div class="post-tag">Security</div>
+      <h3 class="post-card-title">THE 30-MINUTE SECURITY HEADER AUDIT</h3>
+      <p class="post-card-excerpt">Most sites are missing 4 security headers that take under an hour to add. CSP, X-Frame-Options, HSTS, Referrer-Policy — here's the exact implementation for each.</p>
+      <div class="post-card-footer">
+        <span class="post-card-date">Jan 18, 2026</span>
+        <span class="post-read">Read</span>
+      </div>
+    </a>
+    <a href="#" class="post-card">
+      <div class="post-tag">Performance</div>
+      <h3 class="post-card-title">FIXING PING &amp; JITTER: A TECHNICAL DEEP DIVE</h3>
+      <p class="post-card-excerpt">Network latency optimization for applications that can't afford to miss a frame. From TCP tuning to edge deployment — a complete walkthrough.</p>
+      <div class="post-card-footer">
+        <span class="post-card-date">Jan 5, 2026</span>
+        <span class="post-read">Read</span>
+      </div>
+    </a>
+    <a href="#" class="post-card">
+      <div class="post-tag">Tools</div>
+      <h3 class="post-card-title">INTRODUCING SAAS DETECTIVE</h3>
+      <p class="post-card-excerpt">We built a free Chrome extension that reveals any website's tech stack in one click. Here's why we built it, how it works, and what we learned from shipping it.</p>
+      <div class="post-card-footer">
+        <span class="post-card-date">Dec 20, 2025</span>
+        <span class="post-read">Read</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter-band">
+    <div class="newsletter-copy">
+      <h3>STAY IN THE LOOP.</h3>
+      <p>New posts on performance, SEO, and code quality — straight to your inbox. No noise, no sales pitches.</p>
     </div>
-  </section>
-
-  <!-- =========================================================
-       Featured Article
-       ========================================================= -->
-  <section class="section" aria-label="Featured Article">
-    <article class="featured-article" id="ultimate-network-optimization" data-aos="fade-up">
-      <div class="featured-badge">🔥 FEATURED ARTICLE</div>
-      <h3 class="featured-title">
-        The Ultimate Guide to Network Optimization for Competitive Gaming
-      </h3>
-      <div class="blog-meta featured-meta">
-        <span class="blog-category">Gaming Performance</span>
-        <span>September 20, 2025 • 8 min read</span>
-      </div>
-      
-      <div class="article-content">
-        <p class="featured-lede">
-          Every millisecond matters in competitive gaming. Whether you're climbing ranked ladders in Valorant, competing in Apex Legends tournaments, or streaming to thousands of viewers, network performance can make or break your success.
-        </p>
-
-        <h4>Why Network Optimization Matters More Than Ever</h4>
-        <p>
-          Modern games are more demanding than ever when it comes to network performance. With tick rates reaching 128Hz in competitive titles and server locations spread globally, even small network inefficiencies can result in:
-        </p>
-        <ul>
-          <li><strong>Higher ping times</strong> - Leading to delayed reactions and missed opportunities</li>
-          <li><strong>Increased jitter</strong> - Causing inconsistent gameplay and stuttering</li>
-          <li><strong>Packet loss</strong> - Resulting in teleporting enemies and missed shots</li>
-          <li><strong>ISP throttling</strong> - Artificially limiting your connection during peak hours</li>
-        </ul>
-
-        <div class="highlight-tip">
-          <h5>💡 Pro Tip</h5>
-          <p>The average competitive gamer loses 15-30ms of potential reaction time due to suboptimal network configuration. Our intelligent optimization stack can recover most of this lost performance automatically.</p>
-        </div>
-
-        <h4>The Science Behind Network Optimization</h4>
-        <p>
-          Network optimization isn't just about having fast internet. It's about intelligent packet handling, route optimization, and traffic prioritization. Here's what actually makes a difference:
-        </p>
-
-        <ul>
-          <li><strong>Quality of Service (QoS) Configuration:</strong> Prioritizing gaming traffic over background downloads and streaming</li>
-          <li><strong>Route Optimization:</strong> Finding the fastest path to game servers, often bypassing congested ISP routes</li>
-          <li><strong>Buffer Management:</strong> Eliminating bufferbloat that causes inconsistent latency</li>
-          <li><strong>Protocol Optimization:</strong> Fine-tuning TCP/UDP parameters for gaming workloads</li>
-        </ul>
-
-        <h4>Real-World Performance Improvements</h4>
-        <p>
-          Our testing across 1,000+ user configurations shows consistent improvements:
-        </p>
-        <ul>
-          <li><strong>40-70% reduction in average ping</strong> - From optimized routing and traffic prioritization</li>
-          <li><strong>85% reduction in jitter</strong> - Through intelligent buffer management</li>
-          <li><strong>99% elimination of ISP throttling</strong> - Via traffic classification bypass</li>
-          <li><strong>15-25ms improvement in reaction time</strong> - From reduced input lag and network delays</li>
-        </ul>
-
-        <div class="highlight-tip">
-          <h5>🎯 Case Study</h5>
-          <p>A professional Valorant player using our optimization stack saw their average ping drop from 35ms to 12ms, helping them achieve Radiant rank for the first time. The consistent network performance eliminated micro-stutters that were affecting their aim precision.</p>
-        </div>
-
-        <h4>Beyond Gaming: Streaming and Content Creation</h4>
-        <p>
-          Network optimization isn't just for gamers. Content creators and streamers see dramatic improvements in:
-        </p>
-        <ul>
-          <li><strong>Upload stability</strong> - Consistent bitrates for professional streaming quality</li>
-          <li><strong>Reduced frame drops</strong> - Eliminating interruptions in live broadcasts</li>
-          <li><strong>Lower encoding latency</strong> - Faster interaction with chat and viewers</li>
-          <li><strong>Improved collaboration</strong> - Better performance for remote recording and editing</li>
-        </ul>
-
-        <h4>Getting Started with Professional Network Optimization</h4>
-        <p>
-          While manual network optimization requires deep technical knowledge, modern tools like our optimization stack automate the entire process:
-        </p>
-        <ul>
-          <li><strong>Automatic game detection</strong> - Recognizes over 1,000 games and applies optimal settings</li>
-          <li><strong>Real-time monitoring</strong> - Continuously adjusts based on network conditions</li>
-          <li><strong>Zero-configuration setup</strong> - Professional results without technical expertise</li>
-          <li><strong>Performance analytics</strong> - Track improvements and identify bottlenecks</li>
-        </ul>
-
-        <p class="accent-callout">
-          Ready to unlock your network's full potential? Explore our performance optimization stack and experience professional-grade tuning.
-        </p>
-      </div>
-    </article>
-  </section>
-
-  <!-- =========================================================
-       Blog Posts Grid
-       ========================================================= -->
-  <section class="section" aria-label="Recent Articles">
-    <h3 class="headline" data-aos="fade-up">Recent <span class="mark">Articles</span></h3>
-    <p class="subline" data-aos="fade-up" data-aos-delay="100">
-      Stay updated with the latest performance tips, career advice, and technical insights
-    </p>
-    
-    <div class="blog-grid">
-      <article class="blog-card" id="ai-resume-2025" data-aos="zoom-in" onclick="expandArticle(this)">
-        <div class="blog-card-image">📄</div>
-        <div class="blog-card-content">
-          <div class="blog-meta">
-            <span class="blog-category">Career</span>
-            <span>September 15, 2025</span>
-          </div>
-          <h3>How AI is Revolutionizing Resume Writing in 2025</h3>
-          <p>Discover how artificial intelligence is transforming the job application process and learn strategies to leverage AI tools for maximum ATS compatibility and recruiter appeal.</p>
-          <div class="article-content">
-            <p>The job market in 2025 is more competitive than ever, with ATS (Applicant Tracking Systems) becoming increasingly sophisticated. Here's how AI is changing the game:</p>
-            
-            <h4>The Evolution of ATS Systems</h4>
-            <p>Modern ATS systems don't just scan for keywords anymore. They use natural language processing to understand context, evaluate skill relevance, and even predict candidate success rates. This means your resume needs to be smarter, not just keyword-stuffed.</p>
-            
-            <ul>
-              <li><strong>Contextual Understanding:</strong> ATS systems now analyze how your skills relate to job requirements</li>
-              <li><strong>Experience Weighting:</strong> Different experiences are weighted based on relevance and recency</li>
-              <li><strong>Soft Skills Recognition:</strong> Modern systems identify leadership, teamwork, and communication skills from your descriptions</li>
-              <li><strong>Achievement Quantification:</strong> ATS systems prioritize measurable accomplishments and results</li>
-            </ul>
-
-            <div class="highlight-tip">
-              <h5>🤖 AI Advantage</h5>
-              <p>VENOM-INDUSTRIES' AI resume toolkit analyzes job descriptions in real-time and optimizes your resume for specific positions. It understands what each ATS system prioritizes and adjusts your content accordingly.</p>
-            </div>
-
-            <h4>Key Strategies for AI-Optimized Resumes</h4>
-            <p>To succeed in the AI-driven job market, your resume needs to speak both human and machine language:</p>
-
-            <ul>
-              <li><strong>Strategic Keyword Integration:</strong> Use industry-specific terminology naturally within context</li>
-              <li><strong>Quantified Achievements:</strong> Include specific metrics and percentages wherever possible</li>
-              <li><strong>Skills Clustering:</strong> Group related skills to demonstrate expertise depth</li>
-              <li><strong>Format Consistency:</strong> Maintain clean, scannable formatting that both humans and ATS systems can parse</li>
-            </ul>
-
-            <h4>The Human Touch in an AI World</h4>
-            <p>While AI handles optimization, the human element remains crucial. Authentic storytelling, personality, and genuine passion still differentiate top candidates. The key is using AI to enhance your authentic voice, not replace it.</p>
-
-            <p class="accent-note">Ready to harness AI for your career advancement? Explore our AI resume toolkit with intelligent ATS optimization.</p>
-          </div>
-          <a href="#" class="read-more">Read More →</a>
-        </div>
-      </article>
-
-      <article class="blog-card" id="network-tweaks" data-aos="zoom-in" data-aos-delay="200" onclick="expandArticle(this)">
-        <div class="blog-card-image">⚡</div>
-        <div class="blog-card-content">
-          <div class="blog-meta">
-            <span class="blog-category">Performance</span>
-            <span>September 10, 2025</span>
-          </div>
-          <h3>5 Network Tweaks That Instantly Improve Gaming Performance</h3>
-          <p>Simple but powerful network optimizations that can reduce your ping by 40-60% and eliminate lag spikes. These professional techniques work with any internet connection.</p>
-          <div class="article-content">
-            <p>You don't need expensive hardware to dramatically improve your gaming network performance. These five tweaks can be implemented in minutes and deliver professional-level results.</p>
-            
-            <h4>1. DNS Optimization for Gaming</h4>
-            <p>Your DNS server choice significantly impacts connection establishment times. Gaming-optimized DNS servers can reduce initial connection latency by 10-30ms.</p>
-            
-            <div class="highlight-tip">
-              <h5>🎯 Quick Fix</h5>
-              <p><strong>Best Gaming DNS Servers:</strong><br>
-              Primary: 1.1.1.1 (Cloudflare)<br>
-              Secondary: 8.8.8.8 (Google)<br>
-              Gaming Specialized: 208.67.222.222 (OpenDNS)</p>
-            </div>
-
-            <h4>2. Quality of Service (QoS) Configuration</h4>
-            <p>Prioritize gaming traffic over background downloads, streaming, and system updates. Most routers have gaming modes, but manual configuration delivers better results.</p>
-
-            <ul>
-              <li><strong>Gaming Traffic Priority:</strong> Set to "Highest" priority</li>
-              <li><strong>Streaming Priority:</strong> Set to "High" for content creation</li>
-              <li><strong>Downloads Priority:</strong> Set to "Low" to prevent interference</li>
-              <li><strong>System Updates Priority:</strong> Set to "Lowest" priority</li>
-            </ul>
-
-            <h4>3. TCP Window Scaling Optimization</h4>
-            <p>Adjusting TCP window sizes can dramatically improve throughput and reduce latency for gaming traffic. This Windows registry tweak optimizes packet handling.</p>
-
-            <div class="highlight-tip">
-              <h5>⚠️ Advanced Tip</h5>
-              <p>TCP optimization requires technical knowledge. Our optimization stack automatically applies optimal TCP settings based on your connection characteristics and gaming requirements.</p>
-            </div>
-
-            <h4>4. Gaming Mode Router Settings</h4>
-            <p>Enable these router features for optimal gaming performance:</p>
-            <ul>
-              <li><strong>Gaming Accelerator:</strong> Prioritizes gaming packets</li>
-              <li><strong>MU-MIMO:</strong> Improves wireless performance for multiple devices</li>
-              <li><strong>Beamforming:</strong> Focuses wireless signal toward gaming devices</li>
-              <li><strong>Traffic Analyzer:</strong> Monitors and optimizes bandwidth usage</li>
-            </ul>
-
-            <h4>5. Background Application Management</h4>
-            <p>Identify and limit bandwidth-hungry applications that interfere with gaming performance:</p>
-            <ul>
-              <li><strong>Cloud Storage Sync:</strong> Pause during gaming sessions</li>
-              <li><strong>Streaming Services:</strong> Limit quality on other devices</li>
-              <li><strong>Software Updates:</strong> Schedule for off-gaming hours</li>
-              <li><strong>Background Downloads:</strong> Queue for later completion</li>
-            </ul>
-
-            <h4>Professional Results Made Simple</h4>
-            <p>While these manual optimizations can improve performance, professional tools like our optimization stack automate the entire process while providing advanced optimizations that aren't possible manually.</p>
-
-            <p class="accent-note">Want professional-grade optimization without the technical complexity? Explore our automated network optimization.</p>
-          </div>
-          <a href="#" class="read-more">Read More →</a>
-        </div>
-      </article>
-
-      <article class="blog-card" id="proton-exodus" data-aos="zoom-in" data-aos-delay="400" onclick="expandArticle(this)">
-        <div class="blog-card-image">🔒</div>
-        <div class="blog-card-content">
-          <div class="blog-meta">
-            <span class="blog-category">Security</span>
-            <span>February 6, 2026</span>
-          </div>
-          <h3>Protocol: GO DARK — Why We Fired Big Tech</h3>
-          <p>How VENOM INDUSTRIES migrated its entire communications stack to Proton and escaped the surveillance economy.</p>
-          <div class="article-content">
-            <p>"Free" platforms monetize your metadata, habits, and access. We chose sovereignty instead: zero-access encryption, Swiss jurisdiction, and tools that work at enterprise scale.</p>
-            <p>Inside the Proton stack: Mail for secure comms, VPN for hardened routing, and Drive/Pass for encrypted identity and file control.</p>
-            <p class="accent-note">Read the full intel brief and see why we went dark.</p>
-            <p><a href="blog-proton.html">Open the GO DARK report →</a></p>
-          </div>
-          <a href="blog-proton.html" class="read-more">Read More →</a>
-        </div>
-      </article>
-
-        <article class="blog-card" id="deep-audit" data-aos="zoom-in" data-aos-delay="600" onclick="expandArticle(this)">
-          <div class="blog-card-image">🩺</div>
-          <div class="blog-card-content">
-            <div class="blog-meta">
-              <span class="blog-category">Software Development / SaaS Growth</span>
-              <span>February 8, 2026</span>
-            </div>
-            <h3>The Silent Killer of SaaS Growth: Why Technical Audits Are Non-Negotiable</h3>
-            <p>In the race to ship features and capture market share, hidden technical, security, and performance debt can strangle your SaaS growth. Here’s why a deep technical audit is your best defense.</p>
-            <div class="article-content">
-              <p><strong>Keywords:</strong> Technical Audit, SaaS Security, Software Performance, Venom-Audits, Code Review, Vulnerability Assessment</p>
-              <p>In the race to ship features and capture market share, development teams often accumulate hidden debt. It’s not just technical debt; it’s security debt, performance debt, and architectural debt. While your frontend might look polished, what’s happening under the hood could be slowly strangling your growth.</p>
-              <p>This is where the Technical Audit comes in. It is not a luxury; it is the vital vital signs monitor for your digital product.</p>
-              <h4>1. Security: It’s Not "If," It’s "When"</h4>
-              <p>The most obvious reason for an audit is security. You cannot patch what you don't know is broken. A comprehensive audit digs deep into your dependency tree, checks for exposed API keys, and validates your authentication flows.</p>
-              <p><strong>The Risk:</strong> One unpatched vulnerability in a neglected library can lead to a total data breach.</p>
-              <p><strong>The Fix:</strong> Regular audits that simulate attack vectors before the bad actors do.</p>
-              <h4>2. Performance is Conversion</h4>
-              <p>Google’s Core Web Vitals have made it clear: speed is a ranking factor. But beyond SEO, speed is revenue. A 1-second delay in page load can result in a 7% reduction in conversions.</p>
-              <p><strong>The Audit Role:</strong> An audit identifies the bottlenecks—be it unoptimized database queries, memory leaks in your Rust/Node.js backend, or bloated frontend bundles that are killing your Time to Interactive (TTI).</p>
-              <h4>3. Scalability and Architecture</h4>
-              <p>What worked for 100 users will crash at 10,000. Many SaaS platforms are built on "MVP architecture" that was never updated. An audit evaluates your system's readiness to scale. Are you effectively using caching? Is your microservice communication optimized?</p>
-              <p><strong>The Reality:</strong> finding out your architecture can't scale during a viral traffic spike is the worst possible timing.</p>
-              <h4>The Solution: Introducing Venom-Audits</h4>
-              <p>You don't need a generic checklist; you need a detective. This is why we are introducing Venom-Audits.</p>
-              <p>Operating under the philosophy that "good enough is not enough," Venom-Audits (a division of Venom Industries) provides deep-dive inspections of your digital infrastructure. Unlike automated tools that just scratch the surface, Venom-Audits combines forensic-level analysis with developer-centric solutions.</p>
-              <ul>
-                <li><strong>Full Stack Analysis:</strong> From the Rust/TypeScript backend logic to the frontend user experience.</li>
-                <li><strong>Debt Detection:</strong> Identifying "spaghetti code" that will cost you thousands in maintenance hours later.</li>
-                <li><strong>Actionable Intelligence:</strong> We don't just hand you a list of problems; we provide the architectural roadmap to fix them.</li>
-              </ul>
-              <p class="accent-note">Don't Wait for the Crash: A technical audit is an investment in your product's longevity. Whether you are prepping for a Series A funding round or just want to ensure your "SaaS Detective" work is bulletproof, you need eyes on your code that are as sharp as yours.</p>
-              <p>Secure your infrastructure. Optimize your speed. Future-proof your code.</p>
-              <p>Ready to see what’s really going on in your codebase? <a href="deep-audit.html">Read the full Deep Audit →</a></p>
-            </div>
-            <a href="deep-audit.html" class="read-more">Read More →</a>
-          </div>
-        </article>
+    <div class="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="your@email.com">
+      <button class="newsletter-submit">Subscribe</button>
     </div>
-  </section>
+  </div>
 
-  <!-- =========================================================
-       Newsletter Signup
-       ========================================================= -->
-  <section class="section" aria-label="Newsletter">
-    <div class="featured-article newsletter-panel" data-aos="fade-up">
-      <h3 class="newsletter-title">Stay Ahead of the Game</h3>
-      <p class="newsletter-desc">
-        Get exclusive performance tips, early access to new features, and expert insights delivered to your inbox weekly.
-      </p>
+</div>
 
-      <div class="newsletter-row">
-        <input type="email" placeholder="Enter your email" class="newsletter-input">
-        <button class="newsletter-button">Subscribe</button>
-      </div>
+<footer>
+  <div class="footer-left">
+    <div class="footer-mark"></div>
+    <span class="footer-name">Venom Industries LLC © 2026</span>
+  </div>
+  <div class="footer-links">
+    <a href="/audit.html">Audit</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+</footer>
 
-      <p class="newsletter-note">
-        No spam, unsubscribe anytime. Join 10,000+ professionals optimizing their performance.
-      </p>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       Footer
-       ========================================================= -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-glow" aria-hidden="true"></div>
-    <div class="footnav">
-      <a href="index.html">Home</a>
-      <a href="about/about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="Venom-links.html/index.html">Venom Links</a>
-      <a href="audit.html">Audit</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-    <div class="footer-extras">
-      <div>
-        <h6>Venom Ethos</h6>
-        <p>We build for outcomes that produce quality results.</p>
-      </div>
-      <div>
-        <h6>Our Direction as a Company</h6>
-        <ul>
-          <li>Wider product variety across mobile and desktop</li>
-          <li>AI-assisted tuning and anomaly detection</li>
-          <li>Design systems that scale without drift</li>
-          <li>Privacy-first architectures and auditable paths</li>
-        </ul>
-      </div>
-      <div>
-        <h6>Get In Touch</h6>
-        <ul>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="about/about.html">About Venom Industries</a></li>
-          <li><a href="blog.html">Blog &amp; Updates</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copyright">© 2025 VENOM INDUSTRIES. All Rights Reserved. Precision • Power • Poise.</div>
-  </footer>
-
-  <!-- =========================================================
-       Scripts
-       ========================================================= -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Init AOS
-    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
-
-    // Expand article functionality
-    function expandArticle(card) {
-      const content = card.querySelector('.article-content');
-      const readMore = card.querySelector('.read-more');
-      
-      if (content.style.display === 'none' || !content.style.display) {
-        content.style.display = 'block';
-        readMore.textContent = '← Show Less';
-        card.style.gridColumn = 'span 2';
-        
-        // Scroll to the card
-        setTimeout(() => {
-          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      } else {
-        content.style.display = 'none';
-        readMore.textContent = 'Read More →';
-        card.style.gridColumn = 'span 1';
-      }
-    }
-
-    // Cart functionality
-    function updateCartCount() {
-      const cartData = localStorage.getItem('venomCart');
-      const count = cartData ? JSON.parse(cartData).length : 0;
-      document.getElementById('cart-count').textContent = count;
-    }
-
-    // Update cart count on page load
-    updateCartCount();
-
-    // Newsletter subscription (placeholder)
-    document.querySelector('button').addEventListener('click', function() {
-      const email = document.querySelector('input[type="email"]').value;
-      if (email) {
-        alert('Thank you for subscribing! You\'ll receive our next newsletter soon.');
-        document.querySelector('input[type="email"]').value = '';
-      }
+<script>
+  document.querySelectorAll('.topic-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     });
-  </script>
-
+  });
+</script>
 </body>
 </html>
