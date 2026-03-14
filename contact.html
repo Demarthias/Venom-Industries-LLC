@@ -1,515 +1,284 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGHX274MQ3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-JGHX274MQ3');
-  </script>
-  <!-- =========================================================
-       VENOM-INDUSTRIES — Contact Page (Premium Theme)
-       ========================================================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Contact VENOM-INDUSTRIES | Get Support & Connect</title>
-  <meta name="description" content="Contact VENOM-INDUSTRIES for support, partnerships, or general questions. Professional-grade customer service.">
-  <meta name="keywords" content="VENOM-INDUSTRIES contact, support, software support, customer service">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.venomous-industries.com/contact.html" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Contact VENOM-INDUSTRIES | Get Support & Connect" />
-  <meta property="og:description" content="Contact VENOM-INDUSTRIES for support, partnerships, or general questions. Professional-grade customer service." />
-  <meta property="og:url" content="https://www.venomous-industries.com/contact.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/backgrounds/mission-bg.jpg" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="assets/images/brand/venom-icon2.png" />
-  <link rel="apple-touch-icon" href="assets/images/brand/venom-icon2.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/inline-fixes.css" />
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-
-  <!-- Base CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Sprint Audit — Venom Industries</title>
+  <meta name="description" content="Book a Sprint Audit or get in touch. Tell us about your site and we'll confirm within 24 hours.">
+  <link rel="canonical" href="https://venom-industries.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0a0b0f;
-      --panel:#101319;
-      --panel-2:#0d1116;
-      --text:#e7edf1;
-      --muted:#b8c3c9;
-      --accent:#00f0d5;
-      --accent2:#b9c5cc;
-      --accent3:#6be3ff;
-      --accent4:#2df5af;
-      --accent5:#ff6b9d;
-      --ring:rgba(0,240,213,.25);
-      --ring-2:rgba(185,197,204,.25);
-      --radius:14px;
-      --radius-sm:10px;
-      --shadow:0 0 34px rgba(0,240,213,.18);
-      --thin:1px;
-      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
-    }
-
-    html, body{
-      margin:0; padding:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-      line-height:1.58;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      position:relative;
-    }
-    
-    /* Global bright graphical overlay */
-    html::before{
-      content:'';
-      position:fixed;
-      top:0; left:0; right:0; bottom:0;
-      z-index:-1;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
-        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
-        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
-        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
-        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
-        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
-      background-size:
-        600px 600px,
-        800px 800px,
-        1000px 300px,
-        500px 500px,
-        400px 400px,
-        100% 100%;
-      background-position:
-        0% 0%,
-        100% 100%,
-        50% 0%,
-        80% 40%,
-        10% 90%,
-        0% 0%;
-      animation:backgroundShift 25s ease-in-out infinite;
-      pointer-events:none;
-    }
-    
-    @keyframes backgroundShift {
-      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
-      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
-      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
-    }
-
-    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
-    .brand-accent{font-family:Rajdhani, sans-serif}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{color:var(--accent2)}
-
-    /* Header / Nav */
-    .site-header{
-      position:sticky; top:0; z-index:9999;
-      background:rgba(6,7,10,.88);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-bottom:var(--thin) solid transparent;
-      border-image: var(--steel) 1;
-      box-shadow:0 1px 0 rgba(185,197,204,.12);
-    }
-    .nav-container{
-      max-width:1240px; margin:0 auto;
-      padding:1rem 1.25rem;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand-title{
-      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
-      letter-spacing:.12em;
-    }
-    .brand-title strong{ color:var(--accent); }
-    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
-    .nav-menu a{
-      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
-      border:var(--thin) solid transparent; transition:.2s ease;
-    }
-    .nav-menu a:hover,.nav-menu a.active{
-      border-color:transparent; color:#0a0b0f; background:var(--steel);
-      box-shadow:0 0 18px var(--ring);
-    }
-
-    /* Contact Page Specific */
-    .section{
-      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
-    }
-    .headline{
-      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
-    }
-    .headline .mark{ color:var(--accent); }
-    .subline{
-      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
-    }
-
-    .contact-hero{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
-        url('assets/images/backgrounds/mission-bg.jpg') center/cover no-repeat;
-      position:relative;
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:4rem 0;
-    }
-    .contact-inner{position:relative; z-index:1}
-
-    .contact-panel{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:
-        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
-        url('assets/images/backgrounds/venom-overlay.png') center/cover no-repeat;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
-      padding:2.5rem;
-      max-width:800px;
-      margin:0 auto;
-    }
-
-    .form-group{margin-bottom:1.5rem}
-    .form-label{
-      display:block; margin-bottom:.5rem; color:var(--accent); 
-      font-weight:600; font-size:.95rem;
-    }
-    .form-input, .form-textarea{
-      width:100%; padding:1rem 1.25rem; 
-      background:var(--panel); color:var(--text);
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      border-radius:var(--radius-sm);
-      font-size:1rem; font-family:Inter, sans-serif;
-      transition:border-color .3s ease, box-shadow .3s ease;
-      box-sizing:border-box;
-    }
-    .form-input:focus, .form-textarea:focus{
-      border-color:var(--accent); outline:none;
-      box-shadow:0 0 0 2px var(--ring);
-    }
-    .form-textarea{resize:vertical; min-height:120px; font-family:Inter, sans-serif}
-
-    .btn{
-      display:inline-flex; align-items:center; gap:.5rem;
-      padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em;
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      color:#0b0e12; box-shadow:0 0 18px var(--ring);
-      transition:transform .18s ease, box-shadow .18s ease, filter .2s ease;
-      cursor:pointer; font-size:1rem; width:100%;
-      justify-content:center;
-    }
-    .btn:hover{transform:translateY(-2px); box-shadow:0 0 28px var(--ring)}
-
-    /* Contact Info Grid */
-    .contact-grid{
-      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      margin-top:3rem;
-    }
-    .contact-card{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9));
-      box-shadow:var(--shadow);
-      padding:1.5rem; text-align:center;
-    }
-    .contact-card h4{margin:0 0 .5rem; color:var(--accent)}
-    .contact-card p{margin:.25rem 0; color:var(--muted)}
-
-    /* Recent Articles */
-    .blog-grid{
-      display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      margin-top:2.5rem;
-    }
-    .blog-card{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:
-        linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9)),
-        url('assets/images/backgrounds/Nebula.jpg') center/cover no-repeat;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
-      padding:0; overflow:hidden;
-      transition:transform .3s ease, box-shadow .3s ease;
-    }
-    .blog-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 40px rgba(0,240,213,.25), inset 0 0 1px rgba(185,197,204,.35);
-    }
-    .blog-card-image{
-      height:180px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display:flex; align-items:center; justify-content:center;
-      font-size:2.6rem; color:#0a0b0f;
-    }
-    .blog-card-content{padding:1.75rem}
-    .blog-meta{
-      display:flex; justify-content:space-between; align-items:center;
-      margin-bottom:1rem; font-size:.85rem; color:var(--muted);
-    }
-    .blog-category{
-      background:rgba(0,240,213,.1);
-      border:1px solid rgba(0,240,213,.2);
-      border-radius:var(--radius-sm);
-      padding:.25rem .5rem; color:var(--accent); font-weight:700;
-    }
-    .blog-card h3{color:var(--accent); font-size:1.35rem; margin:0 0 .75rem; line-height:1.3}
-    .blog-card p{line-height:1.7; color:var(--muted); margin:0 0 1.2rem}
-    .read-more{color:var(--accent); font-weight:700; display:inline-flex; align-items:center; gap:.5rem}
-    .read-more:hover{color:var(--accent2)}
-
-    /* Footer */
-    .site-footer{
-      background:url('assets/images/backgrounds/Nebula.jpg') center/cover no-repeat, #07090d;
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:2rem 1.25rem;
-    }
-    .footer-grid{
-      max-width:1240px; margin:0 auto;
-      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
-    }
-    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
-    .footer-grid ul{list-style:none; padding:0; margin:0}
-    .footer-grid li{margin:.25rem 0}
-    .footer-grid a{color:var(--text)}
-    .footer-grid a:hover{color:var(--accent)}
-    .footer-meta{
-      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
-      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
-      font-size:.95rem;
-    }
-
-    @media (max-width: 768px) {
-      .footer-grid{grid-template-columns:1fr}
-      .nav-menu{display:none}
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C0392B;--red2:#E84030;--black:#080808;--dark:#0F0F0F;--mid:#161616;--card:#111111;--line:rgba(255,255,255,0.07);--line2:rgba(255,255,255,0.12);--text:#D8D8D8;--muted:#666;--muted2:#888;--mono:'DM Mono',monospace;--display:'Bebas Neue',sans-serif;--body:'Inter',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;color:#fff;text-transform:uppercase}
+    .nav-logo-mark{width:26px;height:26px;background:var(--red);display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);font-size:10px;font-weight:700;color:#fff}
+    .nav-links{display:flex;align-items:center;gap:2rem;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:var(--red);color:#fff !important;padding:7px 16px;font-size:10px;font-weight:500;letter-spacing:.1em;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .15s}
+    .nav-cta:hover{background:var(--red2) !important}
+    .page{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:58px}
+    .left{background:var(--mid);border-right:1px solid var(--line);padding:5rem 3.5rem;display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:58px;height:calc(100vh - 58px)}
+    .label{font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+    .label::before{content:'';width:20px;height:1px;background:var(--red)}
+    h1{font-family:var(--display);font-size:clamp(3rem,4.5vw,5rem);line-height:.94;letter-spacing:.01em;color:#fff;margin-bottom:1.25rem}
+    h1 .red{color:var(--red)}
+    .left-sub{font-size:14px;color:var(--muted2);line-height:1.75;max-width:340px;margin-bottom:2.5rem}
+    .next-steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--line2)}
+    .next-step{display:flex;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--line);background:var(--card)}
+    .next-step:last-child{border-bottom:none}
+    .ns-num{font-family:var(--mono);font-size:10px;color:var(--red);flex-shrink:0;margin-top:2px}
+    .ns-title{font-size:12px;font-weight:500;color:#fff;margin-bottom:2px}
+    .ns-desc{font-size:11px;color:var(--muted);line-height:1.5}
+    .price-summary{margin-top:2rem;padding:1.25rem;background:var(--card);border:1px solid var(--line2)}
+    .ps-row{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--line);font-size:12px}
+    .ps-row:last-child{border-bottom:none}
+    .ps-name{color:var(--muted)}
+    .ps-price{font-family:var(--mono);color:#fff;font-size:11px}
+    .ps-featured .ps-name{color:#fff;font-weight:500}
+    .ps-featured .ps-price{color:var(--red)}
+    .right{padding:5rem 3.5rem;background:var(--black)}
+    .form-section-label{font-family:var(--mono);font-size:9px;color:var(--red);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .form-section-label::before{content:'//';opacity:.5}
+    .field-group{margin-bottom:1.75rem}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.75rem}
+    label{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+    input[type=text],input[type=email],input[type=url],select,textarea{display:block;width:100%;background:var(--mid);border:1px solid var(--line2);color:#fff;font-family:var(--body);font-size:14px;padding:11px 14px;outline:none;transition:border-color .15s;border-radius:0;-webkit-appearance:none}
+    input[type=text]:focus,input[type=email]:focus,input[type=url]:focus,select:focus,textarea:focus{border-color:var(--red)}
+    input::placeholder,textarea::placeholder{color:var(--muted)}
+    select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px}
+    select option{background:var(--mid)}
+    textarea{resize:vertical;min-height:100px;line-height:1.6}
+    .audit-type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1.75rem}
+    .audit-type-card{border:1px solid var(--line2);padding:1rem;cursor:pointer;transition:border-color .15s,background .15s;position:relative}
+    .audit-type-card:hover{background:var(--mid)}
+    .audit-type-card.selected{border-color:var(--red);background:rgba(192,57,43,.06)}
+    .audit-type-card input{position:absolute;opacity:0;pointer-events:none}
+    .atc-name{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem}
+    .atc-price{font-family:var(--display);font-size:1.5rem;color:#fff;line-height:1;margin-bottom:.3rem}
+    .atc-desc{font-size:11px;color:var(--muted);line-height:1.4}
+    .atc-check{position:absolute;top:.6rem;right:.6rem;width:16px;height:16px;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .15s}
+    .audit-type-card.selected .atc-check{background:var(--red);border-color:var(--red)}
+    .audit-type-card.selected .atc-check::after{content:'';width:5px;height:5px;background:#fff;border-radius:50%}
+    .check-group{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.75rem}
+    .check-item{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--muted);padding:.5rem 0}
+    .check-item input{appearance:none;width:14px;height:14px;border:1px solid var(--line2);flex-shrink:0;cursor:pointer;position:relative;transition:all .15s}
+    .check-item input:checked{background:var(--red);border-color:var(--red)}
+    .check-item input:checked::after{content:'';position:absolute;left:3px;top:1px;width:5px;height:7px;border:1px solid #fff;border-top:none;border-left:none;transform:rotate(45deg)}
+    .check-item:hover{color:#fff}
+    .submit-row{display:flex;align-items:center;gap:1rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)}
+    .btn-submit{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:14px 32px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);border:none;cursor:pointer;transition:background .15s,transform .15s}
+    .btn-submit:hover{background:var(--red2);transform:translateY(-1px)}
+    .submit-note{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6}
+    .success-state{display:none;text-align:center;padding:4rem 2rem}
+    .success-state.visible{display:block}
+    .success-icon{width:56px;height:56px;background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:22px}
+    .success-state h2{font-family:var(--display);font-size:2.5rem;color:#fff;margin-bottom:.75rem}
+    .success-state p{font-size:14px;color:var(--muted2);line-height:1.75;max-width:360px;margin:0 auto}
+    footer{background:var(--dark);border-top:1px solid var(--line);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-left{display:flex;align-items:center;gap:12px}
+    .footer-mark{width:22px;height:22px;background:var(--red);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+    .footer-name{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+    .footer-links{display:flex;gap:1.5rem;font-family:var(--mono);font-size:11px;color:var(--muted)}
+    .footer-links a:hover{color:#fff}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .left>*{animation:fadeUp .5s ease both}
+    .left .label{animation-delay:.05s}
+    .left h1{animation-delay:.15s}
+    .left .left-sub{animation-delay:.25s}
+    @media(max-width:900px){.page{grid-template-columns:1fr}.left{position:static;height:auto;padding:5rem 2rem 3rem}.right{padding:3rem 2rem 5rem}}
+    @media(max-width:600px){nav{padding:0 1.25rem}.nav-links{display:none}.field-row{grid-template-columns:1fr}.audit-type-grid{grid-template-columns:1fr}.check-group{grid-template-columns:1fr}footer{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
-  <!-- =========================================================
-       Header / Navigation
-       ========================================================= -->
-  <header class="site-header" role="banner">
-    <div class="nav-container">
-      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
-      <nav role="navigation" aria-label="Primary">
-        <ul class="nav-menu">
-           <li><a href="/index.html">Home</a></li>
-           <li><a href="/about/about.html">About</a></li>
-           <li><a href="/products.html">Products</a></li>
-           <li><a href="/Venom-links.html/index.html">Venom Links</a></li>
-           <li><a class="active" href="/contact.html">Contact</a></li>
-           <li><a href="/audit.html">Audit</a></li>
-           <li><a href="/blog.html">Blog</a></li>
-           <li><a href="/privacy.html">Privacy</a></li>
-           <li><a href="/terms.html">Terms</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <!-- =========================================================
-       Contact Hero Section
-       ========================================================= -->
-  <section class="section contact-hero" aria-label="Contact">
-    <div class="contact-inner">
-      <h2 class="headline" data-aos="fade-up">Contact <span class="mark">VENOM-INDUSTRIES</span></h2>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100">
-        Get support, ask questions, or discuss partnerships. Our team delivers professional-grade service.
-      </p>
-      
-      <div class="contact-panel" data-aos="fade-up" data-aos-delay="200">
-        <form action="#" method="POST" id="contactForm">
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Enter your name" required />
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="subject">Subject</label>
-            <input class="form-input" type="text" id="subject" name="subject" placeholder="How can we help?" required />
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your question, issue, or partnership opportunity..." required></textarea>
-          </div>
-          
-          <button class="btn" type="submit">🚀 Send Message</button>
-        </form>
+<nav>
+  <a href="/" class="nav-logo"><div class="nav-logo-mark">V</div>Venom Industries</a>
+  <div class="nav-links">
+    <a href="/audit.html">Audit</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/contact.html" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="left">
+    <div>
+      <div class="label">Get started</div>
+      <h1>LET'S<br>GET TO<br><span class="red">WORK.</span></h1>
+      <p class="left-sub">Fill out the intake form and we'll confirm your slot within 24 hours. 50% deposit locks your start date — balance due on delivery.</p>
+      <div class="next-steps">
+        <div class="next-step"><span class="ns-num">01</span><div><div class="ns-title">Submit this form</div><div class="ns-desc">Takes under 3 minutes. The more detail, the better.</div></div></div>
+        <div class="next-step"><span class="ns-num">02</span><div><div class="ns-title">We confirm within 24hrs</div><div class="ns-desc">We'll review your site and send a booking confirmation with invoice.</div></div></div>
+        <div class="next-step"><span class="ns-num">03</span><div><div class="ns-title">50% deposit locks your slot</div><div class="ns-desc">Work starts the next business day after deposit clears.</div></div></div>
+        <div class="next-step"><span class="ns-num">04</span><div><div class="ns-title">Report delivered in 5 days</div><div class="ns-desc">PDF report + priority matrix + 1hr debrief call.</div></div></div>
       </div>
     </div>
-  </section>
-
-  <!-- =========================================================
-       Contact Information
-       ========================================================= -->
-  <section class="section" aria-label="Contact Information">
-    <div class="contact-grid">
-      <div class="contact-card" data-aos="zoom-in">
-        <h4>💬 Support</h4>
-        <p>Get help with our software and services</p>
-        <p><strong>support@venom-industries.com</strong></p>
-      </div>
-      
-      <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
-        <h4>🤝 Partnerships</h4>
-        <p>Collaboration & business inquiries</p>
-        <p><strong>partners@venom-industries.com</strong></p>
-      </div>
-      
-      <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
-        <h4>⚡ Response Time</h4>
-        <p>Professional support guaranteed</p>
-        <p><strong>24-48 hours typical</strong></p>
-      </div>
+    <div class="price-summary">
+      <div class="ps-row ps-featured"><span class="ps-name">Sprint Audit</span><span class="ps-price">$1,500</span></div>
+      <div class="ps-row"><span class="ps-name">Full Audit</span><span class="ps-price">$3,500</span></div>
+      <div class="ps-row"><span class="ps-name">Ongoing</span><span class="ps-price">$500/mo</span></div>
     </div>
-  </section>
+  </div>
 
-  <!-- =========================================================
-       Recent Articles
-       ========================================================= -->
-  <section class="section recent-articles" aria-label="Recent Articles">
-    <h3 class="headline" data-aos="fade-up">Recent <span class="mark">Articles</span></h3>
-    <p class="subline" data-aos="fade-up" data-aos-delay="100">
-      The latest intel on performance, privacy, and career acceleration.
-    </p>
+  <div class="right">
+    <form id="contact-form" novalidate>
 
-    <div class="blog-grid">
-      <article class="blog-card" data-aos="zoom-in">
-        <div class="blog-card-image">📄</div>
-        <div class="blog-card-content">
-          <div class="blog-meta">
-            <span class="blog-category">Career</span>
-            <span>Sep 15, 2025</span>
-          </div>
-          <h3>AI Resume Systems That Beat ATS</h3>
-          <p>How the 2025 job market rewards precision, keywords, and measured storytelling.</p>
-          <a href="blog.html#ai-resume-2025" class="read-more">Read More →</a>
+      <div class="form-section-label">01 — Choose your audit</div>
+      <div class="audit-type-grid">
+        <div class="audit-type-card selected" onclick="selectAudit(this)">
+          <input type="radio" name="audit_type" value="sprint" checked>
+          <div class="atc-name">Sprint Audit</div>
+          <div class="atc-price">$1,500</div>
+          <div class="atc-desc">5-day delivery · PDF + debrief</div>
+          <div class="atc-check"></div>
         </div>
-      </article>
-
-      <article class="blog-card" data-aos="zoom-in" data-aos-delay="100">
-        <div class="blog-card-image">⚡</div>
-        <div class="blog-card-content">
-          <div class="blog-meta">
-            <span class="blog-category">Performance</span>
-            <span>Sep 10, 2025</span>
-          </div>
-          <h3>5 Network Tweaks That Drop Ping</h3>
-          <p>Low-effort fixes that cut latency, smooth jitter, and stabilize play.</p>
-          <a href="blog.html#network-tweaks" class="read-more">Read More →</a>
+        <div class="audit-type-card" onclick="selectAudit(this)">
+          <input type="radio" name="audit_type" value="full">
+          <div class="atc-name">Full Audit</div>
+          <div class="atc-price">$3,500</div>
+          <div class="atc-desc">2-week · roadmap + presentation</div>
+          <div class="atc-check"></div>
         </div>
-      </article>
-
-      <article class="blog-card" data-aos="zoom-in" data-aos-delay="200">
-        <div class="blog-card-image">🔒</div>
-        <div class="blog-card-content">
-          <div class="blog-meta">
-            <span class="blog-category">Security</span>
-            <span>Feb 6, 2026</span>
-          </div>
-          <h3>Protocol: GO DARK — The Proton Shift</h3>
-          <p>Why we left legacy platforms and moved communications to zero-access privacy.</p>
-          <a href="blog-proton.html" class="read-more">Read More →</a>
+        <div class="audit-type-card" onclick="selectAudit(this)">
+          <input type="radio" name="audit_type" value="ongoing">
+          <div class="atc-name">Ongoing</div>
+          <div class="atc-price">$500</div>
+          <div class="atc-desc">Monthly · Slack + quarterly refresh</div>
+          <div class="atc-check"></div>
         </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       Footer
-       ========================================================= -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-glow" aria-hidden="true"></div>
-    <div class="footnav">
-      <a href="index.html">Home</a>
-      <a href="about/about.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="Venom-links.html/index.html">Venom Links</a>
-      <a href="contact.html">Contact</a>
-      <a href="audit.html">Audit</a>
-      <a href="blog.html">Blog</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-    <div class="footer-extras">
-      <div>
-        <h6>Venom Ethos</h6>
-        <p>We build for outcomes that produce quality results.</p>
       </div>
-      <div>
-        <h6>Our Direction as a Company</h6>
-        <ul>
-          <li>Wider product variety across mobile and desktop</li>
-          <li>AI-assisted tuning and anomaly detection</li>
-          <li>Design systems that scale without drift</li>
-          <li>Privacy-first architectures and auditable paths</li>
-        </ul>
+
+      <div class="form-section-label">02 — Your details</div>
+      <div class="field-row">
+        <div><label for="name">Full name</label><input type="text" id="name" name="name" placeholder="Grayson Kube" required></div>
+        <div><label for="email">Work email</label><input type="email" id="email" name="email" placeholder="you@company.com" required></div>
       </div>
-      <div>
-        <h6>Get In Touch</h6>
-        <ul>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="about/about.html">About Venom Industries</a></li>
-          <li><a href="blog.html">Blog &amp; Updates</a></li>
-        </ul>
+      <div class="field-row">
+        <div><label for="company">Company / agency</label><input type="text" id="company" name="company" placeholder="Acme Agency"></div>
+        <div><label for="role">Your role</label>
+          <select id="role" name="role">
+            <option value="" disabled selected>Select role</option>
+            <option>Founder / CEO</option>
+            <option>CTO / Engineering Lead</option>
+            <option>Developer</option>
+            <option>Agency Owner</option>
+            <option>Marketing / Growth</option>
+            <option>Other</option>
+          </select>
+        </div>
       </div>
+
+      <div class="form-section-label">03 — Your site</div>
+      <div class="field-group"><label for="url">Site URL</label><input type="url" id="url" name="url" placeholder="https://yoursite.com" required></div>
+      <div class="field-row">
+        <div><label for="stack">Tech stack</label>
+          <select id="stack" name="stack">
+            <option value="" disabled selected>Select stack</option>
+            <option>React / Next.js</option>
+            <option>Vue / Nuxt</option>
+            <option>WordPress</option>
+            <option>Webflow</option>
+            <option>Shopify</option>
+            <option>Plain HTML / CSS</option>
+            <option>Other / not sure</option>
+          </select>
+        </div>
+        <div><label for="timeline">Ideal start date</label>
+          <select id="timeline" name="timeline">
+            <option value="" disabled selected>Select timeline</option>
+            <option>ASAP</option>
+            <option>Within 1 week</option>
+            <option>Within 2 weeks</option>
+            <option>This month</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-section-label">04 — Biggest concerns</div>
+      <div class="check-group">
+        <label class="check-item"><input type="checkbox" name="concerns" value="performance"> Slow load times / Core Web Vitals</label>
+        <label class="check-item"><input type="checkbox" name="concerns" value="seo"> Poor search rankings / SEO</label>
+        <label class="check-item"><input type="checkbox" name="concerns" value="security"> Security vulnerabilities</label>
+        <label class="check-item"><input type="checkbox" name="concerns" value="tech-debt"> Tech debt / code quality</label>
+        <label class="check-item"><input type="checkbox" name="concerns" value="conversion"> Low conversion rate</label>
+        <label class="check-item"><input type="checkbox" name="concerns" value="other"> Other / not sure</label>
+      </div>
+
+      <div class="form-section-label">05 — Anything else</div>
+      <div class="field-group">
+        <label for="message">Context, questions, or specific concerns</label>
+        <textarea id="message" name="message" placeholder="Tell us what's going on — the more specific, the better. Recent changes? Specific pages with issues? Upcoming launches?"></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn-submit">Submit intake form →</button>
+        <div class="submit-note">We'll confirm within 24hrs.<br>No spam. Ever.</div>
+      </div>
+    </form>
+
+    <div class="success-state" id="success-state">
+      <div class="success-icon">✓</div>
+      <h2>YOU'RE IN THE QUEUE.</h2>
+      <p>We'll review your site and send a confirmation with invoice within 24 hours. Check your inbox at <span id="confirm-email" style="color:#fff"></span>.</p>
     </div>
-    <div class="copyright">© 2025 VENOM INDUSTRIES. All Rights Reserved. Precision • Power • Poise.</div>
-  </footer>
+  </div>
+</div>
 
-  <!-- =========================================================
-       Scripts
-       ========================================================= -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Init AOS
-    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
+<footer>
+  <div class="footer-left"><div class="footer-mark"></div><span class="footer-name">Venom Industries LLC © 2026</span></div>
+  <div class="footer-links">
+    <a href="/audit.html">Audit</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </div>
+</footer>
 
-    // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form data
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Simple validation
-      if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields.');
-        return;
-      }
-      
-      // Simulate form submission
-      alert(`Thank you ${name}! Your message has been received. We'll respond to ${email} within 24-48 hours.`);
-      this.reset();
-    });
-  </script>
+<script>
+function selectAudit(card) {
+  document.querySelectorAll('.audit-type-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  card.querySelector('input').checked = true;
+}
 
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name  = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const url   = document.getElementById('url').value.trim();
+  if (!name || !email || !url) {
+    const missing = [];
+    if (!name)  missing.push('full name');
+    if (!email) missing.push('email');
+    if (!url)   missing.push('site URL');
+    alert('Please fill in: ' + missing.join(', '));
+    return;
+  }
+  const auditType = document.querySelector('input[name="audit_type"]:checked')?.value || 'sprint';
+  const company   = document.getElementById('company').value;
+  const role      = document.getElementById('role').value;
+  const stack     = document.getElementById('stack').value;
+  const timeline  = document.getElementById('timeline').value;
+  const message   = document.getElementById('message').value;
+  const concerns  = [...document.querySelectorAll('input[name="concerns"]:checked')].map(c => c.value).join(', ');
+  const subject   = encodeURIComponent('Sprint Audit Inquiry — ' + url);
+  const body      = encodeURIComponent('Audit type: ' + auditType + '\nName: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nRole: ' + role + '\nSite URL: ' + url + '\nStack: ' + stack + '\nTimeline: ' + timeline + '\nConcerns: ' + concerns + '\n\nMessage:\n' + message);
+  window.location.href = 'mailto:grayson@venom-industries.com?subject=' + subject + '&body=' + body;
+  document.getElementById('confirm-email').textContent = email;
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('success-state').classList.add('visible');
+});
+</script>
 </body>
 </html>
