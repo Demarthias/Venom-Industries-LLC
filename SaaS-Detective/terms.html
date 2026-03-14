@@ -1,37 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | SaaS Detective</title>
-    <style>
-        :root { --primary: #0f172a; --text: #334155; --bg: #f8fafc; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); max-width: 900px; margin: 40px auto; padding: 40px; border-radius: 8px; background-color: #fff; }
-        h1 { border-bottom: 2px solid #e2e8f0; padding-bottom: 1rem; }
-        h2 { margin-top: 2rem; color: var(--primary); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — SaaS Detective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07080d;
+      --surface: #0e0f18;
+      --border: #1a1b2e;
+      --accent: #c8f135;
+      --accent-dim: rgba(200,241,53,0.08);
+      --text: #eeeef5;
+      --muted: #5a5b78;
+      --card: #0c0d18;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,241,53,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,241,53,0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(7,8,13,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .logo-icon {
+      width: 28px; height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+    }
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 48px 120px;
+    }
+
+    .page-header {
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .page-eyebrow::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--accent);
+    }
+    .page-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .page-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+    .page-meta span { color: var(--text); }
+
+    .notice-box {
+      background: rgba(79,196,247,0.05);
+      border: 1px solid rgba(79,196,247,0.18);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 56px;
+      font-size: 0.875rem;
+      color: #a0a0c0;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .notice-box strong { color: var(--text); font-weight: 500; }
+
+    .doc-section { margin-bottom: 52px; }
+    .doc-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      background: var(--accent-dim);
+      border: 1px solid rgba(200,241,53,0.2);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .doc-section p {
+      font-size: 0.925rem;
+      color: #a0a0c0;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .doc-section ul li {
+      font-size: 0.925rem;
+      color: #a0a0c0;
+      line-height: 1.75;
+      font-weight: 300;
+      padding-left: 20px;
+      position: relative;
+    }
+    .doc-section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      top: 4px;
+    }
+    .doc-section ul li strong { color: var(--text); font-weight: 500; }
+
+    .highlight-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: #a0a0c0;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .highlight-box strong { color: var(--text); font-weight: 500; }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 36px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+    .footer-copy span { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 24px; }
+      .page { padding: 48px 24px 80px; }
+      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Terms of Service</h1>
-    <p><strong>Last Updated:</strong> February 2, 2026</p>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>By installing "SaaS Detective" (the "Extension"), you agree to these Terms. If you do not agree, please uninstall the Extension immediately.</p>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🔍</div>
+      SaaS Detective
+    </a>
+    <a href="index.html" class="nav-back">← Back to home</a>
+  </nav>
 
-    <h2>2. "As-Is" Disclaimer</h2>
-    <p>The Extension is provided "AS IS" without warranty of any kind. Venom Industries LLC makes no guarantees regarding the accuracy of the technology detection. Websites frequently change their code structure, which may result in false positives or negatives.</p>
+  <div class="page">
 
-    <h2>3. Affiliate Relationships</h2>
-    <p>You acknowledge that the Extension may display affiliate links. Venom Industries LLC is not responsible for the content, privacy practices, or reliability of third-party websites accessed through these links.</p>
+    <div class="page-header">
+      <div class="page-eyebrow">Legal</div>
+      <h1 class="page-title">Terms of Service</h1>
+      <div class="page-meta">
+        <div>Last updated: <span>February 2, 2026</span></div>
+        <div>Entity: <span>Venom Industries LLC</span></div>
+      </div>
+    </div>
 
-    <h2>4. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, Venom Industries LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Extension.</p>
+    <div class="notice-box">
+      <strong>Please read these Terms carefully before installing or using SaaS Detective.</strong> By installing the extension, you agree to be bound by these Terms. If you do not agree, please uninstall the extension and discontinue use.
+    </div>
 
-    <h2>5. Governing Law</h2>
-    <p>These terms are governed by the laws of the United States.</p>
-    
-    <footer>
-        &copy; 2026 Venom Industries LLC.
-    </footer>
+    <div class="doc-section">
+      <h2><span class="section-num">01</span> Acceptance of Terms</h2>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User") and Venom Industries LLC ("we," "us," or "our") governing your use of the SaaS Detective Chrome extension ("Extension"). By installing, accessing, or using the Extension, you confirm that you have read, understood, and agree to be bound by these Terms.</p>
+      <p>We reserve the right to modify these Terms at any time. Continued use of the Extension following any modification constitutes your acceptance of the updated Terms.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">02</span> Description of Service</h2>
+      <p>SaaS Detective is a browser extension that analyzes the publicly visible source code of web pages you visit to identify SaaS tools, frameworks, and technologies. Detection occurs locally on your device. The Extension may display affiliate links to identified tools.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">03</span> "As-Is" Disclaimer</h2>
+      <p>The Extension is provided "AS IS" and "AS AVAILABLE" without warranty of any kind, express or implied. We make no representations or warranties regarding:</p>
+      <ul>
+        <li><strong>Accuracy:</strong> Technology detection is based on pattern matching against publicly available signals. Websites frequently change their code structure, which may result in false positives, false negatives, or outdated results.</li>
+        <li><strong>Availability:</strong> We do not guarantee uninterrupted or error-free operation of the Extension.</li>
+        <li><strong>Completeness:</strong> The Extension's signature database may not include all tools or may not reflect the latest versions of those it does include.</li>
+      </ul>
+      <div class="highlight-box">
+        Use the Extension as a research aid, not as a definitive technical audit. Always verify findings independently before making business or technical decisions.
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">04</span> Affiliate Relationships</h2>
+      <p>SaaS Detective participates in affiliate programs. When you click a "Visit" button in the Extension, you may be redirected through an affiliate tracking link. This means:</p>
+      <ul>
+        <li>We may earn a commission if you purchase a product or service through an affiliate link.</li>
+        <li>The price you pay is unaffected by our affiliate relationship.</li>
+        <li>We are not responsible for the content, pricing, privacy practices, or reliability of any third-party website accessed through affiliate links.</li>
+        <li>Affiliate links are only activated by your explicit action — we never automatically inject or replace links on websites you visit.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">05</span> Acceptable Use</h2>
+      <p>You agree to use the Extension only for lawful purposes and in a manner consistent with all applicable local, national, and international laws and regulations. You agree not to:</p>
+      <ul>
+        <li>Reverse engineer, decompile, or attempt to extract source code from the Extension beyond what is permitted by applicable law.</li>
+        <li>Use the Extension to collect data about third-party websites in a manner that violates those websites' terms of service.</li>
+        <li>Attempt to circumvent any security features of the Extension or Chrome's extension platform.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">06</span> Intellectual Property</h2>
+      <p>The Extension, including its source code, design, signature database, and all associated materials, is the intellectual property of Venom Industries LLC. All rights are reserved. Nothing in these Terms grants you any right, title, or interest in our intellectual property beyond the limited license to use the Extension as described herein.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">07</span> Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, Venom Industries LLC shall not be liable for any indirect, incidental, special, punitive, or consequential damages arising from or related to your use of or inability to use the Extension, including but not limited to loss of profits, loss of data, or business interruption.</p>
+      <p>Our total aggregate liability to you for any claim arising under these Terms shall not exceed the amount you paid for the Extension in the twelve months preceding the claim. Since the Extension is free, this amount is zero.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">08</span> Privacy</h2>
+      <p>Your use of the Extension is also governed by our <a href="privacy.html" style="color: var(--accent); text-decoration: none;">Privacy Policy</a>, which is incorporated into these Terms by reference. The Privacy Policy describes how we handle (and do not handle) your data.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">09</span> Termination</h2>
+      <p>These Terms remain in effect as long as you use the Extension. You may terminate this agreement at any time by uninstalling the Extension. We reserve the right to discontinue the Extension at any time without notice.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">10</span> Governing Law</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in the United States.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="section-num">11</span> Contact</h2>
+      <p>If you have questions about these Terms, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:gkube16@protonmail.com" style="color: var(--accent); text-decoration: none;">gkube16@protonmail.com</a></li>
+        <li><strong>Entity:</strong> Venom Industries LLC</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-copy">© 2026 <span>Venom Industries LLC</span>. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:gkube16@protonmail.com">Contact</a>
+    </div>
+  </footer>
+
 </body>
 </html>
