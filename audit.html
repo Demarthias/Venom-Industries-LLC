@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Venom-Audit — Technical Site Audit in 5 Days | Venom Industries</title>
+  <meta name="description" content="Performance, SEO, security, and code quality. Severity-tagged findings with exact fix instructions. Delivered in 5 days. Starting at $100."/>
+  <link rel="canonical" href="https://venom-industries.com/audit.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Venom-Audit — Technical Site Audit in 5 Days"/>
+  <meta property="og:description" content="Performance, SEO, security, and code quality. Severity-tagged findings with exact fix instructions. From $100."/>
+  <meta property="og:url" content="https://venom-industries.com/audit.html"/>
+  <meta property="og:image" content="https://venom-industries.com/assets/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@1;0&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    :root{--bg:#060608;--surface:#0d0d11;--surface2:#13131a;--border:#1c1c26;--border2:#28283a;--accent:#b8ff00;--adim:rgba(184,255,0,.08);--aglow:rgba(184,255,0,.2);--red:#ff4040;--orange:#ff8c00;--yellow:#ffd700;--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Instrument Serif',serif;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+    a{color:var(--accent);text-decoration:none;}
+    h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:1.05;color:var(--white);text-transform:uppercase;}
+    h1{font-size:clamp(3rem,7vw,6.5rem);}
+    h2{font-size:clamp(2rem,4vw,3.2rem);}
+    h3{font-size:1.4rem;}
+    p{line-height:1.8;}
+    .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
+    section{padding:7rem 0;}
+
+    /* CURSOR */
+    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s;}
+    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+    body.vh #vd{width:12px;height:12px;}body.vh #vr{width:52px;height:52px;border-color:var(--accent);}
+
+    /* NAV */
+    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s;}
+    #vnav.sc{background:rgba(6,6,8,.98);}
+    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(184,255,0,.4));z-index:1;}
+    .ni{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
+    .logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}.logo span{color:var(--accent);}
+    .nlinks{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;}
+    .nl{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;}
+    .nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s;}
+    .nl:hover{color:var(--white);}.nl:hover::after{width:100%;}
+    .nl.active{color:var(--accent);}.nl.active::after{width:100%;}
+    .nr{display:flex;align-items:center;gap:1rem;margin-left:auto;}
+    .ncta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;cursor:none;}.ncta:hover{background:var(--white);transform:translateY(-1px);}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
+    .ham span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s;transform-origin:center;}
+    .ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--accent);}
+    .ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--accent);}
+    #mob{position:fixed;inset:0;background:rgba(6,6,8,.98);backdrop-filter:blur(20px);z-index:400;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;pointer-events:none;transform:translateY(-20px);transition:opacity .35s,transform .35s;}
+    #mob.open{opacity:1;pointer-events:all;transform:translateY(0);}
+    .mbl{font-family:var(--fh);font-size:2.5rem;font-weight:700;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .2s;}.mbl:hover{color:var(--accent);}
+    .mbcta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 2.5rem;border-radius:2px;text-decoration:none;cursor:none;}
+
+    /* BUTTONS */
+    .vbtn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;border:none;cursor:none;transition:all .25s ease;text-decoration:none;position:relative;overflow:hidden;}
+    .vbtn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%) skewX(-15deg);transition:transform .4s;pointer-events:none;}
+    .vbtn:hover::after{transform:translateX(110%) skewX(-15deg);}
+    .bp{background:var(--accent);color:var(--bg);}.bp:hover{background:var(--white);box-shadow:0 12px 40px rgba(184,255,0,.2);}
+    .bo{background:transparent;color:var(--text);border:1px solid var(--border2);}.bo:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* REVEAL */
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+    .rv.vis{opacity:1;transform:translateY(0);}
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+    /* SECTION LABEL */
+    .slbl{display:flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+    .slbl::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);flex-shrink:0;}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:10rem 0 7rem;position:relative;overflow:hidden;}
+    .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(184,255,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(184,255,0,.025) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black 20%,transparent 100%);}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2;}
+    .hl .kicker{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;opacity:0;animation:fu .6s ease .2s both;}
+    .hl h1{opacity:0;animation:fu .7s ease .35s both;}
+    .hl h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;}
+    .hl p{font-size:.95rem;color:var(--text);max-width:480px;line-height:1.9;margin:1.5rem 0 2rem;opacity:0;animation:fu .6s ease .5s both;}
+    .hl-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem;opacity:0;animation:fu .6s ease .55s both;}
+    .pill{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border:1px solid var(--border2);color:var(--muted);border-radius:1px;}
+    .hl-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .6s ease .7s both;}
+    .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);z-index:2;opacity:0;animation:fi 1s ease 1.5s both;}
+    .sbl{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:sba 2s ease infinite;}
+    @keyframes sba{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+    @keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fi{from{opacity:0;}to{opacity:1;}}
+
+    /* RADAR */
+    .radar-wrap{opacity:0;animation:fu .8s ease .5s both;}
+    .radar-svg{width:100%;max-width:440px;display:block;margin:0 auto;}
+    .rring{fill:none;stroke:var(--border);stroke-width:.5;}
+    .rspoke{stroke:var(--border);stroke-width:.5;}
+    .rsweep{transform-origin:220px 220px;animation:rsw 3s linear infinite;}
+    @keyframes rsw{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    .rblip{fill:var(--accent);animation:rblip 1.5s ease-in-out infinite;}
+    @keyframes rblip{0%,100%{opacity:0;}40%,60%{opacity:1;}}
+
+    /* DOMAINS */
+    #domains{border-top:1px solid var(--border);background:var(--surface);}
+    .dom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem;}
+    .dc{background:var(--bg);padding:2rem;transition:background .2s;position:relative;}
+    .dc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+    .dc:hover::after{transform:scaleX(1);}
+    .dc:hover{background:var(--surface);}
+    .dn{font-family:var(--fh);font-size:2.5rem;font-weight:700;color:var(--border2);line-height:1;margin-bottom:1rem;}
+    .dc h3{font-size:1.1rem;margin-bottom:.75rem;}
+    .dc ul{list-style:none;}
+    .dc ul li{font-size:.8rem;color:var(--muted);padding:.28rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.4rem;}
+    .dc ul li::before{content:'·';color:var(--accent);}
+    .dc ul li:last-child{border-bottom:none;}
+
+    /* SAMPLE REPORT */
+    #report{border-top:1px solid var(--border);background:var(--bg);}
+    .rhead{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem;}
+    .rhead p{font-size:.9rem;color:var(--text);line-height:1.9;}
+    .report-wrap{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;position:relative;}
+    .scan-line{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:sl 3.5s ease-in-out infinite;z-index:2;pointer-events:none;}
+    @keyframes sl{0%{top:0;opacity:0;}5%{opacity:.7;}95%{opacity:.7;}100%{top:100%;opacity:0;}}
+    .rhdr{background:var(--surface2);padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .rhdr span{font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+    .finding{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem;opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease;}
+    .finding.loaded{opacity:1;transform:translateX(0);}
+    .finding:last-child{border-bottom:none;}
+    .finding:hover{background:var(--surface2);}
+    .fb{flex-shrink:0;font-family:var(--fh);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:1px;margin-top:2px;}
+    .fc{background:rgba(255,64,64,.15);color:var(--red);border:1px solid rgba(255,64,64,.3);}
+    .fh2{background:rgba(255,140,0,.12);color:var(--orange);border:1px solid rgba(255,140,0,.3);}
+    .fm2{background:rgba(255,215,0,.1);color:var(--yellow);border:1px solid rgba(255,215,0,.3);}
+    .ft{font-family:var(--fh);font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.2rem;}
+    .fd{font-size:.78rem;color:var(--muted);line-height:1.7;}
+
+    /* PROCESS */
+    #process{border-top:1px solid var(--border);background:var(--surface);}
+    .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem;}
+    .ps{background:var(--bg);padding:2rem;position:relative;}
+    .ps::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent);opacity:0;transition:opacity .3s;}
+    .ps:hover::before{opacity:1;}
+    .psn{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--accent);margin-bottom:1rem;}
+    .ps h3{font-size:1rem;margin-bottom:.75rem;}
+    .ps p{font-size:.8rem;color:var(--muted);line-height:1.8;}
+
+    /* WHO */
+    #who{border-top:1px solid var(--border);background:var(--bg);}
+    .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+    .wc{padding:2rem;border:1px solid var(--border);border-radius:4px;transition:all .25s;position:relative;overflow:hidden;}
+    .wc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width .4s;}
+    .wc:hover::after{width:100%;}
+    .wc:hover{border-color:rgba(184,255,0,.25);background:var(--adim);}
+    .wc h3{font-size:1rem;margin-bottom:.75rem;}
+    .wc p{font-size:.83rem;color:var(--muted);line-height:1.8;}
+
+    /* CTA */
+    #acta{border-top:1px solid var(--border);text-align:center;padding:9rem 0;position:relative;overflow:hidden;background:var(--surface);}
+    .ctag{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(184,255,0,.06) 0%,transparent 65%);pointer-events:none;}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:4rem 0 2rem;}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+    .fbrand p{color:var(--muted);font-size:.82rem;margin-top:.75rem;max-width:260px;line-height:1.7;}
+    .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);}.flogo span{color:var(--accent);}
+    .fcol h5{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .fcol a{display:block;color:var(--text);font-size:.82rem;margin-bottom:.5rem;text-decoration:none;transition:color .2s,padding-left .2s;}
+    .fcol a:hover{color:var(--accent);padding-left:.4rem;}
+    .fbot{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;}
+
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:3rem;}.dom-grid,.proc-grid{grid-template-columns:1fr 1fr;}.who-grid{grid-template-columns:1fr;}.rhead{grid-template-columns:1fr;}.nlinks{display:none;}.ham{display:flex;}.fgrid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.dom-grid,.proc-grid{grid-template-columns:1fr;}.fgrid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div id="vd"></div><div id="vr"></div>
+
+  <nav id="vnav">
+    <div id="vp"></div>
+    <div class="ni">
+      <a href="/index.html" class="logo">VENOM<span>.</span>INDUSTRIES</a>
+      <ul class="nlinks">
+        <li><a href="/index.html" class="nl">Home</a></li>
+        <li><a href="/audit.html" class="nl active">Audit</a></li>
+        <li><a href="/blog.html" class="nl">Blog</a></li>
+        <li><a href="/about/" class="nl">About</a></li>
+        <li><a href="/saas-detective.html" class="nl">SaaS Detective</a></li>
+      </ul>
+      <div class="nr">
+        <a href="/contact/" class="ncta">Book an audit</a>
+        <button class="ham" id="ham"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div id="mob">
+    <a href="/index.html" class="mbl">Home</a>
+    <a href="/audit.html" class="mbl">Audit</a>
+    <a href="/blog.html" class="mbl">Blog</a>
+    <a href="/about/" class="mbl">About</a>
+    <a href="/contact/" class="mbcta">Book an audit</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hgrid"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hl">
+          <div class="kicker">Venom-Audit</div>
+          <h1>A complete<br>technical audit.<br><em>In 5 days.</em></h1>
+          <p>Systematic inspection across four critical domains. Every finding comes with a severity tag and an exact fix instruction — not vague advice.</p>
+          <div class="hl-pills">
+            <span class="pill">5-day turnaround</span>
+            <span class="pill">PDF report</span>
+            <span class="pill">1hr debrief call</span>
+            <span class="pill">From $100</span>
+          </div>
+          <div class="hl-actions">
+            <a href="/contact/" class="vbtn bp">Book Sprint Audit — $500 →</a>
+            <a href="/contact/" class="vbtn bo">See all pricing</a>
+          </div>
+        </div>
+        <div class="radar-wrap">
+          <svg class="radar-svg" viewBox="0 0 440 440" fill="none">
+            <circle cx="220" cy="220" r="180" class="rring"/>
+            <circle cx="220" cy="220" r="135" class="rring"/>
+            <circle cx="220" cy="220" r="90" class="rring"/>
+            <circle cx="220" cy="220" r="45" class="rring"/>
+            <line x1="220" y1="40" x2="220" y2="400" class="rspoke"/>
+            <line x1="40" y1="220" x2="400" y2="220" class="rspoke"/>
+            <line x1="93" y1="93" x2="347" y2="347" class="rspoke"/>
+            <line x1="347" y1="93" x2="93" y2="347" class="rspoke"/>
+            <g class="rsweep">
+              <defs><radialGradient id="sg" cx="0%" cy="0%"><stop offset="0%" stop-color="#b8ff00" stop-opacity="0.35"/><stop offset="100%" stop-color="#b8ff00" stop-opacity="0"/></radialGradient></defs>
+              <path d="M 220 220 L 220 40 A 180 180 0 0 1 354 93 Z" fill="url(#sg)"/>
+              <line x1="220" y1="220" x2="220" y2="40" stroke="#b8ff00" stroke-width="1" opacity=".6"/>
+            </g>
+            <text x="220" y="32" text-anchor="middle" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="11" font-weight="700" letter-spacing="2">PERFORMANCE</text>
+            <text x="416" y="224" text-anchor="start" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="11" font-weight="700" letter-spacing="2">SEO</text>
+            <text x="220" y="418" text-anchor="middle" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="11" font-weight="700" letter-spacing="2">SECURITY</text>
+            <text x="22" y="224" text-anchor="end" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="11" font-weight="700" letter-spacing="2">CODE</text>
+            <polygon points="220,76 338,146 338,294 220,364 102,294 102,146" fill="rgba(184,255,0,0.05)" stroke="#b8ff00" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="220" cy="95" r="4" class="rblip" style="animation-delay:0s"/>
+            <circle cx="338" cy="175" r="4" class="rblip" style="animation-delay:.4s"/>
+            <circle cx="310" cy="295" r="4" class="rblip" style="animation-delay:.8s"/>
+            <circle cx="165" cy="335" r="4" class="rblip" style="animation-delay:1.2s"/>
+            <circle cx="220" cy="220" r="4" fill="#b8ff00" opacity=".8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><div class="sbl"></div>SCROLL</div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section id="domains">
+    <div class="container">
+      <div class="rv"><div class="slbl">What We Audit</div><h2>Four domains.<br>Zero fluff.</h2></div>
+      <div class="dom-grid rv d1">
+        <div class="dc"><div class="dn">01</div><h3>Performance</h3><ul><li>Core Web Vitals (LCP, CLS, FID)</li><li>Time to First Byte</li><li>Image optimization</li><li>Render-blocking resources</li><li>Caching strategy</li><li>Bundle size analysis</li></ul></div>
+        <div class="dc"><div class="dn">02</div><h3>SEO</h3><ul><li>Crawlability &amp; indexing</li><li>Title &amp; meta tags</li><li>Structured data</li><li>Internal linking</li><li>Sitemap &amp; robots.txt</li><li>Canonical tags</li></ul></div>
+        <div class="dc"><div class="dn">03</div><h3>Security</h3><ul><li>HTTP security headers</li><li>Content Security Policy</li><li>Dependency CVE scan</li><li>HTTPS configuration</li><li>Cookie flags &amp; SameSite</li><li>HSTS status</li></ul></div>
+        <div class="dc"><div class="dn">04</div><h3>Code Quality</h3><ul><li>Tech debt assessment</li><li>Component architecture</li><li>Error handling patterns</li><li>Outdated dependencies</li><li>TypeScript strictness</li><li>Maintainability score</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE REPORT -->
+  <section id="report">
+    <div class="container">
+      <div class="rhead">
+        <div class="rv"><div class="slbl">Sample Output</div><h2>This is what<br>you receive.</h2></div>
+        <p class="rv d2">Every finding is severity-tagged, explained in plain English, and comes with a specific fix — not a vague observation. You can act on every line.</p>
+      </div>
+      <div class="report-wrap rv">
+        <div class="scan-line"></div>
+        <div class="rhdr"><span>Sprint Audit — acme-agency.com</span><span style="color:var(--red)">11 findings · 3 critical</span></div>
+        <div class="finding"><span class="fb fc">Critical</span><div><div class="ft">LCP 4.8s on mobile — 2.4× above the 2.5s threshold</div><div class="fd">Hero image is 1.4MB uncompressed. Fix: convert to WebP, add width/height attributes. Expected improvement: ~1.8s LCP.</div></div></div>
+        <div class="finding"><span class="fb fc">Critical</span><div><div class="ft">No sitemap submitted to Google Search Console</div><div class="fd">sitemap.xml exists but not submitted. 4 pages unindexed. Fix: submit at search.google.com/search-console → Sitemaps.</div></div></div>
+        <div class="finding"><span class="fb fc">Critical</span><div><div class="ft">lodash 4.17.15 — CVE-2021-23337 (CVSS 7.2)</div><div class="fd">Prototype pollution in _.template(). Fix: npm install lodash@4.17.21.</div></div></div>
+        <div class="finding"><span class="fb fh2">High</span><div><div class="ft">Missing Content-Security-Policy header</div><div class="fd">No CSP set. Exposed to XSS via injected scripts. Fix: Content-Security-Policy: default-src 'self'; script-src 'self'.</div></div></div>
+        <div class="finding"><span class="fb fh2">High</span><div><div class="ft">Missing X-Frame-Options — clickjacking risk</div><div class="fd">No frame protection. Fix: X-Frame-Options: DENY or frame-ancestors 'none' in your CSP.</div></div></div>
+        <div class="finding"><span class="fb fm2">Medium</span><div><div class="ft">CLS score 0.18 — above Google's 0.1 threshold</div><div class="fd">Shifts from font swap and dynamic banner. Fix: font-display: swap + min-height on banner container.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="rv"><div class="slbl">How It Works</div><h2>Simple process.<br>No surprises.</h2></div>
+      <div class="proc-grid rv d1">
+        <div class="ps"><div class="psn">01 / BOOK</div><h3>Book &amp; Pay</h3><p>Select your tier and complete payment via Stripe. We confirm your slot within 24 hours and send the intake form.</p></div>
+        <div class="ps"><div class="psn">02 / BRIEF</div><h3>Intake Form</h3><p>Fill out a short form with your site URL, tech stack, and biggest concerns. The more context the better.</p></div>
+        <div class="ps"><div class="psn">03 / AUDIT</div><h3>We Run the Audit</h3><p>We work through all four domains using PageSpeed Insights, Screaming Frog, Mozilla Observatory, npm audit, and manual code review.</p></div>
+        <div class="ps"><div class="psn">04 / DELIVER</div><h3>Report + Debrief</h3><p>A branded PDF with every finding, severity rating, and exact fix. Plus a 1-hour debrief call to walk through the work.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section id="who">
+    <div class="container">
+      <div class="rv"><div class="slbl">Who It's For</div><h2>Built for teams<br>who ship.</h2></div>
+      <div class="who-grid">
+        <div class="wc rv d1"><h3>Agencies &amp; Dev Shops</h3><p>Audit client sites before handoff. Or use our report as a new-business tool — walk into your next pitch with evidence-based findings on the prospect's current site.</p></div>
+        <div class="wc rv d2"><h3>SaaS Teams</h3><p>Slow load times and poor Core Web Vitals directly hurt SEO and conversions. Get a prioritized fix list for your next sprint.</p></div>
+        <div class="wc rv d1"><h3>Engineering Leads</h3><p>Making the case for tech debt paydown? A Venom-Audit gives you severity-tagged findings with ROI estimates you can take to stakeholders.</p></div>
+        <div class="wc rv d2"><h3>Founders &amp; Freelancers</h3><p>Starting at $100, you'll get a definitive answer in 48 hours with a clear list of what to fix first.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="acta">
+    <div class="ctag"></div>
+    <div class="container" style="position:relative;z-index:1;text-align:center;">
+      <div class="slbl rv" style="justify-content:center;">Get Started</div>
+      <h2 class="rv">Ready to see what's<br><em style="font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;">actually</em> wrong?</h2>
+      <p class="rv d1" style="color:var(--text);font-size:.95rem;max-width:480px;margin:1rem auto 2.5rem;">No retainer required. Book your tier and we'll confirm within 24 hours.</p>
+      <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;" class="rv d2">
+        <a href="/contact/" class="vbtn bp">Book a Sprint Audit — $500 →</a>
+        <a href="/contact/" class="vbtn bo">See all pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="fgrid">
+        <div class="fbrand"><div class="flogo">VENOM<span>.</span>INDUSTRIES</div><p>Technical audits and software development. Built by a self-taught developer in Colorado.</p></div>
+        <div class="fcol"><h5>Services</h5><a href="/audit.html">Venom-Audit</a><a href="/saas-detective.html">SaaS Detective</a><a href="/contact/">Book an audit</a></div>
+        <div class="fcol"><h5>Company</h5><a href="/about/">About</a><a href="/blog.html">Blog</a><a href="/contact/">Contact</a></div>
+        <div class="fcol"><h5>Legal</h5><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="fbot"><span>© 2026 Venom Industries LLC</span><span>Built to the VENOM standard.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const vd=document.getElementById('vd'),vr=document.getElementById('vr');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    document.querySelectorAll('a,button,.dc,.wc,.ps').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('vh'));el.addEventListener('mouseleave',()=>document.body.classList.remove('vh'));});
+    (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
+    const vnav=document.getElementById('vnav'),vp=document.getElementById('vp');
+    window.addEventListener('scroll',()=>{vnav.classList.toggle('sc',scrollY>60);vp.style.width=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';});
+    const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    document.querySelectorAll('.vbtn,.ncta').forEach(btn=>{
+      btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) translateY(-2px)`;});
+      btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+    });
+    const findings=document.querySelectorAll('.finding');
+    const ro=new IntersectionObserver(es=>{if(es[0].isIntersecting){findings.forEach((f,i)=>setTimeout(()=>f.classList.add('loaded'),i*100));ro.disconnect();}},{threshold:.1});
+    if(findings[0])ro.observe(findings[0].closest('.report-wrap'));
+  </script>
+</body>
+</html>
