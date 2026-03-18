@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Payment Confirmed — Venom Industries</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@1;0&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--bg:#060608;--surface:#0d0d11;--border:#1c1c26;--accent:#b8ff00;--adim:rgba(184,255,0,.08);--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;}
+    html,body{height:100%;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);-webkit-font-smoothing:antialiased;overflow:hidden;cursor:none;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;position:relative;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+
+    /* CURSOR */
+    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;}
+
+    /* GRID */
+    .grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(184,255,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(184,255,0,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 100%);}
+
+    /* GLOW */
+    .glow{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(184,255,0,.08) 0%,transparent 65%);pointer-events:none;z-index:0;}
+
+    /* CONTENT */
+    .wrap{position:relative;z-index:2;text-align:center;padding:2rem;max-width:600px;}
+
+    /* CHECK ANIMATION */
+    .check-wrap{width:80px;height:80px;margin:0 auto 2.5rem;position:relative;}
+    .check-circle{width:80px;height:80px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;animation:scalein .5s cubic-bezier(.34,1.56,.64,1) both;}
+    @keyframes scalein{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
+    .check-pulse{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(184,255,0,.3);animation:pulse 2s ease infinite;}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.1);opacity:.15;}}
+    .check-svg{width:32px;height:32px;stroke:var(--accent);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .4s ease .4s forwards;}
+    @keyframes draw{to{stroke-dashoffset:0;}}
+
+    .kicker{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;opacity:0;animation:fu .6s ease .6s both;}
+    h1{font-family:var(--fh);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.05;margin-bottom:1rem;opacity:0;animation:fu .6s ease .75s both;}
+    h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--accent);text-transform:none;}
+    .sub{font-size:.9rem;color:var(--text);line-height:1.9;max-width:480px;margin:0 auto 2.5rem;opacity:0;animation:fu .6s ease .9s both;}
+
+    /* TIMER BAR */
+    .timer-wrap{opacity:0;animation:fu .6s ease 1.1s both;}
+    .timer-label{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;}
+    .timer-bar-bg{width:280px;height:2px;background:var(--border);border-radius:1px;margin:0 auto .75rem;overflow:hidden;}
+    .timer-bar{height:100%;width:100%;background:var(--accent);transform-origin:left;animation:drain 5s linear 1.3s forwards;}
+    @keyframes drain{from{transform:scaleX(1);}to{transform:scaleX(0);}}
+    .timer-count{font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--white);line-height:1;}
+    .timer-count span{color:var(--accent);}
+
+    /* WHAT HAPPENS NEXT */
+    .next{margin-top:3rem;padding:2rem;border:1px solid var(--border);border-radius:4px;background:var(--surface);text-align:left;opacity:0;animation:fu .6s ease 1.2s both;}
+    .next-title{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem;}
+    .next-title::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);}
+    .steps{list-style:none;display:flex;flex-direction:column;gap:.75rem;}
+    .step{display:flex;align-items:flex-start;gap:1rem;font-size:.85rem;color:var(--text);line-height:1.7;}
+    .sn{font-family:var(--fh);font-size:.7rem;font-weight:700;color:var(--accent);background:var(--adim);border:1px solid rgba(184,255,0,.2);border-radius:1px;padding:.15rem .5rem;flex-shrink:0;margin-top:2px;}
+
+    @keyframes fu{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 2rem;height:64px;display:flex;align-items:center;border-bottom:1px solid var(--border);background:rgba(6,6,8,.88);backdrop-filter:blur(24px);}
+    .logo{font-family:var(--fh);font-weight:700;font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+    .logo span{color:var(--accent);}
+
+    @media(max-width:600px){body{padding:4rem 1rem 2rem;overflow-y:auto;}.timer-bar-bg{width:200px;}}
+  </style>
+</head>
+<body>
+  <div id="vd"></div><div id="vr"></div>
+  <div class="grid"></div>
+  <div class="glow"></div>
+
+  <nav>
+    <a href="/" class="logo">VENOM<span>.</span>INDUSTRIES</a>
+  </nav>
+
+  <div class="wrap">
+    <div class="check-wrap">
+      <div class="check-circle">
+        <svg class="check-svg" viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="check-pulse"></div>
+    </div>
+
+    <div class="kicker">Payment Confirmed</div>
+    <h1>You're<br><em>locked in.</em></h1>
+    <p class="sub">Your payment went through. Grayson will reach out within 24 hours on business days to confirm your audit slot and send the intake form.</p>
+
+    <div class="timer-wrap">
+      <div class="timer-label">Redirecting to homepage in</div>
+      <div class="timer-bar-bg"><div class="timer-bar"></div></div>
+      <div class="timer-count"><span id="count">5</span>s</div>
+    </div>
+
+    <div class="next">
+      <div class="next-title">What happens next</div>
+      <ul class="steps">
+        <li class="step"><span class="sn">01</span>You'll receive a payment receipt from Stripe to your email.</li>
+        <li class="step"><span class="sn">02</span>Grayson reaches out within 24 hours to confirm your slot.</li>
+        <li class="step"><span class="sn">03</span>You'll get a short intake form — site URL, stack, biggest concerns.</li>
+        <li class="step"><span class="sn">04</span>Audit begins. Report delivered in 5 business days.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Cursor
+    const vd=document.getElementById('vd'),vr=document.getElementById('vr');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
+
+    // Countdown + redirect
+    let count = 5;
+    const el = document.getElementById('count');
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        count--;
+        el.textContent = count;
+        if (count <= 0) {
+          clearInterval(interval);
+          window.location.href = '/';
+        }
+      }, 1000);
+    }, 1300);
+  </script>
+</body>
+</html>
