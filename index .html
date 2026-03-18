@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Venom Industries — Software Development, SaaS & Technical Audits</title>
+  <meta name="description" content="Venom Industries builds software, SaaS products, and delivers precise technical audits. Colorado. No retainer required."/>
+  <link rel="canonical" href="https://venom-industries.com/"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    :root{
+      --bg:#060608;--surface:#0d0d11;--surface2:#13131a;
+      --border:#1c1c26;--border2:#28283a;
+      --accent:#b8ff00;--adim:rgba(184,255,0,0.08);--aglow:rgba(184,255,0,0.2);
+      --red:#ff4040;--orange:#ff8c00;
+      --text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;
+      --fh:'Rajdhani',sans-serif;
+      --fm:'IBM Plex Mono',monospace;
+      --fs:'Instrument Serif',serif;
+    }
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+    a{color:var(--accent);text-decoration:none;}
+    h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:1.05;color:var(--white);text-transform:uppercase;}
+    h1{font-size:clamp(3.5rem,9vw,8.5rem);}
+    h2{font-size:clamp(2rem,5vw,3.8rem);}
+    h3{font-size:clamp(1.3rem,2.5vw,1.8rem);}
+    .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
+
+    /* CURSOR */
+    #v-dot{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s;}
+    #v-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+    body.v-hover #v-dot{width:12px;height:12px;}
+    body.v-hover #v-ring{width:52px;height:52px;border-color:var(--accent);}
+
+    /* PROGRESS BAR */
+    #v-progress{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(184,255,0,.4));transition:width .1s;z-index:1;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s;}
+    nav.scrolled{background:rgba(6,6,8,.98);}
+    .nav-inner{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
+    .nav-logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
+    .nav-logo span{color:var(--accent);}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;}
+    .nav-link{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;}
+    .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s;}
+    .nav-link:hover,.nav-link.active{color:var(--white);}
+    .nav-link:hover::after,.nav-link.active::after{width:100%;}
+    .nav-link.active{color:var(--accent);}
+    .nav-right{display:flex;align-items:center;gap:1rem;margin-left:auto;}
+    .nav-cta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;white-space:nowrap;cursor:none;}
+    .nav-cta:hover{background:var(--white);transform:translateY(-1px);}
+    /* hamburger */
+    .v-ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
+    .v-ham span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s;transform-origin:center;}
+    .v-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--accent);}
+    .v-ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .v-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--accent);}
+    /* mobile menu */
+    #mob-menu{position:fixed;inset:0;background:rgba(6,6,8,.98);backdrop-filter:blur(20px);z-index:400;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;pointer-events:none;transform:translateY(-20px);transition:opacity .35s ease,transform .35s ease;}
+    #mob-menu.open{opacity:1;pointer-events:all;transform:translateY(0);}
+    .mob-link{font-family:var(--fh);font-size:2.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white);text-decoration:none;transition:color .2s;position:relative;}
+    .mob-link:hover{color:var(--accent);}
+    .mob-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s;}
+    .mob-link:hover::after{width:100%;}
+    .mob-cta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 2.5rem;border-radius:2px;text-decoration:none;margin-top:1rem;cursor:none;}
+
+    /* BUTTONS */
+    .vbtn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;border:none;cursor:none;transition:all .25s ease;text-decoration:none;position:relative;overflow:hidden;}
+    .vbtn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%) skewX(-15deg);transition:transform .4s ease;pointer-events:none;}
+    .vbtn:hover::after{transform:translateX(110%) skewX(-15deg);}
+    .vbtn-primary{background:var(--accent);color:var(--bg);}
+    .vbtn-primary:hover{background:var(--white);box-shadow:0 12px 40px rgba(184,255,0,.2);}
+    .vbtn-outline{background:transparent;color:var(--text);border:1px solid var(--border2);}
+    .vbtn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+    .reveal.vis{opacity:1;transform:translateY(0);}
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+    /* SECTION LABEL */
+    .slbl{display:flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+    .slbl::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);flex-shrink:0;}
+
+    /* ─────────────────────────────────
+       HERO
+    ───────────────────────────────── */
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:10rem 0 7rem;}
+    #pc{position:absolute;inset:0;z-index:0;}
+    .hero-vig{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 85% 75% at 50% 50%,transparent 20%,rgba(6,6,8,.92) 100%);}
+    .hero-inner{position:relative;z-index:2;}
+    .hero-tag{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(184,255,0,.22);padding:.35rem 1rem;border-radius:1px;margin-bottom:2.5rem;opacity:0;animation:fu .6s ease .2s both;}
+    .pdot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pd 2s ease infinite;}
+    @keyframes pd{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--aglow);}50%{opacity:.5;box-shadow:0 0 0 7px rgba(184,255,0,0);}}
+    .hero h1{opacity:0;animation:fu .7s ease .35s both;}
+    .hero h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;}
+    /* glitch */
+    .gw{position:relative;display:inline-block;}
+    .gw::before,.gw::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;}
+    .gw::before{color:#ff4040;clip-path:polygon(0 0,100% 0,100% 38%,0 38%);}
+    .gw::after{color:#00eeff;clip-path:polygon(0 62%,100% 62%,100% 100%,0 100%);}
+    .gw.glitching::before{opacity:.65;animation:gt .15s steps(1) 3;}
+    .gw.glitching::after{opacity:.65;animation:gb .15s steps(1) 3;}
+    @keyframes gt{0%{transform:translate(-2px,0);}33%{transform:translate(2px,0);}66%{transform:translate(-1px,1px);}100%{transform:translate(0);}}
+    @keyframes gb{0%{transform:translate(2px,0);}33%{transform:translate(-2px,0);}66%{transform:translate(1px,-1px);}100%{transform:translate(0);}}
+    .hero-sub{font-size:1rem;color:var(--text);max-width:560px;line-height:1.9;margin:2rem 0 2.5rem;opacity:0;animation:fu .6s ease .5s both;}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .6s ease .65s both;}
+    .hero-stats{display:flex;gap:3.5rem;margin-top:5rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap;opacity:0;animation:fu .6s ease .8s both;}
+    .sn{font-family:var(--fh);font-size:2.8rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.02em;}
+    .sn .ac{color:var(--accent);}
+    .sl{font-size:.78rem;color:var(--muted);margin-top:.3rem;}
+    .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);z-index:2;opacity:0;animation:fi 1s ease 1.5s both;}
+    .scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:sb 2s ease infinite;}
+    @keyframes sb{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+    @keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fi{from{opacity:0;}to{opacity:1;}}
+
+    /* ─────────────────────────────────
+       MARQUEE
+    ───────────────────────────────── */
+    .mq-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:1rem 0;}
+    .mq-inner{display:flex;gap:2.5rem;width:max-content;animation:mq 30s linear infinite;}
+    .mi{display:flex;align-items:center;gap:.6rem;white-space:nowrap;font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+    .md{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;}
+    @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+    /* ─────────────────────────────────
+       SERVICES SECTION
+    ───────────────────────────────── */
+    #services{padding:7rem 0;border-top:1px solid var(--border);background:var(--bg);}
+    .svc-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem;}
+    .svc-header p{color:var(--text);font-size:.92rem;line-height:1.9;}
+    .svc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .sc{background:var(--surface);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .25s;display:flex;flex-direction:column;text-decoration:none;cursor:none;}
+    .sc-glow{position:absolute;width:280px;height:280px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s;top:50%;left:50%;}
+    .sc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+    .sc:hover{background:var(--surface2);}
+    .sc:hover::after{transform:scaleX(1);}
+    .sc:hover .sc-glow{opacity:1;}
+    .sc--coming{opacity:.75;}
+    .sc--coming::after{background:var(--orange)!important;}
+    .sc-num{font-family:var(--fh);font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.15em;margin-bottom:1.5rem;}
+    .sc-icon{width:40px;height:40px;margin-bottom:1.5rem;border:1px solid var(--border2);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1rem;transition:all .3s;}
+    .sc:hover .sc-icon{border-color:var(--accent);background:var(--adim);transform:scale(1.06);}
+    .sc h3{font-size:1.3rem;margin-bottom:.75rem;}
+    .sc p{font-size:.84rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;flex:1;}
+    .sc-list{list-style:none;margin-bottom:1.5rem;}
+    .sc-list li{font-size:.8rem;color:var(--muted);padding:.28rem 0;border-bottom:1px solid var(--border);display:flex;gap:.5rem;}
+    .sc-list li:last-child{border-bottom:none;}
+    .sc-link{font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.4rem;transition:gap .2s;margin-top:auto;}
+    .sc:hover .sc-link{gap:.8rem;}
+    .coming-tag{display:inline-block;font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .5rem;border:1px solid rgba(255,140,0,.3);color:var(--orange);border-radius:1px;margin-bottom:1rem;}
+
+    /* ─────────────────────────────────
+       PRICING SNAPSHOT
+    ───────────────────────────────── */
+    #pricing{padding:7rem 0;border-top:1px solid var(--border);background:var(--surface);}
+    .pricing-header{text-align:center;margin-bottom:4rem;}
+    .pricing-header h2{margin-bottom:.75rem;}
+    .pricing-header p{color:var(--text);font-size:.9rem;}
+    .p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;align-items:start;}
+    .pc{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;transition:all .3s;cursor:none;}
+    .pc:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+    .pc--feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 40px rgba(184,255,0,.06);}
+    .pc--feat:hover{box-shadow:0 0 0 1px var(--accent),0 20px 60px rgba(184,255,0,.13);}
+    .pc--feat::before{content:'MOST POPULAR';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--bg);font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.15em;padding:.25rem .75rem;border-radius:0 0 2px 2px;}
+    .pp{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .px{font-family:var(--fh);font-size:3rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:.25rem;}
+    .px sup{font-size:1.4rem;vertical-align:super;}
+    .pc-cad{font-size:.78rem;color:var(--muted);margin-bottom:1.5rem;}
+    .pc-desc{font-size:.82rem;color:var(--text);line-height:1.7;margin-bottom:1.5rem;}
+    .pc-div{height:1px;background:var(--border);margin:1.5rem 0;}
+    .pc-feats{list-style:none;margin-bottom:2rem;}
+    .pc-feats li{font-size:.8rem;color:var(--text);padding:.35rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;}
+    .pc-feats li::before{content:'→';color:var(--accent);font-size:.7rem;}
+    .pc-feats li:last-child{border-bottom:none;}
+
+    /* ─────────────────────────────────
+       CTA
+    ───────────────────────────────── */
+    #cta{padding:9rem 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border);background:var(--bg);}
+    .cta-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(184,255,0,.055) 0%,transparent 65%);pointer-events:none;}
+    #cta h2,#cta p,.cta-acts{position:relative;z-index:1;}
+    #cta h2{margin-bottom:1rem;}
+    #cta p{font-size:.95rem;color:var(--text);max-width:500px;margin:0 auto 2.5rem;}
+    .cta-acts{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+
+    /* ─────────────────────────────────
+       FOOTER
+    ───────────────────────────────── */
+    footer{border-top:1px solid var(--border);padding:4rem 0 2rem;}
+    .footer-glow{font-family:var(--fh);font-size:6rem;font-weight:700;color:rgba(184,255,0,.012);text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:-.5rem;pointer-events:none;user-select:none;overflow:hidden;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+    .footer-brand p{color:var(--muted);font-size:.82rem;margin-top:.75rem;max-width:260px;line-height:1.7;}
+    .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);}
+    .flogo span{color:var(--accent);}
+    .footer-col h5{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .footer-col a{display:block;color:var(--text);font-size:.82rem;margin-bottom:.5rem;text-decoration:none;transition:color .2s,padding-left .2s;}
+    .footer-col a:hover{color:var(--accent);padding-left:.4rem;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .nav-links{display:none;}
+      .v-ham{display:flex;}
+      .svc-cards{grid-template-columns:1fr;}
+      .p-grid{grid-template-columns:1fr 1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .svc-header{grid-template-columns:1fr;gap:1.5rem;}
+    }
+    @media(max-width:600px){
+      .p-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr;}
+      body{cursor:auto;}
+      #v-dot,#v-ring{display:none;}
+    }
+  </style>
+</head>
+<body>
+  <div id="v-dot"></div>
+  <div id="v-ring"></div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div id="v-progress"></div>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">VENOM<span>.</span>INDUSTRIES</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="audit.html" class="nav-link">Audit</a></li>
+        <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="contact.html" class="nav-cta">Book a Call</a>
+        <button class="v-ham" id="v-ham"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mob-menu">
+    <a href="index.html" class="mob-link">Home</a>
+    <a href="audit.html" class="mob-link">Audit</a>
+    <a href="blog.html" class="mob-link">Blog</a>
+    <a href="about.html" class="mob-link">About</a>
+    <a href="contact.html" class="mob-cta">Book a Call →</a>
+  </div>
+
+  <!-- ═══════════════════════════════
+       HERO
+  ═══════════════════════════════ -->
+  <section class="hero">
+    <canvas id="pc"></canvas>
+    <div class="hero-vig"></div>
+    <div class="container hero-inner">
+      <div class="hero-tag"><span class="pdot"></span>Colorado, USA · Est. 2025</div>
+      <h1>
+        <span class="gw" data-text="WE">WE</span> BUILD.<br>
+        <em>We Audit.</em><br>
+        <span class="gw" data-text="WE FIX.">WE FIX.</span>
+      </h1>
+      <p class="hero-sub">
+        Venom Industries is a technical studio. We ship software and SaaS products,
+        audit sites across performance, SEO, security, and code quality —
+        and hand you a clear roadmap to fix exactly what's wrong.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="vbtn vbtn-primary">See Our Services →</a>
+        <a href="audit.html" class="vbtn vbtn-outline">View the Audit</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="sn"><span class="ac">$</span><span data-count="100">100</span></div><div class="sl">Audits starting at</div></div>
+        <div><div class="sn"><span data-count="5">5</span><span class="ac">-day</span></div><div class="sl">Audit turnaround</div></div>
+        <div><div class="sn"><span data-count="4">4</span></div><div class="sl">Audit domains</div></div>
+        <div><div class="sn"><span data-count="0">0</span></div><div class="sl">Retainers required</div></div>
+      </div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-bar"></div>SCROLL</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="mq-strip">
+    <div class="mq-inner">
+      <div class="mi"><div class="md"></div>Performance Audits</div>
+      <div class="mi"><div class="md"></div>SEO Analysis</div>
+      <div class="mi"><div class="md"></div>Security Headers</div>
+      <div class="mi"><div class="md"></div>Code Quality</div>
+      <div class="mi"><div class="md"></div>SaaS Development</div>
+      <div class="mi"><div class="md"></div>Core Web Vitals</div>
+      <div class="mi"><div class="md"></div>CVE Scanning</div>
+      <div class="mi"><div class="md"></div>TypeScript First</div>
+      <div class="mi"><div class="md"></div>No Retainer</div>
+      <div class="mi"><div class="md"></div>5-Day Delivery</div>
+      <!-- dupe for seamless loop -->
+      <div class="mi"><div class="md"></div>Performance Audits</div>
+      <div class="mi"><div class="md"></div>SEO Analysis</div>
+      <div class="mi"><div class="md"></div>Security Headers</div>
+      <div class="mi"><div class="md"></div>Code Quality</div>
+      <div class="mi"><div class="md"></div>SaaS Development</div>
+      <div class="mi"><div class="md"></div>Core Web Vitals</div>
+      <div class="mi"><div class="md"></div>CVE Scanning</div>
+      <div class="mi"><div class="md"></div>TypeScript First</div>
+      <div class="mi"><div class="md"></div>No Retainer</div>
+      <div class="mi"><div class="md"></div>5-Day Delivery</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       SERVICES — links to dedicated pages
+  ═══════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="svc-header">
+        <div class="reveal">
+          <div class="slbl">What We Do</div>
+          <h2>Three disciplines.<br>One standard.</h2>
+        </div>
+        <p class="reveal d2">We build clean, fast software. We audit what's already live. And soon — that same precision lens applied to automotive systems.</p>
+      </div>
+
+      <div class="svc-cards reveal">
+
+        <!-- Software Dev -->
+        <a href="contact.html" class="sc">
+          <div class="sc-glow" style="background:radial-gradient(circle,var(--aglow) 0%,transparent 65%);"></div>
+          <div class="sc-num">01 / SOFTWARE DEVELOPMENT</div>
+          <div class="sc-icon">⌨</div>
+          <h3>Custom Software &amp; SaaS</h3>
+          <p>Full-stack web apps and SaaS products engineered for performance and built to scale without accumulating debt.</p>
+          <ul class="sc-list">
+            <li><span style="color:var(--accent)">→</span>Full-stack web applications</li>
+            <li><span style="color:var(--accent)">→</span>SaaS product development</li>
+            <li><span style="color:var(--accent)">→</span>API design &amp; integration</li>
+            <li><span style="color:var(--accent)">→</span>Internal tooling &amp; dashboards</li>
+          </ul>
+          <span class="sc-link">Start a project →</span>
+        </a>
+
+        <!-- Audit -->
+        <a href="audit.html" class="sc">
+          <div class="sc-glow" style="background:radial-gradient(circle,var(--aglow) 0%,transparent 65%);"></div>
+          <div class="sc-num">02 / TECHNICAL AUDITS</div>
+          <div class="sc-icon">⚡</div>
+          <h3>Venom-Audit</h3>
+          <p>A deep-dive across performance, SEO, security, and code quality. Every finding with a severity tag and an exact fix.</p>
+          <ul class="sc-list">
+            <li><span style="color:var(--accent)">→</span>Core Web Vitals &amp; LCP</li>
+            <li><span style="color:var(--accent)">→</span>SEO &amp; crawlability</li>
+            <li><span style="color:var(--accent)">→</span>Security headers &amp; CVEs</li>
+            <li><span style="color:var(--accent)">→</span>Code quality &amp; debt</li>
+          </ul>
+          <span class="sc-link">See the full audit →</span>
+        </a>
+
+        <!-- Automotive -->
+        <a href="automotive.html" class="sc sc--coming">
+          <div class="sc-glow" style="background:radial-gradient(circle,rgba(255,140,0,.14) 0%,transparent 65%);"></div>
+          <div class="coming-tag">Coming Soon</div>
+          <div class="sc-num">03 / AUTOMOTIVE</div>
+          <div class="sc-icon" style="color:var(--orange);border-color:rgba(255,140,0,.3);">🔧</div>
+          <h3>Automotive Consultation</h3>
+          <p>The VENOM standard — data-driven, specific, no fluff — applied to vehicles. Performance diagnostics, tuning, and systems analysis.</p>
+          <ul class="sc-list">
+            <li><span style="color:var(--orange)">→</span>Performance diagnostics</li>
+            <li><span style="color:var(--orange)">→</span>Tuning consultation</li>
+            <li><span style="color:var(--orange)">→</span>Build planning</li>
+            <li><span style="color:var(--orange)">→</span>Systems analysis</li>
+          </ul>
+          <span class="sc-link" style="color:var(--orange);">Learn more &amp; get notified →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       PRICING SNAPSHOT
+  ═══════════════════════════════ -->
+  <section id="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <div class="slbl" style="justify-content:center;">Transparent Pricing</div>
+        <h2>Fixed scope. Fixed price.</h2>
+        <p>No discovery phases. No invoice surprises. You know exactly what you're getting before you book.</p>
+      </div>
+
+      <div class="p-grid">
+
+        <div class="pc reveal d1">
+          <div class="pp">Individual Audit</div>
+          <div class="px"><sup>$</sup>100</div>
+          <div class="pc-cad">one-time · 48hr turnaround</div>
+          <div class="pc-desc">Targeted audit for a single site.</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>Full 4-domain audit</li>
+            <li>Severity-tagged findings</li>
+            <li>Fix instructions</li>
+            <li>PDF report</li>
+          </ul>
+          <a href="contact.html" class="vbtn vbtn-outline" style="width:100%;justify-content:center;">Book now</a>
+        </div>
+
+        <div class="pc pc--feat reveal d2">
+          <div class="pp">Sprint Audit</div>
+          <div class="px"><sup>$</sup>500</div>
+          <div class="pc-cad">one-time · 5-day turnaround</div>
+          <div class="pc-desc">Full treatment for agencies and SaaS teams.</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>All four audit domains</li>
+            <li>Priority fix matrix</li>
+            <li>1hr debrief call</li>
+            <li>PDF report</li>
+          </ul>
+          <a href="contact.html" class="vbtn vbtn-primary" style="width:100%;justify-content:center;">Book now</a>
+        </div>
+
+        <div class="pc reveal d3">
+          <div class="pp">Full Audit</div>
+          <div class="px"><sup>$</sup>3,500</div>
+          <div class="pc-cad">one-time · 2-week engagement</div>
+          <div class="pc-desc">Deep codebase review with roadmap.</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>Everything in Sprint</li>
+            <li>Implementation roadmap</li>
+            <li>ROI estimates</li>
+            <li>30-day follow-up</li>
+          </ul>
+          <a href="contact.html" class="vbtn vbtn-outline" style="width:100%;justify-content:center;">Book now</a>
+        </div>
+
+        <div class="pc reveal d4">
+          <div class="pp">Ongoing Coverage</div>
+          <div class="px"><sup>$</sup>500</div>
+          <div class="pc-cad">per month · cancel anytime</div>
+          <div class="pc-desc">Standing technical partner.</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>Monthly perf check</li>
+            <li>Quarterly refresh</li>
+            <li>Slack access</li>
+            <li>Priority booking</li>
+          </ul>
+          <a href="contact.html" class="vbtn vbtn-outline" style="width:100%;justify-content:center;">Get started</a>
+        </div>
+
+      </div>
+      <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:2rem;">50% deposit to book · Balance due on delivery · No retainer required</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════
+       CTA
+  ═══════════════════════════════ -->
+  <section id="cta">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="slbl reveal" style="justify-content:center;">Get Started</div>
+      <h2 class="reveal">Stop guessing.<br>Start fixing.</h2>
+      <p class="reveal d1">Pick the audit that fits your scope. Get a clear picture of exactly what's wrong — and how to fix it.</p>
+      <div class="cta-acts reveal d2">
+        <a href="contact.html" class="vbtn vbtn-primary">Book an Audit — from $100 →</a>
+        <a href="contact.html" class="vbtn vbtn-outline">Start a Dev Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-glow">VENOM</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="flogo">VENOM<span>.</span>INDUSTRIES</div>
+          <p>Technical audits, software development, and SaaS products. Built by a self-taught developer in Colorado. Precision is the only standard.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="contact.html">Software Dev</a>
+          <a href="audit.html">Venom-Audit</a>
+          <a href="automotive.html">Automotive ↗</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Venom Industries LLC — Colorado, USA</span>
+        <span>Built to the VENOM standard.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ── CURSOR ── */
+  const dot=document.getElementById('v-dot'),ring=document.getElementById('v-ring');
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  document.querySelectorAll('a,button,.sc,.pc').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('v-hover'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('v-hover'));
+  });
+  (function loop(){
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+
+  /* ── NAV ── */
+  const nav=document.getElementById('main-nav');
+  const prog=document.getElementById('v-progress');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',scrollY>60);
+    const pct=scrollY/(document.body.scrollHeight-innerHeight)*100;
+    prog.style.width=Math.min(pct,100)+'%';
+  });
+
+  /* ── MOBILE MENU ── */
+  const ham=document.getElementById('v-ham'),mob=document.getElementById('mob-menu');
+  ham.addEventListener('click',()=>{
+    const o=ham.classList.toggle('open');
+    mob.classList.toggle('open',o);
+    document.body.style.overflow=o?'hidden':'';
+  });
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    ham.classList.remove('open');mob.classList.remove('open');
+    document.body.style.overflow='';
+  }));
+
+  /* ── PARTICLES ── */
+  const cv=document.getElementById('pc'),c=cv.getContext('2d');
+  let W,H,pts=[],mouse={x:-9e9,y:-9e9};
+  function resize(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}
+  window.addEventListener('resize',resize);resize();
+  document.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;});
+  class P{constructor(){this.r();}r(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.35;this.vy=(Math.random()-.5)*.35;this.s=Math.random()*1.4+.4;this.a=Math.random()*.45+.1;this.col=Math.random()>.7?'184,255,0':'180,180,210';}
+    update(){const dx=mouse.x-this.x,dy=mouse.y-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<140){this.x-=dx*.018;this.y-=dy*.018;}this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r();}
+    draw(){c.beginPath();c.arc(this.x,this.y,this.s,0,Math.PI*2);c.fillStyle=`rgba(${this.col},${this.a})`;c.fill();}}
+  for(let i=0;i<130;i++)pts.push(new P());
+  function conn(){for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<75){c.beginPath();c.moveTo(pts[i].x,pts[i].y);c.lineTo(pts[j].x,pts[j].y);c.strokeStyle=`rgba(184,255,0,${.07*(1-d/75)})`;c.lineWidth=.5;c.stroke();}}}}
+  (function anim(){c.clearRect(0,0,W,H);pts.forEach(p=>{p.update();p.draw();});conn();requestAnimationFrame(anim);})();
+
+  /* ── GLITCH ── */
+  setInterval(()=>{
+    document.querySelectorAll('.gw').forEach(w=>{
+      if(Math.random()>.82){w.classList.add('glitching');setTimeout(()=>w.classList.remove('glitching'),140+Math.random()*140);}
+    });
+  },2800);
+
+  /* ── REVEAL ── */
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  /* ── COUNTERS ── */
+  function countUp(el,target,dur=1400){let t0=null;(function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;})(performance.now());}
+  const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target,+e.target.dataset.count);co.unobserve(e.target);}});},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+  /* ── MAGNETIC BUTTONS ── */
+  document.querySelectorAll('.vbtn,.nav-cta').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) translateY(-2px)`;});
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  });
+
+  /* ── SERVICE CARD GLOW ── */
+  document.querySelectorAll('.sc').forEach(card=>{
+    const g=card.querySelector('.sc-glow');
+    card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();g.style.left=(e.clientX-r.left)+'px';g.style.top=(e.clientY-r.top)+'px';});
+  });
+  </script>
+</body>
+</html>

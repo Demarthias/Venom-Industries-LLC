@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About Venom Industries — Built by Grayson Kube | Colorado</title>
+  <meta name="description" content="Venom Industries is a technical studio founded by Grayson Kube in Colorado. Software, audits, and actionable fixes — fast."/>
+  <link rel="canonical" href="https://venom-industries.com/about.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    :root{--bg:#060608;--surface:#0d0d11;--surface2:#13131a;--border:#1c1c26;--border2:#28283a;--accent:#b8ff00;--adim:rgba(184,255,0,.08);--aglow:rgba(184,255,0,.2);--orange:#ff8c00;--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Instrument Serif',serif;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+    a{color:var(--accent);text-decoration:none;}
+    h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:1.05;color:var(--white);text-transform:uppercase;}
+    h1{font-size:clamp(3.5rem,8vw,8rem);}
+    h2{font-size:clamp(2rem,4vw,3.2rem);}
+    h3{font-size:1.3rem;}
+    p{line-height:1.8;}
+    .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
+    section{padding:7rem 0;}
+    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s;}
+    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+    body.vh #vd{width:12px;height:12px;}body.vh #vr{width:52px;height:52px;border-color:var(--accent);}
+    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s;}
+    #vnav.sc{background:rgba(6,6,8,.98);}
+    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(184,255,0,.4));z-index:1;}
+    .ni{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
+    .logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
+    .logo span{color:var(--accent);}
+    .nlinks{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;}
+    .nl{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;}
+    .nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s;}
+    .nl:hover,.nl.active{color:var(--white);}
+    .nl:hover::after,.nl.active::after{width:100%;}
+    .nl.active{color:var(--accent);}
+    .nr{display:flex;align-items:center;gap:1rem;margin-left:auto;}
+    .ncta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;white-space:nowrap;cursor:none;}
+    .ncta:hover{background:var(--white);transform:translateY(-1px);}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
+    .ham span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s;transform-origin:center;}
+    .ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--accent);}
+    .ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--accent);}
+    #mob{position:fixed;inset:0;background:rgba(6,6,8,.98);backdrop-filter:blur(20px);z-index:400;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;pointer-events:none;transform:translateY(-20px);transition:opacity .35s,transform .35s;}
+    #mob.open{opacity:1;pointer-events:all;transform:translateY(0);}
+    .mbl{font-family:var(--fh);font-size:2.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white);text-decoration:none;transition:color .2s;}
+    .mbl:hover{color:var(--accent);}
+    .mbcta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 2.5rem;border-radius:2px;text-decoration:none;margin-top:1rem;cursor:none;}
+    .vbtn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;border:none;cursor:none;transition:all .25s ease;text-decoration:none;position:relative;overflow:hidden;}
+    .vbtn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%) skewX(-15deg);transition:transform .4s;pointer-events:none;}
+    .vbtn:hover::after{transform:translateX(110%) skewX(-15deg);}
+    .bp{background:var(--accent);color:var(--bg);}.bp:hover{background:var(--white);box-shadow:0 12px 40px rgba(184,255,0,.2);}
+    .bo{background:transparent;color:var(--text);border:1px solid var(--border2);}.bo:hover{border-color:var(--accent);color:var(--accent);}
+    .bg{background:transparent;color:var(--accent);border:1px solid rgba(184,255,0,.4);}.bg:hover{background:var(--accent);color:var(--bg);}
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+    .rv.vis{opacity:1;transform:translateY(0);}
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+    .slbl{display:flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+    .slbl::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);flex-shrink:0;}
+    @keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fi{from{opacity:0;}to{opacity:1;}}
+
+    /* ── HERO ── */
+    .hero{min-height:100vh;display:flex;align-items:flex-end;padding:10rem 0 7rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+    .gk-bg{position:absolute;right:-3rem;top:50%;transform:translateY(-50%);font-family:var(--fh);font-size:clamp(14rem,28vw,32rem);font-weight:700;color:rgba(184,255,0,.022);line-height:1;letter-spacing:-.05em;pointer-events:none;user-select:none;white-space:nowrap;}
+    .hlines{position:absolute;inset:0;pointer-events:none;}
+    .hline{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(184,255,0,.05),transparent);}
+    .hline:nth-child(1){left:25%;}.hline:nth-child(2){left:50%;}.hline:nth-child(3){left:75%;}
+    .hero-inner{position:relative;z-index:2;}
+    .ey{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;opacity:0;animation:fu .6s ease .2s both;}
+    .hero h1{opacity:0;animation:fu .7s ease .3s both;}
+    .hero h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;}
+    .hero p{font-size:1rem;color:var(--text);max-width:600px;line-height:1.9;margin-top:1.5rem;opacity:0;animation:fu .6s ease .5s both;}
+    .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);z-index:2;opacity:0;animation:fi 1s ease 1.5s both;}
+    .sb{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:sba 2s ease infinite;}
+    @keyframes sba{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+    /* ── ORIGIN ── */
+    #origin{border-top:1px solid var(--border);background:var(--surface);}
+    .og{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .ol p{font-size:.92rem;color:var(--text);line-height:1.9;margin-bottom:1.5rem;}
+    .opq{border-left:2px solid var(--accent);padding:1rem 1.5rem;font-family:var(--fs);font-style:italic;font-size:1.1rem;color:var(--white);background:var(--adim);border-radius:0 2px 2px 0;margin:2.5rem 0;}
+    .ometa{padding-top:2rem;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .omi{padding:.75rem;background:var(--bg);border:1px solid var(--border);border-radius:2px;}
+    .omilbl{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
+    .omival{font-size:.85rem;color:var(--white);}
+    .or{display:flex;flex-direction:column;gap:1rem;}
+    .ostat{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2rem;transition:border-color .3s,transform .3s;}
+    .ostat:hover{border-color:var(--accent);transform:translateX(4px);}
+    .osn{font-family:var(--fh);font-size:2.8rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.35rem;}
+    .osl{font-size:.8rem;color:var(--muted);}
+
+    /* ── FOUNDER ── */
+    #founder{border-top:1px solid var(--border);background:var(--bg);}
+    .fg2{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
+    .fp{aspect-ratio:1;background:var(--surface);border:1px solid var(--border);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;position:relative;overflow:hidden;}
+    .fp-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(184,255,0,.05) 0%,transparent 70%);}
+    .fp-scan{position:absolute;top:0;left:0;right:0;height:100%;background:linear-gradient(to bottom,transparent 40%,rgba(184,255,0,.05) 50%,transparent 60%);animation:fps 4s ease infinite;}
+    @keyframes fps{0%,100%{transform:translateY(-100%);}50%{transform:translateY(100%);}}
+    .fp-init{font-family:var(--fh);font-size:5rem;font-weight:700;color:var(--accent);line-height:1;position:relative;z-index:1;}
+    .fp-lbl{font-size:.75rem;color:var(--muted);position:relative;z-index:1;}
+    .fr h2{margin-bottom:.5rem;}
+    .fr-title{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+    .fr p{font-size:.9rem;color:var(--text);line-height:1.9;margin-bottom:1.25rem;}
+    .fr-links{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+
+    /* ── RULES ── */
+    #rules{border-top:1px solid var(--border);background:var(--surface);}
+    .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem;}
+    .rule{background:var(--bg);padding:2.5rem 2rem;position:relative;}
+    .rule::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+    .rule:hover::after{transform:scaleX(1);}
+    .rn{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.2em;color:var(--accent);margin-bottom:1rem;}
+    .rule h3{font-size:1.1rem;margin-bottom:.75rem;}
+    .rule p{font-size:.83rem;color:var(--muted);line-height:1.8;}
+
+    /* ── PRODUCTS ── */
+    #products{border-top:1px solid var(--border);background:var(--bg);}
+    .pg{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+    .pc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;transition:all .3s;position:relative;overflow:hidden;}
+    .pc::before{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width .4s;}
+    .pc:hover::before{width:100%;}
+    .pc:hover{border-color:rgba(184,255,0,.25);}
+    .pt{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;}
+    .pc h3{font-size:1rem;margin-bottom:.75rem;}
+    .pc p{font-size:.83rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;}
+
+    /* CTA */
+    #acta{border-top:1px solid var(--border);text-align:center;padding:9rem 0;position:relative;overflow:hidden;background:var(--surface);}
+    .ctag{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(184,255,0,.06) 0%,transparent 65%);pointer-events:none;}
+
+    footer{border-top:1px solid var(--border);padding:4rem 0 2rem;}
+    .fglow{font-family:var(--fh);font-size:6rem;font-weight:700;color:rgba(184,255,0,.012);text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:-.5rem;pointer-events:none;user-select:none;overflow:hidden;}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+    .fbrand p{color:var(--muted);font-size:.82rem;margin-top:.75rem;max-width:260px;line-height:1.7;}
+    .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);}
+    .flogo span{color:var(--accent);}
+    .fcol h5{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .fcol a{display:block;color:var(--text);font-size:.82rem;margin-bottom:.5rem;text-decoration:none;transition:color .2s,padding-left .2s;}
+    .fcol a:hover{color:var(--accent);padding-left:.4rem;}
+    .fbot{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;}
+
+    @media(max-width:900px){.og,.fg2,.rg,.pg{grid-template-columns:1fr;}.ometa{grid-template-columns:1fr;}.nlinks{display:none;}.ham{display:flex;}.fgrid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.fgrid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div id="vd"></div><div id="vr"></div>
+  <nav id="vnav">
+    <div id="vp"></div>
+    <div class="ni">
+      <a href="index.html" class="logo">VENOM<span>.</span>INDUSTRIES</a>
+      <ul class="nlinks">
+        <li><a href="index.html" class="nl">Home</a></li>
+        <li><a href="audit.html" class="nl">Audit</a></li>
+        <li><a href="index.html#pricing" class="nl">Pricing</a></li>
+        <li><a href="blog.html" class="nl">Blog</a></li>
+        <li><a href="about.html" class="nl active">About</a></li>
+      </ul>
+      <div class="nr">
+        <a href="contact.html" class="ncta">Book a Call</a>
+        <button class="ham" id="ham"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div id="mob">
+    <a href="index.html" class="mbl">Home</a>
+    <a href="audit.html" class="mbl">Audit</a>
+    <a href="blog.html" class="mbl">Blog</a>
+    <a href="about.html" class="mbl">About</a>
+    <a href="contact.html" class="mbcta">Book a Call →</a>
+  </div>
+
+  <section class="hero">
+    <div class="gk-bg">GK</div>
+    <div class="hlines"><div class="hline"></div><div class="hline"></div><div class="hline"></div></div>
+    <div class="container hero-inner">
+      <div class="ey">About Venom Industries</div>
+      <h1>Built to find<br><em>the poison.</em></h1>
+      <p>A technical studio founded by a self-taught developer in Colorado who got tired of watching businesses lose money to slow, broken, and insecure sites — with nobody telling them why.</p>
+    </div>
+    <div class="scroll-hint"><div class="sb"></div>SCROLL</div>
+  </section>
+
+  <section id="origin">
+    <div class="container">
+      <div class="og">
+        <div class="rv">
+          <div class="slbl">Why Venom Exists</div>
+          <p>Most businesses know something is wrong. Their site is slow, their rankings dropped, their bounce rate crept up. But nobody gave them a clear answer — just vague recommendations, bloated retainers, and agency proposals that never got to the point.</p>
+          <p>Venom Industries was built to fix that. Not with a 90-day engagement or a team of account managers. One founder. Three disciplines. Five-day audit turnaround. A clear priority list with exact fix instructions.</p>
+          <div class="opq">"Chaos is expensive. We build the opposite."</div>
+          <div class="ometa">
+            <div class="omi"><div class="omilbl">Founded</div><div class="omival">2025, Colorado USA</div></div>
+            <div class="omi"><div class="omilbl">Team</div><div class="omival">Self-taught. Zero shortcuts.</div></div>
+            <div class="omi"><div class="omilbl">Turnaround</div><div class="omival">5 business days</div></div>
+            <div class="omi"><div class="omilbl">Retainers</div><div class="omival">Never required</div></div>
+          </div>
+        </div>
+        <div class="or rv d2">
+          <div class="ostat"><div class="osn"><span data-count="5">5</span>-day</div><div class="osl">Audit turnaround, every time</div></div>
+          <div class="ostat"><div class="osn"><span data-count="4">4</span></div><div class="osl">Domains covered in every audit</div></div>
+          <div class="ostat"><div class="osn">$<span data-count="100">100</span></div><div class="osl">Individual audits starting at</div></div>
+          <div class="ostat"><div class="osn"><span data-count="0">0</span></div><div class="osl">Retainers required to start</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="container">
+      <div class="fg2">
+        <div class="rv">
+          <div class="fp">
+            <div class="fp-bg"></div>
+            <div class="fp-scan"></div>
+            <div class="fp-init">GK</div>
+            <div class="fp-lbl">Grayson Kube</div>
+          </div>
+        </div>
+        <div class="fr rv d2">
+          <div class="slbl">The Founder</div>
+          <h2>Grayson Kube</h2>
+          <div class="fr-title">Founder — Venom Industries LLC · Colorado, USA</div>
+          <p>I'm a self-taught developer. I didn't come through a CS program or a bootcamp — I learned by building things, breaking them, and figuring out why. That process taught me something most formal education skips: <strong style="color:var(--white);">the gap between "it works" and "it works well" is enormous</strong> — and most teams never close it because nobody showed them where to look.</p>
+          <p>I built Venom Industries because I kept seeing the same problems on site after site: unoptimized images killing Core Web Vitals, CVEs sitting in production dependencies for months, pages that Google couldn't even index. Real problems with real business impact — and no clear owner.</p>
+          <p>The Venom-Audit is the product I wish existed when I was debugging someone else's mess. A complete technical picture, a prioritized fix list, and a human to walk you through it. Beyond audits — I build software and SaaS products with the same standards. And soon, the VENOM approach comes to automotive.</p>
+          <div class="fr-links">
+            <a href="mailto:grayson@venom-industries.com" class="vbtn bg" style="font-size:.8rem;padding:.6rem 1rem;">Email me</a>
+            <a href="https://github.com/Demarthias" target="_blank" rel="noopener" class="vbtn bo" style="font-size:.8rem;padding:.6rem 1rem;">GitHub →</a>
+            <a href="contact.html" class="vbtn bp" style="font-size:.8rem;padding:.6rem 1rem;">Book a call →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="container">
+      <div class="rv"><div class="slbl">How We Operate</div><h2>Three rules.<br>No exceptions.</h2></div>
+      <div class="rg rv d1">
+        <div class="rule"><div class="rn">01 / SPECIFICITY</div><h3>No Vague Advice</h3><p>"Improve your performance" is not a deliverable. "Convert your hero image to WebP — expected LCP improvement from 4.8s to 1.8s" is. Every finding ships with an exact fix instruction.</p></div>
+        <div class="rule"><div class="rn">02 / TRANSPARENCY</div><h3>No Hidden Scope</h3><p>Fixed scope. Fixed price. You know exactly what you're getting before you book. No discovery phase that turns into a retainer. No invoice surprises.</p></div>
+        <div class="rule"><div class="rn">03 / SPEED</div><h3>No Waiting Around</h3><p>Five business days from booking to delivered report. The window between "something is wrong" and "here is what to fix" should be measured in days, not quarters.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="container">
+      <div class="rv"><div class="slbl">What We Build</div><h2>Three products.<br>One mission.</h2></div>
+      <div class="pg">
+        <div class="pc rv d1"><div class="pt">Service · from $100</div><h3>Venom-Audit</h3><p>Systematic technical audit across performance, SEO, security, and code quality. Delivered in 5 business days with severity-tagged findings and a debrief call.</p><a href="audit.html" class="vbtn bg" style="font-size:.8rem;padding:.6rem 1rem;">See the audit →</a></div>
+        <div class="pc rv d2"><div class="pt">Software Development</div><h3>Custom Software &amp; SaaS</h3><p>Full-stack applications and SaaS products built to the same standards we audit with. TypeScript-first, performance by default, zero tolerance for security shortcuts.</p><a href="contact.html" class="vbtn bg" style="font-size:.8rem;padding:.6rem 1rem;">Start a project →</a></div>
+        <div class="pc rv d1" style="border-color:rgba(255,140,0,.2);"><div class="pt" style="color:var(--orange);">Coming Soon · Automotive</div><h3>Automotive Consultation</h3><p>Precision diagnostics and technical consultation for automotive systems. The VENOM standard applied to vehicles — data-driven, specific, no guesswork.</p><a href="automotive.html" class="vbtn bo" style="font-size:.8rem;padding:.6rem 1rem;border-color:rgba(255,140,0,.3);color:var(--orange);">Get notified →</a></div>
+        <div class="pc rv d2"><div class="pt">Tool · SaaS Detective</div><h3>SaaS Detective</h3><p>A Chrome extension that reveals any website's complete tech stack in one click. 80+ tools, 30+ categories. Runs entirely in your browser.</p><a href="saas-detective.html" class="vbtn bg" style="font-size:.8rem;padding:.6rem 1rem;">Learn more →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="acta">
+    <div class="ctag"></div>
+    <div class="container" style="position:relative;z-index:1;text-align:center;">
+      <h2 class="rv">Ready to see what's<br>actually wrong?</h2>
+      <p class="rv d1" style="color:var(--text);font-size:.95rem;max-width:480px;margin:1rem auto 2.5rem;">Book an audit starting at $100, or get in touch about a software project.</p>
+      <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;" class="rv d2">
+        <a href="contact.html" class="vbtn bp">Book an Audit →</a>
+        <a href="contact.html" class="vbtn bo">Start a project</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fglow">ABOUT</div>
+    <div class="container">
+      <div class="fgrid">
+        <div class="fbrand"><div class="flogo">VENOM<span>.</span>INDUSTRIES</div><p>Technical audits and software development. Built by a self-taught developer in Colorado.</p></div>
+        <div class="fcol"><h5>Services</h5><a href="index.html#services">Software Dev</a><a href="audit.html">Venom-Audit</a><a href="automotive.html">Automotive ↗</a></div>
+        <div class="fcol"><h5>Company</h5><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div class="fcol"><h5>Legal</h5><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+      </div>
+      <div class="fbot"><span>© 2026 Venom Industries LLC</span><span>Built to the VENOM standard.</span></div>
+    </div>
+  </footer>
+
+  <script>
+  const vd=document.getElementById('vd'),vr=document.getElementById('vr');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  document.querySelectorAll('a,button,.ostat,.rule,.pc').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('vh'));el.addEventListener('mouseleave',()=>document.body.classList.remove('vh'));});
+  (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
+  const vnav=document.getElementById('vnav'),vp=document.getElementById('vp');
+  window.addEventListener('scroll',()=>{vnav.classList.toggle('sc',scrollY>60);vp.style.width=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';});
+  const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+  function countUp(el,target){let t0=null;(function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/1400,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;})(performance.now());}
+  const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target,+e.target.dataset.count);co.unobserve(e.target);}});},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+  document.querySelectorAll('.vbtn,.ncta').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) translateY(-2px)`;});
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  });
+  </script>
+</body>
+</html>

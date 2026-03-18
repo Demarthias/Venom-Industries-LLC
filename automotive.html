@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Automotive Consultation — Coming Soon | Venom Industries</title>
+  <meta name="description" content="Precision diagnostics and technical consultation for automotive systems. The VENOM standard applied to vehicles. Coming Q3 2026."/>
+  <link rel="canonical" href="https://venom-industries.com/automotive.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    :root{--bg:#060608;--surface:#0d0d11;--surface2:#13131a;--border:#1c1c26;--border2:#28283a;--accent:#b8ff00;--orange:#ff8c00;--odim:rgba(255,140,0,.08);--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Instrument Serif',serif;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+    a{color:var(--orange);text-decoration:none;}
+    h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:1.05;color:var(--white);text-transform:uppercase;}
+    h1{font-size:clamp(3.5rem,8vw,7.5rem);}
+    h2{font-size:clamp(2rem,4vw,3.2rem);}
+    h3{font-size:1.3rem;}
+    p{line-height:1.8;}
+    .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
+    section{padding:7rem 0;}
+    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s;}
+    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(255,140,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+    body.vh #vd{width:12px;height:12px;}body.vh #vr{width:52px;height:52px;border-color:var(--orange);}
+    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s;}
+    #vnav.sc{background:rgba(6,6,8,.98);}
+    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--orange),rgba(255,140,0,.4));z-index:1;}
+    .ni{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
+    .logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}
+    .logo span{color:var(--accent);}
+    .nlinks{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;}
+    .nl{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;}
+    .nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s;}
+    .nl:hover{color:var(--white);}
+    .nl:hover::after{width:100%;}
+    .nr{display:flex;align-items:center;gap:1rem;margin-left:auto;}
+    .ncta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;white-space:nowrap;cursor:none;}
+    .ncta:hover{background:var(--white);transform:translateY(-1px);}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
+    .ham span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s;transform-origin:center;}
+    .ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--accent);}
+    .ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--accent);}
+    #mob{position:fixed;inset:0;background:rgba(6,6,8,.98);backdrop-filter:blur(20px);z-index:400;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;pointer-events:none;transform:translateY(-20px);transition:opacity .35s,transform .35s;}
+    #mob.open{opacity:1;pointer-events:all;transform:translateY(0);}
+    .mbl{font-family:var(--fh);font-size:2.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white);text-decoration:none;transition:color .2s;}
+    .mbl:hover{color:var(--accent);}
+    .mbcta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 2.5rem;border-radius:2px;text-decoration:none;margin-top:1rem;cursor:none;}
+    .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+    .rv.vis{opacity:1;transform:translateY(0);}
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}
+    .slbl{display:flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
+    .slbl::before{content:'';display:block;width:2rem;height:1px;background:var(--orange);flex-shrink:0;}
+    .bo{background:transparent;color:var(--orange);border:1px solid rgba(255,140,0,.4);font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;cursor:none;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;}
+    .bo:hover{background:var(--orange);color:var(--bg);}
+    @keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fi{from{opacity:0;}to{opacity:1;}}
+    @keyframes po{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,140,0,.3);}50%{opacity:.5;box-shadow:0 0 0 6px rgba(255,140,0,0);}}
+
+    /* ── HERO ── */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:10rem 0 7rem;position:relative;overflow:hidden;}
+    #ec{position:absolute;inset:0;z-index:0;}
+    .oglow{position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(255,140,0,.07) 0%,transparent 65%);pointer-events:none;}
+    .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .hl-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(255,140,0,.3);padding:.35rem 1rem;border-radius:1px;margin-bottom:2rem;opacity:0;animation:fu .6s ease .2s both;}
+    .bdot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:po 2s ease infinite;}
+    .hl h1{opacity:0;animation:fu .7s ease .3s both;}
+    .hl h1 em{font-family:var(--fs);font-style:italic;color:var(--orange);text-transform:none;}
+    .hl p{font-size:1rem;color:var(--text);max-width:480px;line-height:1.9;margin:1.5rem 0 2rem;opacity:0;animation:fu .6s ease .5s both;}
+    .hl-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .6s ease .65s both;}
+    .btn-o{background:var(--orange);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border:none;border-radius:2px;cursor:none;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;position:relative;overflow:hidden;}
+    .btn-o::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%) skewX(-15deg);transition:transform .4s;pointer-events:none;}
+    .btn-o:hover::after{transform:translateX(110%) skewX(-15deg);}
+    .btn-o:hover{background:#ffaa33;box-shadow:0 12px 40px rgba(255,140,0,.25);}
+    .speedo-wrap{opacity:0;animation:fu .8s ease .5s both;}
+    .speedo-svg{width:100%;max-width:420px;display:block;margin:0 auto;}
+    .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);z-index:2;opacity:0;animation:fi 1s ease 1.5s both;}
+    .sb{width:1px;height:40px;background:linear-gradient(to bottom,var(--orange),transparent);animation:sba 2s ease infinite;}
+    @keyframes sba{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+    /* ── WHAT ── */
+    #what{border-top:1px solid var(--border);background:var(--surface);}
+    .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+    .wl h2{margin-bottom:1.5rem;}
+    .wl p{font-size:.9rem;color:var(--text);line-height:1.9;margin-bottom:1.25rem;}
+    .wcards{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .wcard{background:var(--bg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:background .2s;}
+    .wcard:hover{background:var(--surface);}
+    .wcicon{font-size:1.2rem;flex-shrink:0;}
+    .wcard h4{color:var(--white);margin-bottom:.25rem;font-size:.9rem;}
+    .wcard p{font-size:.8rem;color:var(--muted);line-height:1.7;margin:0;}
+
+    /* ── SERVICES ── */
+    #svcs{border-top:1px solid var(--border);background:var(--bg);}
+    .slist{border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem;}
+    .srow{display:grid;grid-template-columns:1fr 1fr 140px;align-items:center;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);background:var(--surface);gap:2rem;transition:background .2s;}
+    .srow:last-child{border-bottom:none;}
+    .srow:hover{background:var(--surface2);}
+    .sname{font-family:var(--fh);font-weight:600;font-size:.95rem;color:var(--white);}
+    .sdesc{font-size:.8rem;color:var(--muted);line-height:1.6;}
+    .seta{font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);text-align:right;}
+
+    /* ── PHILOSOPHY ── */
+    #phil{border-top:1px solid var(--border);background:var(--surface);}
+    .philg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+    .pc{padding:2rem;border:1px solid var(--border);border-radius:4px;border-top:2px solid var(--orange);transition:all .25s;}
+    .pc:hover{background:rgba(255,140,0,.03);border-color:rgba(255,140,0,.3);}
+    .pn{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.2em;color:var(--orange);margin-bottom:.75rem;}
+    .pc h3{font-size:1rem;margin-bottom:.75rem;}
+    .pc p{font-size:.82rem;color:var(--muted);line-height:1.8;}
+
+    /* ── NOTIFY ── */
+    #notify{border-top:1px solid var(--border);text-align:center;padding:9rem 0;position:relative;overflow:hidden;background:var(--bg);}
+    .ng{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(255,140,0,.06) 0%,transparent 65%);pointer-events:none;}
+    .nform{display:flex;gap:.5rem;justify-content:center;margin-top:2rem;max-width:440px;margin-left:auto;margin-right:auto;}
+    .ni2{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--white);font-family:var(--fm);font-size:.85rem;padding:.85rem 1rem;border-radius:2px;outline:none;transition:border-color .2s;}
+    .ni2:focus{border-color:var(--orange);}
+    .ni2::placeholder{color:var(--muted);}
+    .nbtn{background:var(--orange);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;padding:.85rem 1.5rem;border:none;border-radius:2px;cursor:none;transition:background .2s;white-space:nowrap;}
+    .nbtn:hover{background:#ffaa33;}
+
+    footer{border-top:1px solid var(--border);padding:4rem 0 2rem;}
+    .fglow{font-family:var(--fh);font-size:6rem;font-weight:700;color:rgba(255,140,0,.015);text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:-.5rem;pointer-events:none;user-select:none;overflow:hidden;}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+    .fbrand p{color:var(--muted);font-size:.82rem;margin-top:.75rem;max-width:260px;line-height:1.7;}
+    .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);}
+    .flogo span{color:var(--accent);}
+    .fcol h5{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .fcol a{display:block;color:var(--text);font-size:.82rem;margin-bottom:.5rem;text-decoration:none;transition:color .2s,padding-left .2s;}
+    .fcol a:hover{color:var(--accent);padding-left:.4rem;}
+    .fbot{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;}
+
+    @media(max-width:900px){.hero-inner,.wgrid{grid-template-columns:1fr;gap:3rem;}.philg{grid-template-columns:1fr;}.srow{grid-template-columns:1fr;}.nlinks{display:none;}.ham{display:flex;}.fgrid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.fgrid{grid-template-columns:1fr;}.nform{flex-direction:column;}}
+  </style>
+</head>
+<body>
+  <div id="vd"></div><div id="vr"></div>
+  <nav id="vnav">
+    <div id="vp"></div>
+    <div class="ni">
+      <a href="index.html" class="logo">VENOM<span>.</span>INDUSTRIES</a>
+      <ul class="nlinks">
+        <li><a href="index.html" class="nl">Home</a></li>
+        <li><a href="audit.html" class="nl">Audit</a></li>
+        <li><a href="index.html#pricing" class="nl">Pricing</a></li>
+        <li><a href="blog.html" class="nl">Blog</a></li>
+        <li><a href="about.html" class="nl">About</a></li>
+      </ul>
+      <div class="nr">
+        <a href="contact.html" class="ncta">Book a Call</a>
+        <button class="ham" id="ham"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div id="mob">
+    <a href="index.html" class="mbl">Home</a>
+    <a href="audit.html" class="mbl">Audit</a>
+    <a href="blog.html" class="mbl">Blog</a>
+    <a href="about.html" class="mbl">About</a>
+    <a href="contact.html" class="mbcta">Book a Call →</a>
+  </div>
+
+  <section class="hero">
+    <canvas id="ec"></canvas>
+    <div class="oglow"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hl">
+          <div class="hl-badge"><span class="bdot"></span>Coming Q3 2026</div>
+          <h1>Automotive<br><em>Consultation.</em></h1>
+          <p>The VENOM standard — precise, data-driven, no vague advice — is coming to automotive. Whether you're building, diagnosing, or tuning, you deserve the same clarity we bring to software.</p>
+          <div class="hl-actions">
+            <a href="#notify" class="btn-o">Get Notified →</a>
+            <a href="#svcs" class="bo">See Services</a>
+          </div>
+        </div>
+        <div class="speedo-wrap">
+          <svg class="speedo-svg" viewBox="0 0 420 320" fill="none">
+            <path d="M 60 270 A 150 150 0 0 1 360 270" stroke="#1c1c26" stroke-width="14" stroke-linecap="round"/>
+            <path id="sarc" d="M 60 270 A 150 150 0 0 1 360 270" stroke="#ff8c00" stroke-width="14" stroke-linecap="round" stroke-dasharray="471" stroke-dashoffset="471" style="transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1);"/>
+            <g stroke="#28283a" stroke-width="1">
+              <line x1="210" y1="122" x2="210" y2="108"/><line x1="268" y1="134" x2="273" y2="121"/>
+              <line x1="315" y1="163" x2="323" y2="152"/><line x1="345" y1="208" x2="355" y2="200"/>
+              <line x1="152" y1="134" x2="147" y2="121"/><line x1="105" y1="163" x2="97" y2="152"/>
+              <line x1="75" y1="208" x2="65" y2="200"/>
+            </g>
+            <g id="sneedle" style="transform-origin:210px 270px;transform:rotate(-90deg);transition:transform 2s cubic-bezier(.4,0,.2,1);">
+              <line x1="210" y1="270" x2="210" y2="140" stroke="#ff8c00" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="210" cy="270" r="8" fill="#1c1c26" stroke="#ff8c00" stroke-width="2"/>
+              <circle cx="210" cy="270" r="3" fill="#ff8c00"/>
+            </g>
+            <text x="210" y="225" text-anchor="middle" fill="#f0f0fa" font-family="Rajdhani,sans-serif" font-weight="700" font-size="42">Q3</text>
+            <text x="210" y="252" text-anchor="middle" fill="#52526e" font-family="IBM Plex Mono,monospace" font-size="10">2026 LAUNCH TARGET</text>
+            <text x="58" y="296" text-anchor="middle" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="10" font-weight="700">Q3</text>
+            <text x="360" y="296" text-anchor="middle" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="10" font-weight="700">Q4</text>
+            <text x="210" y="110" text-anchor="middle" fill="#52526e" font-family="Rajdhani,sans-serif" font-size="10" font-weight="700">2027</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><div class="sb"></div>SCROLL</div>
+  </section>
+
+  <section id="what">
+    <div class="container">
+      <div class="wgrid">
+        <div class="rv">
+          <div class="slbl">The Vision</div>
+          <h2>Built different.<br>Measured precisely.</h2>
+          <p>The same discipline we apply to auditing software — systematic, data-driven, no fluff — is coming to automotive systems. Most automotive consultation relies on intuition. Ours will rely on instrumentation and evidence.</p>
+          <p>We're not a shop. We're a technical advisory service for people who want to understand their vehicles the way engineers understand software: with benchmarks, root cause analysis, and a clear action plan.</p>
+        </div>
+        <div class="wcards rv d2">
+          <div class="wcard"><div class="wcicon">🔬</div><div><h4>Diagnostic Review</h4><p>Systematic review of OBD data, sensor logs, and symptom patterns. Root cause analysis, not guesswork.</p></div></div>
+          <div class="wcard"><div class="wcicon">⚡</div><div><h4>Performance Consultation</h4><p>Tuning strategy based on your goals, budget, and baseline measurements.</p></div></div>
+          <div class="wcard"><div class="wcicon">📐</div><div><h4>Build Planning</h4><p>Structured build roadmaps with part selection rationale and cost-to-performance analysis.</p></div></div>
+          <div class="wcard"><div class="wcicon">📋</div><div><h4>Technical Write-Ups</h4><p>Detailed documentation of builds, modifications, and diagnostic findings.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="svcs">
+    <div class="container">
+      <div class="rv"><div class="slbl">Service Roadmap</div><h2>What's coming<br>and when.</h2></div>
+      <div class="slist rv d1">
+        <div class="srow"><div class="sname">Performance Diagnostics</div><div class="sdesc">Systematic review of performance metrics, sensor data, and symptoms. Report with root cause and recommendations.</div><div class="seta">Q3 2026</div></div>
+        <div class="srow"><div class="sname">Tuning Consultation</div><div class="sdesc">Strategy session for engine tuning, ECU management, and power goals. Data-driven target setting.</div><div class="seta">Q3 2026</div></div>
+        <div class="srow"><div class="sname">Build Planning Review</div><div class="sdesc">Detailed part selection, sequencing, and build roadmap for performance or restoration projects.</div><div class="seta">Q4 2026</div></div>
+        <div class="srow"><div class="sname">Systems Analysis</div><div class="sdesc">Deep review of specific vehicle systems — fuel, suspension, braking, electrical.</div><div class="seta">Q4 2026</div></div>
+        <div class="srow"><div class="sname">Full Vehicle Audit</div><div class="sdesc">The complete VENOM-style audit applied to a vehicle. Every system reviewed, prioritized findings.</div><div class="seta">2027</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="phil">
+    <div class="container">
+      <div class="rv"><div class="slbl">Our Approach</div><h2>The same three rules.</h2></div>
+      <div class="philg rv d1">
+        <div class="pc"><div class="pn">01 / SPECIFICITY</div><h3>No Vague Advice</h3><p>"Upgrade your intake" is not a recommendation. A specific part with expected performance gain based on your measured baseline is. Every recommendation ships with the specific fix and expected result.</p></div>
+        <div class="pc"><div class="pn">02 / DATA-DRIVEN</div><h3>Instruments First</h3><p>Intuition is useful. Numbers are better. Every diagnostic engagement starts with data collection — logs, waveforms, measurements — before conclusions are drawn.</p></div>
+        <div class="pc"><div class="pn">03 / HONEST SCOPE</div><h3>You Decide Next Steps</h3><p>Our job is to give you a precise picture of what's happening and what your options are. Not to upsell parts or book the next appointment. You get the findings. You make the call.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="notify">
+    <div class="ng"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="rv" style="text-align:center;max-width:500px;margin:0 auto;">
+        <div class="slbl" style="justify-content:center;">Stay Updated</div>
+        <h2>Be first in the door.</h2>
+        <p style="color:var(--text);font-size:.9rem;margin-top:.75rem;">One email when automotive consultation launches. No drip campaigns, no newsletter.</p>
+        <div class="nform">
+          <input type="email" class="ni2" placeholder="your@email.com"/>
+          <button class="nbtn">Notify Me</button>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:1rem;">Questions? <a href="contact.html" style="color:var(--orange);">Email us directly.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fglow">AUTO</div>
+    <div class="container">
+      <div class="fgrid">
+        <div class="fbrand"><div class="flogo">VENOM<span>.</span>INDUSTRIES</div><p>Technical audits, software development, and soon — automotive consultation. Colorado, USA.</p></div>
+        <div class="fcol"><h5>Services</h5><a href="index.html#services">Software Dev</a><a href="audit.html">Venom-Audit</a><a href="automotive.html">Automotive</a></div>
+        <div class="fcol"><h5>Company</h5><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+        <div class="fcol"><h5>Legal</h5><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+      </div>
+      <div class="fbot"><span>© 2026 Venom Industries LLC</span><span>Built to the VENOM standard.</span></div>
+    </div>
+  </footer>
+
+  <script>
+  const vd=document.getElementById('vd'),vr=document.getElementById('vr');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  document.querySelectorAll('a,button,.srow,.pc,.wcard').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('vh'));el.addEventListener('mouseleave',()=>document.body.classList.remove('vh'));});
+  (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
+  const vnav=document.getElementById('vnav'),vp=document.getElementById('vp');
+  window.addEventListener('scroll',()=>{vnav.classList.toggle('sc',scrollY>60);vp.style.width=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';});
+  const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+  // ember particles
+  const ec=document.getElementById('ec'),ex=ec.getContext('2d');
+  let EW,EH,embers=[];
+  function er(){EW=ec.width=ec.offsetWidth;EH=ec.height=ec.offsetHeight;}
+  window.addEventListener('resize',er);er();
+  class Ember{constructor(){this.reset();}reset(){this.x=Math.random()*EW;this.y=EH+10;this.vy=-(Math.random()*1.5+.5);this.vx=(Math.random()-.5)*.4;this.life=1;this.decay=Math.random()*.008+.003;this.s=Math.random()*2.5+.5;}
+  update(){this.x+=this.vx;this.y+=this.vy;this.life-=this.decay;if(this.life<=0||this.y<-10)this.reset();}
+  draw(){ex.beginPath();ex.arc(this.x,this.y,this.s,0,Math.PI*2);ex.fillStyle=`rgba(255,140,0,${this.life*.3})`;ex.fill();}}
+  for(let i=0;i<80;i++){const e=new Ember();e.y=Math.random()*EH;embers.push(e);}
+  (function ea(){ex.clearRect(0,0,EW,EH);embers.forEach(e=>{e.update();e.draw();});requestAnimationFrame(ea);})();
+  // speedo
+  const sa=document.getElementById('sarc'),sn=document.getElementById('sneedle');
+  if(sa){const so=new IntersectionObserver(es=>{if(es[0].isIntersecting){sa.style.strokeDashoffset=471-(471*.45);sn.style.transform='rotate(-18deg)';so.disconnect();}},{threshold:.4});so.observe(sa);}
+  document.querySelectorAll('.btn-o,.bo,.nbtn').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) translateY(-2px)`;});
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  });
+  </script>
+</body>
+</html>
