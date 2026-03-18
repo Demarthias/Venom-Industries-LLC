@@ -1,408 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGHX274MQ3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-JGHX274MQ3');
-  </script>
-  <!-- =========================================================
-       VENOM-INDUSTRIES — Contact Page (Premium Theme)
-       ========================================================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Contact VENOM-INDUSTRIES | Get Support & Connect</title>
-  <meta name="description" content="Contact VENOM-INDUSTRIES for support, partnerships, or general questions. Professional-grade customer service.">
-  <meta name="keywords" content="VENOM-INDUSTRIES contact, support, software support, customer service">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.venomous-industries.com/contact/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Contact VENOM-INDUSTRIES | Get Support & Connect" />
-  <meta property="og:description" content="Contact VENOM-INDUSTRIES for support, partnerships, or general questions. Professional-grade customer service." />
-  <meta property="og:url" content="https://www.venomous-industries.com/contact/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.venomous-industries.com/assets/images/backgrounds/mission-bg.jpg" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="../assets/images/brand/venom-icon2.png" />
-  <link rel="apple-touch-icon" href="../assets/images/brand/venom-icon2.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-
-  <!-- Base CSS -->
-  <link rel="stylesheet" href="../assets/css/custom.css" />
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Book an Audit | Venom Industries</title>
+  <meta name="description" content="Book a Venom-Audit. Individual, Sprint, or Full engagement. Fixed price, 5-day turnaround, no retainer required."/>
+  <link rel="canonical" href="https://venom-industries.com/contact/"/>
+  <meta property="og:title" content="Book an Audit | Venom Industries"/>
+  <meta property="og:description" content="Fixed price. 5-day turnaround. No retainer required."/>
+  <meta property="og:image" content="https://venom-industries.com/assets/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@1;0&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0a0b0f;
-      --panel:#101319;
-      --panel-2:#0d1116;
-      --text:#e7edf1;
-      --muted:#b8c3c9;
-      --accent:#00f0d5;
-      --accent2:#b9c5cc;
-      --accent3:#6be3ff;
-      --accent4:#2df5af;
-      --accent5:#ff6b9d;
-      --ring:rgba(0,240,213,.25);
-      --ring-2:rgba(185,197,204,.25);
-      --radius:14px;
-      --radius-sm:10px;
-      --shadow:0 0 34px rgba(0,240,213,.18);
-      --thin:1px;
-      --steel:linear-gradient(90deg,#aeb5bc,#e9eef2,#aeb5bc);
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    :root{--bg:#060608;--surface:#0d0d11;--surface2:#13131a;--border:#1c1c26;--border2:#28283a;--accent:#b8ff00;--adim:rgba(184,255,0,.08);--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Instrument Serif',serif;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+    a{color:var(--accent);text-decoration:none;}
+    h1,h2,h3{font-family:var(--fh);font-weight:700;line-height:1.05;color:var(--white);text-transform:uppercase;}
+    h1{font-size:clamp(3rem,7vw,6rem);}
+    h2{font-size:clamp(1.5rem,3vw,2.2rem);}
+    .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
 
-    html, body{
-      margin:0; padding:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-      line-height:1.58;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      position:relative;
-    }
-    
-    /* Global bright graphical overlay */
-    html::before{
-      content:'';
-      position:fixed;
-      top:0; left:0; right:0; bottom:0;
-      z-index:-1;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(0,240,213,0.25) 0%, transparent 35%),
-        radial-gradient(circle at 75% 75%, rgba(107,227,255,0.2) 0%, transparent 40%),
-        radial-gradient(circle at 50% 10%, rgba(45,245,175,0.15) 0%, transparent 45%),
-        radial-gradient(circle at 80% 40%, rgba(255,107,157,0.12) 0%, transparent 35%),
-        radial-gradient(circle at 10% 90%, rgba(185,197,204,0.18) 0%, transparent 30%),
-        linear-gradient(135deg, rgba(0,240,213,0.06) 0%, transparent 20%, rgba(107,227,255,0.08) 40%, transparent 60%, rgba(45,245,175,0.04) 80%, transparent 100%);
-      background-size:
-        600px 600px,
-        800px 800px,
-        1000px 300px,
-        500px 500px,
-        400px 400px,
-        100% 100%;
-      background-position:
-        0% 0%,
-        100% 100%,
-        50% 0%,
-        80% 40%,
-        10% 90%,
-        0% 0%;
-      animation:backgroundShift 25s ease-in-out infinite;
-      pointer-events:none;
-    }
-    
-    @keyframes backgroundShift {
-      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 80% 40%, 10% 90%, 0% 0%; }
-      33% { background-position: -50px -50px, calc(100% + 50px) calc(100% + 50px), 60% 5%, 70% 30%, 5% 95%, 0% 0%; }
-      66% { background-position: 50px 50px, calc(100% - 50px) calc(100% - 50px), 40% -5%, 90% 50%, 15% 85%, 0% 0%; }
-    }
+    /* CURSOR */
+    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s;}
+    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+    body.vh #vd{width:12px;height:12px;}body.vh #vr{width:52px;height:52px;border-color:var(--accent);}
 
-    h1,h2,h3,h4{font-family:Orbitron, sans-serif; letter-spacing:.02em}
-    .brand-accent{font-family:Rajdhani, sans-serif}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{color:var(--accent2)}
+    /* NAV */
+    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s;}
+    #vnav.sc{background:rgba(6,6,8,.98);}
+    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(184,255,0,.4));z-index:1;}
+    .ni{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
+    .logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;flex-shrink:0;}.logo span{color:var(--accent);}
+    .nlinks{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;}
+    .nl{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative;padding-bottom:2px;}
+    .nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s;}
+    .nl:hover{color:var(--white);}.nl:hover::after{width:100%;}
+    .nl.active{color:var(--accent);}.nl.active::after{width:100%;}
+    .nr{display:flex;align-items:center;gap:1rem;margin-left:auto;}
+    .ham{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
+    .ham span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s;transform-origin:center;}
+    .ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--accent);}
+    .ham.open span:nth-child(2){opacity:0;}
+    .ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--accent);}
+    #mob{position:fixed;inset:0;background:rgba(6,6,8,.98);backdrop-filter:blur(20px);z-index:400;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;opacity:0;pointer-events:none;transform:translateY(-20px);transition:opacity .35s,transform .35s;}
+    #mob.open{opacity:1;pointer-events:all;transform:translateY(0);}
+    .mbl{font-family:var(--fh);font-size:2.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--white);text-decoration:none;transition:color .2s;}.mbl:hover{color:var(--accent);}
+    .mbcta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;padding:.8rem 2.5rem;border-radius:2px;text-decoration:none;margin-top:1rem;cursor:none;}
 
-    /* Header / Nav */
-    .site-header{
-      position:sticky; top:0; z-index:9999;
-      background:rgba(6,7,10,.88);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border-bottom:var(--thin) solid transparent;
-      border-image: var(--steel) 1;
-      box-shadow:0 1px 0 rgba(185,197,204,.12);
-    }
-    .nav-container{
-      max-width:1240px; margin:0 auto;
-      padding:1rem 1.25rem;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand-title{
-      margin:0; font-weight:800; font-size:1.7rem; color:#dfe6ea;
-      letter-spacing:.12em;
-    }
-    .brand-title strong{ color:var(--accent); }
-    .nav-menu{list-style:none; margin:0; padding:0; display:flex; gap:1.1rem; align-items:center}
-    .nav-menu a{
-      color:var(--text); font-weight:700; padding:.5rem .75rem; border-radius:999px;
-      border:var(--thin) solid transparent; transition:.2s ease;
-    }
-    .nav-menu a:hover,.nav-menu a.active{
-      border-color:transparent; color:#0a0b0f; background:var(--steel);
-      box-shadow:0 0 18px var(--ring);
-    }
+    @keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes rp{0%,100%{opacity:.5;}50%{opacity:.15;}}
 
-    /* Contact Page Specific */
-    .section{
-      max-width:1240px; margin:0 auto; padding:3rem 1.25rem;
-    }
-    .headline{
-      font-size:2.25rem; color:#e9eef2; margin:0 0 .75rem; text-align:center;
-    }
-    .headline .mark{ color:var(--accent); }
-    .subline{
-      color:var(--muted); max-width:880px; margin:0 auto 2rem; text-align:center;
-    }
+    /* HERO */
+    .hero{padding:12rem 0 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+    .crosshair{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:380px;height:380px;opacity:.07;pointer-events:none;}
+    .cv{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--accent);}
+    .ch{position:absolute;top:50%;left:0;right:0;height:1px;background:var(--accent);}
+    .cc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border:1px solid var(--accent);border-radius:50%;}
+    .cr1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:90px;height:90px;border:1px solid var(--accent);border-radius:50%;animation:rp 3s ease infinite;}
+    .cr2{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:180px;border:1px solid var(--accent);border-radius:50%;animation:rp 3s ease .5s infinite;}
+    .cr3{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:340px;height:340px;border:1px solid var(--accent);border-radius:50%;animation:rp 3s ease 1s infinite;}
+    .hero-inner{position:relative;z-index:2;max-width:700px;}
+    .kicker{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;opacity:0;animation:fu .6s ease .2s both;}
+    .hero h1{opacity:0;animation:fu .7s ease .3s both;}
+    .hero h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;}
+    .hero p{font-size:1rem;color:var(--text);max-width:520px;line-height:1.9;margin-top:1.5rem;opacity:0;animation:fu .6s ease .5s both;}
 
-    .contact-hero{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.75)),
-        url('../assets/images/backgrounds/mission-bg.jpg') center/cover no-repeat;
-      position:relative;
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      border-bottom:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:4rem 0;
-    }
-    .contact-inner{position:relative; z-index:1}
+    /* TIER CARDS */
+    #tiers{padding:6rem 0;border-top:1px solid var(--border);}
+    .section-label{display:flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:3rem;}
+    .section-label::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);flex-shrink:0;}
+    .tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem;}
+    .tier{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2rem;position:relative;transition:all .3s;overflow:hidden;}
+    .tier::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+    .tier:hover::before{transform:scaleX(1);}
+    .tier:hover{border-color:rgba(184,255,0,.25);transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+    .tier--feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 40px rgba(184,255,0,.06);}
+    .tier--feat::before{transform:scaleX(1);}
+    .tier--feat:hover{box-shadow:0 0 0 1px var(--accent),0 20px 60px rgba(184,255,0,.12);}
+    .feat-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--bg);font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.15em;padding:.25rem .75rem;border-radius:0 0 2px 2px;white-space:nowrap;}
+    .tier-name{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .tier-price{font-family:var(--fh);font-size:3.2rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:.25rem;}
+    .tier-price sup{font-size:1.4rem;vertical-align:super;}
+    .tier-cad{font-size:.78rem;color:var(--muted);margin-bottom:1rem;}
+    .tier-desc{font-size:.83rem;color:var(--text);line-height:1.7;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+    .tier-features{list-style:none;margin-bottom:2rem;}
+    .tier-features li{font-size:.8rem;color:var(--text);padding:.35rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;}
+    .tier-features li::before{content:'→';color:var(--accent);font-size:.7rem;flex-shrink:0;}
+    .tier-features li:last-child{border-bottom:none;}
+    .tier-btn{display:block;width:100%;text-align:center;font-family:var(--fh);font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 1rem;border-radius:2px;border:none;cursor:none;transition:all .25s;text-decoration:none;position:relative;overflow:hidden;}
+    .tier-btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%) skewX(-15deg);transition:transform .4s;pointer-events:none;}
+    .tier-btn:hover::after{transform:translateX(110%) skewX(-15deg);}
+    .tier-btn--primary{background:var(--accent);color:var(--bg);}.tier-btn--primary:hover{background:var(--white);}
+    .tier-btn--outline{background:transparent;color:var(--text);border:1px solid var(--border2);}.tier-btn--outline:hover{border-color:var(--accent);color:var(--accent);}
 
-    .contact-panel{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:
-        linear-gradient(180deg, rgba(14,18,24,.86), rgba(9,12,17,.92)),
-        url('../assets/images/backgrounds/venom-overlay.png') center/cover no-repeat;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow), inset 0 0 1px rgba(185,197,204,.35);
-      padding:2.5rem;
-      max-width:800px;
-      margin:0 auto;
-    }
+    /* UPKEEP */
+    .upkeep-title{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
+    .upkeep-title::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);}
+    .upkeep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    .upkeep{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:1.5rem;display:flex;align-items:center;justify-content:space-between;transition:all .25s;text-decoration:none;cursor:none;}
+    .upkeep:hover{border-color:rgba(184,255,0,.25);background:var(--surface);}
+    .upkeep-left{}
+    .upkeep-name{font-family:var(--fh);font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:.2rem;}
+    .upkeep-desc{font-size:.75rem;color:var(--muted);}
+    .upkeep-price{font-family:var(--fh);font-size:1.5rem;font-weight:700;color:var(--accent);white-space:nowrap;margin-left:1rem;}
+    .upkeep-mo{font-size:.7rem;color:var(--muted);}
 
-    .form-group{margin-bottom:1.5rem}
-    .form-label{
-      display:block; margin-bottom:.5rem; color:var(--accent); 
-      font-weight:600; font-size:.95rem;
-    }
-    .form-input, .form-textarea{
-      width:100%; padding:1rem 1.25rem; 
-      background:var(--panel); color:var(--text);
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      border-radius:var(--radius-sm);
-      font-size:1rem; font-family:Inter, sans-serif;
-      transition:border-color .3s ease, box-shadow .3s ease;
-      box-sizing:border-box;
-    }
-    .form-input:focus, .form-textarea:focus{
-      border-color:var(--accent); outline:none;
-      box-shadow:0 0 0 2px var(--ring);
-    }
-    .form-textarea{resize:vertical; min-height:120px; font-family:Inter, sans-serif}
+    /* CONTACT INFO */
+    #info{padding:5rem 0;border-top:1px solid var(--border);background:var(--surface);}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+    .info-item{padding:1.25rem 0;border-bottom:1px solid var(--border);}
+    .info-item:last-child{border-bottom:none;}
+    .info-lbl{font-family:var(--fh);font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem;}
+    .info-val{font-size:.9rem;color:var(--white);}
+    .info-val a{color:var(--accent);}
+    .before-box{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1.75rem;}
+    .before-title{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+    .before-list{list-style:none;}
+    .before-list li{font-size:.83rem;color:var(--text);padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:.6rem;}
+    .before-list li::before{content:'→';color:var(--accent);flex-shrink:0;}
+    .before-list li:last-child{border-bottom:none;}
 
-    .btn{
-      display:inline-flex; align-items:center; gap:.5rem;
-      padding:.9rem 1.3rem; border-radius:999px; font-weight:800; letter-spacing:.02em;
-      border:var(--thin) solid transparent; border-image: var(--steel) 1;
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      color:#0b0e12; box-shadow:0 0 18px var(--ring);
-      transition:transform .18s ease, box-shadow .18s ease, filter .2s ease;
-      cursor:pointer; font-size:1rem; width:100%;
-      justify-content:center;
-    }
-    .btn:hover{transform:translateY(-2px); box-shadow:0 0 28px var(--ring)}
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:3rem 0;}
+    .fbot{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:.78rem;flex-wrap:wrap;gap:1rem;}
+    .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);}.flogo span{color:var(--accent);}
 
-    /* Contact Info Grid */
-    .contact-grid{
-      display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      margin-top:3rem;
-    }
-    .contact-card{
-      border:var(--thin) solid transparent; border-image: var(--steel) 1; 
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(16,20,26,.85), rgba(12,16,22,.9));
-      box-shadow:var(--shadow);
-      padding:1.5rem; text-align:center;
-    }
-    .contact-card h4{margin:0 0 .5rem; color:var(--accent)}
-    .contact-card p{margin:.25rem 0; color:var(--muted)}
+    /* REVEAL */
+    .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+    .rv.vis{opacity:1;transform:translateY(0);}
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}
 
-    /* Footer */
-    .site-footer{
-      background:url('../assets/images/backgrounds/Nebula.jpg') center/cover no-repeat, #07090d;
-      border-top:var(--thin) solid transparent; border-image: var(--steel) 1;
-      padding:2rem 1.25rem;
-    }
-    .footer-grid{
-      max-width:1240px; margin:0 auto;
-      display:grid; gap:1.25rem; grid-template-columns:2fr 1fr 1fr;
-    }
-    .footer-grid h5{margin:.25rem 0 .5rem; color:#e9eef2}
-    .footer-grid ul{list-style:none; padding:0; margin:0}
-    .footer-grid li{margin:.25rem 0}
-    .footer-grid a{color:var(--text)}
-    .footer-grid a:hover{color:var(--accent)}
-    .footer-meta{
-      max-width:1240px; margin:1rem auto 0; color:#8d98a1;
-      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
-      font-size:.95rem;
-    }
-
-    @media (max-width: 768px) {
-      .footer-grid{grid-template-columns:1fr}
-      .nav-menu{display:none}
-    }
+    @media(max-width:900px){.tiers-grid,.upkeep-grid,.info-grid{grid-template-columns:1fr;}.crosshair{display:none;}.nlinks{display:none;}.ham{display:flex;}}
   </style>
 </head>
 <body>
-  <!-- =========================================================
-       Header / Navigation
-       ========================================================= -->
-  <header class="site-header" role="banner">
-    <div class="nav-container">
-      <h1 class="brand-title">VENOM-<strong>INDUSTRIES</strong></h1>
-      <nav role="navigation" aria-label="Primary">
-        <ul class="nav-menu">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/products.html">Products</a></li>
-          <li><a href="/about/about.html">About</a></li>
-          <li><a class="active" href="/contact/">Contact</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/privacy.html">Privacy</a></li>
-          <li><a href="/terms.html">Terms</a></li>
-        </ul>
-      </nav>
+  <div id="vd"></div><div id="vr"></div>
+  <nav id="vnav">
+    <div id="vp"></div>
+    <div class="ni">
+      <a href="/" class="logo">VENOM<span>.</span>INDUSTRIES</a>
+      <ul class="nlinks">
+        <li><a href="/index.html" class="nl">Home</a></li>
+        <li><a href="/audit.html" class="nl">Audit</a></li>
+        <li><a href="/blog.html" class="nl">Blog</a></li>
+        <li><a href="/about/" class="nl">About</a></li>
+        <li><a href="/contact/" class="nl active">Contact</a></li>
+      </ul>
+      <div class="nr">
+        <button class="ham" id="ham"><span></span><span></span><span></span></button>
+      </div>
     </div>
-  </header>
+  </nav>
+  <div id="mob">
+    <a href="/index.html" class="mbl">Home</a>
+    <a href="/audit.html" class="mbl">Audit</a>
+    <a href="/blog.html" class="mbl">Blog</a>
+    <a href="/about/" class="mbl">About</a>
+    <a href="/contact/" class="mbl">Contact</a>
+  </div>
 
-  <!-- =========================================================
-       Contact Hero Section
-       ========================================================= -->
-  <section class="section contact-hero" aria-label="Contact">
-    <div class="contact-inner">
-      <h2 class="headline" data-aos="fade-up">Contact <span class="mark">VENOM-INDUSTRIES</span></h2>
-      <p class="subline" data-aos="fade-up" data-aos-delay="100">
-        Get support, ask questions, or discuss partnerships. Our team delivers professional-grade service.
-      </p>
-      
-      <div class="contact-panel" data-aos="fade-up" data-aos-delay="200">
-        <form action="#" method="POST" id="contactForm">
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Enter your name" required />
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="subject">Subject</label>
-            <input class="form-input" type="text" id="subject" name="subject" placeholder="How can we help?" required />
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your question, issue, or partnership opportunity..." required></textarea>
-          </div>
-          
-          <button class="btn" type="submit">🚀 Send Message</button>
-        </form>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="crosshair">
+      <div class="cv"></div><div class="ch"></div><div class="cc"></div>
+      <div class="cr1"></div><div class="cr2"></div><div class="cr3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="kicker">Book an Audit</div>
+        <h1>Pick your tier.<br><em>We'll handle<br>the rest.</em></h1>
+        <p>Fixed scope. Fixed price. Select the audit that fits your needs, complete payment, and Grayson will reach out within 24 hours to confirm your slot and send the intake form.</p>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================
-       Contact Information
-       ========================================================= -->
-  <section class="section" aria-label="Contact Information">
-    <div class="contact-grid">
-      <div class="contact-card" data-aos="zoom-in">
-        <h4>💬 Support</h4>
-        <p>Get help with our software and services</p>
-        <p><strong>support@venom-industries.com</strong></p>
+  <!-- TIERS -->
+  <section id="tiers">
+    <div class="container">
+      <div class="section-label rv">One-Time Audits</div>
+      <div class="tiers-grid">
+
+        <!-- Individual -->
+        <div class="tier rv d1">
+          <div class="tier-name">Individual Audit</div>
+          <div class="tier-price"><sup>$</sup>100</div>
+          <div class="tier-cad">one-time · 48hr turnaround</div>
+          <p class="tier-desc">A targeted audit for a single site. Ideal for founders and freelancers who need a fast, definitive answer.</p>
+          <ul class="tier-features">
+            <li>All four audit domains</li>
+            <li>Severity-tagged findings</li>
+            <li>Exact fix instructions</li>
+            <li>PDF report</li>
+            <li>48-hour turnaround</li>
+          </ul>
+          <a href="https://buy.stripe.com/dRm4gz2ey1P22I25Fk3F607" class="tier-btn tier-btn--outline">Book now — $100 →</a>
+        </div>
+
+        <!-- Sprint — featured -->
+        <div class="tier tier--feat rv d2">
+          <div class="feat-badge">MOST POPULAR</div>
+          <div class="tier-name">Sprint Audit</div>
+          <div class="tier-price"><sup>$</sup>500</div>
+          <div class="tier-cad">one-time · 5-day turnaround</div>
+          <p class="tier-desc">The full treatment for agencies and SaaS teams. Deep coverage across all four domains with a debrief call.</p>
+          <ul class="tier-features">
+            <li>All four audit domains</li>
+            <li>Priority fix matrix</li>
+            <li>PDF report</li>
+            <li>1hr debrief call</li>
+            <li>5-day turnaround</li>
+          </ul>
+          <a href="https://buy.stripe.com/6oUaEXf1k51e1DY9VA3F605" class="tier-btn tier-btn--primary">Book now — $500 →</a>
+        </div>
+
+        <!-- Full -->
+        <div class="tier rv d2">
+          <div class="tier-name">Full Audit</div>
+          <div class="tier-price"><sup>$</sup>1,500</div>
+          <div class="tier-cad">one-time · 2-week engagement</div>
+          <p class="tier-desc">Deep codebase review with a full implementation roadmap and ROI estimates for stakeholders.</p>
+          <ul class="tier-features">
+            <li>Everything in Sprint</li>
+            <li>Implementation roadmap</li>
+            <li>ROI estimates</li>
+            <li>Stakeholder-ready deck</li>
+            <li>30-day follow-up check</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQ8wPf1k9huciC3xc3F608" class="tier-btn tier-btn--outline">Book now — $1,500 →</a>
+        </div>
+
       </div>
-      
-      <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
-        <h4>🤝 Partnerships</h4>
-        <p>Collaboration & business inquiries</p>
-        <p><strong>partners@venom-industries.com</strong></p>
-      </div>
-      
-      <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
-        <h4>⚡ Response Time</h4>
-        <p>Professional support guaranteed</p>
-        <p><strong>24-48 hours typical</strong></p>
+
+      <!-- UPKEEP -->
+      <div class="upkeep-title rv">Monthly Upkeep</div>
+      <div class="upkeep-grid rv d1">
+        <a href="https://buy.stripe.com/eVqeVd2ey2T60zUebQ3F609" class="upkeep">
+          <div class="upkeep-left">
+            <div class="upkeep-name">Individual Upkeep</div>
+            <div class="upkeep-desc">Monthly check-in for solo sites</div>
+          </div>
+          <div>
+            <div class="upkeep-price">$50</div>
+            <div class="upkeep-mo">/month</div>
+          </div>
+        </a>
+        <a href="https://buy.stripe.com/dRm00j9H0gJW3M60l03F60a" class="upkeep">
+          <div class="upkeep-left">
+            <div class="upkeep-name">Sprint Upkeep</div>
+            <div class="upkeep-desc">Monthly coverage for agencies</div>
+          </div>
+          <div>
+            <div class="upkeep-price">$300</div>
+            <div class="upkeep-mo">/month</div>
+          </div>
+        </a>
+        <a href="https://buy.stripe.com/cNi14nbP8ctG5UeffU3F60b" class="upkeep">
+          <div class="upkeep-left">
+            <div class="upkeep-name">Full Upkeep</div>
+            <div class="upkeep-desc">Priority coverage + Slack access</div>
+          </div>
+          <div>
+            <div class="upkeep-price">$500</div>
+            <div class="upkeep-mo">/month</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================
-       Footer
-       ========================================================= -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-grid">
-      <section>
-        <h5>VENOM-INDUSTRIES</h5>
-        <p>Performance software engineered for results. From <strong>network optimization</strong> to <strong>career acceleration</strong>, VENOM tools help you win.</p>
-      </section>
-      <section>
-        <h5>Navigate</h5>
-        <ul>
-          <li><a href="../products.html">Products</a></li>
-        </ul>
-      </section>
-      <section>
-        <h5>Company</h5>
-        <ul>
-          <li><a href="../about/about.html">About</a></li>
-          <li><a href="../contact/">Contact</a></li>
-          <li><a href="../privacy.html">Privacy</a></li>
-          <li><a href="../terms.html">Terms</a></li>
-        </ul>
-      </section>
+  <!-- INFO -->
+  <section id="info">
+    <div class="container">
+      <div class="info-grid">
+        <div class="rv">
+          <h2 style="margin-bottom:2rem;">Before you book.</h2>
+          <div class="info-item"><div class="info-lbl">Email</div><div class="info-val"><a href="mailto:grayson@venom-industries.com">grayson@venom-industries.com</a></div></div>
+          <div class="info-item"><div class="info-lbl">Based In</div><div class="info-val">Colorado, USA — Mountain Time</div></div>
+          <div class="info-item"><div class="info-lbl">Response Time</div><div class="info-val">Within 24 hours on business days</div></div>
+          <div class="info-item"><div class="info-lbl">Payment</div><div class="info-val">Full payment via Stripe · Card, Apple Pay, Google Pay</div></div>
+          <div class="info-item"><div class="info-lbl">Retainer</div><div class="info-val">Never required</div></div>
+        </div>
+        <div class="rv d2">
+          <div class="before-box">
+            <div class="before-title">What happens after payment</div>
+            <ul class="before-list">
+              <li>You receive a payment receipt from Stripe</li>
+              <li>Grayson reaches out within 24 hours to confirm your slot</li>
+              <li>You receive a short intake form — site URL, stack, biggest concerns</li>
+              <li>Audit begins on the confirmed start date</li>
+              <li>Report delivered within your turnaround window</li>
+              <li>Debrief call scheduled at your convenience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-meta">
-      <span>&copy; 2025 VENOM-INDUSTRIES. All rights reserved.</span>
-      <span>Built for gamers, streamers, and professionals.</span>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="fbot">
+        <span class="flogo">VENOM<span>.</span>INDUSTRIES</span>
+        <span>© 2026 Venom Industries LLC · Colorado, USA</span>
+        <span>
+          <a href="/privacy.html" style="color:var(--muted);margin-right:1.5rem;">Privacy</a>
+          <a href="/terms.html" style="color:var(--muted);">Terms</a>
+        </span>
+      </div>
     </div>
   </footer>
 
-  <!-- =========================================================
-       Scripts
-       ========================================================= -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Init AOS
-    AOS.init({ once:true, duration:800, offset:120, easing:"ease-out-cubic" });
-
-    // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form data
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      // Simple validation
-      if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields.');
-        return;
-      }
-      
-      // Simulate form submission
-      alert(`Thank you ${name}! Your message has been received. We'll respond to ${email} within 24-48 hours.`);
-      this.reset();
+    const vd=document.getElementById('vd'),vr=document.getElementById('vr');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    document.querySelectorAll('a,button,.tier,.upkeep').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('vh'));el.addEventListener('mouseleave',()=>document.body.classList.remove('vh'));});
+    (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
+    const vnav=document.getElementById('vnav'),vp=document.getElementById('vp');
+    window.addEventListener('scroll',()=>{vnav.classList.toggle('sc',scrollY>60);vp.style.width=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';});
+    const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    document.querySelectorAll('.tier-btn,.upkeep').forEach(btn=>{
+      btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px) translateY(-3px)`;});
+      btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
     });
   </script>
-
 </body>
 </html>
