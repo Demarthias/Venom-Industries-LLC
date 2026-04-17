@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.venomous-industries.com/sitemap.xml
+Sitemap: https://venom-industries.com/sitemap.xml
 
 # Main pages
 Allow: /index.html
