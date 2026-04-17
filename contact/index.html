@@ -124,6 +124,15 @@
     .before-list li::before{content:'→';color:var(--accent);flex-shrink:0;}
     .before-list li:last-child{border-bottom:none;}
 
+    /* TRUST BAR */
+    #trust{padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .trust-item{display:flex;align-items:flex-start;gap:.85rem;}
+    .trust-icon{color:var(--accent);font-size:1rem;flex-shrink:0;margin-top:.2rem;}
+    .trust-text{font-size:.8rem;line-height:1.65;}
+    .trust-text strong{color:var(--white);display:block;margin-bottom:.2rem;}
+    @media(max-width:700px){.trust-row{grid-template-columns:1fr;gap:1.5rem;}}
+
     /* FOOTER */
     footer{border-top:1px solid var(--border);padding:3rem 0;}
     .fbot{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:.78rem;flex-wrap:wrap;gap:1rem;}
@@ -272,6 +281,26 @@
     </div>
   </section>
 
+  <!-- TRUST -->
+  <section id="trust">
+    <div class="container">
+      <div class="trust-row rv">
+        <div class="trust-item">
+          <span class="trust-icon">&#9632;</span>
+          <span class="trust-text"><strong>Secured by Stripe</strong>We never see or store your card details. Accepts card, Apple Pay, and Google Pay.</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">&#9632;</span>
+          <span class="trust-text"><strong>Satisfaction guaranteed</strong>Not satisfied with the report? Grayson revises it until you are — no extra charge.</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">&#9632;</span>
+          <span class="trust-text"><strong>Limited availability</strong>Slots are booked on a first-come basis. Payment confirms your start date within the week.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- INFO -->
   <section id="info">
     <div class="container">
@@ -327,6 +356,16 @@
     mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
     const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+    // GA4 checkout funnel tracking
+    document.querySelectorAll('.tier-btn, .upkeep-grid a').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var tier=btn.closest('.tier');
+        var name=tier
+          ?(tier.querySelector('.tier-name')||{}).textContent||'Audit'
+          :(btn.querySelector('.upkeep-name')||{}).textContent||'Upkeep';
+        if(typeof gtag==='function') gtag('event','begin_checkout',{item_name:name.trim(),currency:'USD'});
+      });
+    });
     document.querySelectorAll('.tier-btn,.upkeep').forEach(btn=>{
       btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px) translateY(-3px)`;});
       btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
