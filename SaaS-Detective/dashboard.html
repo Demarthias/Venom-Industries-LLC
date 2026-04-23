@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Detective — Stack Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #060608;
+      --surface:  #0e0e12;
+      --border:   #1a1a22;
+      --lime:     #b8ff00;
+      --lime-dim: #7aaa00;
+      --red:      #ff4444;
+      --green:    #22c55e;
+      --amber:    #f59e0b;
+      --text:     #e5e5e5;
+      --muted:    #555566;
+      --mono:     'IBM Plex Mono', monospace;
+      --head:     'Rajdhani', sans-serif;
+      --body:     'IBM Plex Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ── Scanline overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── Layout ── */
+    .shell { display: flex; min-height: 100vh; }
+
+    nav {
+      width: 220px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+    }
+
+    .logo {
+      padding: 0 20px 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .logo-mark {
+      font-family: var(--head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--lime);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .logo-sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+      border-left: 2px solid transparent;
+    }
+    .nav-item:hover { color: var(--text); background: rgba(184,255,0,0.04); }
+    .nav-item.active {
+      color: var(--lime);
+      border-left-color: var(--lime);
+      background: rgba(184,255,0,0.06);
+    }
+    .nav-item svg { width: 14px; height: 14px; }
+
+    .nav-bottom {
+      margin-top: auto;
+      padding: 16px 20px 0;
+      border-top: 1px solid var(--border);
+    }
+    .sub-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .sub-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 6px var(--lime);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    main {
+      margin-left: 220px;
+      flex: 1;
+      padding: 32px 40px;
+      max-width: 1100px;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .page-title {
+      font-family: var(--head);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    .page-title span { color: var(--lime); }
+
+    /* ── Stat row ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--lime), transparent);
+      opacity: 0.3;
+    }
+    .stat-value {
+      font-family: var(--head);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Add domain bar ── */
+    .add-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .add-bar input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .add-bar input::placeholder { color: var(--muted); }
+    .add-bar input:focus { border-color: var(--lime); }
+
+    .add-bar select {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 10px 12px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn {
+      font-family: var(--head);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-lime {
+      background: var(--lime);
+      color: #000;
+    }
+    .btn-lime:hover { background: #ccff33; }
+    .btn-lime:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+    /* ── Domain table ── */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .table-head {
+      display: grid;
+      grid-template-columns: 1fr 100px 90px 100px 110px 80px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(184,255,0,0.03);
+    }
+    .th {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .domain-row {
+      display: grid;
+      grid-template-columns: 1fr 100px 90px 100px 110px 80px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: background 0.1s;
+      cursor: pointer;
+    }
+    .domain-row:last-child { border-bottom: none; }
+    .domain-row:hover { background: rgba(184,255,0,0.03); }
+
+    .domain-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .domain-label {
+      font-size: 10px;
+      color: var(--muted);
+      font-family: var(--body);
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-dot.active { background: var(--green); box-shadow: 0 0 4px var(--green); }
+    .status-dot.paused { background: var(--muted); }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 8px;
+      letter-spacing: 0.05em;
+    }
+    .badge-critical { background: rgba(255,68,68,0.15); color: var(--red); border: 1px solid rgba(255,68,68,0.3); }
+    .badge-major    { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+    .badge-minor    { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+    .badge-none     { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+
+    .cell-mono {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
+    .icon-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px 6px;
+      font-size: 11px;
+      transition: all 0.15s;
+    }
+    .icon-btn:hover { color: var(--text); border-color: var(--muted); }
+    .icon-btn.danger:hover { color: var(--red); border-color: var(--red); }
+
+    /* ── Change history panel ── */
+    .panel-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      display: none;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    .panel-overlay.open { display: flex; }
+
+    .side-panel {
+      width: 480px;
+      height: 100vh;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      animation: slideIn 0.2s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to   { transform: translateX(0); }
+    }
+
+    .panel-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .panel-title {
+      font-family: var(--head);
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .panel-title span { color: var(--lime); }
+    .panel-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .panel-close:hover { color: var(--text); }
+
+    .panel-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+
+    /* Tech pills for current stack */
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .tech-pill {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      background: rgba(184,255,0,0.08);
+      border: 1px solid rgba(184,255,0,0.2);
+      color: var(--lime);
+    }
+    .tech-pill .cat {
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* Change entries */
+    .change-entry {
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .change-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(0,0,0,0.3);
+      border-bottom: 1px solid var(--border);
+    }
+    .change-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+    .change-body { padding: 12px 14px; }
+    .change-section { margin-bottom: 10px; }
+    .change-section:last-child { margin-bottom: 0; }
+    .change-section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .change-section-label.added   { color: var(--green); }
+    .change-section-label.removed { color: var(--red); }
+    .change-section-label.changed { color: var(--amber); }
+
+    .change-tech-list { display: flex; flex-wrap: wrap; gap: 4px; }
+    .change-tech {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 8px;
+    }
+    .change-tech.added   { background: rgba(34,197,94,0.1);  color: var(--green); }
+    .change-tech.removed { background: rgba(255,68,68,0.1);  color: var(--red); }
+    .change-tech.changed { background: rgba(245,158,11,0.1); color: var(--amber); }
+
+    /* Empty state */
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .empty-icon { font-size: 32px; margin-bottom: 12px; opacity: 0.4; }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--lime);
+      padding: 12px 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      z-index: 9998;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.2s ease-out;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.error { border-left-color: var(--red); }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border: 2px solid var(--border);
+      border-top-color: var(--lime);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Sidebar -->
+  <nav>
+    <div class="logo">
+      <div class="logo-mark">SaaS Detective</div>
+      <div class="logo-sub">// STACK MONITOR</div>
+    </div>
+    <div class="nav-item active">
+      <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6"/><rect x="9" y="1" width="6" height="6"/><rect x="1" y="9" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/></svg>
+      Domains
+    </div>
+    <div class="nav-item" onclick="window.open('https://saas-detective.com','_blank')">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 2a9 9 0 0 1 0 12M8 2a9 9 0 0 0 0 12M2 8h12"/></svg>
+      Extension
+    </div>
+    <div class="nav-bottom">
+      <div class="sub-badge">
+        <div class="sub-dot"></div>
+        <span id="sub-status">checking...</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <div class="page-header">
+      <div>
+        <div class="page-title">Stack <span>Monitor</span></div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value" id="stat-domains">—</div>
+        <div class="stat-label">Monitored Domains</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="stat-limit">—</div>
+        <div class="stat-label">Domain Limit</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="stat-changes">—</div>
+        <div class="stat-label">Changes Detected</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="stat-scans">—</div>
+        <div class="stat-label">Total Scans</div>
+      </div>
+    </div>
+
+    <!-- Add domain -->
+    <div class="section-label">Add Domain</div>
+    <div class="add-bar">
+      <input id="domain-input" type="text" placeholder="stripe.com" />
+      <select id="interval-select">
+        <option value="daily">Daily</option>
+        <option value="hourly">Hourly</option>
+        <option value="weekly">Weekly</option>
+      </select>
+      <input id="email-input" type="email" placeholder="alert email (optional)" style="width:220px" />
+      <button class="btn btn-lime" id="add-btn" onclick="addDomain()">+ Add</button>
+    </div>
+
+    <!-- Domain table -->
+    <div class="section-label">Monitored Domains</div>
+    <div class="table-wrap">
+      <div class="table-head">
+        <div class="th">Domain</div>
+        <div class="th">Interval</div>
+        <div class="th">Scans</div>
+        <div class="th">Changes</div>
+        <div class="th">Last Change</div>
+        <div class="th" style="text-align:right">Actions</div>
+      </div>
+      <div id="domain-list">
+        <div class="empty">
+          <div class="spinner"></div>
+          <div style="margin-top:12px">loading domains...</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Side panel -->
+<div class="panel-overlay" id="panel-overlay" onclick="closePanel(event)">
+  <div class="side-panel">
+    <div class="panel-header">
+      <div class="panel-title">Stack History — <span id="panel-domain"></span></div>
+      <button class="panel-close" onclick="closePanel()">✕</button>
+    </div>
+    <div class="panel-body" id="panel-body">
+      <div class="empty"><div class="spinner"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Config ───────────────────────────────────────────────────────────────────
+const API = "https://saas-detective-stack-tracker.kubegrayson.workers.dev";
+
+// TODO: Replace with your real auth system's user ID.
+// In production this comes from your JWT / session.
+const USER_ID = "grayson";
+
+const headers = {
+  "Content-Type": "application/json",
+  "x-user-id": USER_ID,
+};
+
+// ── State ────────────────────────────────────────────────────────────────────
+let domains = [];
+let activePanelDomainId = null;
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+async function init() {
+  await Promise.all([loadSubscription(), loadDomains()]);
+}
+
+async function loadSubscription() {
+  try {
+    const res = await fetch(`${API}/api/subscription`, { headers });
+    const sub = await res.json();
+    const el = document.getElementById("sub-status");
+    if (sub.status === "active") {
+      el.textContent = `pro · ${sub.domains_limit} domain limit`;
+      document.getElementById("stat-limit").textContent = sub.domains_limit;
+    } else {
+      el.textContent = "free plan";
+      document.getElementById("stat-limit").textContent = "0";
+    }
+  } catch {
+    document.getElementById("sub-status").textContent = "error loading plan";
+  }
+}
+
+async function loadDomains() {
+  try {
+    const res = await fetch(`${API}/api/domains`, { headers });
+    const data = await res.json();
+    domains = data.domains || [];
+    renderDomains();
+    updateStats();
+  } catch (err) {
+    document.getElementById("domain-list").innerHTML =
+      `<div class="empty"><div class="empty-icon">⚠</div>Failed to load domains</div>`;
+  }
+}
+
+// ── Render ───────────────────────────────────────────────────────────────────
+function renderDomains() {
+  const el = document.getElementById("domain-list");
+  if (!domains.length) {
+    el.innerHTML = `<div class="empty">
+      <div class="empty-icon">◉</div>
+      No domains monitored yet. Add one above.
+    </div>`;
+    return;
+  }
+
+  el.innerHTML = domains.map(d => `
+    <div class="domain-row" onclick="openPanel('${d.id}', '${d.domain}')">
+      <div class="domain-name">
+        <div class="status-dot ${d.is_active ? 'active' : 'paused'}"></div>
+        <div>
+          ${d.domain}
+          ${d.label ? `<div class="domain-label">${d.label}</div>` : ''}
+        </div>
+      </div>
+      <div class="cell-mono">${d.scan_interval}</div>
+      <div class="cell-mono">${d.snapshot_count ?? 0}</div>
+      <div>${d.change_count > 0
+        ? `<span class="badge badge-minor">${d.change_count}</span>`
+        : `<span class="badge-none">—</span>`
+      }</div>
+      <div class="cell-mono">${d.last_change_at ? timeAgo(d.last_change_at) : '—'}</div>
+      <div class="row-actions" onclick="event.stopPropagation()">
+        <button class="icon-btn" title="${d.is_active ? 'Pause' : 'Resume'}"
+          onclick="toggleDomain('${d.id}', ${d.is_active})">
+          ${d.is_active ? '⏸' : '▶'}
+        </button>
+        <button class="icon-btn danger" title="Remove" onclick="removeDomain('${d.id}')">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateStats() {
+  document.getElementById("stat-domains").textContent = domains.length;
+  const totalChanges = domains.reduce((s, d) => s + (d.change_count || 0), 0);
+  const totalScans   = domains.reduce((s, d) => s + (d.snapshot_count || 0), 0);
+  document.getElementById("stat-changes").textContent = totalChanges;
+  document.getElementById("stat-scans").textContent   = totalScans;
+}
+
+// ── Add Domain ───────────────────────────────────────────────────────────────
+async function addDomain() {
+  const domain   = document.getElementById("domain-input").value.trim();
+  const interval = document.getElementById("interval-select").value;
+  const email    = document.getElementById("email-input").value.trim();
+
+  if (!domain) { toast("Enter a domain", true); return; }
+
+  const btn = document.getElementById("add-btn");
+  btn.disabled = true;
+  btn.textContent = "Adding...";
+
+  try {
+    const res = await fetch(`${API}/api/domains`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ domain, scan_interval: interval, alert_email: email || undefined }),
+    });
+    const data = await res.json();
+
+    if (!res.ok) { toast(data.error || "Failed to add domain", true); return; }
+
+    document.getElementById("domain-input").value = "";
+    document.getElementById("email-input").value  = "";
+    toast(`Monitoring ${data.domain}`);
+    await loadDomains();
+  } catch {
+    toast("Network error", true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "+ Add";
+  }
+}
+
+// ── Toggle / Remove ───────────────────────────────────────────────────────────
+async function toggleDomain(id, currentActive) {
+  try {
+    await fetch(`${API}/api/domains/${id}`, {
+      method: "PATCH",
+      headers,
+      body: JSON.stringify({ is_active: currentActive ? 0 : 1 }),
+    });
+    toast(currentActive ? "Domain paused" : "Domain resumed");
+    await loadDomains();
+  } catch {
+    toast("Failed to update domain", true);
+  }
+}
+
+async function removeDomain(id) {
+  if (!confirm("Remove this domain? All snapshots and history will be deleted.")) return;
+  try {
+    await fetch(`${API}/api/domains/${id}`, { method: "DELETE", headers });
+    toast("Domain removed");
+    await loadDomains();
+  } catch {
+    toast("Failed to remove domain", true);
+  }
+}
+
+// ── Side Panel ────────────────────────────────────────────────────────────────
+async function openPanel(domainId, domainName) {
+  activePanelDomainId = domainId;
+  document.getElementById("panel-domain").textContent = domainName;
+  document.getElementById("panel-body").innerHTML = `<div class="empty"><div class="spinner"></div></div>`;
+  document.getElementById("panel-overlay").classList.add("open");
+
+  try {
+    const [snapRes, changesRes] = await Promise.all([
+      fetch(`${API}/api/domains/${domainId}/snapshots?limit=1`, { headers }),
+      fetch(`${API}/api/domains/${domainId}/changes?limit=20`, { headers }),
+    ]);
+    const { snapshots } = await snapRes.json();
+    const { changes }   = await changesRes.json();
+
+    const latest = snapshots?.[0];
+    const techHtml = latest?.technologies?.length
+      ? `<div class="section-label">Current Stack (${latest.technologies.length} detected)</div>
+         <div class="tech-grid">
+           ${latest.technologies.map(t =>
+             `<div class="tech-pill">${t.name}<span class="cat">${t.category}</span></div>`
+           ).join('')}
+         </div>`
+      : '';
+
+    const changesHtml = changes?.length
+      ? `<div class="section-label" style="margin-top:20px">Change History (${changes.length})</div>
+         ${changes.map(c => {
+           const added   = JSON.parse(typeof c.added   === 'string' ? c.added   : JSON.stringify(c.added));
+           const removed = JSON.parse(typeof c.removed === 'string' ? c.removed : JSON.stringify(c.removed));
+           const changed = JSON.parse(typeof c.changed === 'string' ? c.changed : JSON.stringify(c.changed));
+           return `
+           <div class="change-entry">
+             <div class="change-meta">
+               <div class="change-date">${new Date(c.detected_at).toLocaleString()}</div>
+               <span class="badge badge-${c.severity}">${c.severity}</span>
+             </div>
+             <div class="change-body">
+               ${added.length ? `
+                 <div class="change-section">
+                   <div class="change-section-label added">+ Added</div>
+                   <div class="change-tech-list">
+                     ${added.map(t => `<span class="change-tech added">${t.name}</span>`).join('')}
+                   </div>
+                 </div>` : ''}
+               ${removed.length ? `
+                 <div class="change-section">
+                   <div class="change-section-label removed">− Removed</div>
+                   <div class="change-tech-list">
+                     ${removed.map(t => `<span class="change-tech removed">${t.name}</span>`).join('')}
+                   </div>
+                 </div>` : ''}
+               ${changed.length ? `
+                 <div class="change-section">
+                   <div class="change-section-label changed">~ Version Changes</div>
+                   <div class="change-tech-list">
+                     ${changed.map(t => `<span class="change-tech changed">${t.name} ${t.before?.version}→${t.after?.version}</span>`).join('')}
+                   </div>
+                 </div>` : ''}
+             </div>
+           </div>`;
+         }).join('')}`
+      : `<div style="margin-top:20px" class="section-label">Change History</div>
+         <div class="empty" style="padding:40px 20px">
+           <div class="empty-icon">◎</div>
+           No changes detected yet
+         </div>`;
+
+    document.getElementById("panel-body").innerHTML = techHtml + changesHtml;
+  } catch {
+    document.getElementById("panel-body").innerHTML =
+      `<div class="empty">Failed to load history</div>`;
+  }
+}
+
+function closePanel(e) {
+  if (e && e.target !== document.getElementById("panel-overlay")) return;
+  document.getElementById("panel-overlay").classList.remove("open");
+  activePanelDomainId = null;
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function timeAgo(dateStr) {
+  const diff = Date.now() - new Date(dateStr + 'Z').getTime();
+  const m = Math.floor(diff / 60000);
+  if (m < 60) return `${m}m ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h}h ago`;
+  return `${Math.floor(h / 24)}d ago`;
+}
+
+let toastTimer;
+function toast(msg, error = false) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.className = "toast show" + (error ? " error" : "");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = "toast"; }, 3000);
+}
+
+// ── Enter key on input ────────────────────────────────────────────────────────
+document.getElementById("domain-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") addDomain();
+});
+
+// ── Boot ─────────────────────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
