@@ -142,6 +142,32 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
+    /* PRICING */
+    #pricing{background:var(--dark);}
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line2);border-radius:4px;overflow:hidden;margin-top:3rem;}
+    .plan-card{background:var(--card);padding:2rem 1.75rem;display:flex;flex-direction:column;position:relative;transition:background .2s;}
+    .plan-card:hover{background:var(--mid);}
+    .plan-card.featured{background:var(--mid);border:1px solid rgba(52,152,219,.35);margin:-1px;z-index:1;}
+    .plan-trial-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .9rem;border-radius:0 0 3px 3px;white-space:nowrap;}
+    .plan-name{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem;}
+    .plan-price{font-family:var(--display);font-size:3rem;color:#fff;line-height:1;letter-spacing:.01em;margin-bottom:.25rem;}
+    .plan-price sup{font-size:1.4rem;vertical-align:super;font-family:var(--mono);}
+    .plan-cadence{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:1.5rem;}
+    .plan-divider{height:1px;background:var(--line);margin:1.25rem 0;}
+    .plan-features{list-style:none;flex:1;margin-bottom:1.75rem;}
+    .plan-features li{font-family:var(--mono);font-size:11px;color:var(--muted2);padding:.4rem 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.5rem;}
+    .plan-features li:last-child{border-bottom:none;}
+    .plan-features li::before{content:'→';color:var(--blue);font-size:9px;flex-shrink:0;}
+    .plan-cta{display:block;text-align:center;padding:.8rem;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;transition:all .2s;}
+    .plan-cta-outline{border:1px solid var(--line2);color:var(--muted);}
+    .plan-cta-outline:hover{border-color:rgba(255,255,255,.3);color:#fff;}
+    .plan-cta-primary{background:var(--blue);color:#fff;}
+    .plan-cta-primary:hover{opacity:.88;}
+    .pricing-guarantee{text-align:center;margin-top:1.5rem;font-family:var(--mono);font-size:11px;color:var(--muted);}
+    .pricing-guarantee strong{color:var(--muted2);}
+    @media(max-width:900px){.pricing-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.pricing-grid{grid-template-columns:1fr;}}
+
     @media(max-width:900px){
       .hero{grid-template-columns:1fr}
       .hero-right{display:none}
@@ -164,13 +190,13 @@
   </style>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="SaaS Detective — Reveal Any Website's Tech Stack"/>
-  <meta property="og:description" content="Free Chrome extension. 80+ tools. Runs entirely in your browser."/>
+  <meta property="og:description" content="Free Chrome extension. 200+ tools detected across 50+ categories. Runs entirely in your browser. No account required."/>
   <meta property="og:url" content="https://venom-industries.com/saas-detective.html"/>
   <meta property="og:image" content="https://venom-industries.com/assets/og-image.png"/>
   <meta property="og:site_name" content="Venom Industries"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="SaaS Detective — Reveal Any Website's Tech Stack"/>
-  <meta name="twitter:description" content="Free Chrome extension. 80+ tools. Runs entirely in your browser."/>
+  <meta name="twitter:description" content="Free Chrome extension. 200+ tools detected across 50+ categories. Runs entirely in your browser. No account required."/>
   <meta name="twitter:image" content="https://venom-industries.com/assets/og-image.png"/>
 </head>
 <body>
@@ -184,7 +210,7 @@
       <a href="/index.html" style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:#f0f0fa;text-decoration:none;flex-shrink:0;">VENOM<span style="color:#b8ff00;">.</span>INDUSTRIES</a>
       <ul style="display:flex;align-items:center;gap:2rem;list-style:none;flex:1;" class="venom-nlinks">
         <li><a href="/index.html" style="font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#52526e;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#52526e'">Home</a></li>
-        <li><a href="/#pricing" style="font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#52526e;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#52526e'">Pricing</a></li>
+        <li><a href="/subscribe.html" style="font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#52526e;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#52526e'">Pricing</a></li>
         <li><a href="/blog.html" style="font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#52526e;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#52526e'">Blog</a></li>
         <li><a href="/about/" style="font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#52526e;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#52526e'">About</a></li>
         <li><a href="/saas-detective.html" style="font-family:'Rajdhani',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#52526e;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#52526e'">SaaS Detective</a></li>
@@ -195,26 +221,27 @@
     </div>
   </nav>
 
-<nav>
-  <a href="/" class="nav-logo"><div class="nav-logo-mark">V</div>Venom Industries</a>
-  <div class="nav-links">
-    <a href="/#pricing">Pricing</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/about/">About</a>
-    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="nav-cta">Add to Chrome — Free</a>
-  </div>
-</nav>
-
 <!-- HERO -->
 <div style="max-width:1200px;margin:0 auto">
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div>Free Chrome Extension · v1.0.2</div>
+      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div>Free Chrome Extension · v2.6.0</div>
       <h1 class="hero-h1">REVEAL<br>ANY <span class="blue">TECH</span><br><span class="outline">STACK</span><br>INSTANTLY.</h1>
       <p class="hero-sub">SaaS Detective scans every page you visit and surfaces the exact tools, frameworks, and platforms powering it — in one click, privately, without leaving the page.</p>
       <div class="hero-actions">
         <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="btn-blue">Add to Chrome — It's Free</a>
-        <a href="#how-it-works" class="btn-ghost">See how it works</a>
+        <a href="#pricing" class="btn-ghost">See Pricing →</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .58s ease forwards;">
+        <div style="display:flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:10px;color:#888;">
+          <span style="color:#f5a623;letter-spacing:.02em;">★★★★★</span> Chrome Web Store
+        </div>
+        <div style="width:1px;height:14px;background:rgba(255,255,255,.1);"></div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#888;">✓ No account required</div>
+        <div style="width:1px;height:14px;background:rgba(255,255,255,.1);"></div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#888;">✓ 7-day free trial on Pro Annual</div>
+        <div style="width:1px;height:14px;background:rgba(255,255,255,.1);"></div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#888;">✓ Cancel anytime</div>
       </div>
       <div class="hero-proof-row">
         <div class="proof-item"><div class="proof-val">200+</div><div class="proof-label">Tools detected</div></div>
@@ -378,31 +405,117 @@
   </div>
 </div>
 
+<!-- PRICING -->
+<div class="section" id="pricing">
+  <div class="container">
+    <div class="label">Pricing</div>
+    <h2>FREE FOREVER.<br>MORE WHEN YOU<br><span class="blue">NEED IT.</span></h2>
+    <p class="intro">Start free — no account, no credit card. Upgrade any time to unlock the full 200+ tool database.</p>
+
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">Free</div>
+        <div class="plan-cadence">forever · no account required</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Detect up to 15 tools per scan</li>
+          <li>All 50+ categories</li>
+          <li>100% private — runs locally</li>
+          <li>Zero data collected</li>
+          <li>Works on every website</li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="plan-cta plan-cta-outline">Add to Chrome →</a>
+      </div>
+      <!-- Monthly -->
+      <div class="plan-card">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-price"><sup>$</sup>7<span style="font-size:1.5rem">.99</span></div>
+        <div class="plan-cadence">per month · cancel anytime</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Full 200+ tool database</li>
+          <li>Unlimited detections</li>
+          <li>All 50+ categories</li>
+          <li>Export to CSV</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" class="plan-cta plan-cta-outline" data-plan="monthly" data-price="7.99">Get Monthly →</a>
+      </div>
+      <!-- 3-Month -->
+      <div class="plan-card">
+        <div class="plan-name">3 Months</div>
+        <div class="plan-price"><sup>$</sup>19<span style="font-size:1.5rem">.99</span></div>
+        <div class="plan-cadence">every 3 months · ~$6.66/mo · save 17%</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Full 200+ tool database</li>
+          <li>Unlimited detections</li>
+          <li>All 50+ categories</li>
+          <li>Export to CSV</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" class="plan-cta plan-cta-outline" data-plan="quarterly" data-price="19.99">Get 3-Month →</a>
+      </div>
+      <!-- Annual — FEATURED -->
+      <div class="plan-card featured">
+        <div class="plan-trial-badge">★ 7-Day Free Trial</div>
+        <div class="plan-name" style="margin-top:.5rem;">Annual</div>
+        <div class="plan-price"><sup>$</sup>59<span style="font-size:1.5rem">.99</span></div>
+        <div class="plan-cadence">per year · ~$5/mo · save 38%</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Full 200+ tool database</li>
+          <li>Unlimited detections</li>
+          <li>All 50+ categories</li>
+          <li>Export to CSV</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" class="plan-cta plan-cta-primary" data-plan="annual" data-price="59.99">Start Free Trial →</a>
+      </div>
+    </div>
+
+    <p class="pricing-guarantee">
+      <strong>Secure checkout via Stripe.</strong> &nbsp;·&nbsp; Cancel anytime, no questions asked. &nbsp;·&nbsp; Questions? <a href="mailto:grayson@venom-industries.com" style="color:var(--blue);text-decoration:none;">grayson@venom-industries.com</a>
+    </p>
+  </div>
+</div>
+
+<div class="full-rule"></div>
+
 <!-- CTA BAND -->
 <div class="cta-band">
   <div class="cta-band-inner">
-    <h2>STOP GUESSING. START KNOWING.</h2>
+    <div>
+      <h2>ONE CLICK.<br>THE WHOLE STACK.</h2>
+      <p style="font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.5);margin-top:.75rem;max-width:380px;line-height:1.7;">Free forever. No account. Works on every website immediately after install. Takes 10 seconds to add.</p>
+    </div>
     <div class="cta-band-right">
-      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="btn-white">Add to Chrome — It's Free</a>
-      <div class="cta-note">No account · No data collected · Works on every site</div>
+      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="btn-white">Add to Chrome — It's Free →</a>
+      <div class="cta-note">★★★★★ Chrome Web Store &nbsp;·&nbsp; 7-day free trial on Annual &nbsp;·&nbsp; Cancel anytime</div>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-  <footer style="border-top:1px solid #1c1c26;padding:3rem 0;margin-top:4rem;">
-    <div style="max-width:1160px;margin:0 auto;padding:0 2rem;">
-      <div style="display:flex;align-items:center;justify-content:space-between;color:#52526e;font-size:.78rem;flex-wrap:wrap;gap:1rem;">
-        <span style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;color:#f0f0fa;">VENOM<span style="color:#b8ff00;">.</span>INDUSTRIES</span>
-        <span>© 2026 Venom Industries LLC · Colorado, USA</span>
-        <span>
-          <a href="/blog.html" style="color:#52526e;margin-right:1.5rem;text-decoration:none;">Blog</a>
-          <a href="/privacy.html" style="color:#52526e;margin-right:1.5rem;text-decoration:none;">Privacy</a>
-          <a href="/terms.html" style="color:#52526e;text-decoration:none;">Terms</a>
-        </span>
-      </div>
-    </div>
-  </footer>
+<footer>
+  <div class="footer-left">
+    <div class="footer-mark"></div>
+    <span class="footer-name">Venom Industries LLC &mdash; Colorado, USA</span>
+  </div>
+  <div class="footer-links">
+    <a href="/index.html">Home</a>
+    <a href="/saas-detective.html">SaaS Detective</a>
+    <a href="/subscribe.html">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:grayson@venom-industries.com">Contact</a>
+  </div>
+  <div class="footer-links" style="color:#444;">© 2026 Venom Industries LLC</div>
+</footer>
 
 
   <script>
