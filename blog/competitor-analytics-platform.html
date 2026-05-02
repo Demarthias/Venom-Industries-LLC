@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>What Analytics Platform Does My Competitor Use? | Venom Industries</title>
+  <meta name="description" content="Learn how to find out what analytics a website uses — Google Analytics, Mixpanel, Amplitude, and more — using free browser-based detection tools."/>
+  <link rel="canonical" href="https://venom-industries.com/blog/competitor-analytics-platform.html"/>
+  <meta property="og:title" content="What Analytics Platform Does My Competitor Use?"/>
+  <meta property="og:description" content="Learn how to find out what analytics a website uses — Google Analytics, Mixpanel, Amplitude, and more — using free browser-based detection tools."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://venom-industries.com/blog/competitor-analytics-platform.html"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Analytics Platform Does My Competitor Use?","author":{"@type":"Person","name":"Grayson Kube"},"publisher":{"@type":"Organization","name":"Venom Industries LLC","url":"https://venom-industries.com"},"datePublished":"2026-04-15","description":"Learn how to find out what analytics a website uses — Google Analytics, Mixpanel, Amplitude, and more — using free browser-based detection tools."}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@1;0&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    :root{--bg:#060608;--surface:#0d0d11;--surface2:#13131a;--border:#1c1c26;--border2:#28283a;--accent:#b8ff00;--adim:rgba(184,255,0,.08);--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--cat-color:#b8ff00;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Instrument Serif',serif;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.45;}
+    a{color:var(--accent);text-decoration:none;}
+    h1,h2,h3{font-family:var(--fh);font-weight:700;line-height:1.1;color:var(--white);}
+    h1{font-size:clamp(2.5rem,5vw,4.5rem);text-transform:uppercase;}
+    h2{font-size:1.6rem;text-transform:uppercase;margin:3rem 0 1rem;}
+    h3{font-size:1.1rem;text-transform:uppercase;margin:2rem 0 .75rem;color:var(--accent);}
+    p{margin-bottom:1.4rem;}
+    .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
+    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;}
+    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
+    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(184,255,0,.4));z-index:1;}
+    .ni{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
+    .logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+    .logo span{color:var(--accent);}
+    .nlinks{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;}
+    .nl{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+    .nl:hover{color:var(--white);}
+    .nr{display:flex;align-items:center;gap:1rem;margin-left:auto;}
+    .ncta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;}
+    .ncta:hover{background:var(--white);}
+    #read-progress{position:fixed;top:64px;left:0;height:2px;width:0;background:var(--accent);z-index:499;}
+    .art-header{padding:10rem 0 5rem;position:relative;border-bottom:1px solid var(--border);}
+    .art-header-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(184,255,0,.04) 0%,transparent 60%);pointer-events:none;}
+    .art-inner{position:relative;z-index:2;max-width:760px;}
+    .back-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:2.5rem;transition:color .2s;}
+    .back-link:hover{color:var(--accent);}
+    .art-meta{display:flex;gap:1.5rem;align-items:center;margin-bottom:2rem;flex-wrap:wrap;}
+    .art-cat{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid rgba(184,255,0,.3);color:var(--accent);border-radius:1px;}
+    .art-date,.art-read{font-size:.78rem;color:var(--muted);}
+    .art-header h1{margin-bottom:1.5rem;}
+    .art-deck{font-size:1rem;color:var(--text);line-height:1.9;max-width:600px;}
+    .art-body{max-width:720px;margin:0 auto;padding:5rem 2rem 6rem;}
+    .art-body p{color:var(--text);font-size:.95rem;line-height:1.9;margin-bottom:1.5rem;}
+    .art-body ul,.art-body ol{margin:0 0 1.5rem 1.5rem;color:var(--text);font-size:.95rem;}
+    .art-body li{margin-bottom:.5rem;line-height:1.8;}
+    .art-body strong{color:var(--white);}
+    code{color:var(--accent);background:var(--surface);padding:.1rem .4rem;border-radius:2px;font-size:.88em;}
+    .pullquote{border-left:2px solid var(--accent);padding:1rem 1.5rem;margin:2.5rem 0;font-family:var(--fs);font-style:italic;font-size:1.1rem;color:var(--white);background:var(--adim);}
+    .callout{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.5rem;margin:2rem 0;}
+    .callout-title{font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+    .cta-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 2rem;text-align:center;margin:0;}
+    .cta-band h2{font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:1rem;margin-top:0;}
+    .cta-band p{color:var(--muted);font-size:.9rem;max-width:420px;margin:0 auto 2rem;}
+    .cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;text-decoration:none;transition:all .2s;}
+    .cta-btn:hover{background:var(--white);}
+    footer{background:var(--surface);border-top:1px solid var(--border);padding:4rem 2rem 2rem;}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1160px;margin:0 auto 3rem;}
+    .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);margin-bottom:.75rem;}
+    .flogo span{color:var(--accent);}
+    .fbrand p{font-size:.82rem;color:var(--muted);line-height:1.7;}
+    .fcol h5{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .fcol a{display:block;color:var(--text);font-size:.82rem;margin-bottom:.5rem;text-decoration:none;transition:color .2s;}
+    .fcol a:hover{color:var(--accent);}
+    .fbot{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;max-width:1160px;margin:0 auto;}
+    @media(max-width:768px){.nlinks{display:none;}.fgrid{grid-template-columns:1fr 1fr;}.art-body{padding:3rem 1.25rem 4rem;}body{cursor:auto;}#vd,#vr{display:none;}}
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div id="vd"></div><div id="vr"></div>
+  <div id="read-progress"></div>
+  <nav id="vnav">
+    <div id="vp"></div>
+    <div class="ni">
+      <a href="/" class="logo">VENOM<span>.</span>INDUSTRIES</a>
+      <ul class="nlinks">
+        <li><a href="/saas-detective.html" class="nl">SaaS Detective</a></li>
+        <li><a href="/blog.html" class="nl">Blog</a></li>
+        <li><a href="/about/about.html" class="nl">About</a></li>
+        <li><a href="/contact/" class="nl">Contact</a></li>
+      </ul>
+      <div class="nr">
+        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="ncta">Add to Chrome — Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="art-header">
+    <div class="art-header-bg"></div>
+    <div class="container">
+      <div class="art-inner">
+        <a href="/blog.html" class="back-link">← Back to Blog</a>
+        <div class="art-meta">
+          <span class="art-cat">Competitive Intelligence</span>
+          <span class="art-date">April 15, 2026</span>
+          <span class="art-read">8 min read</span>
+        </div>
+        <h1>What Analytics Platform Does My Competitor Use?</h1>
+        <p class="art-deck">A competitor's analytics stack reveals how they measure success — and what they can and can't see. Here's how to detect their analytics setup and what it tells you about their data culture and decision-making.</p>
+      </div>
+    </div>
+  </header>
+
+  <article class="art-body">
+    <p>Analytics tool choice is a window into company culture. A startup running Amplitude and Segment is instrumenting every user action and making product decisions from behavioral data. A company running only basic Google Analytics 4 either doesn't have a data team or doesn't yet trust data enough to invest in it. A business with Hotjar on top of GA4 is actively trying to understand user behavior qualitatively. The tool itself matters less than what the combination reveals about how the company thinks.</p>
+
+    <p>For competitive intelligence, knowing <strong>what analytics platform a competitor uses</strong> tells you how well they can see their own funnel — and therefore how quickly they can iterate. It also tells you where they might be blind. And for sales and marketing professionals selling analytics-adjacent products, it's essential pre-call research.</p>
+
+    <h2>The Analytics Stack Layers</h2>
+
+    <p>Modern analytics isn't a single tool — it's a stack with distinct layers. Understanding the layers helps you interpret what you find:</p>
+
+    <ul>
+      <li><strong>Web analytics</strong> — traffic, sessions, conversions (GA4, Adobe Analytics, Matomo, Plausible, Fathom)</li>
+      <li><strong>Product analytics</strong> — user behavior, feature adoption, retention cohorts (Mixpanel, Amplitude, Heap, FullStory, PostHog)</li>
+      <li><strong>Customer data platform</strong> — event collection and routing (Segment, Rudderstack, mParticle)</li>
+      <li><strong>Session recording and heatmaps</strong> — qualitative behavioral data (Hotjar, Microsoft Clarity, FullStory, Mouseflow)</li>
+      <li><strong>A/B testing</strong> — experimentation platforms (Optimizely, VWO, AB Tasty, Statsig, Growthbook)</li>
+      <li><strong>Attribution and media mix modeling</strong> — marketing performance (Northbeam, Triple Whale, Rockerbox, Wicked Reports)</li>
+    </ul>
+
+    <p>When you detect what a competitor is running across these layers, you can form hypotheses about how sophisticated their growth operation is, what decisions they can make from data, and where they might have gaps.</p>
+
+    <h2>How to Detect Analytics Tools on Any Website</h2>
+
+    <h3>The Manual Method: Network Tab</h3>
+
+    <p>Open Chrome DevTools (F12), go to the Network tab, and filter by "analytics" or look for requests to known analytics domains. You'll see requests to <code>www.google-analytics.com</code>, <code>api.mixpanel.com</code>, <code>api2.amplitude.com</code>, or <code>cdn.segment.com</code> as events fire. This works but requires knowing what to look for and waiting for events to fire — clicking through the site, scrolling, and interacting to trigger event sends.</p>
+
+    <h3>The Fast Method: SaaS Detective</h3>
+
+    <p>For routine competitive research, <a href="https://venom-industries.com/saas-detective.html">SaaS Detective</a> surfaces analytics tools automatically when you visit any page. Click the extension, and the Analytics category shows you every detectable analytics and tracking tool running on the current page — from GA4 to Segment to Hotjar to Northbeam — organized clearly without requiring you to dig through network requests.</p>
+
+    <div class="pullquote">
+      The analytics tools a company runs reveal not just how they measure — but whether they have the infrastructure to learn from what they're measuring.
+    </div>
+
+    <h2>Reading the Signals: What Analytics Stacks Tell You</h2>
+
+    <h3>Google Analytics 4 Only</h3>
+    <p>Standard web analytics without any event-level product instrumentation. This company knows acquisition basics (where traffic comes from, what pages convert) but likely can't answer questions about feature adoption, user retention by cohort, or which behavioral patterns predict conversion. <strong>Data maturity: early.</strong></p>
+
+    <h3>GA4 + Hotjar or Clarity</h3>
+    <p>They care about UX qualitatively. Probably running session recordings and heatmaps to understand friction in conversion flows. Slightly more mature than GA4-only — they're asking "why" questions, not just "how many." <strong>Data maturity: developing.</strong></p>
+
+    <h3>Segment + Amplitude or Mixpanel</h3>
+    <p>Serious product analytics. Events are being tracked and routed through a CDP, then analyzed in a dedicated product analytics tool. This company can do cohort analysis, funnel analysis, and retention analysis. They have a data team or a technically strong product team. <strong>Data maturity: advanced.</strong></p>
+
+    <h3>Segment + Amplitude + Optimizely + Northbeam</h3>
+    <p>Full-stack data operation. They're running A/B tests informed by product analytics and measuring marketing attribution with a sophisticated MMM tool. This company makes very few decisions without data backing. <strong>Data maturity: sophisticated.</strong></p>
+
+    <div class="callout">
+      <div class="callout-title">Check Multiple Pages for the Full Picture</div>
+      <p>Analytics tools often load conditionally. A/B testing tools like Optimizely may only load on specific experiment pages. Attribution tools like Northbeam often load on the checkout flow, not the homepage. Use SaaS Detective on the homepage, key product pages, and the pricing or checkout page to catch the full analytics stack, not just what's loaded on the landing page.</p>
+    </div>
+
+    <h2>Specific Analytics Signatures to Know</h2>
+
+    <h3>Google Analytics 4</h3>
+    <p>Loads from <code>www.googletagmanager.com</code> (if via GTM) or directly from <code>www.google-analytics.com/g/collect</code>. The GA4 measurement ID format is <code>G-XXXXXXXXXX</code> — visible in the GTM dataLayer or the GA4 script tag.</p>
+
+    <h3>Segment</h3>
+    <p>Loads from <code>cdn.segment.com/analytics.js</code>. When Segment is present, other analytics tools may route through it rather than loading directly — look for Segment first, then infer what downstream tools they're using.</p>
+
+    <h3>Amplitude</h3>
+    <p>JavaScript SDK loads from <code>cdn.amplitude.com</code>. API calls go to <code>api2.amplitude.com</code>. The presence of Amplitude without Segment suggests they're loading analytics SDKs directly rather than routing through a CDP.</p>
+
+    <h3>Mixpanel</h3>
+    <p>Loads from <code>cdn.mxpnl.com</code>. API calls to <code>api.mixpanel.com</code>. Very common in B2B SaaS companies. Seeing Mixpanel suggests they care about event tracking and funnels.</p>
+
+    <h3>Hotjar</h3>
+    <p>Loads from <code>static.hotjar.com</code> and <code>script.hotjar.com</code>. Common across e-commerce and SaaS. Sets a distinctive <code>_hj*</code> cookie pattern.</p>
+
+    <h3>FullStory</h3>
+    <p>Loads from <code>edge.fullstory.com</code>. More enterprise-oriented than Hotjar. Often seen alongside Amplitude in larger product organizations.</p>
+
+    <h3>Triple Whale / Northbeam</h3>
+    <p>DTC-specific attribution tools. Triple Whale uses <code>triplewhale.com</code> scripts; Northbeam uses <code>nb.northbeam.io</code>. Seeing either one on a Shopify store confirms they're serious about ad attribution and marketing efficiency.</p>
+
+    <h2>What Missing Analytics Tells You</h2>
+
+    <p>The absence of analytics is also a signal. A company with no detectable analytics beyond a consent management platform (which blocks analytics until consent is given) might be running server-side analytics that never touch the browser — common in privacy-forward European companies. A company with literally no analytics is either brand new, technically naive, or running everything through a mobile app you can't inspect from the web.</p>
+
+    <p>Neither of these absences is necessarily bad — but both have implications for how you'd approach a conversation with that company about data, measurement, or tools that depend on web instrumentation.</p>
+
+    <h2>Bottom Line</h2>
+
+    <p>Detecting <strong>what analytics platform a competitor uses</strong> requires knowing the script sources, cookie names, and network request patterns of major analytics vendors. For quick lookups, <a href="https://venom-industries.com/saas-detective.html">SaaS Detective</a> surfaces analytics tools automatically, organized by category, across 30+ detectable analytics platforms. The real value comes from interpreting what you find: a sophisticated analytics stack signals a data-driven competitor who can iterate quickly; a thin stack signals potential blind spots you can exploit by building measurement infrastructure they don't have.</p>
+  </article>
+
+  <div class="cta-band">
+    <h2>See It for Yourself</h2>
+    <p>SaaS Detective reveals any website's full tech stack in one click. Free to install, no account required.</p>
+    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="cta-btn">Add to Chrome — It's Free →</a>
+  </div>
+
+  <footer>
+    <div class="fgrid">
+      <div class="fbrand"><div class="flogo">VENOM<span>.</span>INDUSTRIES</div><p>Software development and SaaS tools. Built by a self-taught developer in Colorado.</p></div>
+      <div class="fcol"><h5>Product</h5><a href="/saas-detective.html">SaaS Detective</a><a href="/subscribe.html">Pricing</a></div>
+      <div class="fcol"><h5>Company</h5><a href="/about/about.html">About</a><a href="/blog.html">Blog</a><a href="/contact/">Contact</a></div>
+      <div class="fcol"><h5>Legal</h5><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 Venom Industries LLC</span><span>Built in Colorado</span></div>
+  </footer>
+
+  <script>
+    const vd=document.getElementById('vd'),vr=document.getElementById('vr');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
+    const nav=document.getElementById('vnav'),prog=document.getElementById('vp'),rp=document.getElementById('read-progress');
+    window.addEventListener('scroll',()=>{
+      if(nav) nav.classList.toggle('sc',scrollY>60);
+      const pct=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100);
+      if(prog) prog.style.width=pct+'%';
+      if(rp) rp.style.width=pct+'%';
+    },{passive:true});
+  </script>
+</body>
+</html>
