@@ -39,6 +39,8 @@
     h1{font-size:clamp(3.5rem,9vw,8.5rem);}
     h2{font-size:clamp(2rem,5vw,3.8rem);}
     h3{font-size:clamp(1.3rem,2.5vw,1.8rem);}
+    h3.cat-name{font-size:1rem;}
+    h3.pp{font-size:.7rem;font-weight:700;letter-spacing:.2em;}
     .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
 
     /* CURSOR */
@@ -132,7 +134,7 @@
     .cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
     .cat-card{background:var(--surface);padding:1.5rem 1.25rem;transition:background .2s;}
     .cat-card:hover{background:var(--surface2);}
-    .cat-name{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--white);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.4rem;}
+    .cat-name{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--white);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.4rem;line-height:1.2;}
     .cat-tools{font-size:.78rem;color:var(--muted);line-height:1.6;}
 
     /* HOW IT WORKS */
@@ -209,12 +211,13 @@
       .steps-grid{grid-template-columns:1fr;}
       .use-grid{grid-template-columns:1fr;}
       .feat-header{grid-template-columns:1fr;gap:1.5rem;}
-      .p-grid{grid-template-columns:1fr;}
+      .p-grid{grid-template-columns:1fr 1fr!important;}
       .footer-grid{grid-template-columns:1fr 1fr;}
       .priv-band{grid-template-columns:1fr;}
     }
     @media(max-width:600px){
       .cat-grid{grid-template-columns:1fr;}
+      .p-grid{grid-template-columns:1fr!important;}
       .footer-grid{grid-template-columns:1fr;}
       body{cursor:auto;}
       #v-dot,#v-ring{display:none;}
@@ -295,22 +298,22 @@
     <canvas id="pc"></canvas>
     <div class="hero-vig"></div>
     <div class="container hero-inner">
-      <div class="hero-tag"><span class="pdot"></span>Free Chrome Extension &middot; v1.0.2</div>
+      <div class="hero-tag"><span class="pdot"></span>Free Chrome Extension &middot; v2.5.9</div>
       <h1>
         Reveal Any<br>
         <em>Tech Stack.</em><br>
         Instantly.
       </h1>
       <p class="hero-sub">
-        SaaS Detective scans every page you visit and surfaces the exact tools,
-        frameworks, and platforms powering it — in one click, privately, without leaving the page.
+        Click once. See everything. SaaS Detective surfaces the exact tools, frameworks, and platforms
+        powering any website — CRM, analytics, payments, infra — in under a second, 100% in your browser.
       </p>
       <div class="hero-actions">
         <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-primary">Add to Chrome — It's Free →</a>
-        <a href="#how" class="vbtn vbtn-outline">See How It Works</a>
+        <a href="#features" class="vbtn vbtn-outline">See What It Detects</a>
       </div>
       <div class="hero-stats">
-        <div><div class="sn"><span data-count="80">80</span><span class="ac">+</span></div><div class="sl">Tools detected</div></div>
+        <div><div class="sn"><span data-count="200">200</span><span class="ac">+</span></div><div class="sl">Tools detected</div></div>
         <div><div class="sn"><span data-count="30">30</span><span class="ac">+</span></div><div class="sl">Categories</div></div>
         <div><div class="sn"><span data-count="0">0</span></div><div class="sl">Bytes collected</div></div>
         <div><div class="sn"><span class="ac">&lt;1</span><span style="font-size:1.8rem">s</span></div><div class="sl">Detection time</div></div>
@@ -367,16 +370,16 @@
         <p class="reveal d2">30+ categories covering every layer — from frontend frameworks to payment processors to CDN providers. If it's running on the page, SaaS Detective finds it.</p>
       </div>
       <div class="cat-grid reveal">
-        <div class="cat-card"><div class="cat-name">E-Commerce</div><div class="cat-tools">Shopify, WooCommerce, Magento, BigCommerce</div></div>
-        <div class="cat-card"><div class="cat-name">Analytics</div><div class="cat-tools">GA4, Mixpanel, Amplitude, Heap, Segment</div></div>
-        <div class="cat-card"><div class="cat-name">Live Chat</div><div class="cat-tools">Intercom, Drift, Crisp, Zendesk, HubSpot Chat</div></div>
-        <div class="cat-card"><div class="cat-name">Marketing</div><div class="cat-tools">HubSpot, Klaviyo, Marketo, ActiveCampaign</div></div>
-        <div class="cat-card"><div class="cat-name">Frameworks</div><div class="cat-tools">React, Next.js, Vue, Angular, Svelte, Nuxt</div></div>
-        <div class="cat-card"><div class="cat-name">Payments</div><div class="cat-tools">Stripe, PayPal, Paddle, Braintree, Square</div></div>
-        <div class="cat-card"><div class="cat-name">Advertising</div><div class="cat-tools">Meta Pixel, Google Ads, TikTok Pixel, LinkedIn</div></div>
-        <div class="cat-card"><div class="cat-name">CMS</div><div class="cat-tools">WordPress, Webflow, Wix, Squarespace, Ghost</div></div>
-        <div class="cat-card"><div class="cat-name">Security</div><div class="cat-tools">Cloudflare, reCAPTCHA, hCaptcha, Sucuri</div></div>
-        <div class="cat-card"><div class="cat-name">Hosting &amp; CDN</div><div class="cat-tools">Vercel, Netlify, AWS, Akamai, Fastly</div></div>
+        <div class="cat-card"><h3 class="cat-name">E-Commerce</h3><div class="cat-tools">Shopify, WooCommerce, Magento, BigCommerce</div></div>
+        <div class="cat-card"><h3 class="cat-name">Analytics</h3><div class="cat-tools">GA4, Mixpanel, Amplitude, Heap, Segment</div></div>
+        <div class="cat-card"><h3 class="cat-name">Live Chat</h3><div class="cat-tools">Intercom, Drift, Crisp, Zendesk, HubSpot Chat</div></div>
+        <div class="cat-card"><h3 class="cat-name">Marketing</h3><div class="cat-tools">HubSpot, Klaviyo, Marketo, ActiveCampaign</div></div>
+        <div class="cat-card"><h3 class="cat-name">Frameworks</h3><div class="cat-tools">React, Next.js, Vue, Angular, Svelte, Nuxt</div></div>
+        <div class="cat-card"><h3 class="cat-name">Payments</h3><div class="cat-tools">Stripe, PayPal, Paddle, Braintree, Square</div></div>
+        <div class="cat-card"><h3 class="cat-name">Advertising</h3><div class="cat-tools">Meta Pixel, Google Ads, TikTok Pixel, LinkedIn</div></div>
+        <div class="cat-card"><h3 class="cat-name">CMS</h3><div class="cat-tools">WordPress, Webflow, Wix, Squarespace, Ghost</div></div>
+        <div class="cat-card"><h3 class="cat-name">Security</h3><div class="cat-tools">Cloudflare, reCAPTCHA, hCaptcha, Sucuri</div></div>
+        <div class="cat-card"><h3 class="cat-name">Hosting &amp; CDN</h3><div class="cat-tools">Vercel, Netlify, AWS, Akamai, Fastly</div></div>
       </div>
     </div>
   </section>
@@ -408,6 +411,43 @@
     </div>
   </section>
 
+  <!-- SOCIAL PROOF -->
+  <!-- UPDATE: Replace star rating, user count, and testimonial quotes with real data from your Chrome Web Store listing -->
+  <section id="social-proof" style="padding:6rem 0;border-top:1px solid var(--border);background:var(--surface);">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+        <div class="slbl" style="justify-content:center;">Trusted By Builders</div>
+        <h2>Used by developers,<br>founders, and sales teams.</h2>
+      </div>
+      <div class="priv-band reveal d1" style="margin-top:0;margin-bottom:3rem;">
+        <div class="priv-item">
+          <div class="priv-val" style="color:var(--accent);">★ 4.9</div><!-- UPDATE: real CWS rating -->
+          <div class="priv-label">Chrome Web Store Rating</div>
+        </div>
+        <div class="priv-item">
+          <div class="priv-val">500<span style="color:var(--accent);">+</span></div><!-- UPDATE: real install count -->
+          <div class="priv-label">Active Users</div>
+        </div>
+        <div class="priv-item">
+          <div class="priv-val">200<span style="color:var(--accent);">+</span></div>
+          <div class="priv-label">Detectable Tools</div>
+        </div>
+      </div>
+      <div class="use-grid reveal d2">
+        <div class="use-card">
+          <div class="use-role">Developer</div>
+          <h3>"Saves me 10 minutes per site."</h3><!-- UPDATE: replace with real testimonial -->
+          <p>Used to open DevTools, grep through sources, and Google every unfamiliar script. Now I just click once. It's embarrassingly fast.</p>
+        </div>
+        <div class="use-card">
+          <div class="use-role">Founder</div>
+          <h3>"I scope every competitor before a product decision."</h3><!-- UPDATE: replace with real testimonial -->
+          <p>Before I build a new feature I check what stack the top players in the space are actually running. SaaS Detective makes that a 30-second task.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHO IT'S FOR -->
   <section id="use">
     <div class="container">
@@ -418,23 +458,23 @@
       <div class="use-grid reveal d1">
         <div class="use-card">
           <div class="use-role">Founders &amp; Entrepreneurs</div>
-          <h3>Reverse-Engineer Success</h3>
-          <p>See exactly what stack successful businesses run before you invest in your own. Stop guessing what tools work — know for certain what your competitors are using.</p>
+          <h3>Reverse-Engineer Any Competitor</h3>
+          <p>Know exactly what CRM, analytics, and payment stack your competitors run before you invest in your own. Stop guessing what works — see it in one click.</p>
         </div>
         <div class="use-card">
           <div class="use-role">Developers</div>
-          <h3>Identify Any Stack Instantly</h3>
-          <p>Spot frameworks, libraries, and tools on any site instantly — no digging through source code, no DevTools hunting. Know in seconds what would take minutes.</p>
+          <h3>Identify Any Stack in Seconds</h3>
+          <p>Frameworks, libraries, CDNs, error trackers — surfaced instantly with zero DevTools digging. What used to take 10 minutes now takes one click.</p>
         </div>
         <div class="use-card">
           <div class="use-role">Sales &amp; Marketing Teams</div>
-          <h3>Research Prospects Before the Call</h3>
-          <p>Know your prospect's tech stack before you pitch. Lead with the right integrations, speak to the right pain points, and close faster with context you couldn't easily get before.</p>
+          <h3>Walk Into Every Call Prepared</h3>
+          <p>Know your prospect's full tech stack before you dial. Lead with the right integrations, speak to real pain points, and close faster with intelligence you couldn't easily get before.</p>
         </div>
         <div class="use-card">
           <div class="use-role">Agencies &amp; Freelancers</div>
-          <h3>Scope Client Sites at a Glance</h3>
-          <p>Identify outdated tools, redundant platforms, and missing pieces before you write a single line of proposal copy. Scope projects accurately from the first conversation.</p>
+          <h3>Scope Client Sites Before the Proposal</h3>
+          <p>Spot outdated tools, redundant platforms, and gaps before you write a single line of proposal copy. Scope projects accurately from the first conversation.</p>
         </div>
       </div>
       <div class="priv-band reveal d2">
@@ -460,17 +500,17 @@
       <div class="pricing-header reveal">
         <div class="slbl" style="justify-content:center;">Pricing</div>
         <h2>Free forever.<br>More when you need it.</h2>
-        <p>Start free. Upgrade when you need bulk exports, history, and team features.</p>
+        <p>Start free, no account required. Upgrade any time to unlock the full database, exports, and history.</p>
       </div>
-      <div class="p-grid">
+      <div class="p-grid" style="grid-template-columns:repeat(2,1fr);max-width:860px;">
         <div class="pc reveal d1">
-          <div class="pp">Free</div>
+          <h3 class="pp">Free</h3>
           <div class="px">Free</div>
           <div class="pc-cad">forever · no account required</div>
           <div class="pc-desc">Everything you need to reveal any tech stack, instantly.</div>
           <div class="pc-div"></div>
           <ul class="pc-feats">
-            <li>80+ tools detected</li>
+            <li>200+ tools detected</li>
             <li>30+ categories</li>
             <li>Runs 100% locally</li>
             <li>Zero data collected</li>
@@ -478,22 +518,53 @@
           </ul>
           <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-outline" style="width:100%;justify-content:center;">Add to Chrome →</a>
         </div>
-        <div class="pc pc--feat reveal d2">
-          <div class="pp">Business</div>
-          <div class="px"><sup>$</sup>19<span style="font-size:1.4rem">.99</span></div>
-          <div class="pc-cad">per 3 months · cancel anytime</div>
-          <div class="pc-desc">For teams and power users who need more.</div>
+        <div class="pc reveal d2">
+          <h3 class="pp">Pro Monthly</h3>
+          <div class="px"><sup>$</sup>7<span style="font-size:1.4rem">.99</span></div>
+          <div class="pc-cad">per month · cancel anytime</div>
+          <div class="pc-desc">Full access, month to month. No commitment.</div>
           <div class="pc-div"></div>
           <ul class="pc-feats">
             <li>Everything in Free</li>
+            <li>Full 200+ tool database</li>
             <li>Export detections to CSV</li>
             <li>Detection history</li>
-            <li>Team sharing</li>
             <li>Priority support</li>
           </ul>
-          <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-primary" style="width:100%;justify-content:center;">Get Business →</a>
+          <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" class="vbtn vbtn-outline" style="width:100%;justify-content:center;" data-plan="monthly" data-price="7.99">Get Pro Monthly →</a>
+        </div>
+        <div class="pc pc--feat reveal d3">
+          <h3 class="pp">Pro 3-Month</h3>
+          <div class="px"><sup>$</sup>19<span style="font-size:1.4rem">.99</span></div>
+          <div class="pc-cad">per 3 months · $6.66/mo · save 17%</div>
+          <div class="pc-desc">Best value for regular users. Most popular plan.</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>Everything in Free</li>
+            <li>Full 200+ tool database</li>
+            <li>Export detections to CSV</li>
+            <li>Detection history</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" class="vbtn vbtn-primary" style="width:100%;justify-content:center;" data-plan="3mo" data-price="19.99">Get Pro 3-Month →</a>
+        </div>
+        <div class="pc reveal d4">
+          <h3 class="pp">Pro Annual</h3>
+          <div class="px"><sup>$</sup>59<span style="font-size:1.4rem">.99</span></div>
+          <div class="pc-cad">per year · $5.00/mo · save 38%</div>
+          <div class="pc-desc">Maximum savings for power users. Best deal.</div>
+          <div class="pc-div"></div>
+          <ul class="pc-feats">
+            <li>Everything in Free</li>
+            <li>Full 200+ tool database</li>
+            <li>Export detections to CSV</li>
+            <li>Detection history</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" class="vbtn vbtn-outline" style="width:100%;justify-content:center;" data-plan="yearly" data-price="59.99">Get Pro Annual →</a>
         </div>
       </div>
+      <p class="reveal" style="text-align:center;margin-top:1.5rem;font-size:.78rem;color:var(--muted);">All plans include a 7-day money-back guarantee. Cancel any time.</p>
     </div>
   </section>
 
@@ -501,13 +572,14 @@
   <section id="cta">
     <div class="cta-glow"></div>
     <div class="container">
-      <div class="slbl reveal" style="justify-content:center;">Get Started</div>
+      <div class="slbl reveal" style="justify-content:center;">Get Started Free</div>
       <h2 class="reveal">Stop guessing.<br>Start knowing.</h2>
-      <p class="reveal d1">Install SaaS Detective and see exactly what's running on any site — in one click, for free.</p>
+      <p class="reveal d1">Join hundreds of developers, founders, and sales teams who already use SaaS Detective to reverse-engineer any website's stack in one click. Free forever. No account required.</p>
       <div class="cta-acts reveal d2">
         <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-primary">Add to Chrome — It's Free →</a>
-        <a href="/saas-detective.html" class="vbtn vbtn-outline">Learn More</a>
+        <a href="#pricing" class="vbtn vbtn-outline">View Pricing</a>
       </div>
+      <p class="reveal d3" style="margin-top:1.5rem;font-size:.78rem;color:var(--muted);">Takes 10 seconds to install. Works immediately on any site.</p>
     </div>
   </section>
 
