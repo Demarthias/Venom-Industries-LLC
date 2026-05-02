@@ -15,11 +15,47 @@
   <meta name="impact-site-verification" value="4beb6b1f-b4d4-4009-b6f2-6826cabb0416"/>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>SaaS Detective — Reveal Any Website's Tech Stack | Venom Industries</title>
-  <meta name="description" content="SaaS Detective is a free Chrome extension that reveals the exact tools, frameworks, and platforms powering any website — instantly, privately, without leaving the page."/>
+  <title>Venom Industries — Intelligence Tools for the Modern Web</title>
+  <meta name="description" content="Venom Industries builds precision tools for developers, founders, and sales teams. Flagship product: SaaS Detective, the Chrome extension that reveals any website's tech stack instantly."/>
   <link rel="canonical" href="https://venom-industries.com/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Venom Industries — Intelligence Tools for the Modern Web"/>
+  <meta property="og:description" content="Makers of SaaS Detective — the Chrome extension that reveals any website's tech stack in one click."/>
+  <meta property="og:url" content="https://venom-industries.com/"/>
+  <meta property="og:image" content="https://venom-industries.com/assets/og-image.png"/>
+  <meta property="og:site_name" content="Venom Industries"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Venom Industries — Intelligence Tools for the Modern Web"/>
+  <meta name="twitter:image" content="https://venom-industries.com/assets/og-image.png"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Venom Industries LLC",
+      "url": "https://venom-industries.com",
+      "foundingDate": "2025",
+      "founder": {"@type": "Person", "name": "Grayson Kube"},
+      "contactPoint": {"@type": "ContactPoint", "email": "grayson@venom-industries.com", "contactType": "customer service"}
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SaaS Detective",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "Chrome",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "description": "Chrome extension that detects 200+ SaaS tools, frameworks, and platforms on any website instantly.",
+      "url": "https://venom-industries.com/saas-detective.html"
+    }
+  ]
+}
+  </script>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -33,15 +69,13 @@
       --fs:'Instrument Serif',serif;
     }
     body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
-    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
+    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.45;}
     a{color:var(--accent);text-decoration:none;}
     h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:1.05;color:var(--white);text-transform:uppercase;}
-    h1{font-size:clamp(3.5rem,9vw,8.5rem);}
-    h2{font-size:clamp(2rem,5vw,3.8rem);}
-    h3{font-size:clamp(1.3rem,2.5vw,1.8rem);}
-    h3.cat-name{font-size:1rem;}
-    h3.pp{font-size:.7rem;font-weight:700;letter-spacing:.2em;}
+    h1{font-size:clamp(3.8rem,10vw,9.5rem);}
+    h2{font-size:clamp(2rem,5vw,4rem);}
+    h3{font-size:clamp(1.2rem,2.5vw,1.7rem);}
     .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
 
     /* CURSOR */
@@ -99,22 +133,40 @@
     .slbl{display:flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;}
     .slbl::before{content:'';display:block;width:2rem;height:1px;background:var(--accent);flex-shrink:0;}
 
-    /* HERO */
+    /* ── HERO ──────────────────────────────── */
     .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:10rem 0 7rem;}
     #pc{position:absolute;inset:0;z-index:0;}
     .hero-vig{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 85% 75% at 50% 50%,transparent 20%,rgba(6,6,8,.92) 100%);}
-    .hero-inner{position:relative;z-index:2;}
+    .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
     .hero-tag{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(61,159,255,.22);padding:.35rem 1rem;border-radius:1px;margin-bottom:2.5rem;opacity:0;animation:fu .6s ease .2s both;}
     .pdot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pd 2s ease infinite;}
     @keyframes pd{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--aglow);}50%{opacity:.5;box-shadow:0 0 0 7px rgba(61,159,255,0);}}
-    .hero h1{opacity:0;animation:fu .7s ease .35s both;}
-    .hero h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;}
-    .hero-sub{font-size:1rem;color:var(--text);max-width:560px;line-height:1.9;margin:2rem 0 2.5rem;opacity:0;animation:fu .6s ease .5s both;}
+    .hero h1{opacity:0;animation:fu .7s ease .35s both;letter-spacing:-.01em;}
+    .hero h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;display:block;line-height:1.1;}
+    .hero-sub{font-size:.95rem;color:var(--text);max-width:520px;line-height:1.9;margin:2rem 0 2.5rem;opacity:0;animation:fu .6s ease .5s both;}
     .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .6s ease .65s both;}
-    .hero-stats{display:flex;gap:3.5rem;margin-top:5rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap;opacity:0;animation:fu .6s ease .8s both;}
-    .sn{font-family:var(--fh);font-size:2.8rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.02em;}
-    .sn .ac{color:var(--accent);}
-    .sl{font-size:.78rem;color:var(--muted);margin-top:.3rem;}
+
+    /* POPUP MOCKUP */
+    .popup-wrap{opacity:0;animation:fu .9s ease .5s both;position:relative;}
+    .popup-mockup{background:#0f1117;border:1px solid rgba(61,159,255,.25);border-radius:10px;padding:0;width:100%;max-width:320px;margin-left:auto;box-shadow:0 0 60px rgba(61,159,255,.1),0 30px 80px rgba(0,0,0,.6);font-family:'IBM Plex Mono',monospace;overflow:hidden;position:relative;}
+    .pm-header{background:#0a0d13;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(61,159,255,.15);}
+    .pm-icon{font-size:14px;}
+    .pm-title{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#f0f0fa;}
+    .pm-dot{width:7px;height:7px;background:#3d9fff;border-radius:50%;margin-left:auto;animation:pd 2s ease infinite;}
+    .pm-scan{padding:8px 14px;font-size:.65rem;color:#52526e;border-bottom:1px solid rgba(61,159,255,.08);}
+    .pm-scan span{color:#3d9fff;}
+    .pm-tools{padding:6px 0;}
+    .pm-tool{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-bottom:1px solid rgba(28,28,38,.8);opacity:0;transform:translateX(-8px);transition:opacity .4s ease,transform .4s ease;}
+    .pm-tool.show{opacity:1;transform:translateX(0);}
+    .pm-tool:last-child{border-bottom:none;}
+    .pm-tool-name{font-size:.7rem;color:#e0e0f0;font-weight:500;}
+    .pm-tool-cat{font-size:.6rem;color:#52526e;background:rgba(61,159,255,.07);padding:2px 7px;border-radius:20px;border:1px solid rgba(61,159,255,.12);}
+    .pm-footer{padding:10px 14px;border-top:1px solid rgba(61,159,255,.12);display:flex;align-items:center;justify-content:space-between;}
+    .pm-count{font-size:.62rem;color:#52526e;}
+    .pm-count span{color:#3d9fff;font-weight:600;}
+    .pm-upgrade{font-family:'Rajdhani',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3d9fff;cursor:pointer;background:rgba(61,159,255,.08);border:1px solid rgba(61,159,255,.2);padding:3px 10px;border-radius:2px;}
+    .popup-glow{position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(61,159,255,.08),transparent 65%);pointer-events:none;}
+
     .scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);z-index:2;opacity:0;animation:fi 1s ease 1.5s both;}
     .scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:sb 2s ease infinite;}
     @keyframes sb{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
@@ -128,69 +180,62 @@
     .md{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0;}
     @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-    /* FEATURES / CATEGORIES */
-    #features{padding:7rem 0;border-top:1px solid var(--border);}
-    .feat-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem;}
-    .feat-header p{color:var(--text);font-size:.92rem;line-height:1.9;}
-    .cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
-    .cat-card{background:var(--surface);padding:1.5rem 1.25rem;transition:background .2s;}
-    .cat-card:hover{background:var(--surface2);}
-    .cat-name{font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--white);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.4rem;line-height:1.2;}
-    .cat-tools{font-size:.78rem;color:var(--muted);line-height:1.6;}
+    /* ── PRODUCT SPOTLIGHT ──────────────────── */
+    #product{padding:8rem 0;border-top:1px solid var(--border);}
+    .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem;}
+    .product-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+    .product-badge{font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:.25rem .75rem;border-radius:1px;}
+    .product-new{font-size:.72rem;color:var(--muted);}
+    .product-title{font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:1rem;line-height:1.05;}
+    .product-desc{font-size:.92rem;color:var(--text);line-height:1.9;margin-bottom:1.5rem;}
+    .product-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;}
+    .pill{font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);padding:.3rem .9rem;border-radius:1px;}
+    .product-actions{display:flex;gap:1rem;flex-wrap:wrap;}
 
-    /* HOW IT WORKS */
-    #how{padding:7rem 0;border-top:1px solid var(--border);background:var(--surface);}
-    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem;}
-    .step-card{background:var(--bg);padding:2.25rem 2rem;transition:background .2s;}
-    .step-card:hover{background:var(--surface2);}
-    .step-num{font-family:var(--fh);font-size:3.5rem;font-weight:700;color:var(--accent);line-height:1;opacity:.25;margin-bottom:.75rem;}
-    .step-card h3{margin-bottom:.6rem;}
-    .step-card p{font-size:.84rem;color:var(--muted);line-height:1.8;}
+    /* product screenshot area */
+    .product-visual{position:relative;}
+    .pv-window{background:var(--surface);border:1px solid var(--border2);border-radius:8px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5);}
+    .pv-bar{background:var(--bg);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+    .pv-dot{width:10px;height:10px;border-radius:50%;}
+    .pv-url{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:3px;padding:5px 10px;font-size:.65rem;color:var(--muted);margin-left:8px;}
+    .pv-ext{width:18px;height:18px;border-radius:50%;background:var(--accent);margin-left:auto;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:var(--bg);font-weight:700;}
+    .pv-body{padding:1.5rem;}
+    .pv-site{font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+    .pv-row{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);}
+    .pv-row:last-child{border-bottom:none;}
+    .pv-tool{font-size:.72rem;color:var(--white);display:flex;align-items:center;gap:.5rem;}
+    .pv-tool::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .pv-cat{font-size:.6rem;color:var(--muted);}
+    .pv-glow{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:60%;height:80px;background:radial-gradient(ellipse,rgba(61,159,255,.12),transparent 70%);pointer-events:none;}
 
-    /* USE CASES */
-    #use{padding:7rem 0;border-top:1px solid var(--border);}
-    .use-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem;}
-    .use-card{background:var(--surface);padding:2rem;transition:background .2s;}
-    .use-card:hover{background:var(--surface2);}
-    .use-role{font-family:var(--fh);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.65rem;}
-    .use-card h3{margin-bottom:.5rem;}
-    .use-card p{font-size:.84rem;color:var(--muted);line-height:1.7;}
+    /* ── BLOG PREVIEW ───────────────────────── */
+    #blog{padding:8rem 0;border-top:1px solid var(--border);background:var(--surface);}
+    .blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+    .blog-all{font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem;}
+    .blog-all:hover{color:var(--accent);}
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .blog-card{background:var(--bg);padding:2rem;transition:background .2s;text-decoration:none;display:flex;flex-direction:column;}
+    .blog-card:hover{background:var(--surface2);}
+    .bc-cat{font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.85rem;}
+    .bc-title{font-family:var(--fh);font-size:1.15rem;font-weight:700;color:var(--white);text-transform:uppercase;line-height:1.15;letter-spacing:.02em;margin-bottom:.75rem;flex:1;}
+    .bc-desc{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;}
+    .bc-meta{font-size:.68rem;color:var(--muted);display:flex;align-items:center;gap:.5rem;}
+    .bc-meta::before{content:'';width:1.5rem;height:1px;background:var(--border2);}
 
-    /* PRIVACY BAND */
-    .priv-band{background:var(--surface);border:1px solid var(--border2);border-radius:4px;padding:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:4rem;}
-    .priv-item{padding:1.5rem;text-align:center;}
-    .priv-val{font-family:var(--fh);font-size:2.5rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:.4rem;}
-    .priv-label{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+    /* ── MANIFESTO BAND ─────────────────────── */
+    #manifesto{padding:7rem 0;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden;}
+    .manifesto-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:900px;height:300px;background:radial-gradient(ellipse,rgba(61,159,255,.04) 0%,transparent 65%);pointer-events:none;}
+    .manifesto-quote{font-family:var(--fs);font-style:italic;font-size:clamp(1.6rem,4vw,3rem);color:var(--white);line-height:1.3;max-width:780px;margin:0 auto 2rem;position:relative;z-index:1;}
+    .manifesto-attr{font-size:.75rem;color:var(--muted);position:relative;z-index:1;}
 
-    /* PRICING */
-    #pricing{padding:7rem 0;border-top:1px solid var(--border);background:var(--surface);}
-    .pricing-header{text-align:center;margin-bottom:4rem;}
-    .pricing-header h2{margin-bottom:.75rem;}
-    .pricing-header p{color:var(--text);font-size:.9rem;}
-    .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:780px;margin:0 auto;}
-    .pc{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2.5rem;position:relative;transition:all .3s;cursor:none;}
-    .pc:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
-    .pc--feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 0 40px rgba(61,159,255,.07);}
-    .pc--feat:hover{box-shadow:0 0 0 1px var(--accent),0 20px 60px rgba(61,159,255,.14);}
-    .pc--feat::before{content:'MOST POPULAR';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--bg);font-family:var(--fh);font-size:.6rem;font-weight:700;letter-spacing:.15em;padding:.25rem .75rem;border-radius:0 0 2px 2px;}
-    .pp{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
-    .px{font-family:var(--fh);font-size:3rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:.25rem;}
-    .px sup{font-size:1.4rem;vertical-align:super;}
-    .pc-cad{font-size:.78rem;color:var(--muted);margin-bottom:1.5rem;}
-    .pc-desc{font-size:.84rem;color:var(--text);line-height:1.7;margin-bottom:1.5rem;}
-    .pc-div{height:1px;background:var(--border);margin:1.5rem 0;}
-    .pc-feats{list-style:none;margin-bottom:2rem;}
-    .pc-feats li{font-size:.8rem;color:var(--text);padding:.35rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;}
-    .pc-feats li::before{content:'→';color:var(--accent);font-size:.7rem;}
-    .pc-feats li:last-child{border-bottom:none;}
-
-    /* CTA */
-    #cta{padding:9rem 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border);}
+    /* ── FINAL CTA ──────────────────────────── */
+    #cta{padding:9rem 0;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden;}
     .cta-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(61,159,255,.055) 0%,transparent 65%);pointer-events:none;}
     #cta h2,#cta p,.cta-acts{position:relative;z-index:1;}
     #cta h2{margin-bottom:1rem;}
-    #cta p{font-size:.95rem;color:var(--text);max-width:500px;margin:0 auto 2.5rem;}
+    #cta p{font-size:.95rem;color:var(--text);max-width:480px;margin:0 auto 2.5rem;}
     .cta-acts{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+    .cta-note{font-size:.72rem;color:var(--muted);margin-top:1.2rem;position:relative;z-index:1;}
 
     /* FOOTER */
     footer{border-top:1px solid var(--border);padding:4rem 0 2rem;}
@@ -205,64 +250,31 @@
     .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;}
 
     /* RESPONSIVE */
+    @media(max-width:960px){
+      .hero-inner{grid-template-columns:1fr;}
+      .popup-wrap{display:none;}
+      .product-grid{grid-template-columns:1fr;}
+      .product-visual{order:-1;}
+      .blog-grid{grid-template-columns:1fr;}
+    }
     @media(max-width:900px){
       .nav-links{display:none;}
       .v-ham{display:flex;}
-      .cat-grid{grid-template-columns:repeat(2,1fr);}
-      .steps-grid{grid-template-columns:1fr;}
-      .use-grid{grid-template-columns:1fr;}
-      .feat-header{grid-template-columns:1fr;gap:1.5rem;}
-      .p-grid{grid-template-columns:1fr 1fr!important;}
       .footer-grid{grid-template-columns:1fr 1fr;}
-      .priv-band{grid-template-columns:1fr;}
     }
     @media(max-width:600px){
-      .cat-grid{grid-template-columns:1fr;}
-      .p-grid{grid-template-columns:1fr!important;}
       .footer-grid{grid-template-columns:1fr;}
+      .blog-grid{grid-template-columns:1fr;}
       body{cursor:auto;}
       #v-dot,#v-ring{display:none;}
     }
   </style>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="SaaS Detective — Reveal Any Website's Tech Stack"/>
-  <meta property="og:description" content="Free Chrome extension. 80+ tools detected. Runs entirely in your browser. No account required."/>
-  <meta property="og:url" content="https://venom-industries.com/"/>
-  <meta property="og:image" content="https://venom-industries.com/assets/og-image.png"/>
-  <meta property="og:site_name" content="Venom Industries"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="SaaS Detective — Reveal Any Website's Tech Stack"/>
-  <meta name="twitter:image" content="https://venom-industries.com/assets/og-image.png"/>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "name": "Venom Industries LLC",
-      "url": "https://venom-industries.com",
-      "foundingDate": "2025",
-      "founder": {"@type": "Person", "name": "Grayson Kube"},
-      "contactPoint": {"@type": "ContactPoint", "email": "grayson@venom-industries.com", "contactType": "customer service"}
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "SaaS Detective",
-      "applicationCategory": "BrowserApplication",
-      "operatingSystem": "Chrome",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-      "description": "Chrome extension that detects 80+ SaaS tools, frameworks, and platforms on any website instantly.",
-      "url": "https://venom-industries.com/saas-detective.html"
-    }
-  ]
-}
-  </script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
   <div id="v-dot"></div>
   <div id="v-ring"></div>
 
@@ -274,7 +286,6 @@
       <ul class="nav-links">
         <li><a href="/" class="nav-link active">Home</a></li>
         <li><a href="/saas-detective.html" class="nav-link">SaaS Detective</a></li>
-        <li><a href="#pricing" class="nav-link">Pricing</a></li>
         <li><a href="/blog.html" class="nav-link">Blog</a></li>
         <li><a href="/about/" class="nav-link">About</a></li>
       </ul>
@@ -299,26 +310,47 @@
     <canvas id="pc"></canvas>
     <div class="hero-vig"></div>
     <div class="container hero-inner">
-      <div class="hero-tag"><span class="pdot"></span>Free Chrome Extension &middot; v2.5.9</div>
-      <h1>
-        Reveal Any<br>
-        <em>Tech Stack.</em><br>
-        Instantly.
-      </h1>
-      <p class="hero-sub">
-        Click once. See everything. SaaS Detective surfaces the exact tools, frameworks, and platforms
-        powering any website — CRM, analytics, payments, infra — in under a second, 100% in your browser.
-      </p>
-      <div class="hero-actions">
-        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-primary">Add to Chrome — It's Free →</a>
-        <a href="#features" class="vbtn vbtn-outline">See What It Detects</a>
+
+      <!-- LEFT: copy -->
+      <div>
+        <div class="hero-tag"><span class="pdot"></span>Venom Industries &mdash; Colorado</div>
+        <h1>Every<br>website<br><em>leaves a trail.</em></h1>
+        <p class="hero-sub">
+          We build precision intelligence tools for the people who need to know what's
+          powering the web. One click. Zero guessing. No account required.
+        </p>
+        <div class="hero-actions">
+          <a href="/saas-detective.html" class="vbtn vbtn-primary">Explore SaaS Detective →</a>
+          <a href="/blog.html" class="vbtn vbtn-outline">Read the Blog</a>
+        </div>
       </div>
-      <div class="hero-stats">
-        <div><div class="sn"><span data-count="200">200</span><span class="ac">+</span></div><div class="sl">Tools detected</div></div>
-        <div><div class="sn"><span data-count="30">30</span><span class="ac">+</span></div><div class="sl">Categories</div></div>
-        <div><div class="sn"><span data-count="0">0</span></div><div class="sl">Bytes collected</div></div>
-        <div><div class="sn"><span class="ac">&lt;1</span><span style="font-size:1.8rem">s</span></div><div class="sl">Detection time</div></div>
+
+      <!-- RIGHT: live popup mockup -->
+      <div class="popup-wrap">
+        <div class="popup-glow"></div>
+        <div class="popup-mockup">
+          <div class="pm-header">
+            <span class="pm-icon">🔍</span>
+            <span class="pm-title">SaaS Detective</span>
+            <span class="pm-dot"></span>
+          </div>
+          <div class="pm-scan">Scanning <span>stripe.com</span> &mdash; 9 tools found</div>
+          <div class="pm-tools" id="pm-tools">
+            <div class="pm-tool"><span class="pm-tool-name">React</span><span class="pm-tool-cat">Framework</span></div>
+            <div class="pm-tool"><span class="pm-tool-name">Stripe.js</span><span class="pm-tool-cat">Payments</span></div>
+            <div class="pm-tool"><span class="pm-tool-name">Segment</span><span class="pm-tool-cat">Analytics</span></div>
+            <div class="pm-tool"><span class="pm-tool-name">Intercom</span><span class="pm-tool-cat">Live Chat</span></div>
+            <div class="pm-tool"><span class="pm-tool-name">Cloudflare</span><span class="pm-tool-cat">Security / CDN</span></div>
+            <div class="pm-tool"><span class="pm-tool-name">Vercel</span><span class="pm-tool-cat">Hosting</span></div>
+            <div class="pm-tool"><span class="pm-tool-name">Next.js</span><span class="pm-tool-cat">Framework</span></div>
+          </div>
+          <div class="pm-footer">
+            <span class="pm-count"><span>9</span> tools detected</span>
+            <span class="pm-upgrade">Upgrade Pro</span>
+          </div>
+        </div>
       </div>
+
     </div>
     <div class="scroll-hint"><div class="scroll-bar"></div>SCROLL</div>
   </section>
@@ -341,7 +373,6 @@
       <div class="mi"><div class="md"></div>Klaviyo</div>
       <div class="mi"><div class="md"></div>Mixpanel</div>
       <div class="mi"><div class="md"></div>Paddle</div>
-      <!-- dupe -->
       <div class="mi"><div class="md"></div>Shopify</div>
       <div class="mi"><div class="md"></div>React</div>
       <div class="mi"><div class="md"></div>Stripe</div>
@@ -360,190 +391,118 @@
     </div>
   </div>
 
-  <!-- WHAT WE DETECT -->
-  <section id="features">
+  <!-- PRODUCT SPOTLIGHT -->
+  <section id="product">
     <div class="container">
-      <div class="feat-header">
+      <div class="slbl reveal">Flagship Product</div>
+      <div class="product-grid">
         <div class="reveal">
-          <div class="slbl">What We Detect</div>
-          <h2>Every layer of<br>the modern stack.</h2>
+          <div class="product-meta">
+            <span class="product-badge">Live</span>
+            <span class="product-new">Chrome Extension &mdash; v2.6.0</span>
+          </div>
+          <h2 class="product-title">SaaS<br>Detective</h2>
+          <p class="product-desc">
+            Click once on any website and instantly see every tool powering it —
+            CRM, analytics, payments, hosting, frameworks, and more. 200+ signatures.
+            Runs entirely in your browser. No account. No tracking. No noise.
+          </p>
+          <div class="product-pills">
+            <span class="pill">200+ Tools</span>
+            <span class="pill">30+ Categories</span>
+            <span class="pill">100% Private</span>
+            <span class="pill">Free Forever</span>
+            <span class="pill">7-Day Pro Trial</span>
+          </div>
+          <div class="product-actions">
+            <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-primary">Add to Chrome — Free →</a>
+            <a href="/saas-detective.html" class="vbtn vbtn-outline">Learn More</a>
+          </div>
         </div>
-        <p class="reveal d2">30+ categories covering every layer — from frontend frameworks to payment processors to CDN providers. If it's running on the page, SaaS Detective finds it.</p>
-      </div>
-      <div class="cat-grid reveal">
-        <div class="cat-card"><h3 class="cat-name">E-Commerce</h3><div class="cat-tools">Shopify, WooCommerce, Magento, BigCommerce</div></div>
-        <div class="cat-card"><h3 class="cat-name">Analytics</h3><div class="cat-tools">GA4, Mixpanel, Amplitude, Heap, Segment</div></div>
-        <div class="cat-card"><h3 class="cat-name">Live Chat</h3><div class="cat-tools">Intercom, Drift, Crisp, Zendesk, HubSpot Chat</div></div>
-        <div class="cat-card"><h3 class="cat-name">Marketing</h3><div class="cat-tools">HubSpot, Klaviyo, Marketo, ActiveCampaign</div></div>
-        <div class="cat-card"><h3 class="cat-name">Frameworks</h3><div class="cat-tools">React, Next.js, Vue, Angular, Svelte, Nuxt</div></div>
-        <div class="cat-card"><h3 class="cat-name">Payments</h3><div class="cat-tools">Stripe, PayPal, Paddle, Braintree, Square</div></div>
-        <div class="cat-card"><h3 class="cat-name">Advertising</h3><div class="cat-tools">Meta Pixel, Google Ads, TikTok Pixel, LinkedIn</div></div>
-        <div class="cat-card"><h3 class="cat-name">CMS</h3><div class="cat-tools">WordPress, Webflow, Wix, Squarespace, Ghost</div></div>
-        <div class="cat-card"><h3 class="cat-name">Security</h3><div class="cat-tools">Cloudflare, reCAPTCHA, hCaptcha, Sucuri</div></div>
-        <div class="cat-card"><h3 class="cat-name">Hosting &amp; CDN</h3><div class="cat-tools">Vercel, Netlify, AWS, Akamai, Fastly</div></div>
+
+        <div class="product-visual reveal d2">
+          <div class="pv-window">
+            <div class="pv-bar">
+              <div class="pv-dot" style="background:#ff5f57;"></div>
+              <div class="pv-dot" style="background:#febc2e;margin-left:4px;"></div>
+              <div class="pv-dot" style="background:#28c840;margin-left:4px;"></div>
+              <div class="pv-url">hubspot.com</div>
+              <div class="pv-ext">SD</div>
+            </div>
+            <div class="pv-body">
+              <div class="pv-site">Detected tools &mdash; hubspot.com</div>
+              <div class="pv-row"><span class="pv-tool">HubSpot CRM</span><span class="pv-cat">CRM</span></div>
+              <div class="pv-row"><span class="pv-tool">React</span><span class="pv-cat">Framework</span></div>
+              <div class="pv-row"><span class="pv-tool">Google Analytics 4</span><span class="pv-cat">Analytics</span></div>
+              <div class="pv-row"><span class="pv-tool">Cloudflare</span><span class="pv-cat">CDN / Security</span></div>
+              <div class="pv-row"><span class="pv-tool">Wistia</span><span class="pv-cat">Video</span></div>
+              <div class="pv-row"><span class="pv-tool">Stripe</span><span class="pv-cat">Payments</span></div>
+            </div>
+          </div>
+          <div class="pv-glow"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section id="how">
+  <!-- MANIFESTO -->
+  <section id="manifesto">
+    <div class="manifesto-glow"></div>
     <div class="container">
-      <div class="reveal">
-        <div class="slbl">How It Works</div>
-        <h2>Three seconds from<br><em style="font-family:var(--fs);text-transform:none;color:var(--accent);">curious</em> to informed.</h2>
-      </div>
-      <div class="steps-grid reveal d1">
-        <div class="step-card">
-          <div class="step-num">01</div>
-          <h3>Browse Any Site</h3>
-          <p>Visit any website you're curious about — a competitor, a prospect, a business you admire. SaaS Detective works on every page across the entire web.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">02</div>
-          <h3>Click the Extension</h3>
-          <p>Click the SaaS Detective icon in your toolbar. The extension silently scans the page's scripts, stylesheets, and global variables in real time — all locally.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">03</div>
-          <h3>See the Full Stack</h3>
-          <p>Every detected tool appears instantly, grouped by category. No guessing, no manual research, no digging through source code.</p>
-        </div>
-      </div>
+      <p class="manifesto-quote reveal">
+        "The best competitive advantage isn't better ideas &mdash;
+        it's knowing what everyone else is using to execute theirs."
+      </p>
+      <p class="manifesto-attr reveal d1">&mdash; Built in Colorado by Venom Industries</p>
     </div>
   </section>
 
-  <!-- WHO IT'S FOR -->
-  <section id="use">
+  <!-- BLOG PREVIEW -->
+  <section id="blog">
     <div class="container">
-      <div class="reveal">
-        <div class="slbl">Who It's For</div>
-        <h2>Built for anyone who<br>builds, sells, or competes.</h2>
+      <div class="blog-header reveal">
+        <div>
+          <div class="slbl">From the Blog</div>
+          <h2 style="font-size:clamp(1.8rem,4vw,3rem);">Intel worth reading.</h2>
+        </div>
+        <a href="/blog.html" class="blog-all">All Posts →</a>
       </div>
-      <div class="use-grid reveal d1">
-        <div class="use-card">
-          <div class="use-role">Founders &amp; Entrepreneurs</div>
-          <h3>Reverse-Engineer Any Competitor</h3>
-          <p>Know exactly what CRM, analytics, and payment stack your competitors run before you invest in your own. Stop guessing what works — see it in one click.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-role">Developers</div>
-          <h3>Identify Any Stack in Seconds</h3>
-          <p>Frameworks, libraries, CDNs, error trackers — surfaced instantly with zero DevTools digging. What used to take 10 minutes now takes one click.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-role">Sales &amp; Marketing Teams</div>
-          <h3>Walk Into Every Call Prepared</h3>
-          <p>Know your prospect's full tech stack before you dial. Lead with the right integrations, speak to real pain points, and close faster with intelligence you couldn't easily get before.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-role">Agencies &amp; Freelancers</div>
-          <h3>Scope Client Sites Before the Proposal</h3>
-          <p>Spot outdated tools, redundant platforms, and gaps before you write a single line of proposal copy. Scope projects accurately from the first conversation.</p>
-        </div>
-      </div>
-      <div class="priv-band reveal d2">
-        <div class="priv-item">
-          <div class="priv-val">0</div>
-          <div class="priv-label">Bytes of data collected</div>
-        </div>
-        <div class="priv-item">
-          <div class="priv-val">100%</div>
-          <div class="priv-label">Runs locally in your browser</div>
-        </div>
-        <div class="priv-item">
-          <div class="priv-val">Free</div>
-          <div class="priv-label">No account required. Ever.</div>
-        </div>
+
+      <div class="blog-grid reveal d1">
+        <a href="/blog/how-to-see-tech-stack.html" class="blog-card">
+          <div class="bc-cat">Tech Intel</div>
+          <div class="bc-title">How to See What Tech Stack a Website Uses</div>
+          <div class="bc-desc">The exact methods professionals use to reverse-engineer any website's technology — from Chrome extensions to source inspection.</div>
+          <div class="bc-meta">May 2026 &mdash; 6 min read</div>
+        </a>
+        <a href="/blog/what-crm-does-company-use.html" class="blog-card">
+          <div class="bc-cat">Sales Intel</div>
+          <div class="bc-title">How to Find Out What CRM a Company Uses</div>
+          <div class="bc-desc">Walk into every prospect call already knowing their CRM. Here's how to spot HubSpot, Salesforce, Pipedrive, and more before you dial.</div>
+          <div class="bc-meta">May 2026 &mdash; 5 min read</div>
+        </a>
+        <a href="/blog/tech-stack-before-sales-call.html" class="blog-card">
+          <div class="bc-cat">Sales Intel</div>
+          <div class="bc-title">How to Research a Prospect's Tech Stack Before a Sales Call</div>
+          <div class="bc-desc">The pre-call intelligence routine that top reps use to personalize every conversation and close faster.</div>
+          <div class="bc-meta">May 2026 &mdash; 7 min read</div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="container">
-      <div class="pricing-header reveal">
-        <div class="slbl" style="justify-content:center;">Pricing</div>
-        <h2>Free forever.<br>More when you need it.</h2>
-        <p>Start free, no account required. Upgrade any time to unlock the full database, exports, and history.</p>
-      </div>
-      <div class="p-grid" style="grid-template-columns:repeat(2,1fr);max-width:860px;">
-        <div class="pc reveal d1">
-          <h3 class="pp">Free</h3>
-          <div class="px">Free</div>
-          <div class="pc-cad">forever · no account required</div>
-          <div class="pc-desc">Everything you need to reveal any tech stack, instantly.</div>
-          <div class="pc-div"></div>
-          <ul class="pc-feats">
-            <li>200+ tools detected</li>
-            <li>30+ categories</li>
-            <li>Runs 100% locally</li>
-            <li>Zero data collected</li>
-            <li>Works on every site</li>
-          </ul>
-          <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-outline" style="width:100%;justify-content:center;">Add to Chrome →</a>
-        </div>
-        <div class="pc reveal d2">
-          <h3 class="pp">Pro Monthly</h3>
-          <div class="px"><sup>$</sup>7<span style="font-size:1.4rem">.99</span></div>
-          <div class="pc-cad">per month · cancel anytime</div>
-          <div class="pc-desc">Full access, month to month. No commitment.</div>
-          <div class="pc-div"></div>
-          <ul class="pc-feats">
-            <li>Everything in Free</li>
-            <li>Full 200+ tool database</li>
-            <li>Export detections to CSV</li>
-            <li>Detection history</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" class="vbtn vbtn-outline" style="width:100%;justify-content:center;" data-plan="monthly" data-price="7.99">Get Pro Monthly →</a>
-        </div>
-        <div class="pc pc--feat reveal d3">
-          <h3 class="pp">Pro 3-Month</h3>
-          <div class="px"><sup>$</sup>19<span style="font-size:1.4rem">.99</span></div>
-          <div class="pc-cad">per 3 months · $6.66/mo · save 17%</div>
-          <div class="pc-desc">Best value for regular users. Most popular plan.</div>
-          <div class="pc-div"></div>
-          <ul class="pc-feats">
-            <li>Everything in Free</li>
-            <li>Full 200+ tool database</li>
-            <li>Export detections to CSV</li>
-            <li>Detection history</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" class="vbtn vbtn-primary" style="width:100%;justify-content:center;" data-plan="3mo" data-price="19.99">Get Pro 3-Month →</a>
-        </div>
-        <div class="pc reveal d4">
-          <h3 class="pp">Pro Annual</h3>
-          <div class="px"><sup>$</sup>59<span style="font-size:1.4rem">.99</span></div>
-          <div class="pc-cad">per year · $5.00/mo · save 38%</div>
-          <div class="pc-desc">Maximum savings for power users. Best deal.</div>
-          <div class="pc-div"></div>
-          <ul class="pc-feats">
-            <li>Everything in Free</li>
-            <li>Full 200+ tool database</li>
-            <li>Export detections to CSV</li>
-            <li>Detection history</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" class="vbtn vbtn-outline" style="width:100%;justify-content:center;" data-plan="yearly" data-price="59.99">Get Pro Annual →</a>
-        </div>
-      </div>
-      <p class="reveal" style="text-align:center;margin-top:1.5rem;font-size:.78rem;color:var(--muted);">All plans include a 7-day money-back guarantee. Cancel any time.</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
+  <!-- FINAL CTA -->
   <section id="cta">
     <div class="cta-glow"></div>
     <div class="container">
-      <div class="slbl reveal" style="justify-content:center;">Get Started Free</div>
-      <h2 class="reveal">Stop guessing.<br>Start knowing.</h2>
-      <p class="reveal d1">Join hundreds of developers, founders, and sales teams who already use SaaS Detective to reverse-engineer any website's stack in one click. Free forever. No account required.</p>
+      <div class="slbl reveal" style="justify-content:center;">Get Started</div>
+      <h2 class="reveal">One click.<br>The whole stack.</h2>
+      <p class="reveal d1">Free forever. No account. Works on any website, instantly.</p>
       <div class="cta-acts reveal d2">
         <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="vbtn vbtn-primary">Add to Chrome — It's Free →</a>
-        <a href="#pricing" class="vbtn vbtn-outline">View Pricing</a>
+        <a href="/saas-detective.html" class="vbtn vbtn-outline">See Full Details</a>
       </div>
-      <p class="reveal d3" style="margin-top:1.5rem;font-size:.78rem;color:var(--muted);">Takes 10 seconds to install. Works immediately on any site.</p>
+      <p class="cta-note reveal d3">Takes 10 seconds to install. Works immediately on every site.</p>
     </div>
   </section>
 
@@ -554,12 +513,12 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="flogo">VENOM<span>.</span>INDUSTRIES</div>
-          <p>Makers of SaaS Detective — the Chrome extension that reveals any website's tech stack in one click. Built in Colorado.</p>
+          <p>Intelligence tools for the modern web. Makers of SaaS Detective. Built in Colorado.</p>
         </div>
         <div class="footer-col">
           <h5>Product</h5>
           <a href="/saas-detective.html">SaaS Detective</a>
-          <a href="#pricing">Pricing</a>
+          <a href="/subscribe.html">Pricing</a>
           <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj">Add to Chrome</a>
         </div>
         <div class="footer-col">
@@ -575,7 +534,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Venom Industries LLC — Colorado, USA</span>
+        <span>&copy; 2026 Venom Industries LLC &mdash; Colorado, USA</span>
         <span>Built by Grayson Kube.</span>
       </div>
     </div>
@@ -586,23 +545,26 @@
   const dot=document.getElementById('v-dot'),ring=document.getElementById('v-ring');
   let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-  document.querySelectorAll('a,button,.pc,.cat-card,.step-card,.use-card').forEach(el=>{
+  document.querySelectorAll('a,button,.blog-card,.pv-window,.popup-mockup').forEach(el=>{
     el.addEventListener('mouseenter',()=>document.body.classList.add('v-hover'));
     el.addEventListener('mouseleave',()=>document.body.classList.remove('v-hover'));
   });
   (function loop(){dot.style.left=mx+'px';dot.style.top=my+'px';rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
 
-  /* NAV */
+  /* NAV SCROLL */
   const nav=document.getElementById('main-nav');
   const prog=document.getElementById('v-progress');
-  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60);prog.style.width=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';});
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',scrollY>60);
+    prog.style.width=Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';
+  });
 
   /* MOBILE MENU */
   const ham=document.getElementById('v-ham'),mob=document.getElementById('mob-menu');
   ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');mob.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
   mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
 
-  /* PARTICLES */
+  /* PARTICLE CANVAS */
   const cv=document.getElementById('pc'),c=cv.getContext('2d');
   let W,H,pts=[],mouse={x:-9e9,y:-9e9};
   function resize(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}
@@ -615,14 +577,17 @@
   function conn(){for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<75){c.beginPath();c.moveTo(pts[i].x,pts[i].y);c.lineTo(pts[j].x,pts[j].y);c.strokeStyle=`rgba(61,159,255,${.07*(1-d/75)})`;c.lineWidth=.5;c.stroke();}}}}
   (function anim(){c.clearRect(0,0,W,H);pts.forEach(p=>{p.update();p.draw();});conn();requestAnimationFrame(anim);})();
 
-  /* REVEAL */
+  /* REVEAL ON SCROLL */
   const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-  /* COUNTERS */
-  function countUp(el,target,dur=1400){let t0=null;(function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;})(performance.now());}
-  const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target,+e.target.dataset.count);co.unobserve(e.target);}});},{threshold:.5});
-  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+  /* POPUP TOOL REVEAL ANIMATION */
+  (function(){
+    const tools=document.querySelectorAll('#pm-tools .pm-tool');
+    let i=0;
+    function next(){if(i>=tools.length)return;tools[i].classList.add('show');i++;setTimeout(next,260);}
+    setTimeout(next,1200);
+  })();
 
   /* MAGNETIC BUTTONS */
   document.querySelectorAll('.vbtn,.nav-cta').forEach(btn=>{
@@ -632,35 +597,23 @@
 
   /* GTM CONVERSION EVENTS */
   (function(){
-    var dl = window.dataLayer = window.dataLayer || [];
-
-    // CTA clicks — Chrome Web Store
+    var dl=window.dataLayer=window.dataLayer||[];
     document.querySelectorAll('a[href*="chromewebstore.google.com"]').forEach(function(el){
-      el.addEventListener('click', function(){
-        dl.push({ event: 'cta_click', cta_label: el.textContent.trim(), cta_location: el.closest('nav') ? 'nav' : 'page', page: 'home' });
+      el.addEventListener('click',function(){
+        dl.push({event:'cta_click',cta_label:el.textContent.trim(),cta_location:el.closest('nav')?'nav':'page',page:'home'});
       });
     });
-
-    // Pricing plan clicks
     document.querySelectorAll('a[data-plan]').forEach(function(el){
-      el.addEventListener('click', function(){
-        dl.push({ event: 'upgrade_click', plan: el.dataset.plan, price: el.dataset.price, page: 'home' });
+      el.addEventListener('click',function(){
+        dl.push({event:'upgrade_click',plan:el.dataset.plan,price:el.dataset.price,page:'home'});
       });
     });
-
-    // Scroll depth milestones
-    var depths = [25, 50, 75, 90], fired = {};
-    window.addEventListener('scroll', function(){
-      var pct = Math.round((scrollY / (document.body.scrollHeight - innerHeight)) * 100);
-      depths.forEach(function(d){ if(pct >= d && !fired[d]){ fired[d] = true; dl.push({ event: 'scroll_depth', depth: d, page: 'home' }); } });
-    }, { passive: true });
+    var depths=[25,50,75,90],fired={};
+    window.addEventListener('scroll',function(){
+      var pct=Math.round((scrollY/(document.body.scrollHeight-innerHeight))*100);
+      depths.forEach(function(d){if(pct>=d&&!fired[d]){fired[d]=true;dl.push({event:'scroll_depth',depth:d,page:'home'});}});
+    },{passive:true});
   })();
   </script>
 </body>
 </html>
-
-
-
-
-
-
