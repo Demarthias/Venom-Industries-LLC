@@ -416,6 +416,32 @@
     // Hide nav links on mobile
     const _nl = document.querySelector('.venom-nlinks');
     if(_nl && window.innerWidth < 900) _nl.style.display = 'none';
+
+    /* GTM CONVERSION EVENTS */
+    (function(){
+      var dl = window.dataLayer = window.dataLayer || [];
+
+      // CTA clicks — Chrome Web Store
+      document.querySelectorAll('a[href*="chromewebstore.google.com"]').forEach(function(el){
+        el.addEventListener('click', function(){
+          dl.push({ event: 'cta_click', cta_label: el.textContent.trim(), cta_location: el.closest('nav') ? 'nav' : 'page', page: 'saas_detective' });
+        });
+      });
+
+      // Pricing plan clicks
+      document.querySelectorAll('a[data-plan]').forEach(function(el){
+        el.addEventListener('click', function(){
+          dl.push({ event: 'upgrade_click', plan: el.dataset.plan, price: el.dataset.price, page: 'saas_detective' });
+        });
+      });
+
+      // Scroll depth milestones
+      var depths = [25, 50, 75, 90], fired = {};
+      window.addEventListener('scroll', function(){
+        var pct = Math.round((scrollY / (document.body.scrollHeight - innerHeight)) * 100);
+        depths.forEach(function(d){ if(pct >= d && !fired[d]){ fired[d] = true; dl.push({ event: 'scroll_depth', depth: d, page: 'saas_detective' }); } });
+      }, { passive: true });
+    })();
   </script>
 </body>
 </html>

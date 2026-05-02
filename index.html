@@ -629,6 +629,32 @@
     btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) translateY(-2px)`;});
     btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
   });
+
+  /* GTM CONVERSION EVENTS */
+  (function(){
+    var dl = window.dataLayer = window.dataLayer || [];
+
+    // CTA clicks — Chrome Web Store
+    document.querySelectorAll('a[href*="chromewebstore.google.com"]').forEach(function(el){
+      el.addEventListener('click', function(){
+        dl.push({ event: 'cta_click', cta_label: el.textContent.trim(), cta_location: el.closest('nav') ? 'nav' : 'page', page: 'home' });
+      });
+    });
+
+    // Pricing plan clicks
+    document.querySelectorAll('a[data-plan]').forEach(function(el){
+      el.addEventListener('click', function(){
+        dl.push({ event: 'upgrade_click', plan: el.dataset.plan, price: el.dataset.price, page: 'home' });
+      });
+    });
+
+    // Scroll depth milestones
+    var depths = [25, 50, 75, 90], fired = {};
+    window.addEventListener('scroll', function(){
+      var pct = Math.round((scrollY / (document.body.scrollHeight - innerHeight)) * 100);
+      depths.forEach(function(d){ if(pct >= d && !fired[d]){ fired[d] = true; dl.push({ event: 'scroll_depth', depth: d, page: 'home' }); } });
+    }, { passive: true });
+  })();
   </script>
 </body>
 </html>
