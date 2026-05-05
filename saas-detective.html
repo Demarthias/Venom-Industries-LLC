@@ -1,605 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
-<!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SaaS Detective — Reveal Any Website's Tech Stack | Venom Industries</title>
-  <meta name="description" content="SaaS Detective scans every page you visit and surfaces the exact tools, frameworks, and platforms powering it — instantly, privately, without leaving the page.">
-  <link rel="canonical" href="https://venom-industries.com/saas-detective.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Detective — Reveal Any Website's Tech Stack Instantly</title>
+  <meta name="description" content="One click on any website reveals every tool, platform, and framework powering it. 200+ signatures, 45+ categories. Free Chrome extension." />
+  <link rel="canonical" href="https://venom-industries.com/saas-detective" />
+  <meta property="og:title" content="SaaS Detective — Reveal Any Website's Tech Stack Instantly" />
+  <meta property="og:description" content="One click on any website reveals every tool, platform, and framework powering it. 200+ signatures across 45+ categories." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://venom-industries.com/saas-detective" />
+  <meta property="og:image" content="https://venom-industries.com/assets/og-image.png" />
+  <meta property="og:site_name" content="Venom Industries" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      /* Venom — brutalist editorial: warm paper + ink + scarlet */
-      --bg:#f4efe2;--surface:#ffffff;--surface2:#ebe5d4;
-      --border:#0a0a0a;--border2:#0a0a0a;
-      --accent:#e63946;--accent2:#ff5252;
-      --adim:rgba(230,57,70,.08);--aglow:rgba(230,57,70,.16);
-      --text:#0a0a0a;--muted:#5a5448;--muted2:#3d382e;--white:#0a0a0a;
-      --green:#1f7a3f;
-      --hairline:rgba(10,10,10,.14);
-      --paper:#f4efe2;--ink:#0a0a0a;
-      --fh:'Rajdhani',sans-serif;
-      --fm:'IBM Plex Mono',monospace;
-      --fs:'Instrument Serif',serif;
-      /* Legacy aliases so existing classes still resolve */
-      --black:var(--bg);--dark:var(--surface);--mid:var(--surface2);--card:var(--surface);
-      --line:var(--border);--line2:var(--border2);
-      --mono:var(--fm);--display:var(--fh);--body:var(--fm);
-      --blue:var(--accent);
-    }
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");opacity:.18;mix-blend-mode:multiply;}
-    a{color:var(--accent);text-decoration:none}
-
-    /* NAV — brutalist: hard ink border, paper bg */
-    #v-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(244,239,226,.92);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:2px solid var(--ink);transition:background .3s;}
-    #v-nav.scrolled{background:rgba(244,239,226,.98);}
-    .nav-progress{position:absolute;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:1;transition:width .1s;}
-    .nav-inner{display:flex;align-items:center;height:68px;max-width:1200px;margin:0 auto;padding:0 2rem;gap:2.5rem;}
-    .nav-logo{font-family:var(--fh);font-weight:700;font-size:1.25rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;flex-shrink:0;}
-    .nav-logo span{color:var(--accent);}
-    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;flex:1;margin:0;padding:0;}
-    .nav-link{font-family:var(--fh);font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);text-decoration:none;transition:color .15s;position:relative;padding:.4rem 0;}
-    .nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width .2s;}
-    .nav-link:hover,.nav-link.active{color:var(--ink);}
-    .nav-link:hover::after,.nav-link.active::after{width:100%;}
-    .nav-link.active{color:var(--accent);}
-    .nav-right{display:flex;align-items:center;gap:1rem;margin-left:auto;}
-    .nav-cta{display:inline-flex;align-items:center;background:var(--accent);color:#ffffff;font-family:var(--fh);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.3rem;border:2px solid var(--ink);border-radius:0;text-decoration:none;transition:all .15s;white-space:nowrap;box-shadow:4px 4px 0 0 var(--ink);}
-    .nav-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 var(--ink);background:var(--ink);color:var(--accent);}
-    @media (max-width:780px){.nav-links{display:none;}.nav-inner{padding:0 1.25rem;}}
-
-    /* HERO */
-    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 2.5rem;padding-top:64px;max-width:1200px;margin:0 auto}
-    .hero-left{padding:5rem 3rem 5rem 0}
-    .hero-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--fh);font-size:.75rem;font-weight:700;color:var(--ink);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.75rem;opacity:0;animation:fadeUp .5s .1s ease forwards;border:2px solid var(--ink);background:var(--accent);padding:.35rem 1rem;border-radius:0;width:fit-content;color:#fff;}
-    .hero-eyebrow-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pd 2s ease infinite;flex-shrink:0;}
-    @keyframes pd{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--aglow);}50%{opacity:.5;box-shadow:0 0 0 7px rgba(238,41,57,0);}}
-    .hero-h1{font-family:var(--fh);font-size:clamp(4rem,6.5vw,7rem);font-weight:700;line-height:.94;letter-spacing:-.01em;color:var(--white);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s .2s ease forwards}
-    .hero-h1 .blue{color:var(--accent)}
-    .hero-h1 .outline{-webkit-text-stroke:2px var(--ink);color:transparent}
-    .hero-h1 em{font-family:var(--fs);font-style:italic;color:var(--accent);text-transform:none;display:block}
-    .hero-sub{font-size:.92rem;color:var(--muted2);max-width:440px;line-height:1.85;margin-bottom:2.25rem;opacity:0;animation:fadeUp .6s .32s ease forwards}
-    .hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .44s ease forwards}
-
-    .btn-blue{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#ffffff;padding:.95rem 2rem;font-family:var(--fh);font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);border-radius:0;transition:all .15s ease;position:relative;box-shadow:6px 6px 0 0 var(--ink);}
-    .btn-blue:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 0 var(--ink);background:var(--ink);color:var(--accent);}
-    .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--ink);padding:.93rem 1.85rem;font-family:var(--fh);font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);border-radius:0;transition:all .15s ease;box-shadow:6px 6px 0 0 var(--ink);}
-    .btn-ghost:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 0 var(--ink);background:var(--ink);color:var(--paper);}
-
-    .hero-proof-row{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp .6s .56s ease forwards}
-    .proof-item{display:flex;flex-direction:column;gap:4px}
-    .proof-val{font-family:var(--fh);font-size:2.2rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.01em;}
-    .proof-label{font-family:var(--fm);font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-
-    /* Extension mockup */
-    .hero-right{padding:5rem 0 5rem 2rem;opacity:0;animation:fadeIn .8s .5s ease forwards}
-    .ext-mock{background:var(--surface);border:2px solid var(--ink);border-radius:0;overflow:hidden;width:100%;max-width:340px;margin:0 auto;box-shadow:10px 10px 0 0 var(--ink);}
-    .ext-header{background:var(--ink);padding:.75rem 1rem;border-bottom:2px solid var(--ink);display:flex;align-items:center;gap:8px}
-    .ext-header .ext-title{color:#fff;}
-    .ext-icon{width:22px;height:22px;background:var(--accent);border:1.5px solid var(--ink);border-radius:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;font-family:var(--fh);letter-spacing:.04em;}
-    .ext-title{font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.06em;color:var(--white);text-transform:uppercase;}
-    .ext-url{font-family:var(--fm);font-size:.62rem;color:var(--muted);margin-left:auto}
-    .ext-body{padding:1rem}
-    .ext-site-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
-    .ext-site-name{font-family:var(--fh);font-size:.82rem;font-weight:700;color:var(--white);letter-spacing:.04em;text-transform:uppercase;}
-    .ext-count{font-family:var(--fm);font-size:.65rem;color:var(--green)}
-    .ext-category{margin-bottom:.75rem}
-    .ext-cat-label{font-family:var(--fm);font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem}
-    .ext-tools{display:flex;flex-wrap:wrap;gap:.35rem}
-    .ext-tool{font-family:var(--fm);font-size:.65rem;padding:3px 8px;border:1px solid var(--border2);color:var(--muted2);border-radius:20px;}
-    .ext-tool.detected{border-color:rgba(238,41,57,.35);color:var(--accent);background:rgba(238,41,57,.06)}
-    .ext-scan-bar{margin-top:.75rem;padding:.55rem .75rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.18);border-radius:4px;font-family:var(--fm);font-size:.65rem;color:var(--green);display:flex;align-items:center;gap:6px}
-    .scan-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.8s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-
-    /* SECTIONS */
-    .section{padding:7rem 2.5rem;position:relative;z-index:1}
-    .container{max-width:1100px;margin:0 auto}
-    .full-rule{height:2px;background:var(--ink);}
-    .label{font-family:var(--fh);font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem}
-    .label::before{content:'';width:1.5rem;height:1px;background:var(--accent);flex-shrink:0;}
-    h2{font-family:var(--fh);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;color:var(--white);margin-bottom:1.25rem}
-    h2 .blue{color:var(--accent)}
-    h2 .dim{-webkit-text-stroke:2px var(--ink);color:transparent}
-    .intro{font-size:.9rem;color:var(--muted2);max-width:520px;line-height:1.85;margin-bottom:3.5rem}
-
-    /* Ticker */
-    .ticker{overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--ink);color:var(--paper);padding:.7rem 0;}
-    .ticker-inner{display:flex;gap:3rem;width:max-content;animation:scroll 24s linear infinite;font-family:var(--fh);font-size:.72rem;font-weight:700;color:var(--paper);letter-spacing:.14em;text-transform:uppercase}
-    .ticker-item{display:flex;align-items:center;gap:.75rem;white-space:nowrap}
-    .ticker-item::before{content:'·';color:var(--accent);font-size:1rem;line-height:1;}
-    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-    /* Categories grid */
-    .cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:0;overflow:hidden;box-shadow:8px 8px 0 0 var(--ink);}
-    .cat-card{background:var(--surface);padding:1.5rem 1.25rem;transition:background .15s;}
-    .cat-card:hover{background:var(--accent);}
-    .cat-card:hover .cat-name,.cat-card:hover .cat-tools{color:#fff;}
-    .cat-name{font-family:var(--fh);font-size:.9rem;font-weight:700;color:var(--white);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
-    .cat-tools{font-family:var(--fm);font-size:.7rem;color:var(--muted);line-height:1.7}
-
-    /* How it works */
-    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:0;overflow:hidden;box-shadow:8px 8px 0 0 var(--ink);}
-    .step-card{background:var(--surface);padding:2.25rem 2rem;transition:background .15s;}
-    .step-card:hover{background:var(--surface2);}
-    .step-num{font-family:var(--fh);font-size:3.5rem;font-weight:700;color:var(--accent);line-height:1;opacity:.2;margin-bottom:.75rem}
-    .step-card h3{font-family:var(--fh);font-size:1.1rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:.6rem}
-    .step-card p{font-family:var(--fm);font-size:.8rem;color:var(--muted);line-height:1.8}
-
-    /* Use cases */
-    .use-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:0;overflow:hidden;box-shadow:8px 8px 0 0 var(--ink);}
-    .use-card{background:var(--surface);padding:2.25rem 2rem;transition:background .15s;}
-    .use-card:hover{background:var(--surface2);}
-    .use-role{font-family:var(--fm);font-size:.65rem;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.75rem}
-    .use-card h3{font-family:var(--fh);font-size:1.1rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--white);margin-bottom:.6rem}
-    .use-card p{font-family:var(--fm);font-size:.8rem;color:var(--muted);line-height:1.8}
-
-    /* Privacy callout */
-    .privacy-band{background:var(--ink);border:2px solid var(--ink);border-radius:0;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:4rem;box-shadow:8px 8px 0 0 var(--accent);}
-    .privacy-band .priv-val,.privacy-band .priv-label{color:var(--paper);}
-    .privacy-band .priv-val{color:#fff;}
-    .priv-item{padding:1.5rem;text-align:center}
-    .priv-val{font-family:var(--fh);font-size:2.5rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:.4rem;letter-spacing:-.01em;}
-    .priv-label{font-family:var(--fm);font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-
-    /* CTA band — solid scarlet block, brutalist */
-    .cta-band{background:var(--accent);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:6rem 2.5rem;position:relative;z-index:1;overflow:hidden;color:#fff;}
-    .cta-band-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap;position:relative;z-index:2}
-    .cta-band h2{font-family:var(--fh);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:700;text-transform:uppercase;color:#fff;line-height:.95;max-width:520px}
-    .cta-band-right{display:flex;flex-direction:column;gap:1rem;align-items:flex-start}
-    .btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);padding:.95rem 2rem;font-family:var(--fh);font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);border-radius:0;transition:all .15s ease;box-shadow:6px 6px 0 0 var(--ink);}
-    .btn-white:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 0 var(--ink);background:var(--ink);color:#fff;}
-    .cta-note{font-family:var(--fm);font-size:.7rem;color:#fff;opacity:.85;letter-spacing:.04em}
-
-    footer{background:var(--ink);color:var(--paper);border-top:2px solid var(--ink);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    footer .footer-name{color:var(--paper);}
-    footer .footer-links{color:var(--paper);opacity:.7;}
-    footer .footer-links a{color:var(--paper);}
-    footer .footer-links a:hover{color:var(--accent);}
-    .footer-left{display:flex;align-items:center;gap:12px}
-    .footer-name{font-family:var(--fh);font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);}
-    .footer-name span{color:var(--accent);}
-    .footer-links{display:flex;gap:1.5rem;font-family:var(--fm);font-size:.72rem;color:var(--muted);letter-spacing:.04em}
-    .footer-links a:hover{color:var(--white)}
-
-    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-    /* PRICING */
-    #pricing{background:var(--dark);}
-    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line2);border-radius:4px;overflow:hidden;margin-top:3rem;}
-    .plan-card{background:var(--card);padding:2rem 1.75rem;display:flex;flex-direction:column;position:relative;transition:background .2s;}
-    .plan-card:hover{background:var(--mid);}
-    .plan-card.featured{background:var(--mid);border:1px solid rgba(52,152,219,.35);margin:-1px;z-index:1;}
-    .plan-trial-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .9rem;border-radius:0 0 3px 3px;white-space:nowrap;}
-    .plan-name{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem;}
-    .plan-price{font-family:var(--display);font-size:3rem;color:#fff;line-height:1;letter-spacing:.01em;margin-bottom:.25rem;}
-    .plan-price sup{font-size:1.4rem;vertical-align:super;font-family:var(--mono);}
-    .plan-cadence{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:1.5rem;}
-    .plan-divider{height:1px;background:var(--line);margin:1.25rem 0;}
-    .plan-features{list-style:none;flex:1;margin-bottom:1.75rem;}
-    .plan-features li{font-family:var(--mono);font-size:11px;color:var(--muted2);padding:.4rem 0;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.5rem;}
+    :root{--bg:#07080d;--surface:#0e0f18;--border:#1a1b2e;--accent:#c8f135;--accent-dim:rgba(200,241,53,0.1);--text:#eeeef5;--muted:#5a5b78;--card:#0c0d18;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,241,53,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(200,241,53,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0;}
+    a{color:inherit;text-decoration:none;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(7,8,13,0.92);backdrop-filter:blur(20px);border-color:var(--border);}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:10px;}
+    .logo-mark{width:30px;height:30px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+    .nav-links a{font-size:.875rem;color:var(--muted);transition:color .2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .btn-nav{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:10px 20px;border-radius:6px;cursor:pointer;transition:opacity .2s,transform .15s;display:inline-block;}
+    .btn-nav:hover{opacity:.85;transform:translateY(-1px);}
+    .btn-outline{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text);background:transparent;padding:10px 20px;border-radius:6px;border:1px solid var(--border);transition:border-color .2s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--muted);}
+    site-footer{display:block;position:relative;z-index:1;border-top:1px solid var(--border);padding:48px;}
+    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
+    .footer-brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+    .footer-brand-desc{font-size:.82rem;color:var(--muted);line-height:1.65;max-width:240px;}
+    .footer-col-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+    .footer-col a{display:block;font-size:.82rem;color:var(--muted);margin-bottom:10px;transition:color .2s;}
+    .footer-col a:hover{color:var(--text);}
+    .footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.04em;}
+    .footer-copy span{color:var(--accent);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .section-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+    .section-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:20px;}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.7;font-weight:300;}
+    .hero{position:relative;z-index:1;padding:160px 48px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:80px;align-items:center;}
+    .hero-glow{position:fixed;width:700px;height:500px;background:radial-gradient(ellipse,rgba(200,241,53,0.05) 0%,transparent 65%);top:20%;right:0;pointer-events:none;z-index:0;}
+    .badge{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(200,241,53,0.2);background:rgba(200,241,53,0.05);padding:7px 14px;border-radius:100px;margin-bottom:28px;animation:fadeUp .4s ease both;}
+    .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:24px;animation:fadeUp .4s .1s ease both;}
+    h1 em{font-style:normal;color:var(--accent);}
+    .hero-sub{font-size:1.05rem;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:40px;animation:fadeUp .4s .2s ease both;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .4s .3s ease both;}
+    .btn-cta{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:14px 28px;border-radius:7px;cursor:pointer;transition:opacity .2s,transform .15s;display:inline-block;}
+    .btn-cta:hover{opacity:.85;transform:translateY(-2px);}
+    .hero-note{font-size:.78rem;color:var(--muted);margin-top:14px;animation:fadeUp .4s .35s ease both;}
+    .hero-proof{margin-top:32px;padding-top:24px;border-top:1px solid var(--border);display:flex;gap:24px;flex-wrap:wrap;animation:fadeUp .4s .4s ease both;}
+    .proof-item{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:6px;}
+    .proof-item span{color:var(--accent);font-weight:700;}
+    .mockup{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(200,241,53,0.06),0 40px 80px rgba(0,0,0,0.6);animation:fadeUp .5s .2s ease both;}
+    .mockup-bar{background:var(--surface);padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .mockup-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.8rem;display:flex;align-items:center;gap:7px;}
+    .mockup-icon{width:18px;height:18px;background:var(--accent);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--bg);}
+    .mockup-url{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);padding:3px 9px;border-radius:100px;}
+    .mockup-body{padding:12px 14px;}
+    .m-cat{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:10px 0 6px;}
+    .m-cat:first-child{margin-top:0;}
+    .m-chip{display:inline-flex;align-items:center;gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:5px 9px;font-size:.7rem;font-weight:500;margin:0 3px 4px 0;}
+    .m-dot{width:5px;height:5px;border-radius:50%;}
+    .m-chip.locked{opacity:.5;filter:blur(2px);cursor:default;}
+    .mockup-upgrade{background:rgba(200,241,53,0.06);border:1px solid rgba(200,241,53,0.15);border-radius:7px;padding:10px 12px;margin:10px 0;text-align:center;}
+    .mockup-upgrade-text{font-size:.68rem;color:var(--accent);font-weight:600;margin-bottom:6px;}
+    .mockup-upgrade-btn{background:var(--accent);color:var(--bg);border:none;border-radius:4px;padding:5px 12px;font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;}
+    .mockup-footer{border-top:1px solid var(--border);padding:9px 14px;display:flex;justify-content:space-between;align-items:center;}
+    .m-count{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);}
+    .m-count em{color:var(--accent);font-style:normal;}
+    .stats-strip{position:relative;z-index:1;display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .stat{flex:1;text-align:center;padding:56px 24px;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.6rem;letter-spacing:-.04em;line-height:1;margin-bottom:8px;}
+    .stat-num span{color:var(--accent);}
+    .stat-label{font-size:.78rem;color:var(--muted);font-weight:300;}
+    .section{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px 48px;}
+    .section-alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .section-alt .section{padding:100px 48px;}
+    .who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px;}
+    .who-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;transition:border-color .25s;}
+    .who-card:hover{border-color:rgba(200,241,53,0.25);}
+    .who-icon{font-size:1.6rem;margin-bottom:14px;display:block;}
+    .who-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;}
+    .who-card p{font-size:.85rem;color:var(--muted);line-height:1.65;font-weight:300;}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
+    .step{background:var(--card);border:1px solid var(--border);padding:36px 28px;transition:border-color .25s;}
+    .step:first-child{border-radius:12px 0 0 12px;}
+    .step:last-child{border-radius:0 12px 12px 0;}
+    .step:hover{border-color:rgba(200,241,53,0.25);}
+    .step-num{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--accent);margin-bottom:18px;}
+    .step-icon{font-size:1.8rem;margin-bottom:16px;display:block;}
+    .step h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:8px;}
+    .step p{font-size:.85rem;color:var(--muted);line-height:1.65;font-weight:300;}
+    .cat-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px;}
+    .cat-pill{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:7px 14px;font-size:.8rem;color:var(--muted);transition:border-color .2s,color .2s;}
+    .cat-pill:hover{border-color:rgba(200,241,53,0.3);color:var(--text);}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+    .plan{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px 28px;position:relative;}
+    .plan.featured{border-color:var(--accent);}
+    .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--bg);font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap;}
+    .plan-name{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+    .plan-price{font-family:'Syne',sans-serif;font-weight:800;font-size:3rem;letter-spacing:-.04em;line-height:1;margin-bottom:4px;}
+    .plan-price sup{font-size:1.2rem;vertical-align:top;margin-top:8px;display:inline-block;}
+    .plan-period{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:8px;}
+    .plan-save{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(200,241,53,0.15);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:20px;}
+    .plan-desc{font-size:.82rem;color:var(--muted);margin-bottom:24px;font-weight:300;line-height:1.6;}
+    .plan-features{list-style:none;margin-bottom:28px;}
+    .plan-features li{font-size:.83rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;}
     .plan-features li:last-child{border-bottom:none;}
-    .plan-features li::before{content:'→';color:var(--blue);font-size:9px;flex-shrink:0;}
-    .plan-cta{display:block;text-align:center;padding:.8rem;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;transition:all .2s;}
-    .plan-cta-outline{border:1px solid var(--line2);color:var(--muted);}
-    .plan-cta-outline:hover{border-color:rgba(255,255,255,.3);color:#fff;}
-    .plan-cta-primary{background:var(--blue);color:#fff;}
-    .plan-cta-primary:hover{opacity:.88;}
-    .pricing-guarantee{text-align:center;margin-top:1.5rem;font-family:var(--mono);font-size:11px;color:var(--muted);}
-    .pricing-guarantee strong{color:var(--muted2);}
-    @media(max-width:900px){.pricing-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:600px){.pricing-grid{grid-template-columns:1fr;}}
-
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .hero-right{display:none}
-      .hero-left{padding:5rem 0}
-      .cat-grid{grid-template-columns:repeat(2,1fr)}
-      .steps-grid{grid-template-columns:1fr}
-      .use-grid{grid-template-columns:1fr}
-      .cta-band-inner{flex-direction:column}
-      .privacy-band{grid-template-columns:1fr}
-    }
-    @media(max-width:600px){
-      nav{padding:0 1.25rem}
-      .nav-links{display:none}
-      .section{padding:5rem 1.25rem}
-      .hero{padding:0 1.25rem}
-      .cat-grid{grid-template-columns:1fr}
-      footer{flex-direction:column;align-items:flex-start}
-      .cta-band{padding:4rem 1.25rem}
-    }
+    .plan-features li strong{color:var(--text);font-weight:600;}
+    .check{color:var(--accent);flex-shrink:0;margin-top:1px;}
+    .cross{color:var(--muted);flex-shrink:0;margin-top:1px;opacity:.5;}
+    .btn-plan{display:block;width:100%;text-align:center;font-family:'DM Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:13px;border-radius:7px;border:none;cursor:pointer;transition:opacity .2s,transform .15s;text-decoration:none;}
+    .btn-plan-free{background:var(--surface);color:var(--text);border:1px solid var(--border);}
+    .btn-plan-free:hover{border-color:var(--muted);}
+    .btn-plan-pro{background:var(--accent);color:var(--bg);}
+    .btn-plan-pro:hover{opacity:.87;transform:translateY(-1px);}
+    .plan-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:8px;}
+    .pricing-sub{font-size:.82rem;color:var(--muted);margin-top:24px;text-align:center;}
+    .pricing-sub a{color:var(--accent);text-decoration:underline;}
+    .faq-list{margin-top:40px;max-width:680px;}
+    .faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--card);overflow:hidden;}
+    .faq-q{width:100%;background:none;border:none;padding:18px 22px;text-align:left;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+    .faq-q:hover{color:var(--accent);}
+    .faq-arrow{color:var(--muted);font-size:.9rem;transition:transform .2s;flex-shrink:0;}
+    .faq-a{padding:0 22px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s;font-size:.85rem;color:var(--muted);line-height:1.75;}
+    .faq-item.open .faq-a{max-height:300px;padding-bottom:18px;}
+    .faq-item.open .faq-arrow{transform:rotate(180deg);}
+    .final-cta{position:relative;z-index:1;text-align:center;padding:140px 48px;overflow:hidden;}
+    .final-glow{position:absolute;width:700px;height:400px;background:radial-gradient(ellipse,rgba(200,241,53,0.07) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+    .final-cta h2{max-width:640px;margin:0 auto 20px;}
+    .final-cta h2 em{font-style:normal;color:var(--accent);}
+    .final-cta p{color:var(--muted);margin-bottom:40px;font-weight:300;}
+    .final-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;padding:140px 24px 60px;}.pricing-grid{grid-template-columns:1fr;max-width:400px;}.who-grid{grid-template-columns:1fr;}.steps{grid-template-columns:1fr;}.step:first-child{border-radius:12px 12px 0 0;}.step:last-child{border-radius:0 0 12px 12px;}}
+    @media(max-width:768px){nav{padding:18px 24px;}.nav-links{display:none;}.stats-strip{flex-direction:column;}.stat{border-right:none;border-bottom:1px solid var(--border);padding:36px 24px;}.stat:last-child{border-bottom:none;}.section{padding:72px 24px;}.final-cta{padding:100px 24px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
+    @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}}
   </style>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="SaaS Detective — Reveal Any Website's Tech Stack"/>
-  <meta property="og:description" content="Free Chrome extension. 200+ tools detected across 50+ categories. Runs entirely in your browser. No account required."/>
-  <meta property="og:url" content="https://venom-industries.com/saas-detective.html"/>
-  <meta property="og:image" content="https://venom-industries.com/assets/og-image.png"/>
-  <meta property="og:site_name" content="Venom Industries"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="SaaS Detective — Reveal Any Website's Tech Stack"/>
-  <meta name="twitter:description" content="Free Chrome extension. 200+ tools detected across 50+ categories. Runs entirely in your browser. No account required."/>
-  <meta name="twitter:image" content="https://venom-industries.com/assets/og-image.png"/>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src='https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <!-- NAV -->
-  <nav id="v-nav">
-    <div class="nav-progress" id="nav-progress"></div>
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">VENOM<span>.</span>INDUSTRIES</a>
-      <ul class="nav-links">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/saas-detective.html" class="nav-link active">SaaS Detective</a></li>
-        <li><a href="/blog.html" class="nav-link">Blog</a></li>
-        <li><a href="/about/" class="nav-link">About</a></li>
-      </ul>
-      <div class="nav-right">
-        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="nav-cta">Add to Chrome — Free</a>
-      </div>
-    </div>
-  </nav>
-  <script>
-    (function(){
-      var nav=document.getElementById('v-nav'),pg=document.getElementById('nav-progress');
-      window.addEventListener('scroll',function(){
-        var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
-        if(nav)nav.classList.toggle('scrolled',y>20);
-        if(pg)pg.style.width=(h>0?(y/h*100):0)+'%';
-      },{passive:true});
-    })();
-  </script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- HERO -->
-<div style="max-width:1200px;margin:0 auto">
+<nav id="nav">
+  <a href="/" class="logo"><div class="logo-mark">V</div>Venom Industries</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/saas-detective" class="active">SaaS Detective</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+  <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-nav">Add to Chrome — Free</a>
+</nav>
+<div class="hero-glow"></div>
+
+<div style="position:relative;z-index:1;">
   <div class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>Free Chrome Extension · v2.6.0</div>
-      <h1 class="hero-h1">REVEAL<br>ANY <span class="blue">TECH</span><br><span class="outline">STACK</span><br>INSTANTLY.</h1>
-      <p class="hero-sub">SaaS Detective scans every page you visit and surfaces the exact tools, frameworks, and platforms powering it — in one click, privately, without leaving the page.</p>
-      <div class="hero-actions">
-        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="btn-blue">Add to Chrome — It's Free</a>
-        <a href="#pricing" class="btn-ghost">See Pricing →</a>
-      </div>
-      <div style="display:flex;align-items:center;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .58s ease forwards;">
-        <div style="display:flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:10px;color:var(--muted2);">
-          <span style="color:#f5a623;letter-spacing:.02em;">★★★★★</span> Chrome Web Store
-        </div>
-        <div style="width:1px;height:14px;background:var(--border2);"></div>
-        <div style="font-family:var(--fm);font-size:10px;color:var(--muted2);">✓ No account required</div>
-        <div style="width:1px;height:14px;background:var(--border2);"></div>
-        <div style="font-family:var(--fm);font-size:10px;color:var(--muted2);">✓ 7-day free trial on Pro Annual</div>
-        <div style="width:1px;height:14px;background:var(--border2);"></div>
-        <div style="font-family:var(--fm);font-size:10px;color:var(--muted2);">✓ Cancel anytime</div>
-      </div>
-      <div class="hero-proof-row">
-        <div class="proof-item"><div class="proof-val">200+</div><div class="proof-label">Tools detected</div></div>
-        <div class="proof-item"><div class="proof-val">50+</div><div class="proof-label">Categories</div></div>
-        <div class="proof-item"><div class="proof-val">0</div><div class="proof-label">Bytes collected</div></div>
-        <div class="proof-item"><div class="proof-val">&lt;1s</div><div class="proof-label">Detection time</div></div>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="ext-mock">
-        <div class="ext-header">
-          <div class="ext-icon">SD</div>
-          <span class="ext-title">SaaS Detective</span>
-          <span class="ext-url">shopify.com</span>
-        </div>
-        <div class="ext-body">
-          <div class="ext-site-row">
-            <span class="ext-site-name">shopify.com</span>
-            <span class="ext-count">7 tools detected</span>
-          </div>
-          <div class="ext-category">
-            <div class="ext-cat-label">E-Commerce</div>
-            <div class="ext-tools"><span class="ext-tool detected">Shopify</span></div>
-          </div>
-          <div class="ext-category">
-            <div class="ext-cat-label">Analytics</div>
-            <div class="ext-tools">
-              <span class="ext-tool detected">Google Analytics</span>
-              <span class="ext-tool detected">Segment</span>
-            </div>
-          </div>
-          <div class="ext-category">
-            <div class="ext-cat-label">Marketing</div>
-            <div class="ext-tools">
-              <span class="ext-tool detected">HubSpot</span>
-              <span class="ext-tool detected">Klaviyo</span>
-            </div>
-          </div>
-          <div class="ext-category">
-            <div class="ext-cat-label">Framework</div>
-            <div class="ext-tools">
-              <span class="ext-tool detected">React</span>
-              <span class="ext-tool detected">Next.js</span>
-            </div>
-          </div>
-          <div class="ext-scan-bar"><div class="scan-dot"></div>Scan complete</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">Shopify</span><span class="ticker-item">React</span><span class="ticker-item">Stripe</span>
-    <span class="ticker-item">HubSpot</span><span class="ticker-item">Vercel</span><span class="ticker-item">Intercom</span>
-    <span class="ticker-item">Cloudflare</span><span class="ticker-item">Amplitude</span><span class="ticker-item">Next.js</span>
-    <span class="ticker-item">WordPress</span><span class="ticker-item">Webflow</span><span class="ticker-item">Segment</span>
-    <span class="ticker-item">Shopify</span><span class="ticker-item">React</span><span class="ticker-item">Stripe</span>
-    <span class="ticker-item">HubSpot</span><span class="ticker-item">Vercel</span><span class="ticker-item">Intercom</span>
-    <span class="ticker-item">Cloudflare</span><span class="ticker-item">Amplitude</span><span class="ticker-item">Next.js</span>
-    <span class="ticker-item">WordPress</span><span class="ticker-item">Webflow</span><span class="ticker-item">Segment</span>
-  </div>
-</div>
-
-<!-- HOW IT WORKS -->
-<div class="section" id="how-it-works">
-  <div class="container">
-    <div class="label">How it works</div>
-    <h2>THREE SECONDS FROM<br><span class="blue">CURIOUS</span> TO INFORMED.</h2>
-    <p class="intro">No setup, no account, no data sent anywhere. Just click and know.</p>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h3>BROWSE ANY SITE</h3>
-        <p>Visit any website you're curious about — a competitor, a customer, a business you admire. SaaS Detective works on every page across the entire web.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>CLICK THE EXTENSION</h3>
-        <p>Click the SaaS Detective icon in your toolbar. The extension silently scans the page's scripts, stylesheets, and global variables in real time — all locally.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>SEE THE FULL STACK</h3>
-        <p>Every detected tool appears instantly, grouped by category. Click any result to learn more — no guessing, no manual research, no digging through source.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="full-rule"></div>
-
-<!-- CATEGORIES -->
-<div class="section" id="categories">
-  <div class="container">
-    <div class="label">What we detect</div>
-    <h2>EVERY LAYER OF<br>THE <span class="blue">MODERN</span> STACK.</h2>
-    <p class="intro">50+ categories covering every layer — from frontend frameworks to payment processors to CDN providers.</p>
-    <div class="cat-grid">
-      <div class="cat-card"><div class="cat-name">E-COMMERCE</div><div class="cat-tools">Shopify, WooCommerce, Magento, BigCommerce</div></div>
-      <div class="cat-card"><div class="cat-name">ANALYTICS</div><div class="cat-tools">GA4, Mixpanel, Amplitude, Heap, Segment</div></div>
-      <div class="cat-card"><div class="cat-name">LIVE CHAT</div><div class="cat-tools">Intercom, Drift, Crisp, Zendesk, Hubspot Chat</div></div>
-      <div class="cat-card"><div class="cat-name">MARKETING</div><div class="cat-tools">HubSpot, Klaviyo, Marketo, ActiveCampaign</div></div>
-      <div class="cat-card"><div class="cat-name">FRAMEWORKS</div><div class="cat-tools">React, Next.js, Vue, Angular, Svelte, Nuxt</div></div>
-      <div class="cat-card"><div class="cat-name">PAYMENTS</div><div class="cat-tools">Stripe, PayPal, Paddle, Braintree, Square</div></div>
-      <div class="cat-card"><div class="cat-name">ADVERTISING</div><div class="cat-tools">Meta Pixel, Google Ads, TikTok Pixel, LinkedIn</div></div>
-      <div class="cat-card"><div class="cat-name">CMS</div><div class="cat-tools">WordPress, Webflow, Wix, Squarespace, Ghost</div></div>
-      <div class="cat-card"><div class="cat-name">SECURITY</div><div class="cat-tools">Cloudflare, reCAPTCHA, hCaptcha, Sucuri</div></div>
-      <div class="cat-card"><div class="cat-name">HOSTING & CDN</div><div class="cat-tools">Vercel, Netlify, AWS, Akamai, Fastly</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="full-rule"></div>
-
-<!-- USE CASES -->
-<div class="section" id="use-cases">
-  <div class="container">
-    <div class="label">Who it's for</div>
-    <h2>BUILT FOR ANYONE<br>WHO <span class="blue">BUILDS</span>, SELLS,<br><span class="dim">OR COMPETES.</span></h2>
-    <p class="intro">Every website you visit is a data point. SaaS Detective turns passive browsing into active intelligence.</p>
-    <div class="use-grid">
-      <div class="use-card">
-        <div class="use-role">Founders & Entrepreneurs</div>
-        <h3>REVERSE-ENGINEER SUCCESS</h3>
-        <p>See exactly what stack successful businesses run before you invest in your own. Stop guessing what tools work — know for certain what your competitors are using.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-role">Developers</div>
-        <h3>IDENTIFY ANY STACK INSTANTLY</h3>
-        <p>Spot frameworks, libraries, and tools on any site instantly — no digging through source code, no DevTools hunting. Know in seconds what would take minutes.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-role">Sales & Marketing Teams</div>
-        <h3>RESEARCH PROSPECTS BEFORE THE CALL</h3>
-        <p>Know your prospect's tech stack before you pitch. Lead with the right integrations, speak to the right pain points, and close faster with context you couldn't easily get before.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-role">Agencies & Freelancers</div>
-        <h3>AUDIT CLIENT SITES AT A GLANCE</h3>
-        <p>Scope projects accurately from the first conversation. Identify outdated tools, redundant platforms, and missing pieces — before you write a single line of proposal copy.</p>
-      </div>
-    </div>
-
-    <div class="privacy-band">
-      <div class="priv-item">
-        <div class="priv-val">0</div>
-        <div class="priv-label">Bytes of data collected</div>
-      </div>
-      <div class="priv-item">
-        <div class="priv-val">100%</div>
-        <div class="priv-label">Runs locally in your browser</div>
-      </div>
-      <div class="priv-item">
-        <div class="priv-val">Free</div>
-        <div class="priv-label">Forever. No account required.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PRICING -->
-<div class="section" id="pricing">
-  <div class="container">
-    <div class="label">Pricing</div>
-    <h2>FREE FOREVER.<br>MORE WHEN YOU<br><span class="blue">NEED IT.</span></h2>
-    <p class="intro">Start free — no account, no credit card. Upgrade any time to unlock the full 200+ tool database.</p>
-
-    <div class="pricing-grid">
-      <!-- Free -->
-      <div class="plan-card">
-        <div class="plan-name">Free</div>
-        <div class="plan-price">Free</div>
-        <div class="plan-cadence">forever · no account required</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>Detect up to 15 tools per scan</li>
-          <li>All 50+ categories</li>
-          <li>100% private — runs locally</li>
-          <li>Zero data collected</li>
-          <li>Works on every website</li>
-        </ul>
-        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="plan-cta plan-cta-outline">Add to Chrome →</a>
-      </div>
-      <!-- Monthly -->
-      <div class="plan-card">
-        <div class="plan-name">Monthly</div>
-        <div class="plan-price"><sup>$</sup>7<span style="font-size:1.5rem">.99</span></div>
-        <div class="plan-cadence">per month · cancel anytime</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>Full 200+ tool database</li>
-          <li>Unlimited detections</li>
-          <li>All 50+ categories</li>
-          <li>Export to CSV</li>
-          <li>Priority support</li>
-        </ul>
-        <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" class="plan-cta plan-cta-outline" data-plan="monthly" data-price="7.99">Get Monthly →</a>
-      </div>
-      <!-- 3-Month -->
-      <div class="plan-card">
-        <div class="plan-name">3 Months</div>
-        <div class="plan-price"><sup>$</sup>19<span style="font-size:1.5rem">.99</span></div>
-        <div class="plan-cadence">every 3 months · ~$6.66/mo · save 17%</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>Full 200+ tool database</li>
-          <li>Unlimited detections</li>
-          <li>All 50+ categories</li>
-          <li>Export to CSV</li>
-          <li>Priority support</li>
-        </ul>
-        <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" class="plan-cta plan-cta-outline" data-plan="quarterly" data-price="19.99">Get 3-Month →</a>
-      </div>
-      <!-- Annual — FEATURED -->
-      <div class="plan-card featured">
-        <div class="plan-trial-badge">★ 7-Day Free Trial</div>
-        <div class="plan-name" style="margin-top:.5rem;">Annual</div>
-        <div class="plan-price"><sup>$</sup>59<span style="font-size:1.5rem">.99</span></div>
-        <div class="plan-cadence">per year · ~$5/mo · save 38%</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li>Full 200+ tool database</li>
-          <li>Unlimited detections</li>
-          <li>All 50+ categories</li>
-          <li>Export to CSV</li>
-          <li>Priority support</li>
-        </ul>
-        <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" class="plan-cta plan-cta-primary" data-plan="annual" data-price="59.99">Start Free Trial →</a>
-      </div>
-    </div>
-
-    <p class="pricing-guarantee">
-      <strong>Secure checkout via Stripe.</strong> &nbsp;·&nbsp; Cancel anytime, no questions asked. &nbsp;·&nbsp; Questions? <a href="mailto:grayson@venom-industries.com" style="color:var(--blue);text-decoration:none;">grayson@venom-industries.com</a>
-    </p>
-  </div>
-</div>
-
-<div class="full-rule"></div>
-
-<!-- CTA BAND -->
-<div class="cta-band">
-  <div class="cta-band-inner">
     <div>
-      <h2>ONE CLICK.<br>THE WHOLE STACK.</h2>
-      <p style="font-family:var(--fm);font-size:12px;color:var(--muted2);margin-top:.75rem;max-width:380px;line-height:1.7;">Free forever. No account. Works on every website immediately after install. Takes 10 seconds to add.</p>
+      <div class="badge"><div class="badge-dot"></div>Free Chrome Extension</div>
+      <h1>Reveal any website's <em>tech stack</em> in one click.</h1>
+      <p class="hero-sub">SaaS Detective scans any page you visit and instantly surfaces every tool, platform, and framework powering it — before you finish reading the URL bar.</p>
+      <div class="hero-actions">
+        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-cta">Add to Chrome — Free</a>
+        <a href="#pricing" class="btn-outline">See Pricing</a>
+      </div>
+      <p class="hero-note">No account required &nbsp;·&nbsp; Works on any website &nbsp;·&nbsp; Private by design</p>
+      <div class="hero-proof">
+        <div class="proof-item"><span>200+</span> tool signatures</div>
+        <div class="proof-item"><span>45+</span> categories</div>
+        <div class="proof-item"><span>&lt;1s</span> detection time</div>
+        <div class="proof-item"><span>0</span> bytes of browsing data collected</div>
+      </div>
     </div>
-    <div class="cta-band-right">
-      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="btn-white">Add to Chrome — It's Free →</a>
-      <div class="cta-note">★★★★★ Chrome Web Store &nbsp;·&nbsp; 7-day free trial on Annual &nbsp;·&nbsp; Cancel anytime</div>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <div class="mockup-title"><div class="mockup-icon">🔍</div>SaaS Detective</div>
+        <div class="mockup-url">shopify.com</div>
+      </div>
+      <div class="mockup-body">
+        <div class="m-cat">E-Commerce</div>
+        <span class="m-chip"><div class="m-dot" style="background:#4ade80;"></div>Shopify</span>
+        <div class="m-cat">Analytics</div>
+        <span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Google Analytics</span>
+        <span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Segment</span>
+        <div class="m-cat">Email</div>
+        <span class="m-chip"><div class="m-dot" style="background:#fb923c;"></div>Klaviyo</span>
+        <div class="m-cat">CRM · <span style="color:var(--accent);font-size:.56rem;">2 PRO TOOLS</span></div>
+        <span class="m-chip locked"><div class="m-dot" style="background:#a78bfa;"></div>████████</span>
+        <span class="m-chip locked"><div class="m-dot" style="background:#a78bfa;"></div>███████</span>
+        <div class="mockup-upgrade">
+          <div class="mockup-upgrade-text">+4 Pro tools detected</div>
+          <button class="mockup-upgrade-btn">Upgrade — from $5/mo</button>
+        </div>
+      </div>
+      <div class="mockup-footer">
+        <div class="m-count"><em>4</em> tools detected</div>
+        <div class="m-count">Scan complete ✓</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-left">
-    <span class="footer-name">VENOM<span>.</span>INDUSTRIES &mdash; Colorado, USA</span>
-  </div>
-  <div class="footer-links">
-    <a href="/index.html">Home</a>
-    <a href="/saas-detective.html">SaaS Detective</a>
-    <a href="/subscribe.html">Pricing</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/about/">About</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="mailto:grayson@venom-industries.com">Contact</a>
-  </div>
-  <div class="footer-links" style="color:#444;">© 2026 Venom Industries LLC</div>
-</footer>
+<div class="stats-strip">
+  <div class="stat reveal"><div class="stat-num">200<span>+</span></div><div class="stat-label">Tool signatures</div></div>
+  <div class="stat reveal"><div class="stat-num">45<span>+</span></div><div class="stat-label">Categories covered</div></div>
+  <div class="stat reveal"><div class="stat-num">&lt;1<span>s</span></div><div class="stat-label">Time to detect</div></div>
+  <div class="stat reveal"><div class="stat-num">0</div><div class="stat-label">Browsing data collected</div></div>
+</div>
 
+<div class="section">
+  <div class="section-label">Who it's for</div>
+  <h2 class="section-title reveal">Stop walking in blind.</h2>
+  <p class="section-sub reveal">Every website you visit is a data point. SaaS Detective turns it into actionable intelligence.</p>
+  <div class="who-grid">
+    <div class="who-card reveal"><span class="who-icon">🎯</span><h3>Sales Professionals</h3><p>Know what CRM, analytics, and ad platforms your prospect runs before you dial. Walk into discovery calls with context. Close with confidence.</p></div>
+    <div class="who-card reveal"><span class="who-icon">🚀</span><h3>Founders &amp; Strategists</h3><p>See the exact toolset behind businesses you admire or compete with. Validate stack decisions with real-world signal instead of guesswork.</p></div>
+    <div class="who-card reveal"><span class="who-icon">🏢</span><h3>Agencies &amp; Consultants</h3><p>Audit any prospect's stack before the first meeting. Spot outdated tools and integration gaps. Show up as the expert who already did the homework.</p></div>
+    <div class="who-card reveal"><span class="who-icon">⚙️</span><h3>Developers &amp; Engineers</h3><p>Identify frameworks, libraries, CDNs, and infrastructure on any site in seconds — no digging through source code, no guessing.</p></div>
+  </div>
+</div>
 
-  <script>
-    // Nav scroll
-    const _vnav = document.getElementById('vnav');
-    const _vp = document.getElementById('vp');
-    if(_vnav) window.addEventListener('scroll', () => {
-      _vnav.style.background = scrollY > 60 ? 'rgba(6,6,8,.98)' : 'rgba(6,6,8,.88)';
-      if(_vp) _vp.style.width = Math.min(scrollY/(document.body.scrollHeight-innerHeight)*100,100)+'%';
+<div class="section-alt">
+  <div class="section">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title reveal">Three seconds from curious to informed.</h2>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><span class="step-icon">🌐</span><h3>Browse any website</h3><p>Visit a competitor, a prospect, a brand you're studying — SaaS Detective works on the entire web, on any page, instantly.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><span class="step-icon">🔍</span><h3>Click the icon</h3><p>Click the SaaS Detective icon in your Chrome toolbar. A two-pass scanner checks HTML patterns and JavaScript globals simultaneously.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><span class="step-icon">⚡</span><h3>See the full stack</h3><p>Every detected tool appears immediately, grouped by category with descriptions and alternatives. No page reload. No waiting.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Coverage</div>
+  <h2 class="section-title reveal">Every layer of the modern web stack.</h2>
+  <p class="section-sub reveal">45+ categories covering every tool category that matters in 2026.</p>
+  <div class="cat-cloud reveal">
+    <span class="cat-pill">Analytics</span><span class="cat-pill">CRM</span><span class="cat-pill">E-Commerce</span><span class="cat-pill">Email Marketing</span><span class="cat-pill">Live Chat</span><span class="cat-pill">Heatmaps</span><span class="cat-pill">Session Replay</span><span class="cat-pill">Payments</span><span class="cat-pill">Advertising</span><span class="cat-pill">Retargeting</span><span class="cat-pill">A/B Testing</span><span class="cat-pill">Push Notifications</span><span class="cat-pill">Marketing Automation</span><span class="cat-pill">CMS</span><span class="cat-pill">Website Builders</span><span class="cat-pill">Frameworks</span><span class="cat-pill">Libraries</span><span class="cat-pill">CSS</span><span class="cat-pill">Hosting</span><span class="cat-pill">CDN</span><span class="cat-pill">Storage</span><span class="cat-pill">Security</span><span class="cat-pill">Compliance</span><span class="cat-pill">Error Tracking</span><span class="cat-pill">Observability</span><span class="cat-pill">Forms</span><span class="cat-pill">Scheduling</span><span class="cat-pill">Video</span><span class="cat-pill">No-Code</span><span class="cat-pill">Automation</span><span class="cat-pill">Customer Success</span><span class="cat-pill">Sales Intelligence</span><span class="cat-pill">Reviews</span><span class="cat-pill">Community</span><span class="cat-pill">Courses</span><span class="cat-pill">Maps</span><span class="cat-pill">Communications</span><span class="cat-pill">Support</span><span class="cat-pill">Native Ads</span><span class="cat-pill">Referral</span><span class="cat-pill">Search</span><span class="cat-pill">Fonts</span><span class="cat-pill">Icons</span><span class="cat-pill">Comments</span><span class="cat-pill">Data Platform</span>
+  </div>
+</div>
+
+<div class="section-alt" id="pricing">
+  <div class="section">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title reveal">Simple. Honest. No surprises.</h2>
+    <p class="section-sub reveal">Start free. Upgrade when you need more. Cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="plan reveal">
+        <div class="plan-name">Free</div>
+        <div class="plan-price"><sup>$</sup>0</div>
+        <div class="plan-period">forever</div>
+        <p class="plan-desc">Detect the 50 most common tools on any website. No account, no credit card, no catch.</p>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> <span>50 tool signatures</span></li>
+          <li><span class="check">✓</span> <span>All 45+ categories visible</span></li>
+          <li><span class="check">✓</span> <span>Tool descriptions</span></li>
+          <li><span class="check">✓</span> <span>Competitor alternatives</span></li>
+          <li><span class="check">✓</span> <span>One-click visit links</span></li>
+          <li><span class="cross">—</span> <span>Full 200+ tool library</span></li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-plan btn-plan-free">Add to Chrome — Free</a>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-name">Pro · Monthly</div>
+        <div class="plan-price"><sup>$</sup>7<span style="font-size:1.4rem;">.99</span></div>
+        <div class="plan-period">per month · cancel anytime</div>
+        <p class="plan-desc">Full access to every signature. No commitment, cancel whenever.</p>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> <span><strong>200+ tool signatures</strong></span></li>
+          <li><span class="check">✓</span> <span>All 45+ categories</span></li>
+          <li><span class="check">✓</span> <span>Tool descriptions + alternatives</span></li>
+          <li><span class="check">✓</span> <span>One-click visit links</span></li>
+          <li><span class="check">✓</span> <span>Priority support</span></li>
+          <li><span class="check">✓</span> <span>All future signatures</span></li>
+        </ul>
+        <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" target="_blank" rel="noopener" class="btn-plan btn-plan-pro">Get Pro — $7.99/mo</a>
+      </div>
+      <div class="plan featured reveal">
+        <div class="plan-badge">Best Value</div>
+        <div class="plan-name">Pro · Annual</div>
+        <div class="plan-price"><sup>$</sup>59<span style="font-size:1.4rem;">.99</span></div>
+        <div class="plan-period">per year · one-time charge</div>
+        <div class="plan-save">Save 37% — $5/mo equivalent</div>
+        <p class="plan-desc">Everything in Pro. Best price. One payment, full year of access.</p>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> <span><strong>200+ tool signatures</strong></span></li>
+          <li><span class="check">✓</span> <span>All 45+ categories</span></li>
+          <li><span class="check">✓</span> <span>Tool descriptions + alternatives</span></li>
+          <li><span class="check">✓</span> <span>One-click visit links</span></li>
+          <li><span class="check">✓</span> <span>Priority support</span></li>
+          <li><span class="check">✓</span> <span>All future signatures</span></li>
+        </ul>
+        <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" target="_blank" rel="noopener" class="btn-plan btn-plan-pro">Get Pro — $59.99/yr</a>
+        <p class="plan-note">License key delivered instantly to your email.</p>
+      </div>
+    </div>
+    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; License key delivered instantly</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title reveal">Common questions.</h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How does SaaS Detective detect tools? <span class="faq-arrow">▾</span></button><div class="faq-a">SaaS Detective runs a two-pass scan entirely in your browser. First it checks the page HTML for known script patterns and URLs. Then it injects a sandboxed script to check JavaScript global variables. Nothing leaves your device — no page data is ever sent to our servers.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Does it work on every website? <span class="faq-arrow">▾</span></button><div class="faq-a">It works on the vast majority of public websites. Some sites with strict Content Security Policies may limit the JavaScript global variable check, but the HTML pattern scan always runs. Detection accuracy is high across all major platforms.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Is my browsing data private? <span class="faq-arrow">▾</span></button><div class="faq-a">Yes — completely. All scanning is client-side. We never transmit, log, or store which sites you visit. The only network request SaaS Detective makes is license validation (Pro users only) — and that only sends your license key, nothing about the sites you visit.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What's the difference between Free and Pro? <span class="faq-arrow">▾</span></button><div class="faq-a">Free detects the 50 most common tools — covering the basics like Google Analytics, Shopify, React, Stripe, HubSpot, and more. Pro unlocks all 200+ signatures, including every category: CRM, A/B testing, customer success, sales intelligence, native ads, compliance tools, and everything we add in future updates.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How do I get my license key? <span class="faq-arrow">▾</span></button><div class="faq-a">After checkout via Stripe, your license key is delivered instantly to your email. Open the SaaS Detective extension, click Options, paste the key in the License Key field, and hit Activate. Takes about 10 seconds.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I cancel? <span class="faq-arrow">▾</span></button><div class="faq-a">Monthly Pro can be cancelled anytime from your Stripe billing portal — no questions asked. The 3-month, 6-month, and annual plans are one-time charges with no recurring billing, so there's nothing to cancel. Your access is active for the full period you paid for.</div></div>
+  </div>
+</div>
+
+<div class="final-cta">
+  <div class="final-glow"></div>
+  <div class="section-label">Get started</div>
+  <h2 class="section-title reveal">Your competitors are using tools<br/><em>you don't know about yet.</em></h2>
+  <p class="reveal">Start detecting their stack for free. No account required.</p>
+  <div class="final-actions reveal">
+    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-cta">Add to Chrome — It's Free</a>
+    <a href="#pricing" class="btn-outline">See Pricing</a>
+  </div>
+</div>
+
+<site-footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name"><div class="logo-mark" style="width:24px;height:24px;font-size:.75rem;">V</div>Venom Industries</div>
+      <p class="footer-brand-desc">Building software tools that give founders, marketers, and sales teams an unfair advantage.</p>
+    </div>
+    <div class="footer-col"><div class="footer-col-title">Products</div><a href="/saas-detective">SaaS Detective</a></div>
+    <div class="footer-col"><div class="footer-col-title">Company</div><a href="/about">About</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
+    <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:grayson@venom-industries.com">grayson@venom-industries.com</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>Venom Industries LLC</span> — All rights reserved.</div>
+    <div class="footer-copy">Built in the US &nbsp;·&nbsp; Payments secured by <span>Stripe</span></div>
+  </div>
+</site-footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+  const observer=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);observer.unobserve(e.target);}});},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
     });
-    // Hide nav links on mobile
-    const _nl = document.querySelector('.venom-nlinks');
-    if(_nl && window.innerWidth < 900) _nl.style.display = 'none';
-
-    /* GTM CONVERSION EVENTS */
-    (function(){
-      var dl = window.dataLayer = window.dataLayer || [];
-
-      // CTA clicks — Chrome Web Store
-      document.querySelectorAll('a[href*="chromewebstore.google.com"]').forEach(function(el){
-        el.addEventListener('click', function(){
-          dl.push({ event: 'cta_click', cta_label: el.textContent.trim(), cta_location: el.closest('nav') ? 'nav' : 'page', page: 'saas_detective' });
-        });
-      });
-
-      // Pricing plan clicks
-      document.querySelectorAll('a[data-plan]').forEach(function(el){
-        el.addEventListener('click', function(){
-          dl.push({ event: 'upgrade_click', plan: el.dataset.plan, price: el.dataset.price, page: 'saas_detective' });
-        });
-      });
-
-      // Scroll depth milestones
-      var depths = [25, 50, 75, 90], fired = {};
-      window.addEventListener('scroll', function(){
-        var pct = Math.round((scrollY / (document.body.scrollHeight - innerHeight)) * 100);
-        depths.forEach(function(d){ if(pct >= d && !fired[d]){ fired[d] = true; dl.push({ event: 'scroll_depth', depth: d, page: 'saas_detective' }); } });
-      }, { passive: true });
-    })();
-  </script>
+  });
+</script>
 </body>
 </html>
-
-
-
-
-
-
