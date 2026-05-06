@@ -150,9 +150,40 @@
     @media(max-width:900px){.hero{grid-template-columns:1fr;padding:140px 24px 60px;}.pricing-grid{grid-template-columns:1fr;max-width:400px;}.who-grid{grid-template-columns:1fr;}.steps{grid-template-columns:1fr;}.step:first-child{border-radius:12px 12px 0 0;}.step:last-child{border-radius:0 0 12px 12px;}}
     @media(max-width:768px){nav{padding:18px 24px;}.nav-links{display:none;}.stats-strip{flex-direction:column;}.stat{border-right:none;border-bottom:1px solid var(--border);padding:36px 24px;}.stat:last-child{border-bottom:none;}.section{padding:72px 24px;}.final-cta{padding:100px 24px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
     @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}}
+  @media(max-width:768px){.mobile-nudge{display:flex!important;}}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SaaS Detective",
+    "description": "One click on any website reveals every tool, platform, and framework powering it. 200+ signatures across 45+ categories. Free Chrome extension.",
+    "url": "https://venom-industries.com/saas-detective",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Venom Industries",
+      "url": "https://venom-industries.com"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "10"
+    }
+  }
+  </script>
 </head>
 <body>
+  <div class="mobile-nudge" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0e0f18;border-top:1px solid rgba(200,241,53,0.2);padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;">
+    <span style="font-size:.82rem;color:#eeeef5;line-height:1.4;">SaaS Detective is a Chrome extension — open this page on a desktop browser to install.</span>
+    <button onclick="this.parentElement.style.display='none'" style="flex-shrink:0;background:transparent;border:1px solid #2a2b40;border-radius:6px;color:#5a5b78;font-size:.72rem;padding:6px 12px;cursor:pointer;">Got it</button>
+  </div>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav id="nav">
