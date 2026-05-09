@@ -318,7 +318,7 @@
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
-        <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" target="_blank" rel="noopener" class="btn-plan btn-plan-pro">Get Pro — $7.99/mo</a>
+        <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="monthly" data-price="7.99">Get Pro — $7.99/mo</a>
       </div>
       <div class="plan featured reveal">
         <div class="plan-badge">Best Value</div>
@@ -335,11 +335,11 @@
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
-        <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" target="_blank" rel="noopener" class="btn-plan btn-plan-pro">Get Pro — $59.99/yr</a>
+        <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="yearly" data-price="59.99">Get Pro — $59.99/yr</a>
         <p class="plan-note">License key delivered instantly to your email.</p>
       </div>
     </div>
-    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; License key delivered instantly</p>
+    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" data-stripe-checkout data-plan="3month" data-price="19.99">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05" data-stripe-checkout data-plan="6month" data-price="34.99">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; License key delivered instantly</p>
   </div>
 </div>
 
@@ -395,6 +395,39 @@
       if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
     });
   });
+</script>
+<script>
+  (function () {
+    var TRACK_URL = 'https://saas-detective-licensing.kubegrayson.workers.dev/track';
+    var KEY = 'sd_ga_client_id';
+    var clientId;
+    try {
+      clientId = localStorage.getItem(KEY);
+      if (!clientId) {
+        clientId = Math.random().toString(36).slice(2) + '.' + Date.now();
+        localStorage.setItem(KEY, clientId);
+      }
+    } catch (_) {
+      clientId = 'anon.' + Date.now();
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest && e.target.closest('a[data-stripe-checkout]');
+      if (!a) return;
+      var params = {
+        plan: a.getAttribute('data-plan') || 'unknown',
+        price: a.getAttribute('data-price') || '',
+        location: 'marketing_site'
+      };
+      try {
+        fetch(TRACK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ client_id: clientId, events: [{ name: 'checkout_begin', params: params }] }),
+          keepalive: true
+        });
+      } catch (_) {}
+    }, true);
+  })();
 </script>
 </body>
 </html>
