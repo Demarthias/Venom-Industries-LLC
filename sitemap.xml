@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://venom-industries.com/</loc><lastmod>2026-04-17</lastmod><priority>1.00</priority></url>
-  <url><loc>https://venom-industries.com/saas-detective</loc><lastmod>2026-05-06</lastmod><priority>0.95</priority></url>
+  <url><loc>https://venom-industries.com/</loc><lastmod>2026-05-11</lastmod><priority>1.00</priority></url>
+  <url><loc>https://venom-industries.com/saas-detective</loc><lastmod>2026-05-11</lastmod><priority>0.95</priority></url>
   <url><loc>https://venom-industries.com/products</loc><lastmod>2026-04-17</lastmod><priority>0.85</priority></url>
   <url><loc>https://venom-industries.com/about</loc><lastmod>2026-03-18</lastmod><priority>0.80</priority></url>
-  <url><loc>https://venom-industries.com/blog</loc><lastmod>2026-03-18</lastmod><priority>0.80</priority></url>
+  <url><loc>https://venom-industries.com/blog</loc><lastmod>2026-05-11</lastmod><priority>0.80</priority></url>
+  <url><loc>https://venom-industries.com/blog/framer-vs-webflow-2026</loc><lastmod>2026-05-06</lastmod><priority>0.80</priority></url>
+  <url><loc>https://venom-industries.com/blog/founder-stack-2026</loc><lastmod>2026-05-06</lastmod><priority>0.80</priority></url>
   <url><loc>https://venom-industries.com/blog/find-email-marketing-tool</loc><lastmod>2026-05-06</lastmod><priority>0.75</priority></url>
   <url><loc>https://venom-industries.com/blog/find-website-builder</loc><lastmod>2026-05-06</lastmod><priority>0.75</priority></url>
   <url><loc>https://venom-industries.com/blog/best-chrome-extensions-tech-stack</loc><lastmod>2026-05-02</lastmod><priority>0.75</priority></url>
