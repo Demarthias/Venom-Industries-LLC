@@ -152,6 +152,23 @@
     .compare-table .compare-check{color:var(--accent);font-weight:700;}
     .compare-table .compare-cross{color:var(--muted);opacity:.5;}
     @media(max-width:900px){.pricing-stats{grid-template-columns:repeat(2,1fr);}.pricing-stat:nth-child(2){border-right:none;}.pricing-stat:nth-child(1),.pricing-stat:nth-child(2){border-bottom:1px solid var(--border);}.compare-table th,.compare-table td{padding:10px 12px;font-size:.78rem;}}
+    .trial-cta-card{margin:32px auto 0;max-width:760px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;}
+    .trial-cta-card.has-result{grid-template-columns:1fr;text-align:center;}
+    .trial-cta-text h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:-.02em;margin:0 0 6px;}
+    .trial-cta-text p{font-size:.85rem;color:var(--muted);margin:0;line-height:1.5;}
+    .trial-form{display:flex;gap:8px;align-items:stretch;}
+    .trial-form input{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-family:inherit;font-size:.88rem;color:var(--text);min-width:240px;outline:none;transition:border-color .15s;}
+    .trial-form input:focus{border-color:var(--accent);}
+    .trial-form button{background:var(--accent);color:var(--bg);border:none;border-radius:8px;padding:11px 22px;font-family:'DM Mono',monospace;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .15s,transform .15s;}
+    .trial-form button:hover:not(:disabled){opacity:.87;transform:translateY(-1px);}
+    .trial-form button:disabled{opacity:.5;cursor:wait;}
+    .trial-result{display:none;}
+    .trial-result.show{display:block;}
+    .trial-result-key{font-family:monospace;font-size:1.05rem;font-weight:700;letter-spacing:.08em;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 20px;margin:16px auto;max-width:360px;}
+    .trial-result-steps{font-size:.82rem;color:var(--muted);margin:8px 0 0;line-height:1.7;}
+    .trial-error{color:#f87171;font-size:.85rem;margin-top:10px;display:none;}
+    .trial-error.show{display:block;}
+    @media(max-width:700px){.trial-cta-card{grid-template-columns:1fr;text-align:center;}.trial-form{flex-direction:column;}.trial-form input{min-width:auto;width:100%;}}
     .faq-list{margin-top:40px;max-width:680px;}
     .faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--card);overflow:hidden;}
     .faq-q{width:100%;background:none;border:none;padding:18px 22px;text-align:left;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
@@ -369,6 +386,24 @@
     </div>
     <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" data-stripe-checkout data-plan="3month" data-price="19.99">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05" data-stripe-checkout data-plan="6month" data-price="34.99">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; License key delivered instantly</p>
 
+    <div class="trial-cta-card reveal" id="trialCard">
+      <div class="trial-cta-text">
+        <h3>Not sure yet? Try Pro free for 7 days.</h3>
+        <p>Full access to all 175+ signatures. No credit card. We'll email your key.</p>
+      </div>
+      <form class="trial-form" id="trialForm" novalidate>
+        <input type="email" id="trialEmail" placeholder="you@company.com" required autocomplete="email" />
+        <button type="submit" id="trialSubmit">Start free trial</button>
+      </form>
+      <div class="trial-error" id="trialError"></div>
+      <div class="trial-result" id="trialResult">
+        <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 4px;">Your trial is active.</h3>
+        <p style="font-size:.85rem;color:var(--muted);margin:0;">7 days of full Pro access. Save this key — we've also sent it to your inbox.</p>
+        <div class="trial-result-key" id="trialResultKey">—</div>
+        <p class="trial-result-steps">Open the SaaS Detective extension → Options → paste your key → Activate.</p>
+      </div>
+    </div>
+
     <div class="compare-wrap reveal">
       <div class="compare-title">What you get</div>
       <table class="compare-table">
@@ -454,6 +489,58 @@
       }
     } catch (_) {
       clientId = 'anon.' + Date.now();
+    }
+    var TRIAL_URL = 'https://saas-detective-licensing.kubegrayson.workers.dev/trial/start';
+    var trialForm = document.getElementById('trialForm');
+    if (trialForm) {
+      trialForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var email = (document.getElementById('trialEmail').value || '').trim();
+        var btn = document.getElementById('trialSubmit');
+        var errorEl = document.getElementById('trialError');
+        errorEl.classList.remove('show');
+        if (!email || email.indexOf('@') < 0) {
+          errorEl.textContent = 'Please enter a valid email.';
+          errorEl.classList.add('show');
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = 'Starting…';
+        try {
+          var res = await fetch(TRIAL_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, client_id: clientId }),
+          });
+          var data = await res.json().catch(function () { return {}; });
+          if (res.ok && data.ok && data.key) {
+            document.getElementById('trialResultKey').textContent = data.key;
+            document.getElementById('trialCard').classList.add('has-result');
+            trialForm.style.display = 'none';
+            document.getElementById('trialResult').classList.add('show');
+            try {
+              fetch(TRACK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ client_id: clientId, events: [{ name: 'trial_form_submitted', params: { location: 'marketing_site', email_sent: data.email_sent ? 1 : 0 } }] }),
+                keepalive: true,
+              });
+            } catch (_) {}
+          } else if (res.status === 409) {
+            errorEl.textContent = 'A trial has already been issued for this email. Check your inbox or contact support.';
+            errorEl.classList.add('show');
+          } else {
+            errorEl.textContent = (data && data.error) ? data.error : 'Could not start trial. Please try again.';
+            errorEl.classList.add('show');
+          }
+        } catch (_) {
+          errorEl.textContent = 'Network error. Please try again.';
+          errorEl.classList.add('show');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Start free trial';
+        }
+      });
     }
     document.addEventListener('click', function (e) {
       var a = e.target && e.target.closest && e.target.closest('a[data-stripe-checkout]');
