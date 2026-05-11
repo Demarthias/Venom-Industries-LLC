@@ -32,6 +32,8 @@
     .nav-links a:hover,.nav-links a.active{color:var(--text);}
     .btn-nav{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:10px 20px;border-radius:6px;cursor:pointer;transition:opacity .2s,transform .15s;display:inline-block;}
     .btn-nav:hover{opacity:.85;transform:translateY(-1px);}
+    .nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);cursor:pointer;padding:8px 10px;font-size:1.2rem;line-height:1;border-radius:6px;margin-left:auto;}
+    .nav-toggle:hover{border-color:var(--accent);color:var(--accent);}
     .btn-outline{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text);background:transparent;padding:10px 20px;border-radius:6px;border:1px solid var(--border);transition:border-color .2s;display:inline-block;}
     .btn-outline:hover{border-color:var(--muted);}
     site-footer{display:block;position:relative;z-index:1;border-top:1px solid var(--border);padding:48px;}
@@ -184,7 +186,7 @@
     .final-cta p{color:var(--muted);margin-bottom:40px;font-weight:300;}
     .final-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
     @media(max-width:900px){.hero{grid-template-columns:1fr;padding:140px 24px 60px;}.pricing-grid{grid-template-columns:1fr;max-width:400px;}.who-grid{grid-template-columns:1fr;}.steps{grid-template-columns:1fr;}.step:first-child{border-radius:12px 12px 0 0;}.step:last-child{border-radius:0 0 12px 12px;}}
-    @media(max-width:768px){nav{padding:18px 24px;}.nav-links{display:none;}.stats-strip{flex-direction:column;}.stat{border-right:none;border-bottom:1px solid var(--border);padding:36px 24px;}.stat:last-child{border-bottom:none;}.section{padding:72px 24px;}.final-cta{padding:100px 24px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
+    @media(max-width:768px){nav{padding:18px 24px;flex-wrap:wrap;}.nav-toggle{display:block;}.nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding:8px 0 4px;order:99;margin-top:14px;border-top:1px solid var(--border);}.nav-links li{list-style:none;}.nav-links a{display:block;padding:14px 4px;font-size:1rem;border-bottom:1px solid var(--border);}.nav-links li:last-child a{border-bottom:none;}nav.nav-open .nav-links{display:flex;}.stats-strip{flex-direction:column;}.stat{border-right:none;border-bottom:1px solid var(--border);padding:36px 24px;}.stat:last-child{border-bottom:none;}.section{padding:72px 24px;}.final-cta{padding:100px 24px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
     @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}}
   @media(max-width:768px){.mobile-nudge{display:flex!important;}}
   </style>
@@ -231,7 +233,27 @@
     <li><a href="/about">About</a></li>
   </ul>
   <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-nav">Add to Chrome — Free</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 </nav>
+<script>
+  (function(){
+    var nav=document.getElementById('nav');
+    var btn=document.getElementById('navToggle');
+    if(!nav||!btn)return;
+    btn.addEventListener('click',function(){
+      var open=nav.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.textContent=open?'✕':'☰';
+    });
+    nav.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click',function(){
+        nav.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded','false');
+        btn.textContent='☰';
+      });
+    });
+  })();
+</script>
 <div class="hero-glow"></div>
 
 <div style="position:relative;z-index:1;">
