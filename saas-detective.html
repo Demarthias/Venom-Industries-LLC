@@ -365,7 +365,7 @@
 
     <!-- TODO (sd-pricing): swap the "Founders & sales" stat for a live Chrome Web Store install count (e.g. "1,200+") once available. -->
     <div class="pricing-stats reveal">
-      <div class="pricing-stat"><div class="pricing-stat-num"><em>175<sup style="font-size:1rem;">+</sup></em></div><div class="pricing-stat-label">Tool signatures</div></div>
+      <div class="pricing-stat"><div class="pricing-stat-num"><em>208<sup style="font-size:1rem;">+</sup></em></div><div class="pricing-stat-label">Tool signatures</div></div>
       <div class="pricing-stat"><div class="pricing-stat-num"><em>45<sup style="font-size:1rem;">+</sup></em></div><div class="pricing-stat-label">Categories detected</div></div>
       <div class="pricing-stat"><div class="pricing-stat-num"><em>100%</em></div><div class="pricing-stat-label">Client-side &amp; private</div></div>
       <div class="pricing-stat"><div class="pricing-stat-num">Founders<br>&amp; sales</div><div class="pricing-stat-label">Built for</div></div>
@@ -426,7 +426,7 @@
     <div class="trial-cta-card reveal" id="trialCard">
       <div class="trial-cta-text">
         <h3>Not sure yet? Try Pro free for 7 days.</h3>
-        <p>Full access to all 175+ signatures. No credit card. We'll email your key.</p>
+        <p>Full access to all 208+ signatures. No credit card. We'll email your key.</p>
       </div>
       <form class="trial-form" id="trialForm" novalidate>
         <input type="email" id="trialEmail" placeholder="you@company.com" required autocomplete="email" />
@@ -446,7 +446,7 @@
       <table class="compare-table">
         <thead><tr><th class="col-feature">Feature</th><th class="col-free">Free</th><th class="col-pro">Pro</th></tr></thead>
         <tbody>
-          <tr><td>Tool signatures detected</td><td class="cell-value dim">50 most common</td><td class="cell-value"><strong>All 175+</strong></td></tr>
+          <tr><td>Tool signatures detected</td><td class="cell-value dim">50 most common</td><td class="cell-value"><strong>All 208+</strong></td></tr>
           <tr><td>Categories covered</td><td class="cell-value">45+</td><td class="cell-value">45+</td></tr>
           <tr><td>One-click visit links</td><td class="cell-value"><span class="compare-check">✓</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
           <tr><td>Tool descriptions &amp; alternatives</td><td class="cell-value"><span class="compare-check">✓</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
@@ -622,7 +622,7 @@
         fetch(TRACK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ client_id: clientId, events: [{ name: 'checkout_begin', params: params }] }),
+          body: JSON.stringify({ client_id: clientId, events: [{ name: 'begin_checkout', params: params }] }),
           keepalive: true
         });
       } catch (_) {}

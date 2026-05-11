@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — Venom Industries</title>
+  <title>Contact — Venom Industries</title>
+  <meta name="description" content="Get in touch with Venom Industries. Questions about SaaS Detective, licensing, or partnerships." />
+  <link rel="canonical" href="https://venom-industries.com/contact" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
     :root{--bg:#07080d;--surface:#0e0f18;--border:#1a1b2e;--accent:#c8f135;--accent-dim:rgba(200,241,53,0.1);--text:#eeeef5;--muted:#5a5b78;--card:#0c0d18;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,241,53,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(200,241,53,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0;}
     a{color:inherit;text-decoration:none;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(7,8,13,0.92);backdrop-filter:blur(20px);border-color:var(--border);}
     .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:10px;}
     .logo-mark{width:30px;height:30px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
     .nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
@@ -21,18 +25,19 @@
     .nav-links a:hover{color:var(--text);}
     .btn-nav{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:10px 20px;border-radius:6px;transition:opacity .2s;display:inline-block;}
     .btn-nav:hover{opacity:.85;}
-    main{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;padding:80px 48px;text-align:center;}
-    .err-code{font-family:'DM Mono',monospace;font-size:7rem;font-weight:500;color:var(--accent);line-height:1;margin-bottom:16px;opacity:.18;position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);pointer-events:none;user-select:none;}
-    .content{position:relative;z-index:1;}
-    .label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
-    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;}
-    p{font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:40px;max-width:440px;margin-left:auto;margin-right:auto;}
-    .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-    .btn-primary{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:12px 24px;border-radius:6px;transition:opacity .2s;}
-    .btn-primary:hover{opacity:.85;}
-    .btn-ghost{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text);background:transparent;padding:12px 24px;border-radius:6px;border:1px solid var(--border);transition:border-color .2s;}
-    .btn-ghost:hover{border-color:var(--muted);}
-    site-footer{display:block;position:relative;z-index:1;border-top:1px solid var(--border);padding:32px 48px;}
+    main{position:relative;z-index:1;flex:1;padding:160px 48px 100px;max-width:700px;margin:0 auto;width:100%;}
+    .section-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.06;margin-bottom:24px;}
+    .sub{font-size:1.05rem;color:var(--muted);line-height:1.7;margin-bottom:56px;max-width:520px;}
+    .contact-cards{display:flex;flex-direction:column;gap:16px;}
+    .contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;display:flex;align-items:flex-start;gap:20px;transition:border-color .2s;}
+    .contact-card:hover{border-color:var(--accent);}
+    .cc-icon{width:40px;height:40px;background:var(--accent-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+    .cc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px;}
+    .cc-desc{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:10px;}
+    .cc-link{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;}
+    .cc-link:hover{text-decoration:underline;}
+    site-footer{display:block;position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;}
     .footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .footer-copy{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.04em;}
     .footer-copy span{color:var(--accent);}
@@ -43,7 +48,7 @@
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<nav>
+<nav id="nav">
   <a href="/" class="logo"><span class="logo-mark">V</span>Venom Industries</a>
   <ul class="nav-links">
     <li><a href="/saas-detective.html">SaaS Detective</a></li>
@@ -54,16 +59,35 @@
 </nav>
 
 <main>
-  <div class="err-code">404</div>
-  <div class="content">
-    <p class="label">Error 404</p>
-    <h1>Page not found.</h1>
-    <p>That URL doesn't exist. It may have moved or been removed.</p>
-    <div class="actions">
-      <a href="/" class="btn-primary">Go Home</a>
-      <a href="/saas-detective.html" class="btn-ghost">SaaS Detective</a>
-      <a href="/contact/" class="btn-ghost">Contact</a>
-    </div>
+  <p class="section-label">Contact</p>
+  <h1>Let's talk.</h1>
+  <p class="sub">Questions about SaaS Detective, licensing, partnerships, or anything else — reach out directly.</p>
+
+  <div class="contact-cards">
+    <a href="mailto:grayson@venom-industries.com" class="contact-card">
+      <div class="cc-icon">✉</div>
+      <div>
+        <div class="cc-title">Email</div>
+        <div class="cc-desc">General inquiries, support, or partnership opportunities.</div>
+        <span class="cc-link">grayson@venom-industries.com</span>
+      </div>
+    </a>
+    <a href="/saas-detective.html" class="contact-card">
+      <div class="cc-icon">🔍</div>
+      <div>
+        <div class="cc-title">SaaS Detective</div>
+        <div class="cc-desc">Questions about the extension, plans, or your license key.</div>
+        <span class="cc-link">venom-industries.com/saas-detective →</span>
+      </div>
+    </a>
+    <a href="/about.html" class="contact-card">
+      <div class="cc-icon">⚡</div>
+      <div>
+        <div class="cc-title">About Venom Industries</div>
+        <div class="cc-desc">Learn more about who we are and what we build.</div>
+        <span class="cc-link">venom-industries.com/about →</span>
+      </div>
+    </a>
   </div>
 </main>
 
@@ -77,5 +101,10 @@
     </div>
   </div>
 </site-footer>
+
+<script>
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 20); });
+</script>
 </body>
 </html>
