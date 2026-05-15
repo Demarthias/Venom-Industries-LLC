@@ -1311,7 +1311,10 @@ ${NAV('sd')}
           <li><span class="check">✓</span> <span>Tool descriptions</span></li>
           <li><span class="check">✓</span> <span>Competitor alternatives</span></li>
           <li><span class="check">✓</span> <span>One-click visit links</span></li>
-          <li><span class="cross">—</span> <span>Full 175+ tool library</span></li>
+          <li><span class="check">✓</span> <span>Scan history — last 5 sites</span></li>
+          <li><span class="cross">—</span> <span>Full 200+ tool library</span></li>
+          <li><span class="cross">—</span> <span>Export results to CSV / JSON</span></li>
+          <li><span class="cross">—</span> <span>Scan history — last 50 sites</span></li>
         </ul>
         <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-plan btn-plan-free">Add to Chrome — Free</a>
       </div>
@@ -1323,10 +1326,12 @@ ${NAV('sd')}
         <div class="plan-period">per month · cancel anytime</div>
         <p class="plan-desc">Full access to every signature. No commitment, cancel whenever.</p>
         <ul class="plan-features">
-          <li><span class="check">✓</span> <span><strong>175+ tool signatures</strong></span></li>
+          <li><span class="check">✓</span> <span><strong>200+ tool signatures</strong></span></li>
           <li><span class="check">✓</span> <span>All 45+ categories</span></li>
           <li><span class="check">✓</span> <span>Tool descriptions + alternatives</span></li>
           <li><span class="check">✓</span> <span>One-click visit links</span></li>
+          <li><span class="check">✓</span> <span>Export results to CSV / JSON</span></li>
+          <li><span class="check">✓</span> <span>Scan history — last 50 sites</span></li>
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
@@ -1342,10 +1347,12 @@ ${NAV('sd')}
         <div class="plan-save">Save 37% — $5/mo equivalent</div>
         <p class="plan-desc">Everything in Pro. Best price. One payment, full year of access.</p>
         <ul class="plan-features">
-          <li><span class="check">✓</span> <span><strong>175+ tool signatures</strong></span></li>
+          <li><span class="check">✓</span> <span><strong>200+ tool signatures</strong></span></li>
           <li><span class="check">✓</span> <span>All 45+ categories</span></li>
           <li><span class="check">✓</span> <span>Tool descriptions + alternatives</span></li>
           <li><span class="check">✓</span> <span>One-click visit links</span></li>
+          <li><span class="check">✓</span> <span>Export results to CSV / JSON</span></li>
+          <li><span class="check">✓</span> <span>Scan history — last 50 sites</span></li>
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
@@ -1359,7 +1366,7 @@ ${NAV('sd')}
     <div class="trial-cta-card reveal" id="trialCard">
       <div class="trial-cta-text">
         <h3>Not sure yet? Try Pro free for 7 days.</h3>
-        <p>Full access to all 175+ signatures. No credit card. We'll email your key.</p>
+        <p>Full access to all 200+ signatures. No credit card. We'll email your key.</p>
       </div>
       <form class="trial-form" id="trialForm" novalidate>
         <input type="email" id="trialEmail" placeholder="you@company.com" required autocomplete="email" />
@@ -1385,10 +1392,12 @@ ${NAV('sd')}
           </tr>
         </thead>
         <tbody>
-          <tr><td>Tool signatures detected</td><td class="cell-value dim">50 most common</td><td class="cell-value"><strong>All 175+</strong></td></tr>
+          <tr><td>Tool signatures detected</td><td class="cell-value dim">50 most common</td><td class="cell-value"><strong>All 200+</strong></td></tr>
           <tr><td>Categories covered</td><td class="cell-value">45+</td><td class="cell-value">45+</td></tr>
           <tr><td>One-click visit links</td><td class="cell-value"><span class="compare-check">✓</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
           <tr><td>Tool descriptions &amp; alternatives</td><td class="cell-value"><span class="compare-check">✓</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
+          <tr><td>Export scan results (CSV / JSON)</td><td class="cell-value"><span class="compare-cross">—</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
+          <tr><td>Scan history</td><td class="cell-value dim">Last 5 sites</td><td class="cell-value"><strong>Last 50 sites</strong></td></tr>
           <tr><td>CRM, A/B testing, sales intel signatures</td><td class="cell-value"><span class="compare-cross">—</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
           <tr><td>Customer success, native ads, compliance</td><td class="cell-value"><span class="compare-cross">—</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
           <tr><td>All future signature additions</td><td class="cell-value"><span class="compare-cross">—</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
@@ -1418,7 +1427,7 @@ ${NAV('sd')}
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">What's the difference between Free and Pro? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">Free detects the 50 most common tools — covering the basics like Google Analytics, Shopify, React, Stripe, HubSpot, and more. Pro unlocks all 175+ signatures, including every category: CRM, A/B testing, customer success, sales intelligence, native ads, compliance tools, and everything we add in future updates.</div>
+      <div class="faq-a">Free detects the 50 most common tools and saves your last 5 scans. Pro unlocks all 200+ signatures across every category — CRM, A/B testing, customer success, sales intelligence, native ads, compliance tools, and everything we add in future updates. Pro also lets you export any scan to CSV or JSON, and saves your last 50 scanned sites with full tool history.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">How do I get my license key? <span class="faq-arrow">▾</span></button>
