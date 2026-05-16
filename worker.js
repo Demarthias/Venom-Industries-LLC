@@ -711,6 +711,15 @@ const SD_HTML = `<!DOCTYPE html>
   <meta property="og:description" content="One click on any website reveals every tool, platform, and framework powering it. 175+ signatures across 45+ categories." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://venom-industries.com/saas-detective" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://venom-industries.com/gtag/js?id=G-HVECKYG478"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HVECKYG478');
+    gtag('config', 'AW-18081432138');
+  </script>
   ${FONTS}
   <style>
     ${BASE_CSS}
