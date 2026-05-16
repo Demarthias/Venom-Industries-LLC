@@ -612,6 +612,9 @@
                 keepalive: true,
               });
             } catch (_) {}
+            try {
+              gtag('event', 'conversion', { 'send_to': 'AW-18081432138/3cruCP-ujq4cEMqE861D', 'value': 2.0, 'currency': 'USD' });
+            } catch (_) {}
           } else if (res.status === 409) {
             errorEl.textContent = 'A trial has already been issued for this email. Check your inbox or contact support.';
             errorEl.classList.add('show');
