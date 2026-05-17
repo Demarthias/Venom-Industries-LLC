@@ -933,6 +933,9 @@ const SD_HTML = `<!DOCTYPE html>
     .btn-plan-pro { background: var(--accent); color: var(--bg); }
     .btn-plan-pro:hover { opacity: 0.87; transform: translateY(-1px); }
     .plan-note { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 8px; }
+    .plan-trial-link { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 6px; }
+    .plan-trial-link a { color: var(--accent); text-decoration: none; opacity: 0.85; }
+    .plan-trial-link a:hover { opacity: 1; text-decoration: underline; }
     .pricing-sub { font-size: 0.82rem; color: var(--muted); margin-top: 24px; text-align: center; }
     .pricing-sub a { color: var(--accent); text-decoration: underline; }
 
@@ -1345,6 +1348,8 @@ ${NAV('sd')}
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
         <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="monthly" data-price="7.99">Get Pro — $7.99/mo</a>
+        <p class="plan-note">License key emailed instantly · 30-day money-back guarantee</p>
+        <p class="plan-trial-link">or <a href="#trialCard">try free for 7 days →</a></p>
       </div>
 
       <!-- PRO ANNUAL -->
@@ -1366,11 +1371,12 @@ ${NAV('sd')}
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
         <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="yearly" data-price="59.99">Get Pro — $59.99/yr</a>
-        <p class="plan-note">License key delivered instantly to your email.</p>
+        <p class="plan-note">License key emailed instantly · 30-day money-back guarantee</p>
+        <p class="plan-trial-link">or <a href="#trialCard">try free for 7 days →</a></p>
       </div>
 
     </div>
-    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" data-stripe-checkout data-plan="3month" data-price="19.99">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05" data-stripe-checkout data-plan="6month" data-price="34.99">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; License key delivered instantly</p>
+    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" data-stripe-checkout data-plan="3month" data-price="19.99">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05" data-stripe-checkout data-plan="6month" data-price="34.99">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; 30-day money-back guarantee</p>
 
     <div class="trial-cta-card reveal" id="trialCard">
       <div class="trial-cta-text">
