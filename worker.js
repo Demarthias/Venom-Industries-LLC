@@ -1347,7 +1347,7 @@ ${NAV('sd')}
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
-        <a href="https://buy.stripe.com/aFaaEZ76edBi8aQ5wD1Jm00" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="monthly" data-price="7.99">Get Pro — $7.99/mo</a>
+        <a href="https://buy.stripe.com/4gMdRb8aiap6cr61gn1Jm07" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="monthly" data-price="7.99">Get Pro — $7.99/mo</a>
         <p class="plan-note">License key emailed instantly · 30-day money-back guarantee</p>
         <p class="plan-trial-link">or <a href="#trialCard">try free for 7 days →</a></p>
       </div>
@@ -1356,10 +1356,10 @@ ${NAV('sd')}
       <div class="plan featured reveal">
         <div class="plan-badge">Best Value</div>
         <div class="plan-name">Pro · Annual</div>
-        <div class="plan-price"><sup>$</sup>59<span style="font-size:1.4rem;">.99</span></div>
-        <div class="plan-period">per year · one-time charge</div>
-        <div class="plan-save">Save 37% — $5/mo equivalent</div>
-        <p class="plan-desc">Everything in Pro. Best price. One payment, full year of access.</p>
+        <div class="plan-price"><sup>$</sup>90</div>
+        <div class="plan-period">per year · billed annually</div>
+        <div class="plan-save">$7.50/mo — commit for a full year</div>
+        <p class="plan-desc">Everything in Pro. One payment, full year of access.</p>
         <ul class="plan-features">
           <li><span class="check">✓</span> <span><strong>200+ tool signatures</strong></span></li>
           <li><span class="check">✓</span> <span>All 45+ categories</span></li>
@@ -1370,13 +1370,13 @@ ${NAV('sd')}
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
-        <a href="https://buy.stripe.com/8x2bJ3bmu8gYgHm1gn1Jm06" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="yearly" data-price="59.99">Get Pro — $59.99/yr</a>
+        <a href="https://buy.stripe.com/28E6oJ0HQap69eUe391Jm0a" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="yearly" data-price="90.00">Get Pro — $90/yr</a>
         <p class="plan-note">License key emailed instantly · 30-day money-back guarantee</p>
         <p class="plan-trial-link">or <a href="#trialCard">try free for 7 days →</a></p>
       </div>
 
     </div>
-    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/3cIdRb76e9l28aQcZ51Jm04" data-stripe-checkout data-plan="3month" data-price="19.99">3-month ($19.99)</a> · <a href="https://buy.stripe.com/6oU00lduC54M0Io5wD1Jm05" data-stripe-checkout data-plan="6month" data-price="34.99">6-month ($34.99)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; 30-day money-back guarantee</p>
+    <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/7sYfZjaiqfJqaiY8IP1Jm08" data-stripe-checkout data-plan="3month" data-price="20.00">3-month ($20)</a> · <a href="https://buy.stripe.com/9B6dRbcqy40I8aQ3ov1Jm09" data-stripe-checkout data-plan="6month" data-price="40.00">6-month ($40)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; 30-day money-back guarantee</p>
 
     <div class="trial-cta-card reveal" id="trialCard">
       <div class="trial-cta-text">
@@ -1450,7 +1450,7 @@ ${NAV('sd')}
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">Can I cancel? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">Monthly Pro can be cancelled anytime from your Stripe billing portal — no questions asked. The 3-month, 6-month, and annual plans are one-time charges with no recurring billing, so there's nothing to cancel. Your access is active for the full period you paid for.</div>
+      <div class="faq-a">Monthly Pro can be cancelled anytime from your Stripe billing portal — no questions asked. The 3-month, 6-month, and annual plans renew automatically at their billing interval. You can cancel anytime from your Stripe billing portal — your access stays active through the end of the paid period.</div>
     </div>
   </div>
 </div>
@@ -1837,7 +1837,7 @@ ${NAV('')}
 
   <h2>4. Pro licenses</h2>
   <p>Pro license keys are for individual use only. Sharing license keys is prohibited. Venom Industries LLC reserves the right to revoke keys used in violation of these terms without refund.</p>
-  <p>Monthly plans may be cancelled at any time via your Stripe billing portal. 3-month, 6-month, and annual plans are one-time charges — access is active for the full paid period with no recurring billing.</p>
+  <p>All plans may be cancelled at any time via your Stripe billing portal. Plans renew automatically at their billing interval (monthly, every 3 months, every 6 months, or annually). Your access remains active through the end of the paid period.</p>
 
   <h2>4. Limitation of liability</h2>
   <p>To the maximum extent permitted by law, Venom Industries LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Extension or reliance on its results.</p>
