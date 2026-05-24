@@ -1,4 +1,4 @@
 # Venom Industries LLC
-Technical audits for agencies and SaaS teams — venom-industries.com
+Software built to give you an unfair advantage.
 ## Contact
 grayson@venom-industries.com
