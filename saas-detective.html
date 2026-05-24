@@ -214,6 +214,11 @@
     @media(max-width:768px){nav{padding:18px 24px;flex-wrap:wrap;}.nav-toggle{display:block;}.nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding:8px 0 4px;order:99;margin-top:14px;border-top:1px solid var(--border);}.nav-links li{list-style:none;}.nav-links a{display:block;padding:14px 4px;font-size:1rem;border-bottom:1px solid var(--border);}.nav-links li:last-child a{border-bottom:none;}nav.nav-open .nav-links{display:flex;}.stats-strip{flex-direction:column;}.stat{border-right:none;border-bottom:1px solid var(--border);padding:36px 24px;}.stat:last-child{border-bottom:none;}.section{padding:72px 24px;}.final-cta{padding:100px 24px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
     @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}}
   @media(max-width:768px){.mobile-nudge{display:flex!important;}}
+  .launch-bar{position:relative;z-index:200;background:var(--accent);color:var(--bg);text-align:center;padding:10px 48px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:10px;}
+  .launch-bar a{color:var(--bg);text-decoration:underline;text-underline-offset:2px;}
+  .launch-bar a:hover{opacity:.75;}
+  .launch-bar-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--bg);cursor:pointer;font-size:1rem;line-height:1;opacity:.6;}
+  .launch-bar-close:hover{opacity:1;}
   </style>
   <script type="application/ld+json">
   {
@@ -243,6 +248,12 @@
   </script>
 </head>
 <body>
+  <div class="launch-bar" id="launchBar">
+    <span>🚀 SaaS Detective is live on Tiny Launches today —</span>
+    <a href="https://www.tinylaunch.com/launch/13859" target="_blank" rel="noopener">support the launch →</a>
+    <button class="launch-bar-close" onclick="document.getElementById('launchBar').style.display='none'" aria-label="Dismiss">✕</button>
+  </div>
+
   <div class="mobile-nudge" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0e0f18;border-top:1px solid rgba(200,241,53,0.2);padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;">
     <span style="font-size:.82rem;color:#eeeef5;line-height:1.4;">SaaS Detective is a Chrome extension — open this page on a desktop browser to install.</span>
     <button onclick="this.parentElement.style.display='none'" style="flex-shrink:0;background:transparent;border:1px solid #2a2b40;border-radius:6px;color:#5a5b78;font-size:.72rem;padding:6px 12px;cursor:pointer;">Got it</button>
@@ -285,7 +296,7 @@
 <div style="position:relative;z-index:1;">
   <div class="hero">
     <div>
-      <div class="badge"><div class="badge-dot"></div>Free Chrome Extension</div>
+      <div class="badge"><div class="badge-dot"></div>Launching today on Tiny Launches</div>
       <h1>Reveal any website's <em>tech stack</em> in one click.</h1>
       <p class="hero-sub">SaaS Detective scans any page you visit and instantly surfaces every tool, platform, and framework powering it — before you finish reading the URL bar.</p>
       <div class="hero-actions">
@@ -380,7 +391,7 @@
       <div class="pricing-stat"><div class="pricing-stat-num"><em>208<sup style="font-size:1rem;">+</sup></em></div><div class="pricing-stat-label">Tool signatures</div></div>
       <div class="pricing-stat"><div class="pricing-stat-num"><em>45<sup style="font-size:1rem;">+</sup></em></div><div class="pricing-stat-label">Categories detected</div></div>
       <div class="pricing-stat"><div class="pricing-stat-num"><em>100%</em></div><div class="pricing-stat-label">Client-side &amp; private</div></div>
-      <div class="pricing-stat"><div class="pricing-stat-num">Founders<br>&amp; sales</div><div class="pricing-stat-label">Built for</div></div>
+      <div class="pricing-stat"><div class="pricing-stat-num"><em>30</em><sup style="font-size:1rem;">d</sup></div><div class="pricing-stat-label">Money-back guarantee</div></div>
     </div>
 
     <div class="pricing-grid">
