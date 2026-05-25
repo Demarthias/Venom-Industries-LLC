@@ -147,7 +147,9 @@
 
     // GA4 + Google Ads purchase event
     (function(){
-      const p=new URLSearchParams(location.search);
+      const qs=new URLSearchParams(location.search);
+      const hash=new URLSearchParams(location.hash.replace(/^#/,''));
+      const p={get:k=>qs.get(k)||hash.get(k)};
       const plans={monthly:{value:7.99,name:'SaaS Detective Pro Monthly'},quarterly:{value:20,name:'SaaS Detective Pro Quarterly'},biannual:{value:40,name:'SaaS Detective Pro Biannual'},annual:{value:90,name:'SaaS Detective Pro Annual'}};
       const plan=p.get('plan')||'unknown';
       const pd=plans[plan]||{value:7.99,name:'SaaS Detective Pro'};
