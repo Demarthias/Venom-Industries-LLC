@@ -768,6 +768,27 @@
       } catch (_) {}
     }, true);
 
+    // view_pricing — fires once when pricing section enters viewport
+    var pricingFired = false;
+    var pricingEl = document.getElementById('pricing');
+    if (pricingEl) {
+      var pricingObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !pricingFired) {
+          pricingFired = true;
+          try {
+            fetch(TRACK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ client_id: clientId, events: [{ name: 'view_pricing', params: { page: 'saas-detective' } }] }),
+              keepalive: true
+            });
+          } catch (_) {}
+          pricingObserver.disconnect();
+        }
+      }, { threshold: 0.2 });
+      pricingObserver.observe(pricingEl);
+    }
+
     // Scroll depth tracking — fires once per threshold
     var scrollFired = {};
     window.addEventListener('scroll', function () {
