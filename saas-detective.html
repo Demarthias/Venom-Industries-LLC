@@ -345,7 +345,7 @@
   <div class="stat reveal"><div class="stat-num">200<span>+</span></div><div class="stat-label">Tool signatures</div></div>
   <div class="stat reveal"><div class="stat-num">45<span>+</span></div><div class="stat-label">Categories covered</div></div>
   <div class="stat reveal"><div class="stat-num">&lt;1<span>s</span></div><div class="stat-label">Time to detect</div></div>
-  <div class="stat reveal"><div class="stat-num">0</div><div class="stat-label">Browsing data collected</div></div>
+  <div class="stat reveal"><div class="stat-num">0</div><div class="stat-label">Browsing URLs logged</div></div>
 </div>
 
 <div style="position:relative;z-index:1;padding:80px 48px;max-width:1100px;margin:0 auto;text-align:center;">
@@ -632,7 +632,7 @@
       <p class="blog-teaser-excerpt">The exact 10-tool stack winning for indie SaaS founders right now — and what each tool costs.</p>
       <span class="blog-teaser-cta">Read the stack →</span>
     </a>
-    <a href="/blog/best-chrome-extensions-tech-stack.html" class="blog-teaser-card reveal">
+    <a href="/blog/best-chrome-extensions-tech-stack" class="blog-teaser-card reveal">
       <div class="blog-teaser-meta"><span class="blog-teaser-tag">Tools</span><span>May 2, 2026 · 9 min</span></div>
       <h3 class="blog-teaser-title">Best Chrome Extensions for Researching Tech Stacks</h3>
       <p class="blog-teaser-excerpt">A ranked comparison of every extension that does tech-stack detection — what each catches and which to trust.</p>
@@ -767,6 +767,25 @@
         });
       } catch (_) {}
     }, true);
+
+    // Scroll depth tracking — fires once per threshold
+    var scrollFired = {};
+    window.addEventListener('scroll', function () {
+      var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+      [25, 50, 75, 90].forEach(function (t) {
+        if (pct >= t && !scrollFired[t]) {
+          scrollFired[t] = true;
+          try {
+            fetch(TRACK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ client_id: clientId, events: [{ name: 'scroll_depth', params: { percent: t, page: 'saas-detective' } }] }),
+              keepalive: true
+            });
+          } catch (_) {}
+        }
+      });
+    }, { passive: true });
   })();
 </script>
 
