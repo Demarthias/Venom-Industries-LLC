@@ -15,13 +15,13 @@
   <meta property="og:url" content="https://venom-industries.com/blog/agency-tech-stack-research.html"/>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How Agencies Use Tech Stack Research to Win Clients","author":{"@type":"Person","name":"Grayson Kube"},"publisher":{"@type":"Organization","name":"Venom Industries LLC","url":"https://venom-industries.com"},"datePublished":"2026-04-22","description":"Smart agencies audit prospect tech stacks before every pitch. Here's how to run a pre-sales technical research workflow that closes more deals."}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@1;0&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
-    :root{--bg:#060608;--surface:#0d0d11;--surface2:#13131a;--border:#1c1c26;--border2:#28283a;--accent:#b8ff00;--adim:rgba(184,255,0,.08);--text:#c8c8dc;--muted:#52526e;--white:#f0f0fa;--cat-color:#b8ff00;--fh:'Rajdhani',sans-serif;--fm:'IBM Plex Mono',monospace;--fs:'Instrument Serif',serif;}
-    body{background:var(--bg);color:var(--text);font-family:var(--fm);font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
-    body::before{content:'';position:fixed;inset:0;z-index:998;pointer-events:none;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.45;}
+    :root{--bg:#f8fafc;--surface:#ffffff;--surface2:#f1f5f9;--border:#e2e8f0;--border2:#cbd5e1;--accent:#2563eb;--accent2:#3b82f6;--adim:rgba(37,99,235,.08);--aglow:rgba(37,99,235,.15);--hairline:rgba(37,99,235,.2);--text:#334155;--muted:#64748b;--white:#0f172a;--cat-color:#2563eb;--ink:#0f172a;--fh:'Syne',sans-serif;--fm:'DM Mono',monospace;--fs:'DM Sans',sans-serif;}
+    body{background:var(--bg);color:var(--text);font-family:var(--fs);font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:auto;}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(37,99,235,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.025) 1px,transparent 1px);background-size:72px 72px;}
     a{color:var(--accent);text-decoration:none;}
     h1,h2,h3{font-family:var(--fh);font-weight:700;line-height:1.1;color:var(--white);}
     h1{font-size:clamp(2.5rem,5vw,4.5rem);text-transform:uppercase;}
@@ -29,10 +29,10 @@
     h3{font-size:1.1rem;text-transform:uppercase;margin:2rem 0 .75rem;color:var(--accent);}
     p{margin-bottom:1.4rem;}
     .container{max-width:1160px;margin:0 auto;padding:0 2rem;}
-    #vd{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
-    #vr{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(184,255,0,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;}
-    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);}
-    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(184,255,0,.4));z-index:1;}
+    #vd{display:none;}
+    #vr{display:none;}
+    #vnav{position:fixed;top:0;left:0;right:0;z-index:500;background:transparent;backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:background .3s,border-color .3s;}
+    #vp{position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),rgba(37,99,235,.4));z-index:1;}
     .ni{display:flex;align-items:center;height:64px;max-width:1160px;margin:0 auto;padding:0 2rem;gap:2rem;}
     .logo{font-family:var(--fh);font-weight:700;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);text-decoration:none;}
     .logo span{color:var(--accent);}
@@ -40,16 +40,16 @@
     .nl{font-family:var(--fh);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
     .nl:hover{color:var(--white);}
     .nr{display:flex;align-items:center;gap:1rem;margin-left:auto;}
-    .ncta{background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;}
-    .ncta:hover{background:var(--white);}
+    .ncta{background:var(--accent);color:#fff;font-family:var(--fh);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.2rem;border-radius:2px;text-decoration:none;transition:all .2s;}
+    .ncta:hover{background:var(--accent2);}
     #read-progress{position:fixed;top:64px;left:0;height:2px;width:0;background:var(--accent);z-index:499;}
     .art-header{padding:10rem 0 5rem;position:relative;border-bottom:1px solid var(--border);}
-    .art-header-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(184,255,0,.04) 0%,transparent 60%);pointer-events:none;}
+    .art-header-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(37,99,235,.04) 0%,transparent 60%);pointer-events:none;}
     .art-inner{position:relative;z-index:2;max-width:760px;}
     .back-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:2.5rem;transition:color .2s;}
     .back-link:hover{color:var(--accent);}
     .art-meta{display:flex;gap:1.5rem;align-items:center;margin-bottom:2rem;flex-wrap:wrap;}
-    .art-cat{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid rgba(184,255,0,.3);color:var(--accent);border-radius:1px;}
+    .art-cat{font-family:var(--fh);font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid rgba(37,99,235,.3);color:var(--accent);border-radius:1px;}
     .art-date,.art-read{font-size:.78rem;color:var(--muted);}
     .art-header h1{margin-bottom:1.5rem;}
     .art-deck{font-size:1rem;color:var(--text);line-height:1.9;max-width:600px;}
@@ -65,8 +65,8 @@
     .cta-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 2rem;text-align:center;margin:0;}
     .cta-band h2{font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:1rem;margin-top:0;}
     .cta-band p{color:var(--muted);font-size:.9rem;max-width:420px;margin:0 auto 2rem;}
-    .cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--bg);font-family:var(--fh);font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;text-decoration:none;transition:all .2s;}
-    .cta-btn:hover{background:var(--white);}
+    .cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;font-family:var(--fh);font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 2rem;border-radius:2px;text-decoration:none;transition:all .2s;}
+    .cta-btn:hover{background:var(--accent2);}
     footer{background:var(--surface);border-top:1px solid var(--border);padding:4rem 2rem 2rem;}
     .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:1160px;margin:0 auto 3rem;}
     .flogo{font-family:var(--fh);font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--white);margin-bottom:.75rem;}

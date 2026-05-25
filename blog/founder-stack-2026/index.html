@@ -40,22 +40,22 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #060608;
-      --bg2: #0d0d10;
-      --bg3: #111116;
-      --lime: #b8ff00;
-      --lime-dim: rgba(184,255,0,0.07);
-      --lime-border: rgba(184,255,0,0.18);
-      --text: #f0f0f4;
-      --text-muted: #545464;
-      --text-dim: #8080a0;
-      --border: rgba(255,255,255,0.06);
+      --bg: #f8fafc;
+      --bg2: #f1f5f9;
+      --bg3: #e2e8f0;
+      --lime: #2563eb;
+      --lime-dim: rgba(37,99,235,0.07);
+      --lime-border: rgba(37,99,235,0.18);
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --text-dim: #334155;
+      --border: rgba(37,99,235,0.08);
     }
 
     html { scroll-behavior: smooth; }
@@ -63,7 +63,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: 'DM Sans', sans-serif;
       font-size: 15px;
       line-height: 1.85;
       -webkit-font-smoothing: antialiased;
@@ -74,11 +74,11 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px; height: 64px;
-      background: rgba(6,6,8,0.92); backdrop-filter: blur(20px);
+      background: transparent; backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 17px;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px;
       color: var(--lime); text-decoration: none; letter-spacing: 0.05em;
     }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
@@ -88,8 +88,8 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
     .nav-cta {
-      background: var(--lime); color: #060608 !important;
-      font-family: 'Rajdhani', sans-serif; font-weight: 700;
+      background: var(--lime); color: #fff !important;
+      font-family: 'Syne', sans-serif; font-weight: 700;
       font-size: 12px !important; letter-spacing: 0.1em; padding: 8px 18px;
     }
     .nav-cta:hover { opacity: 0.88; }
@@ -114,14 +114,14 @@
     .post-date, .post-read { font-size: 11px; color: var(--text-muted); }
 
     .post-title {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'Syne', sans-serif;
       font-size: clamp(36px, 6vw, 68px); font-weight: 700;
       line-height: 0.95; letter-spacing: -0.025em; text-transform: uppercase;
       color: var(--text); margin-bottom: 28px;
     }
 
     .post-lead {
-      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-family: 'DM Sans', sans-serif; font-style: italic;
       font-size: 18px; color: var(--text-dim); line-height: 1.7;
       border-left: 3px solid var(--lime); padding-left: 24px;
       margin-bottom: 56px;
@@ -132,14 +132,14 @@
     .post-content p { margin-bottom: 24px; }
 
     .post-content h2 {
-      font-family: 'Rajdhani', sans-serif; font-size: 28px; font-weight: 700;
+      font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700;
       letter-spacing: 0.02em; text-transform: uppercase; color: var(--text);
       margin: 60px 0 20px; padding-top: 44px; border-top: 1px solid var(--border);
     }
 
     .post-content strong { color: var(--text); font-weight: 500; }
     .post-content em {
-      font-family: 'Instrument Serif', serif; font-style: italic; color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-style: italic; color: var(--text);
     }
     .post-content a {
       color: var(--lime); text-decoration: underline; text-underline-offset: 3px;
@@ -167,17 +167,17 @@
       color: var(--lime); margin-bottom: 4px;
     }
     .tool-name {
-      font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700;
+      font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700;
       color: var(--text); text-transform: uppercase; letter-spacing: 0.02em;
     }
     .tool-category {
       font-size: 11px; color: var(--text-muted); margin-top: 2px;
     }
     .tool-price {
-      font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700;
+      font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700;
       color: var(--lime); white-space: nowrap; text-align: right;
     }
-    .tool-price span { display: block; font-size: 10px; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; font-weight: 400; letter-spacing: 0.06em; }
+    .tool-price span { display: block; font-size: 10px; color: var(--text-muted); font-family: 'DM Sans', sans-serif; font-weight: 400; letter-spacing: 0.06em; }
     .tool-desc { color: var(--text-dim); font-size: 13px; line-height: 1.75; margin-bottom: 14px; }
     .tool-why {
       font-size: 12px; color: var(--text-muted);
@@ -205,7 +205,7 @@
     }
     .total-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
     .total-val {
-      font-family: 'Rajdhani', sans-serif; font-size: 36px; font-weight: 700; color: var(--lime);
+      font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; color: var(--lime);
     }
     .total-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 
@@ -239,20 +239,20 @@
       color: var(--lime); margin-bottom: 12px;
     }
     .cta-box h3 {
-      font-family: 'Rajdhani', sans-serif; font-size: 26px; font-weight: 700;
+      font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700;
       text-transform: uppercase; color: var(--text); margin-bottom: 10px;
     }
     .cta-box p { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; }
     .btn-primary {
-      display: inline-block; background: var(--lime); color: #060608;
-      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px;
+      display: inline-block; background: var(--lime); color: #fff;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
       letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 32px;
       text-decoration: none; transition: opacity 0.2s; margin: 0 6px 8px;
     }
     .btn-primary:hover { opacity: 0.88; }
     .btn-ghost {
       display: inline-block; color: var(--lime); border: 1px solid var(--lime-border);
-      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 13px;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
       letter-spacing: 0.12em; text-transform: uppercase; padding: 13px 32px;
       text-decoration: none; margin: 0 6px 8px;
     }
@@ -266,8 +266,8 @@
     .author-badge {
       width: 48px; height: 48px; background: var(--lime);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 20px;
-      color: #060608; flex-shrink: 0;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px;
+      color: #fff; flex-shrink: 0;
     }
     .author-name { font-size: 14px; color: var(--text); }
     .author-title { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
@@ -279,7 +279,7 @@
       display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px;
     }
     .footer-logo {
-      font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 16px;
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px;
       color: var(--lime); text-decoration: none; display: block; margin-bottom: 12px;
     }
     .footer-brand p { color: var(--text-muted); font-size: 12px; line-height: 1.65; max-width: 280px; }

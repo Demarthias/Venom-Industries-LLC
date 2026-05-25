@@ -4,6 +4,16 @@
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
 <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVECKYG478"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HVECKYG478', {
+      linker: { domains: ['buy.stripe.com'] }
+    });
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>You're Pro — SaaS Detective</title>
@@ -135,8 +145,17 @@
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
     (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'purchase_confirmed', page: 'thankyou' });
+    // GA4 + Google Ads purchase event
+    (function(){
+      const p=new URLSearchParams(location.search);
+      const plans={monthly:{value:7.99,name:'SaaS Detective Pro Monthly'},quarterly:{value:20,name:'SaaS Detective Pro Quarterly'},biannual:{value:40,name:'SaaS Detective Pro Biannual'},annual:{value:90,name:'SaaS Detective Pro Annual'}};
+      const plan=p.get('plan')||'unknown';
+      const pd=plans[plan]||{value:7.99,name:'SaaS Detective Pro'};
+      const value=parseFloat(p.get('value'))||pd.value;
+      const tid=p.get('session')||('SD-'+Date.now()+'-'+Math.random().toString(36).slice(2,8).toUpperCase());
+      gtag('event','purchase',{transaction_id:tid,value:value,currency:'USD',items:[{item_id:'sd_pro_'+plan,item_name:pd.name,price:value,quantity:1}]});
+      gtag('event','conversion',{send_to:'AW-18081432138',value:value,currency:'USD',transaction_id:tid});
+    })();
   </script>
 </body>
 </html>
