@@ -120,6 +120,15 @@
     .blog-teaser-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.02em;line-height:1.3;color:var(--text);}
     .blog-teaser-excerpt{font-size:.83rem;color:var(--muted);line-height:1.65;font-weight:300;flex:1;}
     .blog-teaser-cta{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-top:4px;}
+    /* Social proof and how-it-works */
+    .social-proof{max-width:900px;margin:18px auto 36px;padding:12px 24px;background:transparent;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+    .social-proof .social-copy{font-size:.95rem;color:var(--muted)}
+    .how-works{max-width:1100px;margin:56px auto;padding:56px 48px;background:transparent}
+    .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
+    .how-step{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:left}
+    .step-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--accent);margin-bottom:8px}
+    .how-step h3{margin:6px 0;font-size:1.05rem}
+    .how-step p{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0}
     @media(max-width:900px){.blog-teaser-grid{grid-template-columns:1fr;}.blog-teaser{padding:80px 24px;}}
     @media(max-width:900px){.what-grid{grid-template-columns:1fr;gap:48px;}.product-card{grid-template-columns:1fr;}.product-cta{text-align:left;}}
     @media(max-width:768px){nav{padding:18px 24px;flex-wrap:wrap;}.nav-toggle{display:block;}.nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding:8px 0 4px;order:99;margin-top:14px;border-top:1px solid var(--border);}.nav-links li{list-style:none;}.nav-links a{display:block;padding:14px 4px;font-size:1rem;border-bottom:1px solid var(--border);}.nav-links li:last-child a{border-bottom:none;}nav.nav-open .nav-links{display:flex;}.trust-bar{padding:24px;}.trust-item{padding:0 24px;}.what,.mission{padding:80px 24px;}.products{padding:80px 24px;}.newsletter-section{padding:80px 24px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
@@ -172,11 +181,13 @@
   <ul class="nav-links">
     <li><a href="/" class="active">Home</a></li>
     <li><a href="/saas-detective">SaaS Detective</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/demo">Demo</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/resources">Resources</a></li>
     <li><a href="/about">About</a></li>
   </ul>
-  <a href="/saas-detective" class="btn-nav">Get SaaS Detective</a>
+  <a href="/saas-detective" class="btn-nav">Start Free Scan</a>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 </nav>
 <script>
@@ -202,14 +213,45 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="badge"><div class="badge-dot"></div>Venom Industries LLC — Est. 2026</div>
-  <h1>Software built to give you an <em>unfair advantage.</em></h1>
-  <p class="hero-sub">We build intelligence tools for founders, marketers, and sales teams who refuse to operate blind. Know more. Move faster. Win more.</p>
+  <h1>Reveal Any Website’s Tech Stack Instantly</h1>
+  <p class="hero-sub">Get instant intel on the tools, frameworks, and services powering any site. Make smarter decisions. Out‑research your competitors.</p>
   <div class="hero-actions">
-    <a href="/saas-detective" class="btn-hero">Try SaaS Detective Free →</a>
-    <a href="/about" class="btn-outline">Who We Are</a>
+    <a href="/saas-detective" class="btn-hero">Start Free Scan</a>
   </div>
-  <p class="hero-note">Proudly indie &nbsp;·&nbsp; Built in the US &nbsp;·&nbsp; Payments by Stripe</p>
+  <p class="hero-note">Trusted by founders, devs, and analysts &nbsp;·&nbsp; Privacy-first · Free plan available</p>
 </section>
+
+<div class="how-works reveal">
+  <div class="section-label">How SaaS Detective Works</div>
+  <h2 class="section-title">How SaaS Detective Works</h2>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="step-num">1</div>
+      <h3>Enter any website URL</h3>
+      <p>Type or paste any domain you want to analyze.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">2</div>
+      <h3>We scan the tech stack in seconds</h3>
+      <p>Our engine identifies frameworks, hosting, analytics, SaaS tools, and more.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">3</div>
+      <h3>You get instant results</h3>
+      <p>Full breakdowns, clean UI, actionable insights.</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:22px;"><a href="/saas-detective" class="btn-hero">Try It Now</a></div>
+</div>
+
+<div class="social-proof">
+  <div style="text-align:center;max-width:920px;">
+    <div class="section-label">Trusted by</div>
+    <div class="social-copy">Founders, developers, and analysts</div>
+    <div class="social-copy" style="margin-top:6px;color:var(--muted);">Used for competitive research, product scouting, and market intelligence.</div>
+    <div style="margin-top:18px;padding-top:18px;border-top:1px solid var(--border);font-size:.95rem;color:var(--muted);font-style:italic;max-width:620px;margin-left:auto;margin-right:auto;">&quot;SaaS Detective gave us insights we couldn't get anywhere else.&quot; — Early User Feedback</div>
+  </div>
+</div>
 
 <div class="trust-bar">
   <div class="trust-item reveal"><div class="trust-num">200<span>+</span></div><div class="trust-label">Tool signatures detected</div></div>
@@ -218,8 +260,24 @@
   <div class="trust-item reveal"><div class="trust-num">0</div><div class="trust-label">Browsing URLs logged</div></div>
 </div>
 
+<div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px 48px;">
+  <div class="what-visual reveal" style="max-width:800px;margin:0 auto;">
+    <div class="visual-tag">Live scan result — shopify.com</div>
+    <div class="visual-row"><div class="visual-dot" style="background:#4ade80;"></div><div class="visual-name">Shopify</div><div class="visual-cat">E-Commerce</div><div class="visual-badge">DETECTED</div></div>
+    <div class="visual-row"><div class="visual-dot" style="background:#4fc4f7;"></div><div class="visual-name">Google Analytics</div><div class="visual-cat">Analytics</div><div class="visual-badge">DETECTED</div></div>
+    <div class="visual-row"><div class="visual-dot" style="background:#fb923c;"></div><div class="visual-name">Klaviyo</div><div class="visual-cat">Email</div><div class="visual-badge">DETECTED</div></div>
+    <div class="visual-row"><div class="visual-dot" style="background:#a78bfa;"></div><div class="visual-name">React</div><div class="visual-cat">Framework</div><div class="visual-badge">DETECTED</div></div>
+    <div class="visual-row"><div class="visual-dot" style="background:#fb923c;"></div><div class="visual-name">HubSpot</div><div class="visual-cat">CRM</div><div class="visual-badge">DETECTED</div></div>
+    <div class="visual-row"><div class="visual-dot" style="background:#4fc4f7;"></div><div class="visual-name">Meta Pixel</div><div class="visual-cat">Advertising</div><div class="visual-badge">DETECTED</div></div>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);">6 tools detected</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent);">Scan complete ✓</div>
+    </div>
+  </div>
+</div>
+
 <div class="what">
-  <div class="what-grid">
+  <div class="what-grid" style="grid-template-columns:1fr;">
     <div class="what-text reveal">
       <div class="section-label">What we do</div>
       <h2 class="section-title">We make invisible intelligence visible.</h2>
@@ -230,23 +288,21 @@
         <li><span class="point-icon">→</span><span><strong>Pre-call research</strong> — walk into any sales call knowing the prospect's full tech stack.</span></li>
         <li><span class="point-icon">→</span><span><strong>Stack validation</strong> — see what tools high-performing businesses actually use before you spend a dollar.</span></li>
       </ul>
-    </div>
-    <div class="reveal">
-      <div class="what-visual">
-        <div class="visual-tag">Live scan result — shopify.com</div>
-        <div class="visual-row"><div class="visual-dot" style="background:#4ade80;"></div><div class="visual-name">Shopify</div><div class="visual-cat">E-Commerce</div><div class="visual-badge">DETECTED</div></div>
-        <div class="visual-row"><div class="visual-dot" style="background:#4fc4f7;"></div><div class="visual-name">Google Analytics</div><div class="visual-cat">Analytics</div><div class="visual-badge">DETECTED</div></div>
-        <div class="visual-row"><div class="visual-dot" style="background:#fb923c;"></div><div class="visual-name">Klaviyo</div><div class="visual-cat">Email</div><div class="visual-badge">DETECTED</div></div>
-        <div class="visual-row"><div class="visual-dot" style="background:#a78bfa;"></div><div class="visual-name">React</div><div class="visual-cat">Framework</div><div class="visual-badge">DETECTED</div></div>
-        <div class="visual-row"><div class="visual-dot" style="background:#fb923c;"></div><div class="visual-name">HubSpot</div><div class="visual-cat">CRM</div><div class="visual-badge">DETECTED</div></div>
-        <div class="visual-row"><div class="visual-dot" style="background:#4fc4f7;"></div><div class="visual-name">Meta Pixel</div><div class="visual-cat">Advertising</div><div class="visual-badge">DETECTED</div></div>
-        <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);">6 tools detected</div>
-          <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent);">Scan complete ✓</div>
-        </div>
-      </div>
+      <div style="margin-top:18px;"><a href="/saas-detective" class="btn-hero">Start Free Scan</a></div>
     </div>
   </div>
+</div>
+
+<div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px 48px;">
+  <div class="section-label reveal">Why Venom Industries Stands Out</div>
+  <h2 class="section-title reveal">Why Venom Industries Stands Out</h2>
+  <ul style="list-style:none;max-width:620px;margin:32px auto;">
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Instant scans with high accuracy</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Clean, modern UI</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• No signup required to start</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Built for speed, clarity, and competitive advantage</li>
+  </ul>
+  <div style="text-align:center;margin-top:22px;"><a href="/saas-detective" class="btn-hero">Explore Features</a></div>
 </div>
 
 <div class="products">
@@ -255,6 +311,12 @@
       <div class="section-label">Our products</div>
       <h2 class="section-title">Tools we've built</h2>
       <p class="section-sub">Every product we ship is something we'd use ourselves. No fluff, no feature bloat — just sharp tools that do one thing extremely well.</p>
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+        <a href="/saas-detective" class="btn-outline">SaaS Detective</a>
+        <a href="/pricing" class="btn-outline">Pricing</a>
+        <a href="/demo" class="btn-outline">Demo</a>
+        <a href="/products" class="btn-outline">Tools</a>
+      </div>
     </div>
     <div class="product-card reveal">
       <div>
@@ -275,8 +337,6 @@
       </div>
     </div>
   </div>
-</div>
-
 <div class="mission">
   <div class="section-label reveal">Our mission</div>
   <h2 class="section-title reveal">"Information asymmetry is the most valuable edge in business. We close that gap."</h2>
@@ -321,6 +381,11 @@
     <p>Every week: the exact tools powering a company you know. Steal their playbook. Free, forever.</p>
     <iframe src="https://subscribe-forms.beehiiv.com/b991d699-eb84-4cdc-ac37-7f4994063a80" frameborder="0" scrolling="no" style="width:100%;max-width:480px;height:160px;background:transparent;border:none;display:block;margin:0 auto;"></iframe>
   </div>
+</div>
+
+<div style="text-align:center;padding:36px 24px;background:transparent;">
+  <div class="section-label">Want deeper insights?</div>
+  <div style="margin-top:8px;"><a href="/pricing" class="btn-outline">See Pricing</a></div>
 </div>
 
 <site-footer>
