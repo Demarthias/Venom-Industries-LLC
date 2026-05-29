@@ -11,32 +11,6 @@ window.addEventListener('load', function () {
   });
 });
 </script>
-<script>
-function isInView(el) {
-  const r = el.getBoundingClientRect();
-  return r.top < window.innerHeight && r.bottom > 0;
-}
-
-(function () {
-  let fired = false;
-  const section = document.getElementById('saas-detective');
-  if (!section) return;
-
-  function check() {
-    if (!fired && isInView(section)) {
-      gtag('event', 'view_saas_detective', {
-        page_type: 'product_section',
-        product_name: 'SaaS Detective'
-      });
-      fired = true;
-      window.removeEventListener('scroll', check);
-    }
-  }
-
-  window.addEventListener('scroll', check);
-  window.addEventListener('load', check);
-})();
-</script>
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -580,7 +554,13 @@ function isInView(el) {
       <li><a href="#use-cases">Use cases</a></li>
       <li><a href="/privacy.html">Privacy</a></li>
     </ul>
-    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — Free</a>
+    <a id="cta-try-saas-detective-nav"
+       href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=website&utm_medium=nav&utm_campaign=saas_detective_install"
+       class="nav-cta btn-primary"
+       target="_blank"
+       rel="noopener noreferrer">
+      Add to Chrome — Free
+    </a>
   </nav>
 
   <section class="hero">
@@ -589,7 +569,14 @@ function isInView(el) {
     <h1>Reveal any website's<br /><em>tech stack</em> in one click</h1>
     <p class="hero-sub">SaaS Detective scans every page you visit and surfaces the exact tools, frameworks, and platforms powering it — instantly, privately, without leaving the page.</p>
     <div class="hero-actions">
-      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
+      <a id="cta-try-saas-detective-hero"
+         href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=website&utm_medium=hero&utm_campaign=saas_detective_install"
+         class="btn-primary"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="display:inline-flex;">
+        Add to Chrome — Free
+      </a>
       <a href="#how-it-works" class="btn-outline">See how it works</a>
     </div>
     <p class="hero-note">No account required &nbsp;·&nbsp; No data collected &nbsp;·&nbsp; Works on any website</p>
@@ -623,6 +610,78 @@ function isInView(el) {
       </div>
     </div>
   </section>
+
+  <!-- SaaS Detective Section -->
+  <section id="saas-detective" class="product-section">
+    <h2>SaaS Detective</h2>
+    <p>One‑click tech stack detection. Private by design. No account required.</p>
+
+    <!-- Primary CTA -->
+    <a id="cta-try-saas-detective"
+       href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=website&utm_medium=cta&utm_campaign=saas_detective_install"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn btn-primary">
+      Try SaaS Detective Free →
+    </a>
+  </section>
+
+  <script>
+  (function () {
+    function isInViewport(el) {
+      var r = el.getBoundingClientRect();
+      return r.top < (window.innerHeight || document.documentElement.clientHeight) && r.bottom > 0;
+    }
+
+    var firedView = false;
+    var section = document.getElementById('saas-detective');
+    if (section) {
+      function sendViewEvent() {
+        if (firedView) return;
+        if (typeof gtag === 'function' && isInViewport(section)) {
+          try {
+            gtag('event', 'view_saas_detective', {
+              page_type: 'product_section',
+              product_name: 'SaaS Detective'
+            });
+          } catch (e) { console.error('view_saas_detective error', e); }
+          firedView = true;
+          window.removeEventListener('scroll', sendViewEvent);
+        }
+      }
+      window.addEventListener('load', sendViewEvent);
+      window.addEventListener('scroll', sendViewEvent);
+    } else {
+      console.warn('saas-detective section not found for view_saas_detective');
+    }
+
+    var ctas = [
+      'cta-try-saas-detective-nav',
+      'cta-try-saas-detective-hero',
+      'cta-try-saas-detective-plan',
+      'cta-try-saas-detective'
+    ];
+
+    ctas.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', function () {
+        try {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_try_saas_detective', {
+              location: id,
+              label: el.textContent.trim()
+            });
+          } else {
+            console.warn('gtag not defined when clicking CTA', id);
+          }
+        } catch (err) {
+          console.error('click_try_saas_detective error', err);
+        }
+      }, { passive: true });
+    });
+  })();
+  </script>
 
   <div class="stats">
     <div class="stat reveal">
@@ -736,17 +795,9 @@ function isInView(el) {
     <h2>Stop guessing.<br /><em>Start knowing.</em></h2>
     <p>Free forever. No account. No tracking. Just answers.</p>
     <div class="cta-actions">
-      <a id="cta-try-saas-detective" href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
+      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
       <a href="/privacy.html" class="btn-outline">Read our privacy policy</a>
     </div>
-    <script>
-      document.getElementById('cta-try-saas-detective')?.addEventListener('click', function () {
-        gtag('event', 'click_try_saas_detective', {
-          location: 'homepage_hero',
-          label: 'Try SaaS Detective Free'
-        });
-      });
-    </script>
     <div style="margin-top: 80px; border-top: 1px solid var(--border); padding-top: 80px;">
       <div class="section-label">Free newsletter</div>
       <h2 style="font-size: clamp(1.6rem, 4vw, 2.8rem); margin-bottom: 16px;">The Stack Report</h2>
