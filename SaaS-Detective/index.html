@@ -3,6 +3,40 @@
 <head>
 <script>window.location.replace('https://venom-industries.com/saas-detective');</script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
+<script>
+window.addEventListener('load', function () {
+  gtag('event', 'view_saas_detective', {
+    page_type: 'product',
+    product_name: 'SaaS Detective'
+  });
+});
+</script>
+<script>
+function isInView(el) {
+  const r = el.getBoundingClientRect();
+  return r.top < window.innerHeight && r.bottom > 0;
+}
+
+(function () {
+  let fired = false;
+  const section = document.getElementById('saas-detective');
+  if (!section) return;
+
+  function check() {
+    if (!fired && isInView(section)) {
+      gtag('event', 'view_saas_detective', {
+        page_type: 'product_section',
+        product_name: 'SaaS Detective'
+      });
+      fired = true;
+      window.removeEventListener('scroll', check);
+    }
+  }
+
+  window.addEventListener('scroll', check);
+  window.addEventListener('load', check);
+})();
+</script>
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -702,9 +736,17 @@
     <h2>Stop guessing.<br /><em>Start knowing.</em></h2>
     <p>Free forever. No account. No tracking. Just answers.</p>
     <div class="cta-actions">
-      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
+      <a id="cta-try-saas-detective" href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
       <a href="/privacy.html" class="btn-outline">Read our privacy policy</a>
     </div>
+    <script>
+      document.getElementById('cta-try-saas-detective')?.addEventListener('click', function () {
+        gtag('event', 'click_try_saas_detective', {
+          location: 'homepage_hero',
+          label: 'Try SaaS Detective Free'
+        });
+      });
+    </script>
     <div style="margin-top: 80px; border-top: 1px solid var(--border); padding-top: 80px;">
       <div class="section-label">Free newsletter</div>
       <h2 style="font-size: clamp(1.6rem, 4vw, 2.8rem); margin-bottom: 16px;">The Stack Report</h2>
