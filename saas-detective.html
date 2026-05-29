@@ -220,6 +220,8 @@
   .launch-bar a:hover{opacity:.75;}
   .launch-bar-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--bg);cursor:pointer;font-size:1rem;line-height:1;opacity:.6;}
   .launch-bar-close:hover{opacity:1;}
+  .mockup-body{transition:opacity .32s ease;}
+  .mockup-body.fading{opacity:0;pointer-events:none;}
   </style>
   <script type="application/ld+json">
   {
@@ -250,9 +252,9 @@
 </head>
 <body>
   <div class="launch-bar" id="launchBar">
-    <span>🚀 SaaS Detective is live on Tiny Launches today —</span>
-    <a href="https://www.tinylaunch.com/launch/13859" target="_blank" rel="noopener">support the launch →</a>
-    <button class="launch-bar-close" onclick="document.getElementById('launchBar').style.display='none';document.getElementById('nav').classList.add('bar-hidden');" aria-label="Dismiss">✕</button>
+    <span>Try Pro free for 7 days — 208+ signatures, no credit card needed.</span>
+    <a href="#trialCard">Start free trial →</a>
+    <button class="launch-bar-close" onclick="document.getElementById('launchBar').style.display='none';" aria-label="Dismiss">✕</button>
   </div>
 
   <div class="mobile-nudge" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#ffffff;border-top:1px solid #e2e8f0;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 16px rgba(0,0,0,0.06);">
@@ -297,7 +299,7 @@
 <div style="position:relative;z-index:1;">
   <div class="hero">
     <div>
-      <div class="badge"><div class="badge-dot"></div>Launching today on Tiny Launches</div>
+      <div class="badge"><div class="badge-dot"></div>★★★★★ &nbsp;Free on Chrome Web Store</div>
       <h1>Reveal any website's <em>tech stack</em> in one click.</h1>
       <p class="hero-sub">SaaS Detective scans any page you visit and instantly surfaces every tool, platform, and framework powering it — before you finish reading the URL bar.</p>
       <div class="hero-actions">
@@ -315,9 +317,9 @@
     <div class="mockup">
       <div class="mockup-bar">
         <div class="mockup-title"><div class="mockup-icon">🔍</div>SaaS Detective</div>
-        <div class="mockup-url">shopify.com</div>
+        <div class="mockup-url" id="mockupUrl">shopify.com</div>
       </div>
-      <div class="mockup-body">
+      <div class="mockup-body" id="mockupBody">
         <div class="m-cat">E-Commerce</div>
         <span class="m-chip"><div class="m-dot" style="background:#4ade80;"></div>Shopify</span>
         <div class="m-cat">Analytics</div>
@@ -334,7 +336,7 @@
         </div>
       </div>
       <div class="mockup-footer">
-        <div class="m-count"><em>4</em> tools detected</div>
+        <div class="m-count"><em id="mockupCount">4</em> tools detected</div>
         <div class="m-count">Scan complete ✓</div>
       </div>
     </div>
@@ -810,16 +812,6 @@
   })();
 </script>
 
-<!-- Tiny Launches floating card -->
-<div id="tlFloat" style="position:fixed;bottom:24px;left:24px;z-index:500;background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;max-width:240px;box-shadow:0 8px 32px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:10px;">
-  <button onclick="document.getElementById('tlFloat').style.display='none'" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#94a3b8;font-size:.85rem;cursor:pointer;line-height:1;">✕</button>
-  <div style="display:flex;align-items:center;gap:8px;">
-    <div style="width:28px;height:28px;background:#2563eb;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;">🚀</div>
-    <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:#0f172a;line-height:1.2;">Live on Tiny Launches!</span>
-  </div>
-  <p style="font-size:.75rem;color:#64748b;margin:0;line-height:1.5;">We launched today — it would mean the world if you showed some support.</p>
-  <a href="https://www.tinylaunch.com/launch/13859" target="_blank" rel="noopener" style="display:block;text-align:center;background:#2563eb;color:#fff;font-family:'DM Mono',monospace;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border-radius:7px;text-decoration:none;transition:opacity .15s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Support the launch →</a>
-</div>
 
 <script>
 (function () {
@@ -845,6 +837,43 @@
       gtag('event', 'click_try_saas_detective', { location: id, label: el.textContent.trim() });
     }, { passive: true });
   });
+})();
+</script>
+<script>
+(function () {
+  var urlEl = document.getElementById('mockupUrl');
+  var bodyEl = document.getElementById('mockupBody');
+  var countEl = document.getElementById('mockupCount');
+  if (!urlEl || !bodyEl || !countEl) return;
+  var states = [
+    {
+      url: 'shopify.com',
+      count: '4',
+      html: '<div class="m-cat">E-Commerce</div><span class="m-chip"><div class="m-dot" style="background:#4ade80;"></div>Shopify</span><div class="m-cat">Analytics</div><span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Google Analytics</span><span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Segment</span><div class="m-cat">Email</div><span class="m-chip"><div class="m-dot" style="background:#fb923c;"></div>Klaviyo</span><div class="m-cat">CRM \xb7 <span style="color:var(--accent);font-size:.56rem;">2 PRO TOOLS</span></div><span class="m-chip locked"><div class="m-dot" style="background:#a78bfa;"></div>████████</span><span class="m-chip locked"><div class="m-dot" style="background:#a78bfa;"></div>███████</span><div class="mockup-upgrade"><div class="mockup-upgrade-text">+4 Pro tools detected</div><button class="mockup-upgrade-btn">Upgrade — from $7.99/mo</button></div>'
+    },
+    {
+      url: 'notion.so',
+      count: '7',
+      html: '<div class="m-cat">Analytics</div><span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Amplitude</span><span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Segment</span><div class="m-cat">Live Chat</div><span class="m-chip"><div class="m-dot" style="background:#34d399;"></div>Intercom</span><div class="m-cat">Error Tracking</div><span class="m-chip"><div class="m-dot" style="background:#f472b6;"></div>Sentry</span><div class="m-cat">Marketing Auto \xb7 <span style="color:var(--accent);font-size:.56rem;">3 PRO TOOLS</span></div><span class="m-chip locked"><div class="m-dot" style="background:#fbbf24;"></div>█████████</span><span class="m-chip locked"><div class="m-dot" style="background:#fbbf24;"></div>████████</span><span class="m-chip locked"><div class="m-dot" style="background:#fbbf24;"></div>███████</span><div class="mockup-upgrade"><div class="mockup-upgrade-text">+3 Pro tools detected</div><button class="mockup-upgrade-btn">Upgrade — from $7.99/mo</button></div>'
+    },
+    {
+      url: 'linear.app',
+      count: '7',
+      html: '<div class="m-cat">Error Tracking</div><span class="m-chip"><div class="m-dot" style="background:#f472b6;"></div>Sentry</span><div class="m-cat">Analytics</div><span class="m-chip"><div class="m-dot" style="background:#4fc4f7;"></div>Mixpanel</span><div class="m-cat">CDN</div><span class="m-chip"><div class="m-dot" style="background:#f97316;"></div>Cloudflare</span><span class="m-chip"><div class="m-dot" style="background:#94a3b8;"></div>Fastly</span><div class="m-cat">CRM \xb7 <span style="color:var(--accent);font-size:.56rem;">2 PRO TOOLS</span></div><span class="m-chip locked"><div class="m-dot" style="background:#a78bfa;"></div>████████</span><span class="m-chip locked"><div class="m-dot" style="background:#a78bfa;"></div>███████</span><div class="mockup-upgrade"><div class="mockup-upgrade-text">+5 Pro tools detected</div><button class="mockup-upgrade-btn">Upgrade — from $7.99/mo</button></div>'
+    }
+  ];
+  var idx = 0;
+  setInterval(function () {
+    idx = (idx + 1) % states.length;
+    var s = states[idx];
+    bodyEl.classList.add('fading');
+    setTimeout(function () {
+      urlEl.textContent = s.url;
+      bodyEl.innerHTML = s.html;
+      countEl.textContent = s.count;
+      bodyEl.classList.remove('fading');
+    }, 320);
+  }, 4000);
 })();
 </script>
 </body>
