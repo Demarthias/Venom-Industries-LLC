@@ -252,10 +252,19 @@
 </head>
 <body>
   <div class="launch-bar" id="launchBar">
-    <span>Try Pro free for 7 days — 208+ signatures, no credit card needed.</span>
+    <span>Try Pro free for 7 days — 208+ signatures, no credit card, 30-day money-back.</span>
     <a href="#trialCard">Start free trial →</a>
-    <button class="launch-bar-close" onclick="document.getElementById('launchBar').style.display='none';" aria-label="Dismiss">✕</button>
+    <button class="launch-bar-close" id="launchBarClose" aria-label="Dismiss">✕</button>
   </div>
+  <script>
+    (function(){
+      if(localStorage.getItem('sd_bar_dismissed')==='1'){document.getElementById('launchBar').style.display='none';}
+      document.getElementById('launchBarClose').addEventListener('click',function(){
+        document.getElementById('launchBar').style.display='none';
+        try{localStorage.setItem('sd_bar_dismissed','1');}catch(_){}
+      });
+    })();
+  </script>
 
   <div class="mobile-nudge" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#ffffff;border-top:1px solid #e2e8f0;padding:16px 20px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 16px rgba(0,0,0,0.06);">
     <span style="font-size:.82rem;color:#0f172a;line-height:1.4;">SaaS Detective is a Chrome extension — open this page on a desktop browser to install.</span>
@@ -507,8 +516,8 @@
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
         <a href="https://buy.stripe.com/4gMdRb8aiap6cr61gn1Jm07" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="monthly" data-price="7.99">Get Pro — $7.99/mo</a>
-        <p class="plan-note">License key emailed instantly · 30-day money-back guarantee</p>
-        <p class="plan-trial-link">or <a href="#trialCard">try free for 7 days →</a></p>
+        <p class="plan-trial-link" style="margin-top:10px;">or <a href="#trialCard">try free for 7 days — no credit card →</a></p>
+        <p class="plan-note" style="margin-top:6px;">License key emailed instantly &nbsp;·&nbsp; <strong style="color:var(--text);">30-day money-back guarantee</strong></p>
       </div>
       <div class="plan featured reveal">
         <div class="plan-badge">Best Value</div>
@@ -528,8 +537,8 @@
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
         <a href="https://buy.stripe.com/28E6oJ0HQap69eUe391Jm0a" target="_blank" rel="noopener" class="btn-plan btn-plan-pro" data-stripe-checkout data-plan="yearly" data-price="90.00">Get Pro — $90/yr</a>
-        <p class="plan-note">License key emailed instantly · 30-day money-back guarantee</p>
-        <p class="plan-trial-link">or <a href="#trialCard">try free for 7 days →</a></p>
+        <p class="plan-trial-link" style="margin-top:10px;">or <a href="#trialCard">try free for 7 days — no credit card →</a></p>
+        <p class="plan-note" style="margin-top:6px;">License key emailed instantly &nbsp;·&nbsp; <strong style="color:var(--text);">30-day money-back guarantee</strong></p>
       </div>
     </div>
     <p class="pricing-sub">Also available: <a href="https://buy.stripe.com/7sYfZjaiqfJqaiY8IP1Jm08" data-stripe-checkout data-plan="3month" data-price="20.00">3-month ($20)</a> · <a href="https://buy.stripe.com/9B6dRbcqy40I8aQ3ov1Jm09" data-stripe-checkout data-plan="6month" data-price="40.00">6-month ($40)</a> &nbsp;·&nbsp; Payments secured by Stripe &nbsp;·&nbsp; 30-day money-back guarantee</p>
@@ -583,6 +592,9 @@
     <div class="faq-item"><button class="faq-q" aria-expanded="false">What's the difference between Free and Pro? <span class="faq-arrow">▾</span></button><div class="faq-a">Free detects the 50 most common tools and saves your last 5 scans. Pro unlocks all 200+ signatures across every category — CRM, A/B testing, customer success, sales intelligence, native ads, compliance tools, and everything we add in future updates. Pro also lets you export any scan to CSV or JSON, and saves your last 50 scanned sites with full tool history.</div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false">How do I get my license key? <span class="faq-arrow">▾</span></button><div class="faq-a">After checkout via Stripe, your license key is delivered instantly to your email. Open the SaaS Detective extension, click Options, paste the key in the License Key field, and hit Activate. Takes about 10 seconds.</div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I cancel? <span class="faq-arrow">▾</span></button><div class="faq-a">Monthly Pro can be cancelled anytime from your Stripe billing portal — no questions asked. The 3-month, 6-month, and annual plans renew automatically at their billing interval. You can cancel anytime from your Stripe billing portal — your access stays active through the end of the paid period.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Will SaaS Detective slow down my browser? <span class="faq-arrow">▾</span></button><div class="faq-a">No. SaaS Detective only runs when you click the extension icon — there's no background monitoring, no passive tab watching, and no persistent scanning. Your browser performance is completely unaffected during normal browsing.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I use it on work devices? <span class="faq-arrow">▾</span></button><div class="faq-a">Yes. Because SaaS Detective never transmits browsing data off your device, it's safe for corporate environments. The only outbound network request is license validation for Pro users — and that only sends your license key, nothing about the sites you visit. No IT policy should have concerns with it.</div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">How does the 7-day free trial work? <span class="faq-arrow">▾</span></button><div class="faq-a">Enter your email in the trial form below the pricing plans. We'll instantly email you a license key that gives you full Pro access for 7 days — no credit card required. When your trial ends, your plan reverts to Free automatically. If you want to keep Pro, pick any plan from the pricing section. Your key will be in the format SD-XXXX-XXXX-XXXX-XXXX.</div></div>
   </div>
 </div>
 
@@ -640,6 +652,20 @@
       <p class="blog-teaser-excerpt">A ranked comparison of every extension that does tech-stack detection — what each catches and which to trust.</p>
       <span class="blog-teaser-cta">Read the ranking →</span>
     </a>
+  </div>
+</div>
+
+<div style="position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);">
+  <div class="section" style="max-width:760px;text-align:center;">
+    <div class="section-label">Stay in the loop</div>
+    <h2 class="section-title reveal">New tool signatures, every month.</h2>
+    <p class="section-sub reveal" style="max-width:480px;margin:0 auto 32px;">Get a short email when we ship new detections — which tools, which categories, and why they matter. No spam.</p>
+    <form id="subscribeForm" class="trial-form reveal" style="justify-content:center;max-width:460px;margin:0 auto;" novalidate>
+      <input type="email" id="subscribeEmail" placeholder="you@company.com" required autocomplete="email" />
+      <button type="submit" id="subscribeSubmit">Notify me</button>
+    </form>
+    <div class="trial-error" id="subscribeError"></div>
+    <div id="subscribeSuccess" style="display:none;color:var(--accent);font-size:.85rem;margin-top:10px;">You're on the list. We'll email you when new signatures ship.</div>
   </div>
 </div>
 
@@ -752,6 +778,46 @@
         }
       });
     }
+    var subscribeForm = document.getElementById('subscribeForm');
+    if (subscribeForm) {
+      subscribeForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var email = (document.getElementById('subscribeEmail').value || '').trim();
+        var btn = document.getElementById('subscribeSubmit');
+        var errorEl = document.getElementById('subscribeError');
+        var successEl = document.getElementById('subscribeSuccess');
+        errorEl.classList.remove('show');
+        if (!email || email.indexOf('@') < 0) {
+          errorEl.textContent = 'Please enter a valid email.';
+          errorEl.classList.add('show');
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = 'Subscribing…';
+        try {
+          var res = await fetch('https://saas-detective-licensing.kubegrayson.workers.dev/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, client_id: clientId, source: 'marketing_site' }),
+          });
+          var data = await res.json().catch(function () { return {}; });
+          if (res.ok && data.ok) {
+            subscribeForm.style.display = 'none';
+            successEl.style.display = 'block';
+          } else {
+            errorEl.textContent = (data && data.error) ? data.error : 'Could not subscribe. Please try again.';
+            errorEl.classList.add('show');
+          }
+        } catch (_) {
+          errorEl.textContent = 'Network error. Please try again.';
+          errorEl.classList.add('show');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Notify me';
+        }
+      });
+    }
+
     document.addEventListener('click', function (e) {
       var a = e.target && e.target.closest && e.target.closest('a[data-stripe-checkout]');
       if (!a) return;
