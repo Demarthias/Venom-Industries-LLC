@@ -214,11 +214,19 @@
       destination: pendingStripeUrl
     });
 
+    track('checkout_begin', {
+      email_domain: email.split('@')[1] || 'unknown',
+      destination: pendingStripeUrl,
+      skipped_gate: false,
+      source: 'web'
+    });
+
     window.location.href = buildStripeUrlWithEmail(pendingStripeUrl, email);
   }
 
   function handleSkip() {
     track('email_gate_skipped', { destination: pendingStripeUrl });
+    track('checkout_begin', { destination: pendingStripeUrl, skipped_gate: true, source: 'web' });
     if (pendingStripeUrl) window.location.href = pendingStripeUrl;
   }
 
@@ -246,6 +254,11 @@
         // Allow command/ctrl-click to bypass the gate (open in new tab)
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
         e.preventDefault();
+        track('clicked_payment_link', {
+          plan: this.dataset.plan || 'unknown',
+          price: this.dataset.price || 'unknown',
+          destination: this.href
+        });
         openModal(this.href);
       });
     }
