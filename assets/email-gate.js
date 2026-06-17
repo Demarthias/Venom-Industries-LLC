@@ -280,7 +280,7 @@
       source: 'web'
     });
 
-    window.location.href = buildStripeUrlWithEmail(pendingStripeUrl, email);
+    window.location.href = buildStripeUrl(pendingStripeUrl, email, accountType);
   }
 
   function handleSkip() {
