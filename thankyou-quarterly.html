@@ -160,6 +160,7 @@
       const tid='SD-'+Date.now()+'-'+Math.random().toString(36).slice(2,8).toUpperCase();
       gtag('event','purchase',{transaction_id:tid,value:19.99,currency:'USD',items:[{item_id:'sd_pro_quarterly',item_name:'SaaS Detective Pro Quarterly',price:19.99,quantity:1}]});
       gtag('event','conversion',{send_to:'AW-18081432138',value:19.99,currency:'USD',transaction_id:tid});
+      if(window.posthog)posthog.capture('checkout_complete',{plan:'quarterly',price:19.99,currency:'USD',payment_provider:'stripe',transaction_id:tid});
     })();
   </script>
 </body>
