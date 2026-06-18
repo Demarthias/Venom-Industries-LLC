@@ -231,7 +231,7 @@
     submitBtn.textContent = loading ? 'Sending you to checkout…' : 'Continue to checkout →';
   }
 
-  async function submitForm(e) {
+  function submitForm(e) {
     e.preventDefault();
     errorEl.classList.remove('is-visible');
 
@@ -250,20 +250,26 @@
     setLoading(true);
     var newsletterOptIn = !!newsletterInput.checked;
 
-    try {
-      await fetch(WORKER_BASE + '/subscribe', {
+    // Fire-and-forget — redirect immediately, don't block on the worker response.
+    // sendBeacon survives page navigation; fetch is the fallback.
+    var payload = JSON.stringify({
+      email: email,
+      account_type: accountType,
+      source: newsletterOptIn ? 'checkout-modal-newsletter' : 'checkout-modal',
+      client_id: (window.posthog && typeof window.posthog.get_distinct_id === 'function')
+        ? window.posthog.get_distinct_id()
+        : email
+    });
+    var sent = navigator.sendBeacon
+      ? navigator.sendBeacon(WORKER_BASE + '/subscribe', new Blob([payload], { type: 'application/json' }))
+      : false;
+    if (!sent) {
+      fetch(WORKER_BASE + '/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          account_type: accountType,
-          source: newsletterOptIn ? 'checkout-modal-newsletter' : 'checkout-modal',
-          client_id: (window.posthog && typeof window.posthog.get_distinct_id === 'function')
-            ? window.posthog.get_distinct_id()
-            : email
-        })
-      });
-    } catch (_) {}
+        body: payload
+      }).catch(function () {});
+    }
 
     track('email_gate_submitted', {
       email_domain: email.split('@')[1] || 'unknown',
