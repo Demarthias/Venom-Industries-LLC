@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaaS Detective Pro — Secure Checkout</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+  :root{
+    --ink:#f8fafc;
+    --panel:#ffffff;
+    --panel-2:#f1f5f9;
+    --line:#e2e8f0;
+    --signal:#2563eb;
+    --signal-dim:rgba(37,99,235,0.08);
+    --text:#0f172a;
+    --text-muted:#64748b;
+    --verify:#2563eb;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:48px 20px;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:520px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:28px;
+  }
+
+  .brand-mark{
+    width:28px;
+    height:28px;
+    border-radius:7px;
+    background:var(--signal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .brand-mark svg{ width:16px; height:16px; }
+
+  .brand-name{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:0.2px;
+    color:var(--text);
+  }
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(15,23,42,0.04), 0 16px 40px rgba(15,23,42,0.08);
+  }
+
+  /* ---- Signature element: live detection readout ---- */
+  .scan{
+    background:var(--panel-2);
+    border-bottom:1px solid var(--line);
+    padding:18px 22px 16px;
+  }
+
+  .scan-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+  }
+
+  .scan-label{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    display:flex;
+    align-items:center;
+    gap:7px;
+  }
+
+  .dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--verify);
+    box-shadow:0 0 0 3px rgba(37,99,235,0.12);
+  }
+
+  .scan-target{
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    color:var(--text-muted);
+  }
+
+  .scan-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .scan-list li{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-family:'DM Mono',monospace;
+    font-size:12.5px;
+    color:var(--text-muted);
+    opacity:0;
+    transform:translateY(2px);
+    animation:tickIn 0.4s ease forwards;
+  }
+
+  .scan-list li .check{
+    color:var(--verify);
+    width:13px;
+    flex-shrink:0;
+  }
+
+  .scan-list li .cat{
+    color:var(--text-muted);
+    margin-left:auto;
+    font-size:11px;
+  }
+
+  .scan-list li:nth-child(1){ animation-delay:0.15s; }
+  .scan-list li:nth-child(2){ animation-delay:0.55s; }
+  .scan-list li:nth-child(3){ animation-delay:0.95s; }
+  .scan-list li:nth-child(4){ animation-delay:1.35s; }
+  .scan-list li:nth-child(5){ animation-delay:1.75s; }
+
+  @keyframes tickIn{
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .scan-list li{ animation:none; opacity:1; transform:none; }
+  }
+
+  .scan-foot{
+    margin-top:12px;
+    font-size:11px;
+    color:var(--text-muted);
+    font-family:'DM Mono',monospace;
+  }
+
+  /* ---- Plan summary ---- */
+  .body{
+    padding:26px 26px 24px;
+  }
+
+  .plan-name{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:22px;
+    margin:0 0 4px;
+  }
+
+  .plan-sub{
+    color:var(--text-muted);
+    font-size:14px;
+    margin:0 0 20px;
+  }
+
+  .term-select{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+    margin-bottom:18px;
+  }
+
+  .term-btn{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:10px 4px 9px;
+    cursor:pointer;
+    font-family:'DM Sans',sans-serif;
+    color:var(--text);
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .term-btn:hover{
+    border-color:var(--accent);
+  }
+
+  .term-btn.active{
+    border-color:var(--signal);
+    background:var(--accent-dim);
+  }
+
+  .term-len{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:14px;
+  }
+
+  .term-rate{
+    font-size:11px;
+    color:var(--text-muted);
+  }
+
+  .term-badge{
+    font-family:'DM Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:0.02em;
+    color:var(--verify);
+    margin-top:1px;
+  }
+
+  @media (max-width:400px){
+    .term-len{ font-size:12.5px; }
+    .term-rate{ font-size:10px; }
+  }
+
+  .price-row{
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    margin-bottom:22px;
+    padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .price{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    font-size:34px;
+  }
+
+  .price-period{
+    color:var(--text-muted);
+    font-size:14px;
+  }
+
+  .features{
+    list-style:none;
+    margin:0 0 24px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+  }
+
+  .features li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:14px;
+    line-height:1.4;
+    color:var(--text);
+  }
+
+  .features li svg{
+    flex-shrink:0;
+    margin-top:2px;
+    color:var(--signal);
+  }
+
+  .cta{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:var(--signal);
+    color:var(--ink);
+    font-family:'DM Mono',monospace;
+    font-weight:500;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:16px 20px;
+    border-radius:7px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:opacity 0.2s ease, transform 0.15s ease;
+  }
+
+  .cta:hover{
+    opacity:0.9;
+    transform:translateY(-1px);
+  }
+
+  .cta:focus-visible{
+    outline:2px solid var(--text);
+    outline-offset:3px;
+  }
+
+  .cta-sub{
+    text-align:center;
+    font-size:12px;
+    color:var(--text-muted);
+    margin:10px 0 0;
+  }
+
+  .billing-disclosure{
+    text-align:center;
+    font-size:11px;
+    line-height:1.5;
+    color:var(--text-muted);
+    margin:10px 0 0;
+  }
+
+  .billing-disclosure a{
+    color:var(--text-muted);
+    text-decoration:underline;
+    text-decoration-color:var(--line);
+    text-underline-offset:2px;
+  }
+
+  .billing-disclosure a:hover{ color:var(--text-muted); }
+
+  .legal-strip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 26px;
+    background:var(--panel-2);
+    border-top:1px solid var(--line);
+    color:var(--text-muted);
+    font-size:11px;
+    line-height:1.4;
+  }
+
+  .legal-strip svg{ flex-shrink:0; }
+
+  #embedded-checkout-wrap{
+    margin-top:18px;
+  }
+
+  .change-plan-link{
+    display:block;
+    background:none;
+    border:none;
+    padding:0;
+    margin:0 0 14px;
+    font-family:'DM Mono',monospace;
+    font-size:11px;
+    letter-spacing:.03em;
+    color:var(--text-muted);
+    cursor:pointer;
+    text-decoration:underline;
+    text-decoration-color:var(--line);
+    text-underline-offset:3px;
+  }
+
+  .change-plan-link:hover{ color:var(--accent); }
+
+  #checkout-mount{
+    min-height:320px;
+  }
+
+  .checkout-loading{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:200px;
+    color:var(--text-muted);
+    font-family:'DM Mono',monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+  }
+
+  /* ---- Trust row ---- */
+  .trust{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border-top:1px solid var(--line);
+  }
+
+  .trust-item{
+    background:var(--panel);
+    padding:18px 20px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+
+  .trust-item svg{
+    flex-shrink:0;
+    color:var(--signal);
+    margin-top:1px;
+  }
+
+  .trust-title{
+    font-size:13px;
+    font-weight:600;
+    margin:0 0 2px;
+    color:var(--text);
+  }
+
+  .trust-body{
+    font-size:12px;
+    color:var(--text-muted);
+    line-height:1.4;
+    margin:0;
+  }
+
+  /* ---- Footer note ---- */
+  .footer-note{
+    text-align:center;
+    margin-top:20px;
+    font-size:12.5px;
+    color:var(--text-muted);
+    line-height:1.6;
+  }
+
+  .footer-note a{
+    color:var(--text-muted);
+    text-decoration:underline;
+    text-decoration-color:var(--line);
+    text-underline-offset:2px;
+  }
+
+  .footer-note a:hover{ color:var(--text); }
+
+  @media (max-width:480px){
+    .trust{ grid-template-columns:1fr; }
+    .body{ padding:22px 20px 20px; }
+  }
+</style>
+<script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10.5" cy="10.5" r="6.5" stroke="#ffffff" stroke-width="2.4"/>
+        <line x1="15.3" y1="15.3" x2="20.5" y2="20.5" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="brand-name">SaaS Detective</span>
+  </div>
+
+  <div class="card">
+
+    <!-- Signature element: live detection readout, product demoing itself on its own checkout page -->
+    <div class="scan">
+      <div class="scan-head">
+        <span class="scan-label"><span class="dot"></span>Live scan</span>
+        <span class="scan-target">example-site.com</span>
+      </div>
+      <ul class="scan-list">
+        <li>
+          <svg class="check" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Stripe <span class="cat">payments</span>
+        </li>
+        <li>
+          <svg class="check" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          HubSpot <span class="cat">CRM</span>
+        </li>
+        <li>
+          <svg class="check" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Intercom <span class="cat">live chat</span>
+        </li>
+        <li>
+          <svg class="check" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Webflow <span class="cat">CMS</span>
+        </li>
+        <li>
+          <svg class="check" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Segment <span class="cat">analytics</span>
+        </li>
+      </ul>
+      <p class="scan-foot">800+ signatures shown for Pro · free plan shows 50 · detected client-side, nothing sent to a server</p>
+    </div>
+
+    <div class="body">
+      <h1 class="plan-name">SaaS Detective Pro</h1>
+      <p class="plan-sub">Full detection, unlocked on every site you visit.</p>
+
+      <div class="term-select" role="group" aria-label="Billing term">
+        <button type="button" class="term-btn" data-plan="1mo">
+          <span class="term-len">1 mo</span>
+          <span class="term-rate">$7.99/mo</span>
+        </button>
+        <button type="button" class="term-btn" data-plan="3mo">
+          <span class="term-len">3 mo</span>
+          <span class="term-rate">$6.67/mo</span>
+          <span class="term-badge">Save 17%</span>
+        </button>
+        <button type="button" class="term-btn active" data-plan="6mo">
+          <span class="term-len">6 mo</span>
+          <span class="term-rate">$6.67/mo</span>
+          <span class="term-badge">Save 17%</span>
+        </button>
+        <button type="button" class="term-btn" data-plan="12mo">
+          <span class="term-len">12 mo</span>
+          <span class="term-rate">$7.50/mo</span>
+          <span class="term-badge">Save 6%</span>
+        </button>
+      </div>
+
+      <div class="price-row">
+        <span class="price" id="price-total">$40.00</span>
+        <span class="price-period" id="price-period">billed once / 6 months · cancel anytime</span>
+      </div>
+
+      <ul class="features">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          All 800+ tool signatures across 65+ categories, no caps
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Version history and stack-change alerts on sites you watch
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Unlimited scans, no daily limit
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Cancel in one click, no retention flow
+        </li>
+      </ul>
+
+      <button type="button" class="cta" id="checkout-btn">Continue to checkout</button>
+      <p class="cta-sub">Payment is processed securely by Stripe. We never see or store your card details.</p>
+      <p class="billing-disclosure" id="billing-disclosure">
+        By continuing, you agree to be charged $40.00 today, then $40.00 every 6 months until you cancel. Cancel anytime, no fees — see our <a href="https://venom-industries.com/terms">refund policy</a>.
+      </p>
+
+      <div id="embedded-checkout-wrap" style="display:none;">
+        <button type="button" id="change-plan-btn" class="change-plan-link">← Choose a different plan</button>
+        <div id="checkout-mount"></div>
+      </div>
+    </div>
+
+    <div class="legal-strip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5.5a5 5 0 0110 0V7" stroke="currentColor" stroke-width="1.6"/></svg>
+      <span>Venom Industries LLC · Denver, CO · Subscriptions billed via Stripe, tax handled automatically where required</span>
+    </div>
+
+    <div class="trust">
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div>
+          <p class="trust-title">30-day money-back guarantee</p>
+          <p class="trust-body">Not useful to you, tell us and get a full refund. No form, no reason needed.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
+        <div>
+          <p class="trust-title">Payment handled by Stripe</p>
+          <p class="trust-body">Your card details never touch our servers. Same processor Amazon and Shopify use.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <p class="trust-title">Built by one developer</p>
+          <p class="trust-body">No support queue, no offshore team. Email goes straight to the person who builds this.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0"/><path d="M4 12a8 8 0 1116 0 8 8 0 01-16 0z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <p class="trust-title">Detection stays local</p>
+          <p class="trust-body">Scans run in your browser. What you scan is never logged or stored on our end.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-note">
+    Questions before you subscribe? <a href="mailto:grayson@venom-industries.com">grayson@venom-industries.com</a><br>
+    Prefer to try it free first? <a href="https://venom-industries.com/saas-detective.html">See the free tier →</a>
+  </p>
+
+</div>
+
+<script>
+(function () {
+  // ── CONFIG — fill this in before deploying ────────────────────────────
+  var CHECKOUT_ENDPOINT = 'https://saas-detective-licensing.kubegrayson.workers.dev/checkout/create-session';
+  var STRIPE_PUBLISHABLE_KEY = 'pk_live_51THqBmRjzw2rPpuqD0dWBbt4VT2WW9HqwQoff7vAxlK6xXrlUISv3N6vjDtWvXwUUAW8XtFzaB52AX9KnG5lJIZz00UsypGFih';
+  // ───────────────────────────────────────────────────────────────────
+
+  var stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+  var embeddedCheckoutInstance = null;
+
+  var PLANS = {
+    '1mo':  {
+      total: '$7.99',
+      period: 'billed monthly · cancel anytime',
+      disclosure: 'By continuing, you agree to be charged $7.99 today, then $7.99 every month until you cancel. Cancel anytime, no fees — see our <a href="https://venom-industries.com/terms">refund policy</a>.'
+    },
+    '3mo':  {
+      total: '$20.00',
+      period: 'billed once / 3 months · cancel anytime',
+      disclosure: 'By continuing, you agree to be charged $20.00 today, then $20.00 every 3 months until you cancel. Cancel anytime, no fees — see our <a href="https://venom-industries.com/terms">refund policy</a>.'
+    },
+    '6mo':  {
+      total: '$40.00',
+      period: 'billed once / 6 months · cancel anytime',
+      disclosure: 'By continuing, you agree to be charged $40.00 today, then $40.00 every 6 months until you cancel. Cancel anytime, no fees — see our <a href="https://venom-industries.com/terms">refund policy</a>.'
+    },
+    '12mo': {
+      total: '$90.00',
+      period: 'billed once / 12 months · cancel anytime',
+      disclosure: 'By continuing, you agree to be charged $90.00 today, then $90.00 every 12 months until you cancel. Cancel anytime, no fees — see our <a href="https://venom-industries.com/terms">refund policy</a>.'
+    }
+  };
+
+  var termBtns = document.querySelectorAll('.term-btn');
+  var priceTotalEl = document.getElementById('price-total');
+  var pricePeriodEl = document.getElementById('price-period');
+  var billingDisclosureEl = document.getElementById('billing-disclosure');
+  var selectedPlan = document.querySelector('.term-btn.active').dataset.plan;
+
+  function selectPlan(planId) {
+    selectedPlan = planId;
+    termBtns.forEach(function (b) {
+      b.classList.toggle('active', b.dataset.plan === planId);
+    });
+    priceTotalEl.textContent = PLANS[planId].total;
+    pricePeriodEl.textContent = PLANS[planId].period;
+    billingDisclosureEl.innerHTML = PLANS[planId].disclosure;
+  }
+
+  termBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      selectPlan(b.dataset.plan);
+      if (window.posthog) {
+        posthog.capture('checkout_plan_selected', { plan: selectedPlan });
+      }
+    });
+  });
+
+  var btn = document.getElementById('checkout-btn');
+  var originalText = btn.textContent;
+  var embeddedWrap = document.getElementById('embedded-checkout-wrap');
+  var checkoutMount = document.getElementById('checkout-mount');
+  var changePlanBtn = document.getElementById('change-plan-btn');
+  var termSelectEl = document.querySelector('.term-select');
+
+  function getClientReferenceId() {
+    // Prefer the PostHog distinct_id so the Stripe session ties directly
+    // back to the same person in your funnel — this is the piece your
+    // static Payment Links couldn't do.
+    if (window.posthog && typeof posthog.get_distinct_id === 'function') {
+      try {
+        var id = posthog.get_distinct_id();
+        if (id) return id;
+      } catch (e) {}
+    }
+    // Fallback: persistent anonymous id, survives reloads on this browser
+    var stored = localStorage.getItem('vi_ref_id');
+    if (stored) return stored;
+    var generated = 'anon_' + crypto.randomUUID();
+    localStorage.setItem('vi_ref_id', generated);
+    return generated;
+  }
+
+  function showChooserView() {
+    if (embeddedCheckoutInstance) {
+      embeddedCheckoutInstance.destroy();
+      embeddedCheckoutInstance = null;
+    }
+    checkoutMount.innerHTML = '';
+    embeddedWrap.style.display = 'none';
+    btn.style.display = '';
+    termSelectEl.style.display = '';
+    btn.dataset.loading = '';
+    btn.textContent = originalText;
+    btn.style.opacity = '';
+    btn.style.cursor = '';
+  }
+
+  changePlanBtn.addEventListener('click', showChooserView);
+
+  btn.addEventListener('click', function () {
+    if (btn.dataset.loading === '1') return;
+    btn.dataset.loading = '1';
+    btn.textContent = 'Loading checkout…';
+    btn.style.opacity = '0.75';
+    btn.style.cursor = 'default';
+
+    var clientReferenceId = getClientReferenceId();
+
+    if (window.posthog) {
+      posthog.capture('checkout_begin', {
+        plan: selectedPlan,
+        client_reference_id: clientReferenceId
+      });
+    }
+
+    fetch(CHECKOUT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        plan: selectedPlan,
+        client_reference_id: clientReferenceId
+      })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('checkout session request failed: ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data.clientSecret) throw new Error('no client secret in response');
+
+        checkoutMount.innerHTML = '<div class="checkout-loading">Loading secure payment form…</div>';
+        btn.style.display = 'none';
+        termSelectEl.style.display = 'none';
+        embeddedWrap.style.display = 'block';
+
+        embeddedCheckoutInstance = stripe.initEmbeddedCheckout({
+          clientSecret: data.clientSecret
+        });
+
+        embeddedCheckoutInstance.then(function (instance) {
+          checkoutMount.innerHTML = '';
+          instance.mount('#checkout-mount');
+          embeddedCheckoutInstance = instance;
+        });
+      })
+      .catch(function (err) {
+        console.error('[checkout]', err);
+        btn.dataset.loading = '';
+        btn.textContent = originalText;
+        btn.style.opacity = '';
+        btn.style.cursor = '';
+        alert('Something went wrong starting checkout. Please try again, or email grayson@venom-industries.com.');
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
