@@ -669,6 +669,16 @@
     });
   });
 
+  // ── Plan preselect from URL, e.g. checkout.html?plan=1mo ──────────────
+  function applyPlanFromUrl() {
+    var params = new URLSearchParams(window.location.search);
+    var plan = params.get('plan');
+    if (plan && PLANS.hasOwnProperty(plan)) {
+      selectPlan(plan);
+    }
+  }
+  applyPlanFromUrl();
+
   var btn = document.getElementById('checkout-btn');
   var originalText = btn.textContent;
   var embeddedWrap = document.getElementById('embedded-checkout-wrap');
