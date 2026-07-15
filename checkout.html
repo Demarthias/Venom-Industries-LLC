@@ -14,6 +14,8 @@
     --line:#e2e8f0;
     --signal:#2563eb;
     --signal-dim:rgba(37,99,235,0.08);
+    --accent:#2563eb;
+    --accent-dim:rgba(37,99,235,0.08);
     --text:#0f172a;
     --text-muted:#64748b;
     --verify:#2563eb;
@@ -687,6 +689,13 @@
   var termSelectEl = document.querySelector('.term-select');
 
   function getClientReferenceId() {
+    // Prefer an incoming ID from the extension/onboarding link — this is
+    // what lets the webhook tie the Stripe session back to that specific
+    // install/click rather than a freshly-minted anonymous ID.
+    var incomingParams = new URLSearchParams(window.location.search);
+    var incomingRef = incomingParams.get('client_reference_id');
+    if (incomingRef) return incomingRef;
+
     // Prefer the PostHog distinct_id so the Stripe session ties directly
     // back to the same person in your funnel — this is the piece your
     // static Payment Links couldn't do.
@@ -702,6 +711,15 @@
     var generated = 'anon_' + crypto.randomUUID();
     localStorage.setItem('vi_ref_id', generated);
     return generated;
+  }
+
+  function getGaClientId() {
+    var params = new URLSearchParams(window.location.search);
+    var incoming = params.get('ga_client_id');
+    if (incoming) return incoming;
+
+    var match = document.cookie.match(/_ga=GA1\.\d\.(\d+\.\d+)/);
+    return match ? match[1] : '';
   }
 
   function showChooserView() {
@@ -737,12 +755,17 @@
       });
     }
 
+    var incomingParamsForEmail = new URLSearchParams(window.location.search);
+    var incomingEmail = incomingParamsForEmail.get('email');
+
     fetch(CHECKOUT_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         plan: selectedPlan,
-        client_reference_id: clientReferenceId
+        client_reference_id: clientReferenceId,
+        ga_client_id: getGaClientId(),
+        customer_email: incomingEmail || undefined
       })
     })
       .then(function (res) {
