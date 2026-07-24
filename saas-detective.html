@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SaaS Detective — Reveal Any Website's Tech Stack Instantly</title>
-  <meta name="description" content="One click on any website reveals every tool, platform, and framework powering it. 800+ signatures, 64 categories. Free Chrome extension." />
+  <title>SaaS Detective — Website Tech Stack & Trust Score Checker</title>
+  <meta name="description" content="Instantly see the tech stack behind any website, plus a real-time Website Trust Score — SSL, domain age, and payment processor checks with a clear Trusted / Caution / Avoid recommendation. Free Chrome extension." />
   <link rel="canonical" href="https://venom-industries.com/saas-detective" />
-  <meta property="og:title" content="SaaS Detective — Reveal Any Website's Tech Stack Instantly" />
-  <meta property="og:description" content="One click on any website reveals every tool, platform, and framework powering it. 800+ signatures across 64 categories." />
+  <meta property="og:title" content="SaaS Detective — Website Tech Stack & Trust Score Checker" />
+  <meta property="og:description" content="See any website's tech stack instantly, plus a real-time Website Trust Score with a clear Trusted / Caution / Avoid recommendation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://venom-industries.com/saas-detective" />
   <meta property="og:image" content="https://venom-industries.com/assets/og-image.png" />
@@ -53,7 +53,7 @@
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,0,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.025) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0;}
     a{color:inherit;text-decoration:none;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s,top .2s;border-bottom:1px solid transparent;}
     nav.scrolled{background:rgba(248,250,252,0.94);backdrop-filter:blur(20px);border-color:var(--border);box-shadow:0 1px 0 var(--border);}
     .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:10px;}
     .logo-mark{width:30px;height:30px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:#fff;}
@@ -141,6 +141,27 @@
     .cat-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px;}
     .cat-pill{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:7px 14px;font-size:.8rem;color:var(--muted);transition:border-color .2s,color .2s;}
     .cat-pill:hover{border-color:rgba(37,99,235,0.35);color:var(--accent);}
+    .spotlight-card{position:relative;background:linear-gradient(135deg,var(--card) 0%,var(--accent-dim) 160%);border:1px solid rgba(37,99,235,0.25);border-radius:20px;padding:48px;overflow:hidden;box-shadow:0 0 0 1px rgba(37,99,235,0.06),0 30px 60px rgba(0,0,0,0.08);}
+    .spotlight-ribbon{position:absolute;top:0;right:0;background:var(--accent);color:#fff;font-family:'DM Mono',monospace;font-size:.62rem;font-weight:700;letter-spacing:.1em;padding:8px 18px;border-radius:0 20px 0 14px;}
+    .spotlight-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;}
+    .spotlight-list{list-style:none;margin:0 0 8px;}
+    .spotlight-list li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;font-size:.88rem;color:var(--muted);line-height:1.6;}
+    .spotlight-check{color:var(--accent);font-weight:700;flex-shrink:0;}
+    .spotlight-visual{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:24px;}
+    .spotlight-score{text-align:center;padding-bottom:18px;margin-bottom:14px;border-bottom:1px solid var(--border);}
+    .spotlight-score-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+    .spotlight-score-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.6rem;color:#16a34a;line-height:1;}
+    .spotlight-score-num span{font-size:1.1rem;color:var(--muted);font-weight:500;}
+    .spotlight-score-tag{font-size:.78rem;color:#16a34a;font-weight:600;margin-top:6px;}
+    .spotlight-row{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border);}
+    .spotlight-row:last-child{border-bottom:none;}
+    .spotlight-ok{color:#16a34a;font-weight:600;}
+    @media(max-width:900px){.spotlight-grid{grid-template-columns:1fr;}.spotlight-card{padding:32px 24px;}}
+    .trust-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;padding-top:32px;border-top:1px solid var(--border);}
+    .trust-tier{display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--muted);}
+    .trust-tier strong{display:flex;align-items:center;gap:8px;color:var(--text);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.03em;}
+    .tier-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+    @media(max-width:700px){.trust-tiers{grid-template-columns:1fr;}}
     .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
     .plan{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px 28px;position:relative;}
     .plan.featured{border-color:var(--accent);}
@@ -240,7 +261,8 @@
   .update-tag{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(37,99,235,0.08);padding:3px 9px;border-radius:5px;flex-shrink:0;}
   .update-strip a{color:var(--accent);font-weight:600;text-decoration:none;white-space:nowrap;}
   .update-strip a:hover{text-decoration:underline;}
-  .launch-bar{position:sticky;top:0;z-index:200;background:var(--accent);color:#fff;text-align:center;padding:10px 48px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:10px;}
+  .launch-bar{position:sticky;top:0;z-index:200;background:var(--accent);color:#fff;text-align:center;padding:10px 48px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+  .launch-bar-tag{background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:4px;font-size:.62rem;letter-spacing:.1em;flex-shrink:0;}
   .launch-bar a{color:#fff !important;}
   .launch-bar a{color:var(--bg);text-decoration:underline;text-underline-offset:2px;}
   .launch-bar a:hover{opacity:.75;}
@@ -278,16 +300,17 @@
 </head>
 <body>
   <div class="launch-bar" id="launchBar">
-    <span>SaaS Detective Pro — 800+ signatures, 30-day money-back guarantee.</span>
-    <a href="#pricing">See plans →</a>
+    <span class="launch-bar-tag">NEW</span>
+    <span>Website Trust Score is here — a real-time safety score for any site, with checkout-specific checks built in.</span>
+    <a href="#trust-score">See how it works →</a>
     <button class="launch-bar-close" id="launchBarClose" aria-label="Dismiss">✕</button>
   </div>
   <script>
     (function(){
-      if(localStorage.getItem('sd_bar_dismissed')==='1'){document.getElementById('launchBar').style.display='none';}
+      if(localStorage.getItem('sd_bar_dismissed_trust_v1')==='1'){document.getElementById('launchBar').style.display='none';}
       document.getElementById('launchBarClose').addEventListener('click',function(){
         document.getElementById('launchBar').style.display='none';
-        try{localStorage.setItem('sd_bar_dismissed','1');}catch(_){}
+        try{localStorage.setItem('sd_bar_dismissed_trust_v1','1');}catch(_){}
       });
     })();
   </script>
@@ -329,17 +352,34 @@
     });
   })();
 </script>
+<script>
+  (function(){
+    var bar=document.getElementById('launchBar');
+    var nav=document.getElementById('nav');
+    var closeBtn=document.getElementById('launchBarClose');
+    if(!bar||!nav)return;
+    function sync(){
+      var visible=bar.style.display!=='none';
+      nav.style.top=visible?bar.getBoundingClientRect().height+'px':'0px';
+    }
+    sync();
+    window.addEventListener('resize',sync);
+    window.addEventListener('load',sync);
+    if(closeBtn){closeBtn.addEventListener('click',function(){setTimeout(sync,0);});}
+  })();
+</script>
 <div class="hero-glow"></div>
 
 <div style="position:relative;z-index:1;">
   <div class="hero">
     <div>
       <div class="badge"><div class="badge-dot"></div>★★★★★ &nbsp;Free on Chrome Web Store</div>
-      <h1>Reveal any website's <em>tech stack</em> in one click.</h1>
-      <p class="hero-sub">SaaS Detective scans any page you visit and instantly surfaces every tool, platform, and framework powering it — before you finish reading the URL bar.</p>
+      <div class="badge" style="margin-top:8px;background:var(--accent-dim);border-color:rgba(37,99,235,0.3);"><div class="badge-dot" style="background:var(--accent);"></div>NEW: Website Trust Score — is this site safe?</div>
+      <h1>See any website's <em>tech stack</em> — and whether you can <em>trust it</em>.</h1>
+      <p class="hero-sub">SaaS Detective scans any page you visit and instantly surfaces every tool, platform, and framework powering it — plus a real-time Website Trust Score that flags scam sites and sketchy checkouts before you click buy.</p>
       <div class="hero-actions">
         <a id="cta-hero" href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=vi-site&utm_medium=hero&utm_campaign=install" target="_blank" rel="noopener" class="btn-cta">Add to Chrome — Free</a>
-        <a href="#pricing" class="btn-outline">See Pricing</a>
+        <a href="#trust-score" class="btn-outline">See Website Trust Score</a>
       </div>
       <p class="hero-note">Free plan: 50 tools &nbsp;·&nbsp; No account required &nbsp;·&nbsp; Works on any website &nbsp;·&nbsp; Private by design</p>
       <div class="hero-proof">
@@ -383,6 +423,43 @@
   <div class="stat reveal"><div class="stat-num">64</div><div class="stat-label">Categories covered</div></div>
   <div class="stat reveal"><div class="stat-num">&lt;1<span>s</span></div><div class="stat-label">Time to detect</div></div>
   <div class="stat reveal"><div class="stat-num">0</div><div class="stat-label">Browsing URLs logged</div></div>
+</div>
+
+<div class="section" id="trust-score">
+  <div class="spotlight-card reveal">
+    <div class="spotlight-ribbon">NEW · PRO</div>
+    <div class="spotlight-grid">
+      <div>
+        <div class="section-label" style="margin-bottom:10px;">Just added</div>
+        <h2 class="section-title" style="margin-bottom:16px;">Website Trust Score</h2>
+        <p class="section-sub" style="margin-bottom:20px;">Is this website safe to use — or safe to buy from? SaaS Detective now scores <strong>every site you visit</strong> in real time, using the same signals a careful researcher would check by hand: is the certificate valid, how old is the domain, and — on a checkout page — is a real, recognized payment processor actually handling the transaction. You get one clear call: Trusted, Caution, or Avoid. No score to interpret, no digging through browser padlock icons yourself.</p>
+        <p class="section-sub" style="margin-bottom:24px;">Click the extension icon on any site and it's already there alongside your tool scan — no separate step. Land on a checkout page and it layers on payment-specific checks automatically.</p>
+        <ul class="spotlight-list">
+          <li><span class="spotlight-check">✓</span> <span><strong>Dynamic trust score (0–100)</strong> — recalculated live as you browse, for any website, not just checkout pages</span></li>
+          <li><span class="spotlight-check">✓</span> <span><strong>SSL certificate validation</strong> — flags expired, self-signed, or missing certificates instantly</span></li>
+          <li><span class="spotlight-check">✓</span> <span><strong>Domain age lookup</strong> — brand-new domains are one of the clearest tells of a scam storefront; we check registration age automatically</span></li>
+          <li><span class="spotlight-check">✓</span> <span><strong>Checkout-specific signals</strong> — on a checkout page, confirms a real processor like Stripe or PayPal is actually present, not just a fake "secure checkout" badge</span></li>
+          <li><span class="spotlight-check">✓</span> <span><strong>Plain-language recommendation</strong> — no score to interpret, just Trusted, Caution, or Avoid</span></li>
+        </ul>
+        <a href="#pricing" class="btn-cta" style="margin-top:8px;display:inline-block;">Unlock Website Trust Score — Get Pro →</a>
+      </div>
+      <div class="spotlight-visual">
+        <div class="spotlight-score">
+          <div class="spotlight-score-label">Trust Score</div>
+          <div class="spotlight-score-num">92<span>/100</span></div>
+          <div class="spotlight-score-tag">✓ Trusted</div>
+        </div>
+        <div class="spotlight-row"><span>SSL certificate</span><span class="spotlight-ok">Valid ✓</span></div>
+        <div class="spotlight-row"><span>Domain age</span><span class="spotlight-ok">6 yrs ✓</span></div>
+        <div class="spotlight-row"><span>Payment processor</span><span class="spotlight-ok">Stripe ✓</span></div>
+      </div>
+    </div>
+    <div class="trust-tiers">
+      <div class="trust-tier"><span class="tier-dot" style="background:#16a34a;"></span><strong>Trusted (80–100)</strong><span>Clean signals — proceed with confidence</span></div>
+      <div class="trust-tier"><span class="tier-dot" style="background:#eab308;"></span><strong>Caution (50–79)</strong><span>Some flags — worth a second look before you buy</span></div>
+      <div class="trust-tier"><span class="tier-dot" style="background:#dc2626;"></span><strong>Avoid (0–49)</strong><span>Multiple red flags — we'd walk away</span></div>
+    </div>
+  </div>
 </div>
 
 <div style="position:relative;z-index:1;padding:80px 48px;max-width:1100px;margin:0 auto;text-align:center;">
@@ -532,6 +609,7 @@
         <div class="plan-period">per month · cancel anytime</div>
         <p class="plan-desc">Full access to every signature. No commitment, cancel whenever.</p>
         <ul class="plan-features">
+          <li><span class="check">✓</span> <span><strong>Website Trust Score</strong> <span style="color:var(--accent);font-size:.62rem;font-weight:700;letter-spacing:.06em;">NEW</span></span></li>
           <li><span class="check">✓</span> <span><strong>800+ tool signatures</strong></span></li>
           <li><span class="check">✓</span> <span>All 64 categories</span></li>
           <li><span class="check">✓</span> <span>Tool descriptions + alternatives</span></li>
@@ -553,6 +631,7 @@
         <div class="plan-save">$7.50/mo — commit for a full year</div>
         <p class="plan-desc">Everything in Pro. One payment, full year of access.</p>
         <ul class="plan-features">
+          <li><span class="check">✓</span> <span><strong>Website Trust Score</strong> <span style="color:var(--accent);font-size:.62rem;font-weight:700;letter-spacing:.06em;">NEW</span></span></li>
           <li><span class="check">✓</span> <span><strong>800+ tool signatures</strong></span></li>
           <li><span class="check">✓</span> <span>All 64 categories</span></li>
           <li><span class="check">✓</span> <span>Tool descriptions + alternatives</span></li>
@@ -592,6 +671,7 @@
       <table class="compare-table">
         <thead><tr><th class="col-feature">Feature</th><th class="col-free">Free</th><th class="col-pro">Pro</th></tr></thead>
         <tbody>
+          <tr><td>Website Trust Score <span style="color:var(--accent);font-size:.62rem;font-weight:700;letter-spacing:.06em;">NEW</span></td><td class="cell-value"><span class="compare-cross">—</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
           <tr><td>Tool signatures detected</td><td class="cell-value dim">50 most common</td><td class="cell-value"><strong>All 800+</strong></td></tr>
           <tr><td>Categories covered</td><td class="cell-value">64</td><td class="cell-value">64</td></tr>
           <tr><td>One-click visit links</td><td class="cell-value"><span class="compare-check">✓</span></td><td class="cell-value"><span class="compare-check">✓</span></td></tr>
@@ -609,9 +689,14 @@
 </div>
 
 <div class="section">
+  <div class="update-strip reveal" style="border-color:rgba(37,99,235,0.3);background:var(--accent-dim);">
+    <span class="update-tag">Just added</span>
+    <span>Website Trust Score — a real-time safety score for any site, with checkout-specific checks built in. Pro-only.</span>
+    <a href="#trust-score">See it →</a>
+  </div>
   <div class="update-strip reveal">
-    <span class="update-tag">Just shipped</span>
-    <span>800+ signatures across 64 categories — the biggest detection update yet. More Pro features dropping soon.</span>
+    <span class="update-tag">Also shipped</span>
+    <span>800+ signatures across 64 categories — the biggest detection update yet.</span>
     <a href="#pricing">Get Pro →</a>
   </div>
   <div class="section-label">FAQ</div>
@@ -626,32 +711,6 @@
     <div class="faq-item"><button class="faq-q" aria-expanded="false">Will SaaS Detective slow down my browser? <span class="faq-arrow">▾</span></button><div class="faq-a">No. SaaS Detective only runs when you click the extension icon — there's no background monitoring, no passive tab watching, and no persistent scanning. Your browser performance is completely unaffected during normal browsing.</div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false">Can I use it on work devices? <span class="faq-arrow">▾</span></button><div class="faq-a">Yes. Because SaaS Detective never transmits browsing data off your device, it's safe for corporate environments. The only outbound network request is license validation for Pro users — and that only sends your license key, nothing about the sites you visit. No IT policy should have concerns with it.</div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false">How does the 7-day free trial work? <span class="faq-arrow">▾</span></button><div class="faq-a">Enter your email in the trial form below the pricing plans. We'll instantly email you a license key that gives you full Pro access for 7 days — no credit card required. When your trial ends, your plan reverts to Free automatically. If you want to keep Pro, pick any plan from the pricing section. Your key will be in the format SD-XXXX-XXXX-XXXX-XXXX.</div></div>
-  </div>
-</div>
-
-<div style="position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);">
-  <div class="section" style="max-width:860px;">
-    <div class="section-label">The founder</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:40px;" class="reveal">
-      <div>
-        <h2 class="section-title" style="margin-bottom:24px;">Built by someone who needed it.</h2>
-        <p style="font-size:1rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:20px;">At 33 I was a Nissan mechanic. COVID hit, forced retirement, and I had nothing.</p>
-        <p style="font-size:1rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:20px;">I spent the next 5 years teaching myself to code from scratch. No bootcamp. No CS degree. Just docs, YouTube, and a lot of late nights.</p>
-        <p style="font-size:1rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:20px;">SaaS Detective started as frustration — I kept landing on competitor sites and had no idea what tools they were running. Twenty minutes in DevTools later, I'd have a partial answer. There had to be a better way.</p>
-        <p style="font-size:1rem;color:var(--text);line-height:1.8;font-weight:400;">Turns out a lot of people have the same problem.</p>
-        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.04em;">— Grayson Kube, founder · Venom Industries LLC</div>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:20px;">
-        <div style="font-size:2rem;line-height:1;">🔧 → 💻</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;line-height:1.2;">Mechanic.<br/>Self-taught dev.<br/><span style="color:var(--accent);">Shipping software.</span></div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
-          <div style="display:flex;align-items:center;gap:12px;font-size:.83rem;color:var(--muted);"><span style="color:var(--accent);font-weight:700;font-family:'DM Mono',monospace;">2020</span> COVID. Forced out of the garage.</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:.83rem;color:var(--muted);"><span style="color:var(--accent);font-weight:700;font-family:'DM Mono',monospace;">2020–25</span> 5 years of learning to code.</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:.83rem;color:var(--text);font-weight:500;"><span style="color:var(--accent);font-weight:700;font-family:'DM Mono',monospace;">2026</span> First real product. Shipping it.</div>
-        </div>
-        <a href="mailto:grayson@venom-industries.com" style="display:inline-block;margin-top:4px;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;opacity:.8;">Say hello →</a>
-      </div>
-    </div>
   </div>
 </div>
 

@@ -24,7 +24,13 @@
     body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,0,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.025) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0;}
     a{color:inherit;text-decoration:none;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;}
+    .launch-bar{position:sticky;top:0;z-index:200;background:var(--accent);color:#fff;text-align:center;padding:10px 48px;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+    .launch-bar-tag{background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:4px;font-size:.62rem;letter-spacing:.1em;flex-shrink:0;}
+    .launch-bar a{color:#fff !important;text-decoration:underline;text-underline-offset:2px;}
+    .launch-bar a:hover{opacity:.75;}
+    .launch-bar-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;cursor:pointer;font-size:1rem;line-height:1;opacity:.6;}
+    .launch-bar-close:hover{opacity:1;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s,top .2s;border-bottom:1px solid transparent;}
     nav.scrolled{background:rgba(248,250,252,0.94);backdrop-filter:blur(20px);border-color:var(--border);}
     .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:10px;}
     .logo-mark{width:30px;height:30px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:#fff;}
@@ -185,6 +191,22 @@
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKZX7T7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+<div class="launch-bar" id="launchBar">
+  <span class="launch-bar-tag">NEW</span>
+  <span>Website Trust Score is here — a real-time safety score for any site, with checkout-specific checks built in.</span>
+  <a href="/saas-detective#trust-score">See how it works →</a>
+  <button class="launch-bar-close" id="launchBarClose" aria-label="Dismiss">✕</button>
+</div>
+<script>
+  (function(){
+    if(localStorage.getItem('vi_bar_dismissed_trust_v1')==='1'){document.getElementById('launchBar').style.display='none';}
+    document.getElementById('launchBarClose').addEventListener('click',function(){
+      document.getElementById('launchBar').style.display='none';
+      try{localStorage.setItem('vi_bar_dismissed_trust_v1','1');}catch(_){}
+    });
+  })();
+</script>
+
 <nav id="nav">
   <a href="/" class="logo"><div class="logo-mark">V</div>Venom Industries</a>
   <ul class="nav-links">
@@ -216,100 +238,61 @@
     });
   })();
 </script>
+<script>
+  (function(){
+    var bar=document.getElementById('launchBar');
+    var nav=document.getElementById('nav');
+    var closeBtn=document.getElementById('launchBarClose');
+    if(!bar||!nav)return;
+    function sync(){
+      var visible=bar.style.display!=='none';
+      nav.style.top=visible?bar.getBoundingClientRect().height+'px':'0px';
+    }
+    sync();
+    window.addEventListener('resize',sync);
+    window.addEventListener('load',sync);
+    if(closeBtn){closeBtn.addEventListener('click',function(){setTimeout(sync,0);});}
+  })();
+</script>
 
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="badge"><div class="badge-dot"></div>Venom Industries LLC — Est. 2026</div>
-  <h1>Reveal Any Website’s Tech Stack Instantly</h1>
-  <p class="hero-sub">Get instant intel on the tools, frameworks, and services powering any site. Make smarter decisions. Out‑research your competitors.</p>
+  <h1>Software That Gives You <em>the Edge.</em></h1>
+  <p class="hero-sub">Venom Industries makes sharp, focused tools for people who'd rather know than guess — starting with SaaS Detective, which reveals any website's tech stack and scores whether you can trust it.</p>
   <div class="hero-actions">
-    <a href="/saas-detective" class="btn-hero">Start Free Scan</a>
+    <a href="/saas-detective" class="btn-hero">Explore SaaS Detective</a>
   </div>
-  <p class="hero-note">Trusted by founders, devs, and analysts &nbsp;·&nbsp; Privacy-first · Free plan available</p>
+  <p class="hero-note">Founded 2026 &nbsp;·&nbsp; Independent &nbsp;·&nbsp; Privacy-first by design</p>
 </section>
-
-<div class="how-works reveal">
-  <div class="section-label">How SaaS Detective Works</div>
-  <h2 class="section-title">How SaaS Detective Works</h2>
-  <div class="how-grid">
-    <div class="how-step">
-      <div class="step-num">1</div>
-      <h3>Enter any website URL</h3>
-      <p>Type or paste any domain you want to analyze.</p>
-    </div>
-    <div class="how-step">
-      <div class="step-num">2</div>
-      <h3>We scan the tech stack in seconds</h3>
-      <p>Our engine identifies frameworks, hosting, analytics, SaaS tools, and more.</p>
-    </div>
-    <div class="how-step">
-      <div class="step-num">3</div>
-      <h3>You get instant results</h3>
-      <p>Full breakdowns, clean UI, actionable insights.</p>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:22px;"><a href="/saas-detective" class="btn-hero">Try It Now</a></div>
-</div>
-
-<div class="social-proof">
-  <div style="text-align:center;max-width:920px;">
-    <div class="section-label">Trusted by</div>
-    <div class="social-copy">Founders, developers, and analysts</div>
-    <div class="social-copy" style="margin-top:6px;color:var(--muted);">Used for competitive research, product scouting, and market intelligence.</div>
-    <div style="margin-top:18px;padding-top:18px;border-top:1px solid var(--border);font-size:.95rem;color:var(--muted);font-style:italic;max-width:620px;margin-left:auto;margin-right:auto;">&quot;SaaS Detective gave us insights we couldn't get anywhere else.&quot; — Early User Feedback</div>
-  </div>
-</div>
-
-<div class="trust-bar">
-  <div class="trust-item reveal"><div class="trust-num">800<span>+</span></div><div class="trust-label">Tool signatures detected</div></div>
-  <div class="trust-item reveal"><div class="trust-num">64</div><div class="trust-label">Technology categories</div></div>
-  <div class="trust-item reveal"><div class="trust-num">&lt;1<span>s</span></div><div class="trust-label">Time to detect any stack</div></div>
-  <div class="trust-item reveal"><div class="trust-num">0</div><div class="trust-label">Browsing URLs logged</div></div>
-</div>
-
-<div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px 48px;">
-  <div class="what-visual reveal" style="max-width:800px;margin:0 auto;">
-    <div class="visual-tag">Live scan result — shopify.com</div>
-    <div class="visual-row"><div class="visual-dot" style="background:#4ade80;"></div><div class="visual-name">Shopify</div><div class="visual-cat">E-Commerce</div><div class="visual-badge">DETECTED</div></div>
-    <div class="visual-row"><div class="visual-dot" style="background:#4fc4f7;"></div><div class="visual-name">Google Analytics</div><div class="visual-cat">Analytics</div><div class="visual-badge">DETECTED</div></div>
-    <div class="visual-row"><div class="visual-dot" style="background:#fb923c;"></div><div class="visual-name">Klaviyo</div><div class="visual-cat">Email</div><div class="visual-badge">DETECTED</div></div>
-    <div class="visual-row"><div class="visual-dot" style="background:#a78bfa;"></div><div class="visual-name">React</div><div class="visual-cat">Framework</div><div class="visual-badge">DETECTED</div></div>
-    <div class="visual-row"><div class="visual-dot" style="background:#fb923c;"></div><div class="visual-name">HubSpot</div><div class="visual-cat">CRM</div><div class="visual-badge">DETECTED</div></div>
-    <div class="visual-row"><div class="visual-dot" style="background:#4fc4f7;"></div><div class="visual-name">Meta Pixel</div><div class="visual-cat">Advertising</div><div class="visual-badge">DETECTED</div></div>
-    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-      <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);">6 tools detected</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.62rem;color:var(--accent);">Scan complete ✓</div>
-    </div>
-  </div>
-</div>
 
 <div class="what">
   <div class="what-grid" style="grid-template-columns:1fr;">
     <div class="what-text reveal">
       <div class="section-label">What we do</div>
-      <h2 class="section-title">We make invisible intelligence visible.</h2>
-      <p>Every website your competitors run, every prospect you're selling to, every brand you admire — they're all running on a stack of tools that tell a story. We build software that reads that story instantly.</p>
+      <h2 class="section-title">We make the invisible visible.</h2>
+      <p>Every website you visit is running on a stack of tools, and quietly giving off signals about whether it deserves your trust. We build software that reads both stories instantly — the tech behind a site, and whether that site is safe to use.</p>
       <p>No guesswork. No manual research. Just signal.</p>
       <ul class="what-points">
         <li><span class="point-icon">→</span><span><strong>Competitive intelligence</strong> — know exactly what your competitors pay for and how they operate.</span></li>
-        <li><span class="point-icon">→</span><span><strong>Pre-call research</strong> — walk into any sales call knowing the prospect's full tech stack.</span></li>
+        <li><span class="point-icon">→</span><span><strong>Website trust &amp; safety</strong> — a real-time score that flags scam sites and sketchy checkouts before you buy.</span></li>
         <li><span class="point-icon">→</span><span><strong>Stack validation</strong> — see what tools high-performing businesses actually use before you spend a dollar.</span></li>
       </ul>
-      <div style="margin-top:18px;"><a href="/saas-detective" class="btn-hero">Start Free Scan</a></div>
+      <div style="margin-top:18px;"><a href="/about" class="btn-hero">Our story</a></div>
     </div>
   </div>
 </div>
 
 <div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px 48px;">
-  <div class="section-label reveal">Why Venom Industries Stands Out</div>
-  <h2 class="section-title reveal">Why Venom Industries Stands Out</h2>
+  <div class="section-label reveal">Our values</div>
+  <h2 class="section-title reveal">What we stand for</h2>
   <ul style="list-style:none;max-width:620px;margin:32px auto;">
-    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Instant scans with high accuracy</li>
-    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Clean, modern UI</li>
-    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• No signup required to start</li>
-    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Built for speed, clarity, and competitive advantage</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Sharp tools, not bloated ones — every product does one thing extremely well</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Honest by default — clear pricing, no dark patterns, no fake urgency</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Privacy-first — we build tools that protect you, and hold ourselves to the same bar</li>
+    <li style="font-size:.95rem;color:var(--muted);line-height:1.75;padding:10px 0;">• Small and independent — no VC funding, no roadmap by committee</li>
   </ul>
-  <div style="text-align:center;margin-top:22px;"><a href="/saas-detective" class="btn-hero">Explore Features</a></div>
+  <p class="reveal" style="font-style:italic;color:var(--muted);max-width:640px;margin:32px auto 0;text-align:center;font-size:.95rem;">"Information asymmetry is the most valuable edge in business. We close that gap — and make sure you're never the one left in the dark."</p>
 </div>
 
 <div class="products">
@@ -325,13 +308,12 @@
     </div>
     <div class="product-card reveal">
       <div>
-        <div class="product-status"><span class="status-dot"></span>Live · Just updated</div>
+        <div class="product-status"><span class="status-dot"></span>Live</div>
         <div class="product-icon">🔍</div>
         <div class="product-name">SaaS Detective</div>
-        <p class="product-desc">A Chrome extension that instantly reveals the tech stack and SaaS tools behind any website. One click. Any site. Under a second. 800+ tool signatures across 64 categories — analytics, CRM, payments, frameworks, and more.</p>
+        <p class="product-desc">A Chrome extension that reveals the tech stack behind any website and scores its trustworthiness in real time. Our flagship product — free to use, with a Pro tier for deeper detection.</p>
         <div class="product-tags">
           <span class="product-tag">Chrome Extension</span>
-          <span class="product-tag">800+ Signatures</span>
           <span class="product-tag">Free + Pro</span>
           <span class="product-tag">Privacy First</span>
         </div>
@@ -342,41 +324,12 @@
       </div>
     </div>
   </div>
-<div class="mission">
-  <div class="section-label reveal">Our mission</div>
-  <h2 class="section-title reveal">"Information asymmetry is the most valuable edge in business. We close that gap."</h2>
-  <p class="reveal">We're a small, focused software company. No VC funding, no bloated team, no roadmap driven by committee. Just sharp products that solve real problems — built fast, maintained with care, and priced honestly.</p>
 </div>
 
-<div class="blog-teaser">
-  <div class="blog-teaser-header reveal">
-    <div class="blog-teaser-header-text">
-      <div class="section-label">Latest from the blog</div>
-      <h2 class="section-title">Stack intel, no filler.</h2>
-      <p class="section-sub">Tech-stack breakdowns, founder tooling guides, and competitive research — written and edited by us.</p>
-    </div>
-    <a href="/blog" class="blog-teaser-all">All posts →</a>
-  </div>
-  <div class="blog-teaser-grid">
-    <a href="/blog/framer-vs-webflow-2026" class="blog-teaser-card reveal">
-      <div class="blog-teaser-meta"><span class="blog-teaser-tag">Featured</span><span>May 6, 2026 · 9 min</span></div>
-      <h3 class="blog-teaser-title">Framer vs Webflow in 2026: We Scanned 1,000+ Sites and the Data Is Clear</h3>
-      <p class="blog-teaser-excerpt">One builder is quietly winning the market, the other is bleeding share. We used SaaS Detective to scan over a thousand sites — here's what adoption actually looks like.</p>
-      <span class="blog-teaser-cta">Read the breakdown →</span>
-    </a>
-    <a href="/blog/founder-stack-2026" class="blog-teaser-card reveal">
-      <div class="blog-teaser-meta"><span class="blog-teaser-tag">Tools</span><span>May 6, 2026 · 11 min</span></div>
-      <h3 class="blog-teaser-title">The Lean Founder Stack 2026: 10 Tools Under $100/mo That Replace Enterprise Software</h3>
-      <p class="blog-teaser-excerpt">The fastest-growing solo SaaS businesses aren't running 40 tools — they've found 10 that compose perfectly. The exact stack winning in 2026.</p>
-      <span class="blog-teaser-cta">Read the stack →</span>
-    </a>
-    <a href="/blog/how-to-see-tech-stack.html" class="blog-teaser-card reveal">
-      <div class="blog-teaser-meta"><span class="blog-teaser-tag">Tech Intel</span><span>Apr 7, 2026 · 8 min</span></div>
-      <h3 class="blog-teaser-title">How to See What Tech Stack a Website Uses</h3>
-      <p class="blog-teaser-excerpt">The exact methods professionals use to reverse-engineer any website's technology — frameworks, CMS, analytics, payments — using free tools.</p>
-      <span class="blog-teaser-cta">Read the post →</span>
-    </a>
-  </div>
+<div class="trust-bar">
+  <div class="trust-item reveal"><div class="trust-num">2026</div><div class="trust-label">Founded</div></div>
+  <div class="trust-item reveal"><div class="trust-num">1</div><div class="trust-label">Founder, self-funded</div></div>
+  <div class="trust-item reveal"><div class="trust-num">US</div><div class="trust-label">Built and based</div></div>
 </div>
 
 <div class="newsletter-section">
@@ -389,8 +342,8 @@
 </div>
 
 <div style="text-align:center;padding:36px 24px;background:transparent;">
-  <div class="section-label">Want deeper insights?</div>
-  <div style="margin-top:8px;"><a href="/saas-detective#trialCard" class="btn-hero">Start 7-Day Free Trial →</a></div>
+  <div class="section-label">Curious what we've built?</div>
+  <div style="margin-top:8px;"><a href="/saas-detective" class="btn-hero">Explore SaaS Detective →</a></div>
 </div>
 
 <site-footer>
