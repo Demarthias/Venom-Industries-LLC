@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
 <title>SaaS Detective Pro — Secure Checkout</title>
 <!-- PostHog -->
 <script>
@@ -815,6 +816,7 @@
         btn.textContent = originalText;
         btn.style.opacity = '';
         btn.style.cursor = '';
+        if (window.posthog) posthog.capture('checkout_failed', { plan: selectedPlan, error: String(err && err.message || err) });
         alert('Something went wrong starting checkout. Please try again, or email grayson@venom-industries.com.');
       });
   });

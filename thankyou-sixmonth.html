@@ -109,7 +109,7 @@
       <div class="steps-wrap">
         <div class="steps-header">
           <div class="steps-title">Activate Your License</div>
-          <div class="steps-sub">Takes 60 seconds. Your license key was sent to the success page after checkout — copy it from there.</div>
+          <div class="steps-sub">Takes 60 seconds. We just emailed your license key to the address you used at checkout.</div>
         </div>
         <div class="steps-body">
 
@@ -117,7 +117,7 @@
             <div class="step-num">1</div>
             <div class="step-content">
               <h3>Get your license key</h3>
-              <p>Your license key was shown immediately after payment on the checkout confirmation page. If you closed it, <a href="mailto:grayson@venom-industries.com" style="color:var(--accent);">email Grayson</a> with your Stripe receipt and he'll resend it.</p>
+              <p>Check your inbox (and spam folder) for an email from <strong>noreply@venom-industries.com</strong> — your key usually lands within a minute or two. Still nothing after 15 minutes? <a href="mailto:grayson@venom-industries.com" style="color:var(--accent);">Email Grayson</a> with your Stripe receipt and he'll resend it right away.</p>
             </div>
           </div>
 
@@ -155,12 +155,17 @@
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
     (function loop(){vd.style.left=mx+'px';vd.style.top=my+'px';rx+=(mx-rx)*.13;ry+=(my-ry)*.13;vr.style.left=rx+'px';vr.style.top=ry+'px';requestAnimationFrame(loop);})();
 
-    // GA4 + Google Ads purchase event
+    // GA4 + Google Ads purchase event — fires once per real completed
+    // checkout only (sessionStorage guard prevents refresh/back-button
+    // from recording phantom duplicate purchases in GA4/Ads/PostHog).
     (function(){
+      var dedupeKey = 'sd_purchase_recorded_sd_pro_sixmonth';
+      if (sessionStorage.getItem(dedupeKey)) return;
+      sessionStorage.setItem(dedupeKey, '1');
       const tid='SD-'+Date.now()+'-'+Math.random().toString(36).slice(2,8).toUpperCase();
-      gtag('event','purchase',{transaction_id:tid,value:34.99,currency:'USD',items:[{item_id:'sd_pro_sixmonth',item_name:'SaaS Detective Pro 6-Month',price:34.99,quantity:1}]});
-      gtag('event','conversion',{send_to:'AW-18081432138',value:34.99,currency:'USD',transaction_id:tid});
-      if(window.posthog)posthog.capture('checkout_completed',{plan:'sixmonth',price:34.99,currency:'USD',payment_provider:'stripe',transaction_id:tid});
+      gtag('event','purchase',{transaction_id:tid,value:40.00,currency:'USD',items:[{item_id:'sd_pro_sixmonth',item_name:'SaaS Detective Pro 6-Month',price:40.00,quantity:1}]});
+      gtag('event','conversion',{send_to:'AW-18081432138',value:40.00,currency:'USD',transaction_id:tid});
+      if(window.posthog)posthog.capture('checkout_completed',{plan:'sixmonth',price:40.00,currency:'USD',payment_provider:'stripe',transaction_id:tid});
     })();
   </script>
 </body>

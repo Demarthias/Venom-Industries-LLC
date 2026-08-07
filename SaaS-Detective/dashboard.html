@@ -612,14 +612,72 @@
 // ── Config ───────────────────────────────────────────────────────────────────
 const API = "https://saas-detective-stack-tracker.kubegrayson.workers.dev";
 
-// TODO: Replace with your real auth system's user ID.
-// In production this comes from your JWT / session.
-const USER_ID = "grayson";
+// Auth: the stack-tracker API identifies you by your SaaS Detective license
+// key (Agency/Enterprise plans include API access), sent as a Bearer token
+// and verified server-side against the licensing worker's /validate
+// endpoint on every request — see stack-tracker's handleApiRequest. This
+// replaces a previous hardcoded "x-user-id: grayson" header that the
+// server trusted with no verification at all.
+const LICENSE_KEY_STORAGE_KEY = "sd_dashboard_license_key";
+const LICENSE_KEY_RE = /^SD-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}$/i;
 
-const headers = {
-  "Content-Type": "application/json",
-  "x-user-id": USER_ID,
-};
+let headers = { "Content-Type": "application/json" };
+
+function setLicenseKey(key) {
+  headers = { "Content-Type": "application/json", "Authorization": `Bearer ${key}` };
+  localStorage.setItem(LICENSE_KEY_STORAGE_KEY, key);
+}
+
+function clearLicenseKey() {
+  headers = { "Content-Type": "application/json" };
+  localStorage.removeItem(LICENSE_KEY_STORAGE_KEY);
+}
+
+function showLicenseGate(errorMsg) {
+  const overlay = document.createElement("div");
+  overlay.id = "license-gate-overlay";
+  overlay.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(5,6,10,0.92);display:flex;align-items:center;justify-content:center;padding:20px;font-family:inherit;";
+  overlay.innerHTML = `
+    <div style="background:#12141c;border:1px solid #2a2e3a;border-radius:12px;max-width:380px;width:100%;padding:28px 26px;color:#e7edf2;">
+      <h2 style="margin:0 0 8px;font-size:18px;">Enter your license key</h2>
+      <p style="margin:0 0 16px;font-size:13px;color:#98a2b3;line-height:1.5;">Stack tracking is an Agency/Enterprise feature. Enter the license key from your SaaS Detective purchase email.</p>
+      ${errorMsg ? `<p style="margin:0 0 12px;font-size:13px;color:#f87171;">${errorMsg}</p>` : ""}
+      <input id="license-gate-input" type="text" placeholder="SD-XXXX-XXXX-XXXX-XXXX" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:8px;border:1px solid #2a2e3a;background:#0b0d12;color:#e7edf2;font-family:monospace;margin-bottom:12px;" />
+      <button id="license-gate-submit" style="width:100%;padding:10px;border:none;border-radius:8px;background:#2563eb;color:#fff;font-weight:700;cursor:pointer;">Continue</button>
+      <p style="margin:14px 0 0;font-size:12px;color:#64748b;">No key yet? <a href="/saas-detective#pricing" style="color:#60a5fa;">See plans</a></p>
+    </div>`;
+  document.body.appendChild(overlay);
+  const input = overlay.querySelector("#license-gate-input");
+  input.focus();
+  const submit = async () => {
+    const key = input.value.trim().toUpperCase();
+    if (!LICENSE_KEY_RE.test(key)) {
+      overlay.remove();
+      showLicenseGate("That doesn't look like a valid license key.");
+      return;
+    }
+    setLicenseKey(key);
+    overlay.remove();
+    const ok = await boot();
+    if (!ok) {
+      clearLicenseKey();
+      showLicenseGate("That key isn't on a plan with API access, or couldn't be verified.");
+    }
+  };
+  overlay.querySelector("#license-gate-submit").addEventListener("click", submit);
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") submit(); });
+}
+
+// Resolves true if the stored/entered key was accepted by the server.
+async function boot() {
+  try {
+    const res = await fetch(`${API}/api/subscription`, { headers });
+    if (res.status === 401) return false;
+    return true;
+  } catch {
+    return true; // network error — let the normal load path surface it, don't lock the user out
+  }
+}
 
 // ── State ────────────────────────────────────────────────────────────────────
 let domains = [];
@@ -872,7 +930,16 @@ document.getElementById("domain-input").addEventListener("keydown", e => {
 });
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
-init();
+(async function start() {
+  const storedKey = localStorage.getItem(LICENSE_KEY_STORAGE_KEY);
+  if (storedKey && LICENSE_KEY_RE.test(storedKey)) {
+    setLicenseKey(storedKey);
+    const ok = await boot();
+    if (ok) { init(); return; }
+    clearLicenseKey();
+  }
+  showLicenseGate();
+})();
 </script>
 </body>
 </html>
