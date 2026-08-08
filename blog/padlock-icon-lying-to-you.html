@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Little Padlock Icon Is Lying to You (Kind Of) | Venom Industries</title>
+  <meta name="description" content="That padlock next to the address bar doesn't mean a website is trustworthy. It never did. Here's what it actually promises, what it doesn't, and what to check instead before you buy." />
+  <meta property="og:title" content="The Little Padlock Icon Is Lying to You (Kind Of)" />
+  <meta property="og:description" content="That padlock next to the address bar doesn't mean a website is trustworthy. Here's what it actually promises, and what to check instead." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://venom-industries.com/blog/padlock-icon-lying-to-you.html" />
+  <link rel="canonical" href="https://venom-industries.com/blog/padlock-icon-lying-to-you.html" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111111; --border:#1e1e1e; --text:#e8e8e8; --muted:#888; --accent:#e8e8e8; --green:#4ade80; --link:#a3e635; --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; --mono:"SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace; }
+    body { background:var(--bg); color:var(--text); font-family:var(--font); font-size:17px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+    a { color:var(--link); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:100; }
+    .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text); }
+    .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+    .nav-links a { color:var(--muted); font-size:14px; }
+    .nav-links a:hover { color:var(--text); text-decoration:none; }
+    .nav-cta { background:var(--text); color:#000 !important; padding:7px 16px; border-radius:6px; font-size:13px; font-weight:600; }
+    .nav-cta:hover { opacity:0.9; text-decoration:none !important; }
+    .article-wrap { max-width:720px; margin:0 auto; padding:60px 24px 100px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--muted); font-size:13px; margin-bottom:40px; }
+    .back-link:hover { color:var(--text); text-decoration:none; }
+    .article-meta { display:flex; gap:12px; align-items:center; font-size:13px; color:var(--muted); margin-bottom:20px; }
+    .meta-tag { background:var(--surface); border:1px solid var(--border); padding:2px 10px; border-radius:4px; font-size:12px; font-weight:500; color:var(--muted); }
+    .meta-dot { color:var(--border); }
+    h1 { font-size:clamp(28px,5vw,40px); font-weight:700; line-height:1.2; letter-spacing:-0.02em; margin-bottom:20px; color:var(--text); }
+    .article-lede { font-size:18px; color:var(--muted); line-height:1.65; margin-bottom:48px; padding-bottom:40px; border-bottom:1px solid var(--border); }
+    h2 { font-size:22px; font-weight:700; margin-top:52px; margin-bottom:16px; letter-spacing:-0.01em; color:var(--text); }
+    h3 { font-size:17px; font-weight:600; margin-top:32px; margin-bottom:12px; color:var(--text); }
+    p { margin-bottom:20px; }
+    strong { color:var(--text); font-weight:600; }
+    ul, ol { padding-left:24px; margin-bottom:20px; }
+    li { margin-bottom:8px; }
+    .callout { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:8px; padding:20px 24px; margin:32px 0; }
+    .callout-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:8px; }
+    .callout p { margin:0; color:var(--text); font-size:15px; }
+    .cta-box { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:32px; text-align:center; margin:52px 0 0; }
+    .cta-box h3 { margin:0 0 10px; font-size:20px; }
+    .cta-box p { color:var(--muted); margin:0 0 20px; font-size:15px; }
+    .cta-btn { display:inline-block; background:var(--text); color:#000; font-weight:700; font-size:14px; padding:12px 28px; border-radius:7px; text-decoration:none; }
+    .cta-btn:hover { opacity:0.88; text-decoration:none; }
+    footer { border-top:1px solid var(--border); padding:48px 40px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; max-width:1100px; margin:0 auto; }
+    .footer-brand { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .footer-desc { font-size:13px; color:var(--muted); }
+    .footer-col h4 { font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+    .footer-col ul { list-style:none; padding:0; }
+    .footer-col li { margin-bottom:8px; }
+    .footer-col a { color:var(--muted); font-size:14px; }
+    .footer-col a:hover { color:var(--text); text-decoration:none; }
+    .footer-bottom { text-align:center; padding:20px; font-size:12px; color:#444; border-top:1px solid var(--border); }
+    @media (max-width:700px) { nav{padding:16px 20px;} .article-wrap{padding:40px 20px 80px;} footer{grid-template-columns:1fr; padding:40px 20px;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://venom-industries.com/" class="nav-logo">VENOM.INDUSTRIES</a>
+  <ul class="nav-links">
+    <li><a href="https://venom-industries.com/saas-detective.html">SaaS Detective</a></li>
+    <li><a href="https://venom-industries.com/blog/">Blog</a></li>
+    <li><a href="https://venom-industries.com/about.html">About</a></li>
+    <li><a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="nav-cta">Add to Chrome — Free</a></li>
+  </ul>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="https://venom-industries.com/blog/" class="back-link">← Back to Blog</a>
+
+  <div class="article-meta">
+    <span class="meta-tag">Shopping Safety</span>
+    <span class="meta-dot">·</span>
+    <span>August 8, 2026</span>
+    <span class="meta-dot">·</span>
+    <span>5 min read</span>
+  </div>
+
+  <h1>The Little Padlock Icon Is Lying to You (Kind Of)</h1>
+
+  <p class="article-lede">You know the one. Little padlock, next to the address bar, right where your eyes go before you type in a card number. It's been quietly doing a much smaller job than everyone thinks for over a decade now.</p>
+
+  <p>Somewhere along the way, an entire generation of internet users got taught a shortcut: padlock good, no padlock bad. It's not wrong, exactly. It's just answering a much smaller question than the one you're actually asking. You're asking, "can I trust this website?" The padlock is only ever answering, "is the connection between my browser and this server encrypted?" Those used to overlap a lot more than they do now.</p>
+
+  <h2>What the Padlock Actually Promises</h2>
+
+  <p>The padlock means your connection to that specific server is encrypted — nobody sitting on the same coffee shop Wi-Fi as you can casually read the traffic between your browser and the site. That's genuinely useful. It's also table stakes. Getting a security certificate used to cost money and require some technical competence, which filtered out a lot of low-effort scam sites by accident. Then free, automated certificate issuance became standard practice across the web, and the filter disappeared. Now the padlock shows up on legitimate banks and on a site selling suspiciously cheap electronics that was registered two weeks ago. Both get the same little icon. Neither one is lying, technically. The icon just never claimed to vouch for anyone's character.</p>
+
+  <div class="callout">
+    <div class="callout-label">The One-Sentence Version</div>
+    <p>The padlock tells you the mailman can't read your letter. It tells you nothing about whether the person you're mailing it to is going to run off with your money.</p>
+  </div>
+
+  <h2>So What Should You Actually Look At?</h2>
+
+  <p>Good news: the signals that actually matter are also sitting right there in public, they're just less famous than a padlock icon. A few worth knowing:</p>
+
+  <ul>
+    <li><strong>Domain age.</strong> A store that's been around for six years has had six years to either build a reputation or get reported into oblivion. A store registered nineteen days ago has had nineteen days to do neither.</li>
+    <li><strong>Who's actually processing the payment.</strong> Recognizable payment processors vet the businesses that use them. An unfamiliar processor you've never heard of, with no other signals backing it up, is a genuinely different risk category — not automatically a scam, but worth a second look.</li>
+    <li><strong>Whether the rest of the site looks maintained.</strong> A working contact page, a return policy that isn't obviously copy-pasted from somewhere else with the wrong company name still in it, basic functioning infrastructure — legitimate businesses tend to sweat these details because they plan to still exist next year.</li>
+  </ul>
+
+  <p>None of these require you to become a network security expert on a Tuesday afternoon. They just require something to check them for you, because nobody's opening a terminal before buying a phone case.</p>
+
+  <h2>Where This Leaves You</h2>
+
+  <p>I'm not telling you to distrust the padlock. I'm telling you it retired from its job as "the internet's trust signal" a while ago and nobody sent out an announcement. Treat it as the bare minimum, not the finish line. If a site clears the padlock and nothing else, that's not a compliment — that's just a website that exists.</p>
+
+  <p>This is basically the entire reason SaaS Detective's Trust Score exists: it checks the padlock, sure, but it also checks domain age, the actual payment processor behind the checkout, and a handful of other signals that don't fit neatly into one green icon — then gives you a plain answer instead of a false sense of security.</p>
+
+  <div class="cta-box">
+    <h3>Get the Full Trust Picture, Not Just the Padlock</h3>
+    <p>SaaS Detective checks the signals that actually predict whether a checkout is safe — free, one click, no account needed.</p>
+    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="cta-btn">Add to Chrome — It's Free →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div>
+    <div class="footer-brand">VENOM.INDUSTRIES</div>
+    <p class="footer-desc">Built by one person in Colorado. Home of SaaS Detective.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Product</h4>
+    <ul>
+      <li><a href="https://venom-industries.com/saas-detective.html">SaaS Detective</a></li>
+      <li><a href="https://venom-industries.com/saas-detective#pricing">Pricing</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="https://venom-industries.com/about.html">About</a></li>
+      <li><a href="https://venom-industries.com/blog/">Blog</a></li>
+      <li><a href="https://venom-industries.com/contact/">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Venom Industries LLC · Built in Colorado</div>
+
+</body>
+</html>

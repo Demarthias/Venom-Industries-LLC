@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Got Half-Scammed by a Website Once, and It Was Humbling | Venom Industries</title>
+  <meta name="description" content="I build a tool that scores whether checkouts are safe, and I still almost got taken by a fake storefront. Here's exactly what happened, what tipped me off too late, and what I'd check now." />
+  <meta property="og:title" content="I Got Half-Scammed by a Website Once, and It Was Humbling" />
+  <meta property="og:description" content="I build a tool that scores whether checkouts are safe, and I still almost got taken by a fake storefront. Here's what happened." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://venom-industries.com/blog/i-got-half-scammed.html" />
+  <link rel="canonical" href="https://venom-industries.com/blog/i-got-half-scammed.html" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111111; --border:#1e1e1e; --text:#e8e8e8; --muted:#888; --accent:#e8e8e8; --green:#4ade80; --link:#a3e635; --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; --mono:"SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace; }
+    body { background:var(--bg); color:var(--text); font-family:var(--font); font-size:17px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+    a { color:var(--link); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:100; }
+    .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text); }
+    .nav-links { display:flex; gap:28px; list-style:none; align-items:center; }
+    .nav-links a { color:var(--muted); font-size:14px; }
+    .nav-links a:hover { color:var(--text); text-decoration:none; }
+    .nav-cta { background:var(--text); color:#000 !important; padding:7px 16px; border-radius:6px; font-size:13px; font-weight:600; }
+    .nav-cta:hover { opacity:0.9; text-decoration:none !important; }
+    .article-wrap { max-width:720px; margin:0 auto; padding:60px 24px 100px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--muted); font-size:13px; margin-bottom:40px; }
+    .back-link:hover { color:var(--text); text-decoration:none; }
+    .article-meta { display:flex; gap:12px; align-items:center; font-size:13px; color:var(--muted); margin-bottom:20px; }
+    .meta-tag { background:var(--surface); border:1px solid var(--border); padding:2px 10px; border-radius:4px; font-size:12px; font-weight:500; color:var(--muted); }
+    .meta-dot { color:var(--border); }
+    h1 { font-size:clamp(28px,5vw,40px); font-weight:700; line-height:1.2; letter-spacing:-0.02em; margin-bottom:20px; color:var(--text); }
+    .article-lede { font-size:18px; color:var(--muted); line-height:1.65; margin-bottom:48px; padding-bottom:40px; border-bottom:1px solid var(--border); }
+    h2 { font-size:22px; font-weight:700; margin-top:52px; margin-bottom:16px; letter-spacing:-0.01em; color:var(--text); }
+    h3 { font-size:17px; font-weight:600; margin-top:32px; margin-bottom:12px; color:var(--text); }
+    p { margin-bottom:20px; }
+    strong { color:var(--text); font-weight:600; }
+    ul, ol { padding-left:24px; margin-bottom:20px; }
+    li { margin-bottom:8px; }
+    .callout { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--green); border-radius:8px; padding:20px 24px; margin:32px 0; }
+    .callout-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:8px; }
+    .callout p { margin:0; color:var(--text); font-size:15px; }
+    .cta-box { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:32px; text-align:center; margin:52px 0 0; }
+    .cta-box h3 { margin:0 0 10px; font-size:20px; }
+    .cta-box p { color:var(--muted); margin:0 0 20px; font-size:15px; }
+    .cta-btn { display:inline-block; background:var(--text); color:#000; font-weight:700; font-size:14px; padding:12px 28px; border-radius:7px; text-decoration:none; }
+    .cta-btn:hover { opacity:0.88; text-decoration:none; }
+    footer { border-top:1px solid var(--border); padding:48px 40px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; max-width:1100px; margin:0 auto; }
+    .footer-brand { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .footer-desc { font-size:13px; color:var(--muted); }
+    .footer-col h4 { font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+    .footer-col ul { list-style:none; padding:0; }
+    .footer-col li { margin-bottom:8px; }
+    .footer-col a { color:var(--muted); font-size:14px; }
+    .footer-col a:hover { color:var(--text); text-decoration:none; }
+    .footer-bottom { text-align:center; padding:20px; font-size:12px; color:#444; border-top:1px solid var(--border); }
+    @media (max-width:700px) { nav{padding:16px 20px;} .article-wrap{padding:40px 20px 80px;} footer{grid-template-columns:1fr; padding:40px 20px;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://venom-industries.com/" class="nav-logo">VENOM.INDUSTRIES</a>
+  <ul class="nav-links">
+    <li><a href="https://venom-industries.com/saas-detective.html">SaaS Detective</a></li>
+    <li><a href="https://venom-industries.com/blog/">Blog</a></li>
+    <li><a href="https://venom-industries.com/about.html">About</a></li>
+    <li><a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="nav-cta">Add to Chrome — Free</a></li>
+  </ul>
+</nav>
+
+<article class="article-wrap">
+
+  <a href="https://venom-industries.com/blog/" class="back-link">← Back to Blog</a>
+
+  <div class="article-meta">
+    <span class="meta-tag">Real Talk</span>
+    <span class="meta-dot">·</span>
+    <span>August 8, 2026</span>
+    <span class="meta-dot">·</span>
+    <span>6 min read</span>
+  </div>
+
+  <h1>I Got Half-Scammed by a Website Once, and It Was Humbling</h1>
+
+  <p class="article-lede">I make a living telling people how to spot a sketchy checkout. A while back I almost got taken by one myself, at 1am, half-asleep, buying something dumb. Nobody's immune. Here's exactly how it went down.</p>
+
+  <p>I'd seen an ad for a gadget — nothing exotic, the kind of thing that shows up in your feed after you've searched for its more expensive cousin twice. The site looked fine. Clean layout, a few reviews, a padlock (see: not that impressive on its own), and a price that was aggressive but not so aggressive it set off alarm bells. I was tired. I was one thumb-scroll away from just trusting the process. I typed in my card number.</p>
+
+  <p>Here's the part that actually saved me, and it wasn't cleverness — it was a habit. Right before hitting "place order," I glanced at the checkout URL out of pure muscle memory, the same way you check your mirrors even on a street you've driven a thousand times. The domain didn't match the brand on the page. Not wildly — no extra letters, nothing cartoonish — just a completely different name, one that looked like it belonged to a company that resells other people's storefronts wholesale. That's a real thing that exists, and it's not always a scam by itself, but paired with everything else, it was the first actual crack in the whole performance.</p>
+
+  <h2>What I Did Next</h2>
+
+  <p>I backed out and did the thing I should have done before I ever got to checkout: I looked at how old the domain was. Weeks. Not months — weeks. A store selling a "trusted, beloved" gadget brand that had apparently existed on the internet for less time than my houseplant had been alive. I checked the payment processor. It wasn't one I recognized, and a quick search on it turned up a small pile of other people describing versions of the exact same experience I was about to have.</p>
+
+  <p>I didn't lose any money. I lost about eleven minutes and a decent chunk of my ego, because I genuinely thought I was better at this than "almost bought a probably-fake gadget at 1am because the layout looked nice."</p>
+
+  <div class="callout">
+    <div class="callout-label">The Actual Lesson</div>
+    <p>A convincing website is not evidence of a legitimate business. It's evidence that someone knows how to use a website template. Those used to correlate a lot more than they do now — templates got good, scams got professional, and the visual bar for "looks trustworthy" dropped to nearly zero effort.</p>
+  </div>
+
+  <h2>What I Actually Check Now</h2>
+
+  <ul>
+    <li><strong>Does the checkout domain match the brand?</strong> Not a full audit — just a glance. Mismatches aren't always fraud, but they're always worth a second look.</li>
+    <li><strong>How old is the domain, actually?</strong> Not "how old does it feel," which is a number your brain will happily make up to match a nice logo.</li>
+    <li><strong>Do I recognize the payment processor?</strong> Recognizable processors have onboarding standards. Unfamiliar ones sometimes don't, and "sometimes" is doing real work in that sentence.</li>
+  </ul>
+
+  <p>The honestly annoying part is that I know all of this. I built a tool specifically so people don't have to remember to check it manually at 1am when their guard is down — and I still almost skipped every step of it myself, because being tired is a more powerful force than expertise. So now I just run the check automatically, because willpower was never going to be the plan.</p>
+
+  <p>This is the exact scenario SaaS Detective's Trust Score exists for: not the obvious scams with fifteen red flags, but the boring, tired, "the site looked fine and I was in a hurry" moment where most people actually lose money.</p>
+
+  <div class="cta-box">
+    <h3>Don't Rely on Being Alert at 1am</h3>
+    <p>SaaS Detective checks domain age, payment processor, and security automatically — before you hit "place order," not after.</p>
+    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj" class="cta-btn">Add to Chrome — It's Free →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div>
+    <div class="footer-brand">VENOM.INDUSTRIES</div>
+    <p class="footer-desc">Built by one person in Colorado. Home of SaaS Detective.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Product</h4>
+    <ul>
+      <li><a href="https://venom-industries.com/saas-detective.html">SaaS Detective</a></li>
+      <li><a href="https://venom-industries.com/saas-detective#pricing">Pricing</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="https://venom-industries.com/about.html">About</a></li>
+      <li><a href="https://venom-industries.com/blog/">Blog</a></li>
+      <li><a href="https://venom-industries.com/contact/">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Venom Industries LLC · Built in Colorado</div>
+
+</body>
+</html>
