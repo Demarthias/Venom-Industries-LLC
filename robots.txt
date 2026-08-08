@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /about/index-lagslayer.html
 
 Sitemap: https://venom-industries.com/sitemap.xml
