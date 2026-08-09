@@ -270,6 +270,81 @@
     </div>
   </section>
 
+  <!-- email opt-in: posts to the licensing Worker's /subscribe route -->
+  <section class="sd-optin" aria-labelledby="sd-optin-h">
+    <style>
+      .sd-optin{background:#f1f5f9;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;padding:3.5rem 2rem;text-align:center;}
+      .sd-optin h2{font-size:clamp(1.4rem,2.4vw,2rem);margin:0 0 .75rem;color:#0f172a;}
+      .sd-optin p{color:#64748b;font-size:.9rem;max-width:440px;margin:0 auto 1.5rem;line-height:1.6;}
+      .sd-optin form{display:flex;gap:.5rem;max-width:420px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+      .sd-optin input[type=email]{flex:1 1 220px;min-width:0;padding:.85rem 1rem;font-size:.9rem;color:#0f172a;background:#fff;border:1px solid #e2e8f0;border-radius:2px;}
+      .sd-optin input[type=email]:focus{outline:2px solid #2563eb;outline-offset:-1px;}
+      .sd-optin button{background:#2563eb;color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:.85rem 1.6rem;border:0;border-radius:2px;cursor:pointer;transition:opacity .2s;}
+      .sd-optin button:hover{opacity:.88;}
+      .sd-optin button[disabled]{opacity:.55;cursor:default;}
+      .sd-optin .sd-note{font-size:.75rem;color:#94a3b8;margin:1rem auto 0;}
+      .sd-optin .sd-msg{font-size:.85rem;margin:1rem auto 0;min-height:1.2em;}
+      .sd-optin .sd-msg.ok{color:#15803d;}
+      .sd-optin .sd-msg.err{color:#b91c1c;}
+      .sd-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+    </style>
+    <h2 id="sd-optin-h">New tool signatures, in your inbox</h2>
+    <p>A short note when SaaS Detective learns to detect new tools &mdash; what changed and why it matters. No drip sequence, no pitching.</p>
+    <form class="sd-optin-form" novalidate>
+      <label class="sd-hp" aria-hidden="true">Leave this empty <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+      <label class="sd-hp" for="sd-email-blog-index">Email address</label>
+      <input type="email" id="sd-email-blog-index" name="email" placeholder="you@company.com" required autocomplete="email">
+      <button type="submit">Subscribe</button>
+      <p class="sd-msg" role="status" aria-live="polite"></p>
+    </form>
+    <p class="sd-note">Free. Unsubscribe anytime.</p>
+    <script>
+    (function(){
+      // currentScript is set during synchronous parse; the querySelector fallback
+      // keeps this working if the block is ever moved or loaded deferred.
+      var sc = document.currentScript;
+      var root = sc ? sc.closest('.sd-optin') : document.querySelector('.sd-optin');
+      var form = root.querySelector('.sd-optin-form');
+      var msg = form.querySelector('.sd-msg');
+      var btn = form.querySelector('button');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // Honeypot: real users never fill a visually hidden field.
+        if (form.company.value) { return; }
+        var email = form.email.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          msg.className = 'sd-msg err'; msg.textContent = 'Enter a valid email address.'; return;
+        }
+        btn.disabled = true;
+        msg.className = 'sd-msg'; msg.textContent = 'Subscribing\u2026';
+        fetch('https://saas-detective-licensing.kubegrayson.workers.dev/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, source: 'blog-index' })
+        })
+        .then(function(r){ return r.json().catch(function(){ return { ok: r.ok }; }); })
+        .then(function(d){
+          if (d && d.ok) {
+            msg.className = 'sd-msg ok';
+            msg.textContent = d.already ? "You're already on the list." : "Check your inbox \u2014 you're on the list.";
+            form.email.value = '';
+            if (window.posthog) { posthog.capture('newsletter_subscribe', { source: 'blog-index' }); }
+          } else {
+            msg.className = 'sd-msg err';
+            msg.textContent = (d && d.error) || 'Something went wrong. Try again shortly.';
+            btn.disabled = false;
+          }
+        })
+        .catch(function(){
+          msg.className = 'sd-msg err';
+          msg.textContent = 'Network error. Try again shortly.';
+          btn.disabled = false;
+        });
+      });
+    })();
+    </script>
+  </section>
+
   <footer>
     <div class="fglow">BLOG</div>
     <div class="container">
