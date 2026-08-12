@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting… | Venom Industries</title>
+  <link rel="icon" href="/assets/images/brand/venom-icon2.png" />
+  <meta name="robots" content="noindex" />
+  <!--
+    /pricing has never existed as a page — every internal link correctly points
+    at /saas-detective#pricing — but analytics shows real visitors landing here
+    anyway (external links, and people guessing the obvious URL), where they hit
+    a 404 instead of the pricing table. Kept as a redirect so that traffic lands
+    on the real pricing section.
+  -->
+  <meta http-equiv="refresh" content="0; url=/saas-detective#pricing" />
+  <link rel="canonical" href="https://venom-industries.com/saas-detective" />
+  <style>
+    body { background: #0a0e13; color: #e7edf2; font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; }
+    a { color: #00ffc8; }
+  </style>
+  <script>window.location.replace('/saas-detective#pricing');</script>
+</head>
+<body>
+  <p>Redirecting to <a href="/saas-detective#pricing">SaaS Detective pricing</a>…</p>
+</body>
+</html>

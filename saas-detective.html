@@ -24,6 +24,8 @@
         person_profiles: 'identified_only',
         enable_session_recording: true,
     });
+    // Stamp every website event so extension vs web traffic stay separable in PostHog.
+    posthog.register({ surface: 'web' })
   </script>
 
   <!-- Google tag (gtag.js) -->
@@ -642,7 +644,7 @@
           <li><span class="check">✓</span> <span>Priority support</span></li>
           <li><span class="check">✓</span> <span>All future signatures</span></li>
         </ul>
-        <a href="checkout.html?plan=12mo" class="btn-plan btn-plan-pro">Get Pro — $90/yr</a>
+        <a href="checkout.html?plan=12mo" class="btn-plan btn-plan-pro">Get Pro — $72/yr</a>
         <p class="plan-trial-link" style="margin-top:7px;">or <a href="#trialCard">try free for 7 days — no credit card →</a></p>
         <p class="plan-note" style="margin-top:6px;">License key emailed instantly &nbsp;·&nbsp; <strong style="color:var(--text);">30-day money-back guarantee</strong></p>
       </div>

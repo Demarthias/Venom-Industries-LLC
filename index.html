@@ -187,6 +187,8 @@
         defaults: '2026-05-30',
         person_profiles: 'identified_only',
     })
+    // Stamp every website event so extension vs web traffic stay separable in PostHog.
+    posthog.register({ surface: 'web' })
 </script>
 </head>
 <body>
@@ -262,7 +264,8 @@
   <h1>I build tools <em>I wish already existed.</em></h1>
   <p class="hero-sub">Right now that's SaaS Detective. Point it at any website and it tells you what the site's built with, and whether the checkout looks safe enough to hand over your card.</p>
   <div class="hero-actions">
-    <a href="/saas-detective" class="btn-hero">Try SaaS Detective</a>
+    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=vi-site&utm_medium=home-hero&utm_campaign=install" target="_blank" rel="noopener" class="btn-hero">Add to Chrome — Free</a>
+    <a href="/saas-detective" class="btn-outline" style="padding:15px 32px;font-size:.8rem;">See how it works</a>
   </div>
   <p class="hero-note">Started 2026 &nbsp;·&nbsp; Self-funded &nbsp;·&nbsp; Scans run on your machine, not mine</p>
 </section>

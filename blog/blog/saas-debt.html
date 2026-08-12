@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting… | Venom Industries</title>
+  <link rel="icon" href="/assets/images/brand/venom-icon2.png" />
+  <meta name="robots" content="noindex" />
+  <!--
+    Catches /blog/blog/saas-debt.html, a doubled path that real traffic arrives
+    on. Nothing in this repo generates it — the post's canonical, og:url, and the
+    archive listing are all absolute and correct — so it comes from an external
+    link built by resolving "blog/saas-debt.html" relative to /blog/. Redirects
+    to the real post rather than 404ing.
+  -->
+  <meta http-equiv="refresh" content="0; url=/blog/saas-debt" />
+  <link rel="canonical" href="https://venom-industries.com/blog/saas-debt" />
+  <style>
+    body { background: #0a0e13; color: #e7edf2; font-family: system-ui, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; }
+    a { color: #00ffc8; }
+  </style>
+  <script>window.location.replace('/blog/saas-debt');</script>
+</head>
+<body>
+  <p>Redirecting to <a href="/blog/saas-debt">The Hidden Cost of SaaS Debt</a>…</p>
+</body>
+</html>

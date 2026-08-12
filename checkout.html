@@ -15,6 +15,8 @@
     defaults: '2026-05-30',
     person_profiles: 'identified_only',
   });
+  // Stamp every website event so extension vs web traffic stay separable in PostHog.
+  posthog.register({ surface: 'web' })
   // Alias this session to the extension's client_reference_id if present,
   // so checkout events stitch into the same person as the extension funnel.
   (function () {
