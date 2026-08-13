@@ -663,7 +663,7 @@
       <div class="trial-error" id="trialError"></div>
       <div class="trial-result" id="trialResult">
         <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 4px;">Your trial is active.</h3>
-        <p style="font-size:.85rem;color:var(--muted);margin:0;">7 days of full Pro access. Save this key — we've also sent it to your inbox.</p>
+        <p style="font-size:.85rem;color:var(--muted);margin:0;" id="trialResultNote">7 days of full Pro access. Save this key — we've also sent it to your inbox.</p>
         <div class="trial-result-key" id="trialResultKey">—</div>
         <p class="trial-result-steps">Open the SaaS Detective extension → Options → paste your key → Activate.</p>
       </div>
@@ -818,6 +818,18 @@
       clientId = 'anon.' + Date.now();
     }
     var TRIAL_URL = 'https://saas-detective-licensing.kubegrayson.workers.dev/trial/start';
+    // Client-side trial telemetry. The server only emits trial_license_assigned,
+    // which fires exclusively on success — so every failed submit (409 duplicate,
+    // 429 rate limit, 5xx, network drop) was previously invisible and the funnel
+    // had no denominator. These names are new rather than reusing
+    // trial_form_submitted, which is a GA4-only success event via /track.
+    function trialCapture(name, props) {
+      try {
+        if (window.posthog && typeof window.posthog.capture === 'function') {
+          window.posthog.capture(name, props);
+        }
+      } catch (_) {}
+    }
     var trialForm = document.getElementById('trialForm');
     if (trialForm) {
       trialForm.addEventListener('submit', async function (e) {
@@ -829,15 +841,34 @@
         if (!email || email.indexOf('@') < 0) {
           errorEl.textContent = 'Please enter a valid email.';
           errorEl.classList.add('show');
+          trialCapture('trial_submit_failed', { reason: 'invalid_email' });
           return;
         }
+        trialCapture('trial_submit_attempted', { location: 'marketing_site' });
         btn.disabled = true;
         btn.textContent = 'Starting…';
+        // Stitch this browser to the email before the key is issued. The
+        // extension identifies on the same normalized email when that key is
+        // activated, so both sides converge on one person. Without this the
+        // trial lived in a third identity space (sd_ga_client_id) shared by
+        // neither the web visitor nor the extension install.
+        var identity = email.toLowerCase();
+        var phDistinctId = '';
+        try {
+          if (window.posthog && typeof window.posthog.identify === 'function') {
+            window.posthog.identify(identity, { email: identity });
+          }
+          if (window.posthog && typeof window.posthog.get_distinct_id === 'function') {
+            phDistinctId = window.posthog.get_distinct_id() || '';
+          }
+        } catch (_) {}
         try {
           var res = await fetch(TRIAL_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email, client_id: clientId }),
+            // client_id stays the GA-shaped id — GA4 attribution depends on its
+            // format. ph_distinct_id is additive and routes only the PostHog event.
+            body: JSON.stringify({ email: email, client_id: clientId, ph_distinct_id: phDistinctId || undefined }),
           });
           var data = await res.json().catch(function () { return {}; });
           if (res.ok && data.ok && data.key) {
@@ -845,6 +876,14 @@
             document.getElementById('trialCard').classList.add('has-result');
             trialForm.style.display = 'none';
             document.getElementById('trialResult').classList.add('show');
+            // Only promise an inbox delivery the Worker actually reports making.
+            // sendTrialEmail failures are logged and swallowed server-side, so
+            // email_sent can be false while the key itself is perfectly valid.
+            var noteEl = document.getElementById('trialResultNote');
+            if (noteEl && !data.email_sent) {
+              noteEl.textContent = "7 days of full Pro access. We couldn't email this key, so save it now — it won't be shown again.";
+            }
+            trialCapture('trial_submit_succeeded', { email_sent: !!data.email_sent });
             try {
               fetch(TRACK_URL, {
                 method: 'POST',
@@ -859,13 +898,20 @@
           } else if (res.status === 409) {
             errorEl.textContent = 'A trial has already been issued for this email. Check your inbox or contact support.';
             errorEl.classList.add('show');
+            trialCapture('trial_submit_failed', { reason: 'already_issued', status: 409 });
+          } else if (res.status === 429) {
+            errorEl.textContent = (data && data.error) ? data.error : 'Too many trial requests. Please try again later.';
+            errorEl.classList.add('show');
+            trialCapture('trial_submit_failed', { reason: 'rate_limited', status: 429 });
           } else {
             errorEl.textContent = (data && data.error) ? data.error : 'Could not start trial. Please try again.';
             errorEl.classList.add('show');
+            trialCapture('trial_submit_failed', { reason: 'server_error', status: res.status });
           }
         } catch (_) {
           errorEl.textContent = 'Network error. Please try again.';
           errorEl.classList.add('show');
+          trialCapture('trial_submit_failed', { reason: 'network_error' });
         } finally {
           btn.disabled = false;
           btn.textContent = 'Start free trial';

@@ -22,7 +22,10 @@
   (function () {
     var params = new URLSearchParams(window.location.search);
     var ref = params.get('client_reference_id');
-    if (ref) posthog.alias(ref);
+    // Guarded: alias() runs on attacker-supplied query input, and a throw here
+    // would take checkout_page_viewed down with it — losing the entry event for
+    // the whole paid funnel rather than just the identity stitch.
+    if (ref) { try { posthog.alias(ref); } catch (e) {} }
     var plan = params.get('plan') || '6mo';
     posthog.capture('checkout_page_viewed', { plan: plan, source: params.get('source') || 'direct' });
   })();
