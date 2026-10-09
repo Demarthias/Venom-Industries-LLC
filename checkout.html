@@ -16,7 +16,7 @@
     person_profiles: 'identified_only',
   });
   // Stamp every website event so extension vs web traffic stay separable in PostHog.
-  posthog.register({ surface: 'web' })
+  posthog.register({ surface: 'web' });
   // Alias this session to the extension's client_reference_id if present,
   // so checkout events stitch into the same person as the extension funnel.
   (function () {
@@ -633,7 +633,7 @@
   </div>
 
   <p class="footer-note">
-    Questions before you subscribe? <a href="mailto:grayson@venom-industries.com">grayson@venom-industries.com</a><br>
+    Questions before you subscribe? <a href="mailto:venomindys@gmail.com">venomindys@gmail.com</a><br>
     Prefer to try it free first? <a href="https://venom-industries.com/saas-detective.html">See the free tier →</a>
   </p>
 
@@ -821,7 +821,7 @@
         btn.style.opacity = '';
         btn.style.cursor = '';
         if (window.posthog) posthog.capture('checkout_failed', { plan: selectedPlan, error: String(err && err.message || err) });
-        alert('Something went wrong starting checkout. Please try again, or email grayson@venom-industries.com.');
+        alert('Something went wrong starting checkout. Please try again, or email venomindys@gmail.com.');
       });
   });
 })();

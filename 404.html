@@ -29,6 +29,7 @@
     .label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
     h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;}
     p{font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:40px;max-width:440px;margin-left:auto;margin-right:auto;}
+    .err-pitch{max-width:44ch;margin:0 auto 28px;font-size:.92rem;line-height:1.7;color:var(--muted);}
     .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
     .btn-primary{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:12px 24px;border-radius:6px;transition:opacity .2s;}
     .btn-primary:hover{opacity:.85;}
@@ -51,7 +52,7 @@
         person_profiles: 'identified_only',
     })
     // Stamp every website event so extension vs web traffic stay separable in PostHog.
-    posthog.register({ surface: 'web' })
+    posthog.register({ surface: 'web' });
 </script>
 </head>
 <body>
@@ -63,7 +64,7 @@
     <li><a href="/blog/">Blog</a></li>
     <li><a href="/about.html">About</a></li>
   </ul>
-  <a href="/saas-detective.html" class="btn-nav">Get Extension</a>
+  <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=vi-site&amp;utm_medium=404-nav&amp;utm_campaign=install" target="_blank" rel="noopener" class="btn-nav">Add to Chrome — Free</a>
 </nav>
 
 <main>
@@ -72,10 +73,11 @@
     <p class="label">Error 404</p>
     <h1>Page not found.</h1>
     <p>That page doesn't exist. Ironic, considering the whole point of SaaS Detective is telling you what does.</p>
+    <p class="err-pitch">While you're here: SaaS Detective is a free Chrome extension that shows you every tool a website is running &mdash; analytics, CRM, payments, hosting &mdash; in one click. 800+ signatures across 64 categories. No account, no card.</p>
     <div class="actions">
-      <a href="/" class="btn-primary">Go Home</a>
-      <a href="/saas-detective.html" class="btn-ghost">SaaS Detective</a>
-      <a href="/contact/" class="btn-ghost">Contact</a>
+      <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=vi-site&amp;utm_medium=404-primary&amp;utm_campaign=install" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
+      <a href="/saas-detective.html" class="btn-ghost">How it works</a>
+      <a href="/blog/" class="btn-ghost">Read the blog</a>
     </div>
   </div>
 </main>

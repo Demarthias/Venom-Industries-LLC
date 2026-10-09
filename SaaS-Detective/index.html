@@ -548,7 +548,7 @@ window.addEventListener('load', function () {
         enable_session_recording: true,
     });
     // Stamp every website event so extension vs web traffic stay separable in PostHog.
-    posthog.register({ surface: 'web' })
+    posthog.register({ surface: 'web' });
     // Fire view_pricing when the pricing section enters the viewport
     (function() {
         var fired = false;

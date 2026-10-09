@@ -25,7 +25,24 @@
         enable_session_recording: true,
     });
     // Stamp every website event so extension vs web traffic stay separable in PostHog.
-    posthog.register({ surface: 'web' })
+    posthog.register({ surface: 'web' });
+    // Alias this session to the extension's client_reference_id when the visitor
+    // arrived from the popup's trial CTA, so trial_clicked (extension person) and
+    // trial_submit_attempted (web person) land on ONE person. Without it they do
+    // not: on 2026-09-04, the only real trial attempt in the product's history,
+    // trial_clicked was person d8e0ee50 and the trial_submit_attempted 4.4s later
+    // was person 84b78c85, with nothing joining them. checkout.html has had this
+    // stitch for months; this page, which is where the trial actually happens,
+    // never did.
+    //
+    // Deliberately written as a bare `try` block rather than an IIFE. An IIFE
+    // here would start the statement with `(`, which is the exact automatic-
+    // semicolon-insertion shape that silently killed checkout_page_viewed and
+    // its alias() on checkout.html from 2026-08-11 onward.
+    try {
+      var sdRef = new URLSearchParams(window.location.search).get('client_reference_id');
+      if (sdRef) { posthog.alias(sdRef); }
+    } catch (e) {}
   </script>
 
   <!-- Google tag (gtag.js) -->
@@ -292,11 +309,6 @@
       "@type": "Organization",
       "name": "Venom Industries",
       "url": "https://venom-industries.com"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "ratingCount": "5"
     }
   }
   </script>
@@ -781,7 +793,7 @@
     </div>
     <div class="footer-col"><div class="footer-col-title">Products</div><a href="/saas-detective">SaaS Detective</a><a href="/resources">Resources</a></div>
     <div class="footer-col"><div class="footer-col-title">Company</div><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
-    <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:grayson@venom-industries.com">grayson@venom-industries.com</a></div>
+    <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:venomindys@gmail.com">venomindys@gmail.com</a></div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 <span>Venom Industries LLC</span> — All rights reserved.</div>
