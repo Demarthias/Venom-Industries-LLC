@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms of Service — Venom Industries</title>
   <link rel="icon" href="/assets/images/brand/venom-icon2.png" />
-  <meta name="description" content="Terms of service for SaaS Detective and Venom Industries LLC." />
+  <meta name="description" content="Terms of service for Venom-Industries LLC products: the SaaS Detective browser extension and SiteAudit website services." />
   <link rel="canonical" href="https://venom-industries.com/terms" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Venom Industries" />
@@ -45,6 +45,15 @@
     .doc-page p,.doc-page li{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:12px;}
     .doc-page ul{padding-left:20px;margin-bottom:12px;}
     .doc-page strong{color:var(--text);}
+    .prod-pick{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 48px;}
+    .prod-pick a{display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:border-color .2s;}
+    .prod-pick a:hover{border-color:var(--accent);}
+    .prod-pick b{display:block;font-family:'Syne',sans-serif;font-size:1rem;margin-bottom:6px;color:var(--text);}
+    .prod-pick span{display:block;font-size:.84rem;color:var(--muted);line-height:1.6;}
+    .prod-pick em{display:block;font-style:normal;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--accent);margin-top:10px;letter-spacing:.04em;}
+    .prod-section{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:56px 0 0;padding-top:24px;border-top:1px solid var(--border);}
+    .doc-page h2.prod-title{font-size:1.6rem;margin:8px 0 20px;}
+    @media(max-width:600px){.prod-pick{grid-template-columns:1fr;}}
     @media(max-width:768px){nav{padding:18px 24px;}.nav-links{display:none;}.doc-page{padding:140px 24px 80px;}.footer-inner{grid-template-columns:1fr 1fr;gap:32px;}site-footer{padding:40px 24px;}}
     @media(max-width:480px){.footer-inner{grid-template-columns:1fr;}}
   </style>
@@ -57,7 +66,7 @@
         person_profiles: 'identified_only',
     })
     // Stamp every website event so extension vs web traffic stay separable in PostHog.
-    posthog.register({ surface: 'web' })
+    posthog.register({ surface: 'web' });
 </script>
 </head>
 <body>
@@ -75,25 +84,33 @@
 
 <div class="doc-page">
   <h1>Terms of Service</h1>
-  <div class="doc-date">Last updated: May 2026 &nbsp;·&nbsp; Venom Industries LLC</div>
+  <div class="doc-date">Last updated: May 2026 &nbsp;·&nbsp; Venom-Industries LLC</div>
 
+  <p>Venom-Industries LLC offers two products, each with its own terms. Pick the one that applies to you.</p>
+  <div class="prod-pick">
+    <a href="#saas-detective"><b>SaaS Detective</b><span>The Chrome extension that shows what software a website runs on, and Pro licenses.</span><em>Terms below ↓</em></a>
+    <a href="/siteaudit/terms"><b>SiteAudit</b><span>Website audits, fixes, rebuilds and the monthly website care plan for local businesses.</span><em>SiteAudit service terms →</em></a>
+  </div>
+
+  <div class="prod-section" id="saas-detective">Product 1 of 2</div>
+  <h2 class="prod-title">SaaS Detective terms</h2>
   <p>By installing or using SaaS Detective ("the Extension"), you agree to the following terms. If you do not agree, do not use the Extension.</p>
 
   <h2>1. License to use</h2>
-  <p>Venom Industries LLC grants you a personal, non-exclusive, non-transferable license to use SaaS Detective for your own lawful purposes. You may not resell, sublicense, or redistribute the Extension or your Pro license key.</p>
+  <p>Venom-Industries LLC grants you a personal, non-exclusive, non-transferable license to use SaaS Detective for your own lawful purposes. You may not resell, sublicense, or redistribute the Extension or your Pro license key.</p>
 
   <h2>2. Acceptable use</h2>
   <p>You agree to use the Extension only on websites you are authorized to access. You may not use SaaS Detective to facilitate unauthorized access, automated scraping at scale, or any activity that violates applicable law.</p>
 
   <h2>3. "As-is" disclaimer</h2>
-  <p>The Extension is provided "AS IS" without warranty of any kind. Websites change frequently — detection accuracy is not guaranteed for all sites at all times. Venom Industries LLC makes no representations about the completeness or accuracy of results.</p>
+  <p>The Extension is provided "AS IS" without warranty of any kind. Websites change frequently — detection accuracy is not guaranteed for all sites at all times. Venom-Industries LLC makes no representations about the completeness or accuracy of results.</p>
 
   <h2>4. Pro licenses</h2>
-  <p>Pro license keys are for individual use only. Sharing license keys is prohibited. Venom Industries LLC reserves the right to revoke keys used in violation of these terms without refund.</p>
+  <p>Pro license keys are for individual use only. Sharing license keys is prohibited. Venom-Industries LLC reserves the right to revoke keys used in violation of these terms without refund.</p>
   <p>Monthly plans may be cancelled at any time via your Stripe billing portal. 3-month, 6-month, and annual plans are one-time charges — access is active for the full paid period with no recurring billing.</p>
 
   <h2>5. Limitation of liability</h2>
-  <p>To the maximum extent permitted by law, Venom Industries LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Extension or reliance on its results.</p>
+  <p>To the maximum extent permitted by law, Venom-Industries LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Extension or reliance on its results.</p>
 
   <h2>6. Governing law</h2>
   <p>These terms are governed by the laws of the United States.</p>
@@ -102,7 +119,11 @@
   <p>We may update these terms occasionally. Continued use of the Extension after changes constitutes acceptance of the updated terms.</p>
 
   <h2>8. Contact</h2>
-  <p><a href="mailto:grayson@venom-industries.com" style="color:var(--accent);">grayson@venom-industries.com</a></p>
+  <p><a href="mailto:venomindys@gmail.com" style="color:var(--accent);">venomindys@gmail.com</a> &nbsp;·&nbsp; <a href="/contact/" style="color:var(--accent);">Customer support</a></p>
+
+  <div class="prod-section" id="siteaudit">Product 2 of 2</div>
+  <h2 class="prod-title">SiteAudit terms</h2>
+  <p>SiteAudit is Venom-Industries LLC's website service for local businesses: free website audits, fixed-price fixes, website rebuilds, and the $99/month website care plan. If you've paid a SiteAudit invoice or subscribed to the care plan, the <a href="/siteaudit/terms" style="color:var(--accent);">SiteAudit service terms</a> apply, covering payment, refunds, cancellation, ownership and the 30-day fix guarantee.</p>
 </div>
 
 <site-footer>
@@ -112,11 +133,11 @@
       <p class="footer-brand-desc">Building software tools that give founders, marketers, and sales teams an unfair advantage.</p>
     </div>
     <div class="footer-col"><div class="footer-col-title">Products</div><a href="/saas-detective">SaaS Detective</a></div>
-    <div class="footer-col"><div class="footer-col-title">Company</div><a href="/about">About</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
-    <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:grayson@venom-industries.com">grayson@venom-industries.com</a></div>
+    <div class="footer-col"><div class="footer-col-title">Company</div><a href="/about">About</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/contact/">Support</a></div>
+    <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:venomindys@gmail.com">venomindys@gmail.com</a></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 <span>Venom Industries LLC</span> — All rights reserved.</div>
+    <div class="footer-copy">© 2026 <span>Venom-Industries LLC</span> — All rights reserved.</div>
     <div class="footer-copy">Built in the US &nbsp;·&nbsp; Payments secured by <span>Stripe</span></div>
   </div>
 </site-footer>

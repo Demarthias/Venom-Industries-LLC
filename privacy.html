@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | SaaS Detective</title>
   <link rel="icon" href="/assets/images/brand/venom-icon2.png" />
-    <meta name="description" content="How SaaS Detective and Venom Industries LLC collect, use, and protect your data, including what stays on your device and what's sent to third-party processors." />
+    <meta name="description" content="How SaaS Detective and Venom-Industries LLC collect, use, and protect your data, including what stays on your device and what's sent to third-party processors." />
     <link rel="canonical" href="https://venom-industries.com/privacy" />
     <style>
         :root { --primary: #0f172a; --accent: #3b82f6; --text: #334155; --bg: #f8fafc; }
@@ -18,11 +18,29 @@
         code { background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace; color: #0f172a; }
         footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 0.9rem; text-align: center; }
         a { color: var(--accent); }
+        .prod-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 1.5rem 0 2.5rem; }
+        .prod-pick a { display: block; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--text); }
+        .prod-pick a:hover { border-color: var(--accent); }
+        .prod-pick b { display: block; color: var(--primary); margin-bottom: .3rem; }
+        .prod-pick span { display: block; font-size: .95rem; line-height: 1.5; }
+        .prod-pick em { display: block; font-style: normal; font-size: .9rem; color: var(--accent); margin-top: .5rem; }
+        .prod-section { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-top: 3.5rem; padding-top: 1.5rem; border-top: 2px solid #e2e8f0; }
+        h2.prod-title { margin-top: .5rem; font-size: 1.9rem; }
+        @media (max-width: 640px) { .prod-pick { grid-template-columns: 1fr; } body { margin: 0; padding: 24px 20px; border-radius: 0; } }
     </style>
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p><strong>Effective Date:</strong> July 4, 2026<br><strong>Entity:</strong> Venom Industries LLC</p>
+    <p><strong>Effective Date:</strong> July 4, 2026<br><strong>Entity:</strong> Venom-Industries LLC</p>
+
+    <p>Venom-Industries LLC offers two products that handle different information, so each has its own privacy policy. Pick the one that applies to you.</p>
+    <div class="prod-pick">
+        <a href="#saas-detective"><b>SaaS Detective</b><span>The Chrome extension, trial keys and Pro licenses.</span><em>Policy below ↓</em></a>
+        <a href="/siteaudit/privacy"><b>SiteAudit</b><span>Website audits, outreach emails, fixes, rebuilds and the care plan.</span><em>SiteAudit privacy policy →</em></a>
+    </div>
+
+    <div class="prod-section" id="saas-detective">Product 1 of 2</div>
+    <h2 class="prod-title">SaaS Detective privacy policy</h2>
 
     <div class="alert">
         <strong>How SaaS Detective works:</strong> Technology detection itself runs locally in your browser using bundled signatures — we don't operate servers that see the full content of pages you scan. We do send limited usage analytics, license/account data, and scanned domain names to our service providers, described in detail below.
@@ -91,7 +109,7 @@
     <p>You can:</p>
     <ul>
         <li>Unsubscribe from marketing emails via the link in any such email.</li>
-        <li>Request access to, correction of, or deletion of your data by emailing <a href="mailto:privacy@venom-industries.com">privacy@venom-industries.com</a>.</li>
+        <li>Request access to, correction of, or deletion of your data by emailing <a href="mailto:venomindys@gmail.com">venomindys@gmail.com</a>.</li>
         <li>Uninstall the extension at any time, which stops all local scanning and future analytics collection from your device (previously transmitted analytics events are retained per Section 4 unless you separately request deletion).</li>
     </ul>
     <p>We will respond to verified requests within 30 days.</p>
@@ -103,7 +121,7 @@
     <p>SaaS Detective is intended for business and professional use and is not directed at children under 13. We do not knowingly collect data from children.</p>
 
     <h2>9. Affiliate Disclosure</h2>
-    <p>SaaS Detective's "Visit" buttons link to third-party tools and services. Some of these are <strong>affiliate links</strong> — if you click through and make a purchase, Venom Industries LLC may earn a commission at no extra cost to you.</p>
+    <p>SaaS Detective's "Visit" buttons link to third-party tools and services. Some of these are <strong>affiliate links</strong> — if you click through and make a purchase, Venom-Industries LLC may earn a commission at no extra cost to you.</p>
     <ul>
         <li>Affiliate links are marked with an <strong>aff</strong> badge inside the extension so you always know which links they are.</li>
         <li>Our detection results are never influenced by affiliate relationships. A tool appears because it was found on the page — not because we have a commercial relationship with it.</li>
@@ -113,9 +131,13 @@
     <h2>10. Changes to This Policy</h2>
     <p>We may update this policy from time to time. Material changes will be reflected by an updated "Effective Date" above. Continued use of the extension after changes constitutes acceptance of the revised policy.</p>
 
+    <div class="prod-section" id="siteaudit">Product 2 of 2</div>
+    <h2 class="prod-title">SiteAudit privacy policy</h2>
+    <p>SiteAudit is Venom-Industries LLC's website service for local businesses. It collects different information from the extension: public business details used for audits and outreach emails, and the contact, billing and website access details of customers. The full <a href="/siteaudit/privacy">SiteAudit privacy policy</a> explains what's collected, how long it's kept, and how to opt out of emails or have your data deleted.</p>
+
     <footer>
-        &copy; 2026 Venom Industries LLC. All Rights Reserved.<br>
-        <a href="terms.html">Terms of Service</a> | <a href="mailto:privacy@venom-industries.com">Contact Support</a>
+        &copy; 2026 Venom-Industries LLC. All Rights Reserved.<br>
+        <a href="terms.html">Terms of Service</a> | <a href="/contact/">Contact Support</a>
     </footer>
 </body>
 </html>

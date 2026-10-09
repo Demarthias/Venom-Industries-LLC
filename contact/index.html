@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Venom Industries</title>
+  <title>Contact &amp; Support — Venom Industries</title>
   <link rel="icon" href="/assets/images/brand/venom-icon2.png" />
-  <meta name="description" content="Get in touch with Venom Industries. Questions about SaaS Detective, licensing, or partnerships." />
+  <meta name="description" content="Contact and customer support for Venom-Industries LLC: SaaS Detective extension and licenses, and SiteAudit website services." />
   <link rel="canonical" href="https://venom-industries.com/contact" />
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKZX7T7V');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,6 +38,8 @@
     .cc-desc{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:10px;}
     .cc-link{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;}
     .cc-link:hover{text-decoration:underline;}
+    .prod-head{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:48px 0 16px;}
+    .prod-head:first-of-type{margin-top:8px;}
     site-footer{display:block;position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;}
     .footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .footer-copy{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted);letter-spacing:.04em;}
@@ -55,7 +57,7 @@
         person_profiles: 'identified_only',
     })
     // Stamp every website event so extension vs web traffic stay separable in PostHog.
-    posthog.register({ surface: 'web' })
+    posthog.register({ surface: 'web' });
 </script>
 </head>
 <body>
@@ -73,15 +75,16 @@
 <main>
   <p class="section-label">Contact</p>
   <h1>Let's talk.</h1>
-  <p class="sub">Questions about SaaS Detective, licensing, partnerships, or anything else — email me directly. There's no ticketing system standing between us.</p>
+  <p class="sub">Venom-Industries LLC runs two products. Pick the one you need help with — either way you'll reach me directly. There's no ticketing system standing between us.</p>
 
+  <h2 class="prod-head" id="saas-detective">SaaS Detective support</h2>
   <div class="contact-cards">
-    <a href="mailto:grayson@venom-industries.com" class="contact-card">
+    <a href="mailto:venomindys@gmail.com" class="contact-card">
       <div class="cc-icon">✉</div>
       <div>
         <div class="cc-title">Email</div>
         <div class="cc-desc">General inquiries, support, or partnership opportunities.</div>
-        <span class="cc-link">grayson@venom-industries.com</span>
+        <span class="cc-link">venomindys@gmail.com</span>
       </div>
     </a>
     <a href="/saas-detective.html" class="contact-card">
@@ -92,6 +95,30 @@
         <span class="cc-link">venom-industries.com/saas-detective →</span>
       </div>
     </a>
+  </div>
+
+  <h2 class="prod-head" id="siteaudit">SiteAudit support</h2>
+  <div class="contact-cards">
+    <a href="/siteaudit/support" class="contact-card">
+      <div class="cc-icon">🛠</div>
+      <div>
+        <div class="cc-title">SiteAudit customer support</div>
+        <div class="cc-desc">Website edit requests, care plan questions, invoices, cancelling, refunds, or something on your site that broke.</div>
+        <span class="cc-link">venom-industries.com/siteaudit/support →</span>
+      </div>
+    </a>
+    <a href="tel:+19708515012" class="contact-card">
+      <div class="cc-icon">☎</div>
+      <div>
+        <div class="cc-title">Call or text</div>
+        <div class="cc-desc">For urgent SiteAudit issues, like your website being down. Messages are answered Monday to Friday.</div>
+        <span class="cc-link">(970) 851-5012</span>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="prod-head">Venom Industries</h2>
+  <div class="contact-cards">
     <a href="/about.html" class="contact-card">
       <div class="cc-icon">⚡</div>
       <div>
@@ -105,10 +132,11 @@
 
 <site-footer>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 <span>Venom Industries LLC</span></span>
+    <span class="footer-copy">© 2026 <span>Venom-Industries LLC</span></span>
     <div class="footer-links">
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
+      <a href="/siteaudit/">SiteAudit</a>
       <a href="/about.html">About</a>
     </div>
   </div>
