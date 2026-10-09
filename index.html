@@ -72,6 +72,18 @@
     .btn-hero{font-family:'DM Mono',monospace;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:15px 32px;border-radius:7px;cursor:pointer;transition:opacity .2s,transform .15s;display:inline-block;}
     .btn-hero:hover{opacity:.85;transform:translateY(-2px);}
     .hero-note{font-size:.78rem;color:var(--muted);animation:fadeUp .5s .35s ease both;}
+    .pick{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;max-width:880px;margin:0 auto 22px;text-align:left;animation:fadeUp .5s .3s ease both;}
+    .pick-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 28px 24px;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s;}
+    .pick-card:hover{border-color:rgba(37,99,235,0.35);box-shadow:0 0 40px rgba(37,99,235,0.06);}
+    .pick-for{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+    .pick-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-.02em;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+    .pick-name img{width:28px;height:28px;}
+    .pick-desc{font-size:.9rem;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:20px;flex:1;}
+    .pick-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .pick-actions .btn-hero{padding:13px 22px;font-size:.72rem;}
+    .pick-link{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);}
+    .pick-link:hover{text-decoration:underline;}
+    @media(max-width:760px){.pick{grid-template-columns:1fr;}}
     .trust-bar{position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 48px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;}
     .trust-item{text-align:center;padding:0 48px;border-right:1px solid var(--border);}
     .trust-item:last-child{border-right:none;}
@@ -215,6 +227,7 @@
   <ul class="nav-links">
     <li><a href="/" class="active">Home</a></li>
     <li><a href="/saas-detective">SaaS Detective</a></li>
+    <li><a href="/siteaudit/">SiteAudit</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/resources">Resources</a></li>
     <li><a href="/about">About</a></li>
@@ -262,10 +275,26 @@
   <div class="hero-glow"></div>
   <div class="badge"><div class="badge-dot"></div>One developer, Colorado</div>
   <h1>I build tools <em>I wish already existed.</em></h1>
-  <p class="hero-sub">Right now that's SaaS Detective. Point it at any website and it tells you what the site's built with, and whether the checkout looks safe enough to hand over your card.</p>
-  <div class="hero-actions">
-    <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=vi-site&utm_medium=home-hero&utm_campaign=install" target="_blank" rel="noopener" class="btn-hero">Add to Chrome — Free</a>
-    <a href="/saas-detective" class="btn-outline" style="padding:15px 32px;font-size:.8rem;">See how it works</a>
+  <p class="hero-sub">Right now that's two things. Pick the one you came for.</p>
+  <div class="pick">
+    <div class="pick-card">
+      <div class="pick-for">For anyone who browses or buys online</div>
+      <h2 class="pick-name"><span aria-hidden="true">🔍</span>SaaS Detective</h2>
+      <p class="pick-desc">A free Chrome extension. Point it at any website and it tells you what the site's built with, and whether the checkout looks safe enough to hand over your card.</p>
+      <div class="pick-actions">
+        <a href="https://chromewebstore.google.com/detail/saas-detective/efnmaomojnnbkmbhkokoflhogjphegpj?utm_source=vi-site&utm_medium=home-hero&utm_campaign=install" target="_blank" rel="noopener" class="btn-hero">Add to Chrome — Free</a>
+        <a href="/saas-detective" class="pick-link">How it works →</a>
+      </div>
+    </div>
+    <div class="pick-card">
+      <div class="pick-for">For local business owners</div>
+      <h2 class="pick-name"><img src="/assets/images/siteaudit/icon.svg" alt="" width="28" height="28" />SiteAudit</h2>
+      <p class="pick-desc">A free audit of your business website: what's slowing it down, hiding it from Google, or losing you calls, with a fixed price to fix each thing. Based in Fort Collins.</p>
+      <div class="pick-actions">
+        <a href="/siteaudit/#contact" class="btn-hero">Get a free audit</a>
+        <a href="/siteaudit/" class="pick-link">Services &amp; pricing →</a>
+      </div>
+    </div>
   </div>
   <p class="hero-note">Started 2026 &nbsp;·&nbsp; Self-funded &nbsp;·&nbsp; Scans run on your machine, not mine</p>
 </section>
@@ -302,10 +331,11 @@
   <div class="products-inner">
     <div class="products-header reveal">
       <div class="section-label">What I've built</div>
-      <h2 class="section-title">SaaS Detective</h2>
-      <p class="section-sub">I use it myself, most days, before I buy from anywhere I don't already trust. Everything else on this page exists to explain why you should too.</p>
+      <h2 class="section-title">SaaS Detective &amp; SiteAudit</h2>
+      <p class="section-sub">One tool for checking out other people's websites, and one service for fixing your own.</p>
       <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
         <a href="/saas-detective" class="btn-outline">SaaS Detective</a>
+        <a href="/siteaudit/" class="btn-outline">SiteAudit</a>
         <a href="/products" class="btn-outline">Tools</a>
       </div>
     </div>
@@ -324,6 +354,23 @@
       <div class="product-cta">
         <a href="/saas-detective" class="btn-nav">Learn More</a>
         <div class="product-cta-free">Free plan available</div>
+      </div>
+    </div>
+    <div class="product-card reveal" style="margin-top:20px;">
+      <div>
+        <div class="product-status"><span class="status-dot"></span>Live</div>
+        <div class="product-icon" style="background:transparent;"><img src="/assets/images/siteaudit/icon.svg" alt="" width="52" height="52" /></div>
+        <div class="product-name">SiteAudit</div>
+        <p class="product-desc">Free website audits and fixed-price fixes for local businesses in Northern Colorado and Denver: speed, mobile, Google, accessibility, new websites and a monthly care plan.</p>
+        <div class="product-tags">
+          <span class="product-tag">Website Service</span>
+          <span class="product-tag">Free Audit</span>
+          <span class="product-tag">Fort Collins, CO</span>
+        </div>
+      </div>
+      <div class="product-cta">
+        <a href="/siteaudit/" class="btn-nav">Learn More</a>
+        <div class="product-cta-free">Audit is free</div>
       </div>
     </div>
   </div>
@@ -355,7 +402,7 @@
       <div class="footer-brand-name"><div class="logo-mark" style="width:24px;height:24px;font-size:.75rem;">V</div>Venom Industries</div>
       <p class="footer-brand-desc">I used to right-click "Inspect Element" on every checkout page that looked even slightly off, like a paranoid detective who trusts nobody and nothing. Eventually I got tired of doing that by hand every time, so I built something that does the snooping for me — instantly, and without judging my browsing habits. That's SaaS Detective. — Grayson</p>
     </div>
-    <div class="footer-col"><div class="footer-col-title">Products</div><a href="/saas-detective">SaaS Detective</a><a href="/resources">Resources</a></div>
+    <div class="footer-col"><div class="footer-col-title">Products</div><a href="/saas-detective">SaaS Detective</a><a href="/siteaudit/">SiteAudit</a><a href="/resources">Resources</a></div>
     <div class="footer-col"><div class="footer-col-title">Company</div><a href="/about">About</a><a href="/blog">Blog</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
     <div class="footer-col"><div class="footer-col-title">Contact</div><a href="mailto:venomindys@gmail.com">venomindys@gmail.com</a></div>
   </div>
