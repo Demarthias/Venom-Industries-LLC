@@ -748,7 +748,13 @@
     return match ? match[1] : '';
   }
 
+  // Bumped on every checkout attempt and every "Choose a different plan" click,
+  // so a session or Stripe instance that resolves after the customer has backed
+  // out is discarded instead of mounting the plan they just abandoned.
+  var checkoutAttempt = 0;
+
   function showChooserView() {
+    checkoutAttempt++;
     if (embeddedCheckoutInstance) {
       embeddedCheckoutInstance.destroy();
       embeddedCheckoutInstance = null;
@@ -772,6 +778,7 @@
     btn.style.opacity = '0.75';
     btn.style.cursor = 'default';
 
+    var attempt = ++checkoutAttempt;
     var clientReferenceId = getClientReferenceId();
 
     // checkout_begin itself is fired server-side, after the Stripe session
@@ -797,6 +804,7 @@
         return res.json();
       })
       .then(function (data) {
+        if (attempt !== checkoutAttempt) return;
         if (!data.clientSecret) throw new Error('no client secret in response');
 
         checkoutMount.innerHTML = '<div class="checkout-loading">Loading secure payment form…</div>';
@@ -804,11 +812,19 @@
         termSelectEl.style.display = 'none';
         embeddedWrap.style.display = 'block';
 
-        embeddedCheckoutInstance = stripe.initEmbeddedCheckout({
+        // initEmbeddedCheckout returns a Promise, which has no destroy(). Only
+        // the resolved instance is stored, so showChooserView() can't call
+        // destroy() on the Promise mid-load. That used to throw and strand the
+        // customer on the old plan's form with the plan picker hidden.
+        // Returned so a failed mount reaches the .catch below instead of
+        // leaving "Loading secure payment form…" up forever.
+        return stripe.initEmbeddedCheckout({
           clientSecret: data.clientSecret
-        });
-
-        embeddedCheckoutInstance.then(function (instance) {
+        }).then(function (instance) {
+          if (attempt !== checkoutAttempt) {
+            instance.destroy();
+            return;
+          }
           checkoutMount.innerHTML = '';
           instance.mount('#checkout-mount');
           embeddedCheckoutInstance = instance;
@@ -816,6 +832,8 @@
       })
       .catch(function (err) {
         console.error('[checkout]', err);
+        if (attempt !== checkoutAttempt) return;
+        showChooserView();
         btn.dataset.loading = '';
         btn.textContent = originalText;
         btn.style.opacity = '';
