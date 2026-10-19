@@ -28,7 +28,14 @@
         person_profiles: 'identified_only',
     })
     // Stamp every website event so extension vs web traffic stay separable in PostHog.
-    posthog.register({ surface: 'web' });
+    posthog.register({ surface: 'web', product: 'siteaudit' });
+    // Every email/phone link on a SiteAudit page is a lead, so count them all, including footers.
+    document.addEventListener('click', function (ev) {
+        var a = ev.target.closest && ev.target.closest('a[href^="mailto:"], a[href^="tel:"]');
+        if (!a) return;
+        var where = a.closest('footer, site-footer') ? 'footer' : a.closest('.hero') ? 'hero' : (a.closest('section[id]') || {}).id || 'body';
+        try { posthog.capture('siteaudit_cta_click', { type: a.href.indexOf('tel:') === 0 ? 'call' : 'email', placement: where, page: location.pathname }); } catch (e) {}
+    });
 </script>
   <style>
     :root{--bg:#f8fafc;--surface:#f1f5f9;--border:#e2e8f0;--accent:#2563eb;--accent-dim:rgba(37,99,235,0.08);--text:#0f172a;--muted:#55657a;--card:#ffffff;}
